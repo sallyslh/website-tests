@@ -68,8 +68,8 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 .wm-panel a.wm-cta{margin-top:14px;text-align:center;border:0;border-radius:10px;font-weight:700}</style></head>
 <body data-responsive="" class="bg-surface text-on-surface font-body-md antialiased selection:bg-primary-fixed-dim selection:text-primary">
 <!-- TOP APP BAR (Shared Components JSON Anchor) -->
-<header class="w-full bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 relative md:sticky top-0 z-50 shadow-sm transition-all duration-200">
-<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto flex flex-wrap md:flex-nowrap items-center justify-between gap-y-2 md:gap-y-0 py-space-md">
+<header class="w-full bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 sticky top-0 z-50 shadow-sm transition-all duration-200">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto flex items-center justify-between py-space-md">
 <!-- Wordmark Logo -->
 <a class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary tracking-tight flex items-center gap-2 group" href="#" data-inert="">
 <span class="relative">
@@ -77,10 +77,10 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
           <!-- Decorative subtle ring on wordmark -->
 <span class="absolute -inset-1 rounded-full border border-primary/20 scale-90 group-hover:scale-110 transition-transform duration-300"></span>
 </span>
-<span class="font-body-sm text-body-sm text-on-surface-variant font-normal">, a café</span>
+<span class="hidden sm:inline font-body-sm text-body-sm text-on-surface-variant font-normal">, a café</span>
 </a>
 <!-- Desktop Navigation Links -->
-<nav class="flex flex-wrap order-3 w-full justify-center items-center gap-x-5 gap-y-1 md:order-none md:w-auto md:justify-start md:gap-space-lg">
+<nav class="hidden md:flex items-center gap-space-lg">
 <!-- Exact label "Home" marked ACTIVE via JSON protocol -->
 <a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="index.html">Home</a>
 <a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="menu.html">Menu</a>
@@ -89,7 +89,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="drinks-menu.html">Drinks</a>
 
 <!-- More dropdown cluster -->
-<div class="hidden md:block relative group py-2">
+<div class="relative group py-2">
 <button class="flex items-center gap-1 text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg hover:text-tertiary transition-colors">
 <span>More</span>
 <span class="material-symbols-outlined text-[16px]">expand_more</span>
@@ -104,10 +104,10 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </nav>
 <!-- Trailing Primary Action & Icon Actions -->
 <div class="flex items-center gap-space-md">
-<a class="bg-primary text-surface px-4 md:px-5 py-2.5 md:py-2 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-container hover:text-on-primary transition-all duration-200 shadow-sm flex items-center gap-2" href="#" data-inert="">
+<a class="bg-primary text-surface px-4 md:px-5 py-2 min-h-[44px] md:min-h-0 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-container hover:text-on-primary transition-all duration-200 shadow-sm flex items-center gap-2" href="#" data-inert="">
 <span>Order Online</span>
 </a>
-<button aria-label="Shopping Cart" class="p-2.5 md:p-2 rounded-full text-primary hover:bg-surface-container transition-colors relative">
+<button aria-label="Shopping Cart" class="hidden md:block p-2 rounded-full text-primary hover:bg-surface-container transition-colors relative">
 <span class="material-symbols-outlined">shopping_bag</span>
 <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-on-tertiary-container rounded-full"></span>
 </button>
@@ -133,7 +133,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <span class="w-2 h-2 rounded-full bg-secondary"></span>
 <span>A quiet visual notebook</span>
 </div>
-<h1 class="text-4xl md:text-headline-xl font-headline-xl text-primary font-semibold tracking-tight leading-tight md:leading-tight">
+<h1 class="font-headline-xl text-4xl md:text-5xl lg:text-headline-xl text-primary font-semibold tracking-tight leading-tight md:leading-tight">
             A look 
             <span class="relative inline-block px-4 py-1">
               inside
@@ -148,7 +148,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <p class="mt-4 font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
             Light, steam, flour and good company, captured on ordinary days.
           </p>
-<div class="mt-3 font-handwritten text-xl text-secondary flex items-center justify-center gap-2">
+<div class="mt-3 font-handwritten text-xl text-secondary flex flex-wrap items-center justify-center gap-2">
 <span>where moments settle softly</span>
 <span class="text-on-tertiary-container text-sm">✦</span>
 <span>corner of 4th &amp; Elm</span>
@@ -157,13 +157,13 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Overlapping Collage Layout -->
 <div class="relative max-w-5xl mx-auto mt-6 md:mt-8 h-[340px] md:h-[580px]">
 <!-- Left Arch Image -->
-<div class="absolute left-0 bottom-4 w-5/12 h-[240px] md:h-[450px] z-10 transition-transform duration-500 hover:-translate-y-2">
+<div class="absolute left-0 bottom-4 w-5/12 h-[250px] md:h-[450px] z-10 transition-transform duration-500 hover:-translate-y-2">
 <div class="w-full h-full arch-crop-large overflow-hidden border-4 border-surface-container-lowest coffee-stain-glow bg-surface-container">
 <img fetchpriority="high" decoding="async" srcset="images/6ffa3e0911f4-o-640.jpg 640w, images/6ffa3e0911f4-o-1024.jpg 1024w, images/6ffa3e0911f4-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Sunlit morning sunlight illuminating a barista in a dark linen apron pouring steamed oat milk into a ceramic latte cup on an artisanal oak espresso bar. Soft steam billows in the gentle golden morning light, evoking an artisanal, serene, and warm neighborhood café ambience with warm terracotta and sage accents in the background." src="images/6ffa3e0911f4-o.jpg" style="object-position: 35% 15%;">
 </div>
 <!-- Hand-written caption tag -->
-<div class="absolute -bottom-3 left-2 md:left-6 bg-surface-container-lowest px-3 md:px-4 py-1.5 rounded-full border border-outline-variant/40 shadow-sm">
-<p class="font-handwritten text-sm md:text-lg text-primary leading-tight">First brew at 7:02 am</p>
+<div class="absolute -bottom-3 left-6 bg-surface-container-lowest px-4 py-1.5 rounded-full border border-outline-variant/40 shadow-sm">
+<p class="font-handwritten text-lg text-primary leading-tight">First brew at 7:02 am</p>
 </div>
 </div>
 <!-- Center Circular Image Frame (Elevated) -->
@@ -183,8 +183,8 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <div class="w-full h-full rounded-3xl overflow-hidden border-4 border-surface-container-lowest coffee-stain-glow bg-surface-container">
 <img loading="lazy" decoding="async" srcset="images/7cf9f44d4442-o-640.jpg 640w, images/7cf9f44d4442-o-1024.jpg 1024w, images/7cf9f44d4442-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Cozy interior scene of a warm neighborhood coffee shop with tall window arches, leafy indoor fiddle leaf fig plants, guests quietly reading novels at blonde wooden tables, and soft glowing pendant lamps casting warm paper-toned light across the space." src="images/7cf9f44d4442-o.jpg" style="object-position: 60% 51%;">
 </div>
-<div class="absolute -bottom-4 right-2 md:right-6 bg-surface-container-lowest px-3 md:px-4 py-1.5 rounded-full border border-outline-variant/40 shadow-sm">
-<p class="font-handwritten text-sm md:text-lg text-secondary leading-tight">Window bench quiet</p>
+<div class="absolute -bottom-4 right-6 bg-surface-container-lowest px-4 py-1.5 rounded-full border border-outline-variant/40 shadow-sm">
+<p class="font-handwritten text-lg text-secondary leading-tight">Window bench quiet</p>
 </div>
 </div>
 <!-- Atmospheric floating ring accent -->
@@ -206,7 +206,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <span class="material-symbols-outlined text-sm" data-icon="coffee">coffee</span>
 <span>RITUALS &amp; INFUSIONS</span>
 </div>
-<h2 class="text-3xl md:text-headline-lg font-headline-lg text-primary font-semibold tracking-tight">In the cup</h2>
+<h2 class="font-headline-lg text-headline-lg text-primary font-semibold tracking-tight">In the cup</h2>
 <p class="mt-2 font-body-lg text-body-lg text-on-surface-variant">Every pour is a small moment.</p>
 </div>
 <div class="mt-4 md:mt-0 flex items-center gap-3">
@@ -215,11 +215,11 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 </div>
 <!-- Horizontal Scroll Carousel -->
-<div class="flex gap-4 md:gap-6 overflow-x-auto pb-6 md:pb-8 pt-2 -mx-5 px-5 md:mx-0 md:px-0 no-scrollbar scroll-smooth snap-x snap-mandatory">
+<div class="flex gap-6 overflow-x-auto pb-8 pt-2 no-scrollbar scroll-smooth snap-x snap-mandatory">
 <!-- Item 1: Morning pour -->
 <div class="min-w-[280px] md:min-w-[340px] flex-shrink-0 snap-start group">
 <div class="bg-surface-container-lowest rounded-2xl p-3 border border-outline-variant/40 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-<div class="h-56 md:h-80 arch-crop-top overflow-hidden bg-surface-container relative">
+<div class="h-64 md:h-80 arch-crop-top overflow-hidden bg-surface-container relative">
 <img loading="lazy" decoding="async" srcset="images/fc92658ecae7-o-640.jpg 640w, images/fc92658ecae7-o-1024.jpg 1024w, images/fc92658ecae7-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A velvety flat white in a warm neutral ceramic cup showing delicate, precise latte art heart pattern sitting on an organic wooden counter top with morning weekday golden hour light reflecting gently on the ceramic glaze." src="images/fc92658ecae7-o.jpg">
 <!-- Coffee Ring Stamp -->
 <div class="absolute bottom-3 right-3 w-10 h-10 rounded-full border border-primary/40 bg-surface/80 backdrop-blur-sm flex items-center justify-center">
@@ -239,7 +239,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Item 2: Iced orange cold brew -->
 <div class="min-w-[280px] md:min-w-[340px] flex-shrink-0 snap-start group">
 <div class="bg-surface-container-lowest rounded-2xl p-3 border border-outline-variant/40 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-<div class="h-56 md:h-80 rounded-2xl overflow-hidden bg-surface-container relative">
+<div class="h-64 md:h-80 rounded-2xl overflow-hidden bg-surface-container relative">
 <img loading="lazy" decoding="async" srcset="images/7cb47ad1dd4a-o-640.jpg 640w, images/7cb47ad1dd4a-o-1024.jpg 1024w, images/7cb47ad1dd4a-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An artisanal iced cold brew coffee in a ribbed highball glass filled with crystal-clear square ice cubes, garnished with a fresh slice of blood orange with fine droplets of condensation running down the glass in warm ambient daylight." src="images/7cb47ad1dd4a-o.jpg">
 <!-- Coffee Ring Stamp -->
 <div class="absolute top-3 left-3 w-10 h-10 rounded-full border border-on-tertiary-container/50 bg-surface/80 backdrop-blur-sm flex items-center justify-center">
@@ -259,7 +259,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Item 3: Chai steam -->
 <div class="min-w-[280px] md:min-w-[340px] flex-shrink-0 snap-start group">
 <div class="bg-surface-container-lowest rounded-2xl p-3 border border-outline-variant/40 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-<div class="h-56 md:h-80 arch-crop-top overflow-hidden bg-surface-container relative">
+<div class="h-64 md:h-80 arch-crop-top overflow-hidden bg-surface-container relative">
 <img loading="lazy" decoding="async" srcset="images/3255ddaa26b6-o-640.jpg 640w, images/3255ddaa26b6-o-1024.jpg 1024w, images/3255ddaa26b6-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A steaming handcrafted spiced chai latte served in an unglazed earthen pottery mug, dusted with crushed green cardamom pods and cinnamon bark, with delicate vapor steam curling up in soft directional window light." src="images/3255ddaa26b6-o.jpg">
 <!-- Stamp -->
 <div class="absolute bottom-3 right-3 w-10 h-10 rounded-full border border-secondary bg-surface/80 backdrop-blur-sm flex items-center justify-center">
@@ -279,7 +279,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Item 4: Honey Oat Cortado -->
 <div class="min-w-[280px] md:min-w-[340px] flex-shrink-0 snap-start group">
 <div class="bg-surface-container-lowest rounded-2xl p-3 border border-outline-variant/40 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-<div class="h-56 md:h-80 rounded-2xl overflow-hidden bg-surface-container relative">
+<div class="h-64 md:h-80 rounded-2xl overflow-hidden bg-surface-container relative">
 <img loading="lazy" decoding="async" srcset="images/53372b516c04-o-640.jpg 640w, images/53372b516c04-o-1024.jpg 1024w, images/53372b516c04-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A small four-ounce glass cortado with layers of espresso and silky microfoam, with a light golden honey drizzle at the base, resting on a ceramic saucer with a small brass stirring spoon beside it." src="images/53372b516c04-o.jpg">
 <div class="absolute top-3 right-3 bg-secondary-fixed text-on-secondary-fixed px-2.5 py-0.5 rounded-full font-label-sm text-label-sm">
                   Seasonal
@@ -307,14 +307,14 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <span class="material-symbols-outlined text-sm" data-icon="bakery_dining">bakery_dining</span>
 <span>MORNING BATCHES</span>
 </div>
-<h2 class="text-3xl md:text-headline-lg font-headline-lg text-primary font-semibold tracking-tight">From the oven</h2>
+<h2 class="font-headline-lg text-headline-lg text-primary font-semibold tracking-tight">From the oven</h2>
 <p class="mt-2 font-body-lg text-body-lg text-on-surface-variant">Fresh, golden and still warm.</p>
 </div>
 <!-- Asymmetric Masonry Grid Layout -->
 <div class="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-start">
 <!-- Column 1: Tall Arch Photo (Sunrise bake) -->
 <div class="md:col-span-5 relative group">
-<div class="arch-crop-large overflow-hidden border-2 border-outline-variant/30 bg-surface-container h-[320px] md:h-[560px] shadow-sm relative">
+<div class="arch-crop-large overflow-hidden border-2 border-outline-variant/30 bg-surface-container h-[360px] md:h-[560px] shadow-sm relative">
 <img loading="lazy" decoding="async" srcset="images/fad1bd876e86-o-640.jpg 640w, images/fad1bd876e86-o-1024.jpg 1024w, images/fad1bd876e86-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A vintage zinc cooling rack filled with freshly baked Swedish cardamom buns, golden brown with pearl sugar crystals and coarse ground spices glistening under warm bakery sunlight, with light flour dust visible on the counter." src="images/fad1bd876e86-o.jpg">
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-5 md:p-8 text-surface">
 <span class="font-handwritten text-2xl text-secondary-fixed mb-1">Pulled out at 6:45 am</span>
@@ -331,27 +331,27 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <div class="md:col-span-7 flex flex-col gap-5 md:gap-8">
 <div class="grid grid-cols-2 sm:grid-cols-2 gap-3 md:gap-8">
 <!-- Square 1: Tart season -->
-<div class="bg-surface-container-lowest p-2.5 md:p-4 rounded-2xl border border-outline-variant/40 shadow-sm group">
+<div class="bg-surface-container-lowest p-2.5 sm:p-4 rounded-2xl border border-outline-variant/40 shadow-sm group">
 <div class="w-full aspect-square rounded-xl overflow-hidden bg-surface-container relative">
 <img loading="lazy" decoding="async" srcset="images/36551c47a61f-o-640.jpg 640w, images/36551c47a61f-o-1024.jpg 1024w, images/36551c47a61f-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A rustic French pear and frangipane almond tart baked to deep caramelization on crumpled brown baking parchment, arranged on a marble pastry slab dusted with powdered sugar." src="images/36551c47a61f-o.jpg">
 <div class="absolute bottom-2 left-2 bg-surface/90 backdrop-blur-sm px-2.5 py-1 rounded-md text-primary font-handwritten text-base">
                     Crisp crust
                   </div>
 </div>
-<div class="mt-4">
+<div class="mt-3 md:mt-4">
 <h4 class="font-headline-sm text-headline-sm text-primary font-medium">Tart season</h4>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Pear and almond slices on brown butter shortcrust.</p>
 </div>
 </div>
 <!-- Square 2: Rich bakery details -->
-<div class="bg-surface-container-lowest p-2.5 md:p-4 rounded-2xl border border-outline-variant/40 shadow-sm group">
+<div class="bg-surface-container-lowest p-2.5 sm:p-4 rounded-2xl border border-outline-variant/40 shadow-sm group">
 <div class="w-full aspect-square rounded-xl overflow-hidden bg-surface-container relative">
 <img loading="lazy" decoding="async" srcset="images/0c458eb8a6db-o-640.jpg 640w, images/0c458eb8a6db-o-1024.jpg 1024w, images/0c458eb8a6db-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A serene close-up of a baker's hands in a natural linen apron gently dusting white organic rye flour over a wooden work table in soft morning ambient rays." src="images/0c458eb8a6db-o.jpg">
 <div class="absolute top-2 right-2 bg-surface-container-high px-2 py-0.5 rounded-full text-secondary font-label-sm text-label-sm">
                     Organic stoneground
                   </div>
 </div>
-<div class="mt-4">
+<div class="mt-3 md:mt-4">
 <h4 class="font-headline-sm text-headline-sm text-primary font-medium">Flour &amp; fold</h4>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Thirty-six hours of natural fermentation.</p>
 </div>
@@ -359,7 +359,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 <!-- Wide Landscape: Fresh loaves -->
 <div class="bg-surface-container-lowest p-3 md:p-4 rounded-2xl border border-outline-variant/40 shadow-sm group">
-<div class="w-full h-56 md:h-64 rounded-xl overflow-hidden bg-surface-container relative">
+<div class="w-full h-48 md:h-64 rounded-xl overflow-hidden bg-surface-container relative">
 <img loading="lazy" decoding="async" srcset="images/bcb454e5b9c2-o-640.jpg 640w, images/bcb454e5b9c2-o-1024.jpg 1024w, images/bcb454e5b9c2-o.jpg 1376w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sliced loaf of country sourdough with a blistered dark brown crust and airy open crumb resting on a heavy oak cutting board beside a cast iron Dutch oven with sea salt flakes." src="images/bcb454e5b9c2-o.jpg">
 <div class="absolute inset-0 bg-gradient-to-r from-primary/60 via-transparent to-transparent flex items-end p-4 md:p-6">
 <div>
@@ -389,7 +389,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <span class="material-symbols-outlined text-base" data-icon="chair">chair</span>
 <span>THE SANCTUARY</span>
 </div>
-<h2 class="text-3xl md:text-headline-lg font-headline-lg text-primary font-semibold tracking-tight">The space</h2>
+<h2 class="font-headline-lg text-headline-lg text-primary font-semibold tracking-tight">The space</h2>
 <p class="mt-2 font-body-lg text-body-lg text-on-surface-variant">
             Six tables, a long window bench and a wall of plants.
           </p>
@@ -397,18 +397,18 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Wide Expansive Photo with Corner Inset Photo & Coffee Stamp -->
 <div class="relative rounded-3xl overflow-hidden border-2 border-outline-variant/40 shadow-md">
 <!-- Main Full-Bleed Café Interior -->
-<div class="w-full h-[460px] md:h-[620px] bg-surface-container-high overflow-hidden">
+<div class="w-full h-[300px] md:h-[620px] bg-surface-container-high overflow-hidden">
 <img loading="lazy" decoding="async" srcset="images/0b12111ba5ef-o-640.jpg 640w, images/0b12111ba5ef-o-1024.jpg 1024w, images/0b12111ba5ef-o.jpg 1376w" sizes="100vw" class="w-full h-full object-cover" data-alt="Wide expansive architectural interior photo of a quiet sun-drenched neighborhood coffee shop with tall arched south-facing windows, warm blonde oak community tables, vintage ceramic pendant lighting, and an abundant living wall of tropical plants in soft morning light." src="images/0b12111ba5ef-o.jpg">
 </div>
 <!-- Bottom Banner details -->
-<div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent p-4 md:p-10 flex flex-col md:flex-row md:items-end justify-between text-surface">
+<div class="relative md:absolute bottom-0 inset-x-0 bg-primary md:bg-transparent md:bg-gradient-to-t from-primary/90 via-primary/40 to-transparent p-5 md:p-10 flex flex-col md:flex-row md:items-end justify-between text-surface">
 <div>
-<span class="font-handwritten text-xl md:text-2xl text-secondary-fixed">Natural acoustics &amp; morning sun</span>
+<span class="font-handwritten text-2xl text-secondary-fixed">Natural acoustics &amp; morning sun</span>
 <p class="font-body-md text-body-md text-surface-container max-w-md mt-1">
                 Designed to slow down breath. We kept the original 1920s brick, poured raw unsealed lime plaster, and let the morning light do the rest.
               </p>
 </div>
-<div class="mt-3 md:mt-0 flex flex-wrap gap-2 md:gap-4 text-surface font-label-md text-label-md">
+<div class="mt-4 md:mt-0 flex flex-wrap gap-2 md:gap-4 md:flex-nowrap text-surface font-label-md text-label-md">
 <span class="flex items-center gap-1.5 bg-surface/20 backdrop-blur-md px-3 py-1.5 rounded-full">
 <span class="material-symbols-outlined text-sm" data-icon="volume_down">volume_down</span>
                 Soft Vinyl Only
@@ -421,7 +421,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 <!-- Overlapping Corner Inset Photo (Charming Asymmetric Placement) -->
 <div class="absolute top-3 right-3 md:top-10 md:right-10 w-32 md:w-64 bg-surface-container-lowest p-2 md:p-3 rounded-2xl shadow-xl border border-outline-variant/40 rotate-2 transition-transform hover:rotate-0 duration-300">
-<div class="w-full h-24 md:h-48 rounded-xl overflow-hidden bg-surface-container relative">
+<div class="w-full h-20 md:h-48 rounded-xl overflow-hidden bg-surface-container relative">
 <img loading="lazy" decoding="async" srcset="images/686d948a72a4-o-640.jpg 640w, images/686d948a72a4-o-1024.jpg 1024w, images/686d948a72a4-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="A sunlit corner vignette inside a café showing a ceramic vase with wild dried grasses on a small wooden table beside an open paperback book and a small water glass casting refractive light patterns on the linen cloth." src="images/686d948a72a4-o.jpg">
 <!-- Coffee ring mark stamp on inset photo -->
 <div class="absolute -top-3 -left-3 w-12 h-12 pointer-events-none opacity-80">
@@ -447,7 +447,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <span class="material-symbols-outlined text-sm" data-icon="groups">groups</span>
 <span>COMMUNITY ESSENCE</span>
 </div>
-<h2 class="text-3xl md:text-headline-lg font-headline-lg text-primary font-semibold tracking-tight">Daily life</h2>
+<h2 class="font-headline-lg text-headline-lg text-primary font-semibold tracking-tight">Daily life</h2>
 <p class="mt-2 font-body-lg text-body-lg text-on-surface-variant">
             Readers, writers, friends and neighbors.
           </p>
@@ -457,7 +457,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Row 1: Saturday reading (Image Left, Text Right) -->
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
 <div class="md:col-span-6 relative">
-<div class="arch-crop-top overflow-hidden border-2 border-outline-variant/30 h-60 md:h-[380px] bg-surface-container shadow-sm">
+<div class="arch-crop-top overflow-hidden border-2 border-outline-variant/30 h-[240px] md:h-[380px] bg-surface-container shadow-sm">
 <img loading="lazy" decoding="async" srcset="images/dae51f986413-o-640.jpg 640w, images/dae51f986413-o-1024.jpg 1024w, images/dae51f986413-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="A warm candid portrait of a woman in an oatmeal knit sweater sitting at a sunny cafe window nook reading an open paperback novel, with a half-empty cappuccino mug resting on the wooden sill." src="images/dae51f986413-o.jpg" style="object-position: 58% 22%;">
 </div>
 <div class="absolute -bottom-4 right-8 bg-surface-container-lowest px-4 py-2 rounded-full border border-outline-variant/40 shadow-sm flex items-center gap-2">
@@ -471,7 +471,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
                 Quiet morning with a book. No one rushes you to turn the table. Turn another page, let the tea steep a little longer, and watch the street slowly wake up.
               </p>
-<div class="mt-6 flex items-center gap-3">
+<div class="mt-4 md:mt-6 flex flex-wrap items-center gap-3">
 <span class="px-3 py-1 bg-surface-container rounded-full text-secondary font-label-sm text-label-sm">Quiet hours</span>
 <span class="text-outline-variant">•</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant">8:00 AM — 11:00 AM</span>
@@ -486,18 +486,18 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
                 Sharing a slice. Two dessert forks, warm laughter that bounces off the lime plaster walls, and catching up on everything that couldn’t be said in a text.
               </p>
-<div class="mt-6 flex items-center gap-3">
+<div class="mt-4 md:mt-6 flex flex-wrap items-center gap-3">
 <span class="px-3 py-1 bg-surface-container rounded-full text-secondary font-label-sm text-label-sm">Cardamom cake</span>
 <span class="text-outline-variant">•</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Always made for two</span>
 </div>
 </div>
 <div class="md:col-span-6 order-1 md:order-2 relative">
-<div class="rounded-3xl overflow-hidden border-2 border-outline-variant/30 h-60 md:h-[380px] bg-surface-container shadow-sm">
+<div class="rounded-3xl overflow-hidden border-2 border-outline-variant/30 h-[240px] md:h-[380px] bg-surface-container shadow-sm">
 <img loading="lazy" decoding="async" srcset="images/e9ee968a29fb-o-640.jpg 640w, images/e9ee968a29fb-o-1024.jpg 1024w, images/e9ee968a29fb-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Two close friends laughing naturally across a round wooden cafe table, sharing a slice of layered spiced cake with two small brass forks and two warm glasses of filtered coffee in candid morning sunlight." src="images/e9ee968a29fb-o.jpg" style="object-position: 55% 19%;">
 </div>
 <!-- Coffee Ring accent on side -->
-<div class="absolute -top-4 -left-4 w-16 h-16 rounded-full border border-primary/30 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-sm">
+<div class="absolute -top-2 -left-2 md:-top-4 md:-left-4 w-16 h-16 rounded-full border border-primary/30 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-sm">
 <span class="font-handwritten text-xs text-primary font-bold">shared</span>
 </div>
 </div>
@@ -505,7 +505,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Row 3: Laptop corner (Image Left, Text Right) -->
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
 <div class="md:col-span-6 relative">
-<div class="arch-crop-top overflow-hidden border-2 border-outline-variant/30 h-60 md:h-[380px] bg-surface-container shadow-sm">
+<div class="arch-crop-top overflow-hidden border-2 border-outline-variant/30 h-[240px] md:h-[380px] bg-surface-container shadow-sm">
 <img loading="lazy" decoding="async" srcset="images/9e066a4c063f-o-640.jpg 640w, images/9e066a4c063f-o-1024.jpg 1024w, images/9e066a4c063f-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="A focused young designer working comfortably on a laptop at a sunny corner timber desk in a quiet cafe with a warm ceramic cappuccino and headphones placed neatly to the side." src="images/9e066a4c063f-o.jpg" style="object-position: 30% 19%;">
 </div>
 <div class="absolute -bottom-4 left-8 bg-surface-container-lowest px-4 py-2 rounded-full border border-outline-variant/40 shadow-sm flex items-center gap-2">
@@ -519,7 +519,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
                 A perfect place to focus. Plugs tucked discreetly under the timber benches, steady warm light, and continuous fresh pour-overs while you get things done.
               </p>
-<div class="mt-6 flex items-center gap-3">
+<div class="mt-4 md:mt-6 flex flex-wrap items-center gap-3">
 <span class="px-3 py-1 bg-surface-container rounded-full text-secondary font-label-sm text-label-sm">High-speed fiber</span>
 <span class="text-outline-variant">•</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Sockets at every bench seat</span>
@@ -535,9 +535,9 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <circle cx="50" cy="50" r="42" stroke-dasharray="25 15 30 10" stroke-width="7"></circle>
 </svg>
 </div>
-<span class="font-handwritten text-2xl md:text-3xl text-on-tertiary-container block mb-2">The kettle is always warm</span>
-<h3 class="text-2xl md:text-headline-lg font-headline-lg text-primary font-semibold mb-4">Come find your favorite corner</h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto mb-6 md:mb-8">
+<span class="font-handwritten text-3xl text-on-tertiary-container block mb-2">The kettle is always warm</span>
+<h3 class="font-headline-lg text-headline-lg text-primary font-semibold mb-4">Come find your favorite corner</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto mb-8">
             Walk in any morning or afternoon. No reservations needed — just come as you are.
           </p>
 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -560,7 +560,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </main>
 <!-- FOOTER (Shared Components JSON Anchor) -->
 <footer class="bg-surface-container dark:bg-surface-container-high border-t border-outline-variant/40">
-<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto py-10 md:py-space-2xl flex flex-col gap-space-xl">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto py-space-2xl flex flex-col gap-space-xl">
 <!-- Top Grid of Footer -->
 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
 <!-- Brand & Description Column -->
@@ -655,5 +655,20 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
     btn.setAttribute('aria-haspopup','true');btn.setAttribute('aria-expanded','false');
     btn.addEventListener('click',function(e){e.stopPropagation();var on=box.hasAttribute('data-wm-open');document.querySelectorAll('[data-wm-open]').forEach(function(x){x.removeAttribute('data-wm-open')});if(!on){box.setAttribute('data-wm-open','');btn.setAttribute('aria-expanded','true')}else btn.setAttribute('aria-expanded','false')});
     document.addEventListener('click',function(){box.removeAttribute('data-wm-open');btn.setAttribute('aria-expanded','false')})});
+  // the hero was moved from over the photo to under it (see hero.js): its buttons were drawn for a dark photo and can vanish on the page, so they are recoloured when too faint
+  function rgb(c){var m=(c||'').match(/[\d.]+/g)||[];return {r:+m[0]||0,g:+m[1]||0,b:+m[2]||0,a:m.length>3?+m[3]:1}}
+  function L(c){function f(v){v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4)}return 0.2126*f(c.r)+0.7152*f(c.g)+0.0722*f(c.b)}
+  function cr(a,b){var x=L(a),y=L(b);return (Math.max(x,y)+0.05)/(Math.min(x,y)+0.05)}
+  function pageBg(from){var e=from;while(e){var c=rgb(getComputedStyle(e).backgroundColor);if(c.a>0.6)return c;e=e.parentElement}return {r:255,g:255,b:255,a:1}}
+  function heroButtons(){var s=document.querySelector('[data-hero-stacked]');if(!s)return;var phone=innerWidth<768;
+    s.querySelectorAll('a,button').forEach(function(b){
+      if(b.closest('header'))return;
+      if(!phone){['background-color','color','border-color'].forEach(function(p){b.style.removeProperty(p)});return}
+      var bgp=pageBg(s.parentElement||s),ink=rgb(getComputedStyle(document.body).color),cs=getComputedStyle(b),bg=rgb(cs.backgroundColor),fg=rgb(cs.color);
+      var solid=bg.a>0.6,eff=solid?bg:bgp;
+      if(solid&&cr(bg,bgp)<1.35){b.style.setProperty('background-color','rgb('+ink.r+','+ink.g+','+ink.b+')','important');b.style.setProperty('color','rgb('+bgp.r+','+bgp.g+','+bgp.b+')','important')}
+      else if(cr(fg,eff)<3){b.style.setProperty('color','rgb('+ink.r+','+ink.g+','+ink.b+')','important');if(!solid)b.style.setProperty('border-color','rgb('+ink.r+','+ink.g+','+ink.b+')','important')}
+    })}
+  heroButtons();addEventListener('resize',heroButtons);
   sync();addEventListener('resize',sync);addEventListener('scroll',function(){if(p.classList.contains('wm-open'))place()},{passive:true});
 })();</script></body></html>

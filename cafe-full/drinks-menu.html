@@ -70,9 +70,9 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <body data-responsive class="bg-surface text-on-surface antialiased selection:bg-tertiary-fixed selection:text-tertiary">
 <!-- ==================== HEADER (SHARED COMPONENT: TopNavBar) ==================== -->
 <header class="w-full bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 sticky top-0 z-50 shadow-sm transition-all duration-200">
-<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto flex items-center justify-between py-space-md">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto flex items-center justify-between py-2.5 md:py-space-md">
 <!-- Wordmark Logo -->
-<a class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary tracking-tight flex items-center gap-2 group" href="#" data-inert="">
+<a class="font-headline-md text-xl md:text-headline-md font-semibold text-primary dark:text-inverse-primary tracking-tight flex items-center gap-2 group" href="#" data-inert="">
 <span class="relative">
           you
           <!-- Decorative subtle ring on wordmark -->
@@ -104,11 +104,11 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 </nav>
 <!-- Trailing Primary Action & Icon Actions -->
-<div class="flex items-center gap-space-md">
-<a class="bg-primary text-surface px-5 py-2 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-container hover:text-on-primary transition-all duration-200 shadow-sm flex items-center gap-2" href="#" data-inert="">
+<div class="flex items-center gap-2 md:gap-space-md">
+<a class="bg-primary text-surface px-4 md:px-5 py-2 min-h-[44px] md:min-h-0 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-container hover:text-on-primary transition-all duration-200 shadow-sm flex items-center gap-2" href="#" data-inert="">
 <span>Order Online</span>
 </a>
-<button aria-label="Shopping Cart" class="p-2 rounded-full text-primary hover:bg-surface-container transition-colors relative">
+<button aria-label="Shopping Cart" class="hidden md:inline-block p-2 rounded-full text-primary hover:bg-surface-container transition-colors relative">
 <span class="material-symbols-outlined">shopping_bag</span>
 <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-on-tertiary-container rounded-full"></span>
 </button>
@@ -121,7 +121,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <div class="absolute -top-24 -left-20 w-96 h-96 coffee-ring-subtle rounded-full pointer-events-none opacity-40"></div>
 <div class="absolute top-1/2 -right-32 w-[32rem] h-[32rem] coffee-ring-subtle rounded-full pointer-events-none opacity-30"></div>
 <div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-space-xl items-center">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-space-xl items-center">
 <!-- Left: Headline and Copy -->
 <div class="md:col-span-6 flex flex-col items-start gap-4 md:gap-space-lg relative z-10">
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-md text-label-md">
@@ -150,7 +150,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 </div>
 <!-- Right: Arched High-Bleed Photograph -->
-<div class="md:col-span-6 relative flex justify-center md:justify-end">
+<div class="order-first md:order-none md:col-span-6 relative flex justify-center md:justify-end">
 <div class="relative w-full max-w-md">
 <!-- Decorative Offset Tinted Layer -->
 <div class="absolute -inset-4 bg-secondary-fixed-dim/30 arch-frame transform rotate-1 translate-x-2 translate-y-2 pointer-events-none"></div>
@@ -185,13 +185,13 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <div class="relative rounded-2xl overflow-hidden shadow-xl border border-outline-variant/40 aspect-[4/3] lg:aspect-[4/5] bg-surface-container">
 <img loading="lazy" decoding="async" srcset="images/1d07d28f4bc3-640.jpg 640w, images/1d07d28f4bc3-1024.jpg 1024w, images/1d07d28f4bc3.jpg 2880w" sizes="100vw" class="w-full h-full object-cover" data-alt="An editorial flat-lay photograph of a handcrafted warm wooden tray presenting an array of specialty coffee drinks: a petite espresso cup, a velvety cappuccino, and a clear glass cold brew bathed in gentle afternoon light. Natural unbleached linen napkins and scattered roasted coffee beans create an organic, artisanal atmosphere adhering to an earthy palette of deep roast brown, soft cream, and sage." src="images/1d07d28f4bc3.jpg">
 <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
-<div class="absolute bottom-6 left-6 right-6 text-surface">
+<div class="absolute bottom-4 left-4 right-4 lg:bottom-6 lg:left-6 lg:right-6 text-surface">
 <span class="font-handwritten text-2xl text-tertiary-fixed-dim">Poured slowly &amp; warmly</span>
 <p class="font-body-sm text-body-sm text-surface-container-low mt-1">Every beverage brewed with freshly calibrated grind profiles and sweet filtered mountain water.</p>
 </div>
 </div>
 <!-- Floating Decorative Stamp Card -->
-<div class="absolute -bottom-6 -right-6 hidden sm:flex w-32 h-32 rounded-full bg-surface-container-lowest shadow-lg border border-outline-variant/50 items-center justify-center text-center p-3 coffee-ring-stroke">
+<div class="absolute -bottom-6 -right-3 lg:-right-6 hidden sm:flex w-32 h-32 rounded-full bg-surface-container-lowest shadow-lg border border-outline-variant/50 items-center justify-center text-center p-3 coffee-ring-stroke">
 <span class="font-handwritten text-base leading-tight font-bold text-primary">Single Origin<br><span class="text-tertiary text-xs font-normal">Ethiopia Guji</span></span>
 </div>
 </div>
@@ -199,9 +199,9 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Right: Elegant Coffee Menu Items List -->
 <div class="lg:col-span-7 flex flex-col gap-3 lg:gap-space-lg order-1 lg:order-2">
 <!-- Item 1: Espresso / Doppio -->
-<div class="group flex items-center justify-between gap-2 md:gap-0 p-3 md:p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
-<div class="flex items-center gap-3 md:gap-space-md">
-<div class="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
+<div class="group flex items-center justify-between gap-3 p-3 md:p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
+<div class="flex items-center gap-3 md:gap-space-md min-w-0">
+<div class="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
 <img loading="lazy" decoding="async" srcset="images/45202021943a-o-640.jpg 640w, images/45202021943a-o-1024.jpg 1024w, images/45202021943a-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A focused close-up of a rich golden-brown crema espresso shot sitting in an earthy beige ceramic demitasse cup, captured in soft morning light on an untreated timber tabletop." src="images/45202021943a-o.jpg">
 </div>
 <div>
@@ -210,15 +210,15 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 </div>
 <!-- Stamped Price -->
-<div class="relative px-3 py-1 flex items-center justify-center">
+<div class="relative px-2 md:px-3 py-1 flex items-center justify-center shrink-0 whitespace-nowrap">
 <span class="font-handwritten text-xl md:text-2xl font-bold text-primary tracking-tight">$3.40 / $4.00</span>
 <div class="absolute inset-0 coffee-ring-subtle rounded-full pointer-events-none opacity-60"></div>
 </div>
 </div>
 <!-- Item 2: Americano -->
-<div class="group flex items-center justify-between gap-2 md:gap-0 p-3 md:p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
-<div class="flex items-center gap-3 md:gap-space-md">
-<div class="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
+<div class="group flex items-center justify-between gap-3 p-3 md:p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
+<div class="flex items-center gap-3 md:gap-space-md min-w-0">
+<div class="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
 <img loading="lazy" decoding="async" srcset="images/fe29b7a818fb-o-640.jpg 640w, images/fe29b7a818fb-o-1024.jpg 1024w, images/fe29b7a818fb-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A deep black Americano with delicate crema swirls presented in an artisanal warm white ceramic cup on a weathered pine cafe saucer." src="images/fe29b7a818fb-o.jpg">
 </div>
 <div>
@@ -227,15 +227,15 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 </div>
 <!-- Stamped Price -->
-<div class="relative px-3 py-1 flex items-center justify-center">
+<div class="relative px-2 md:px-3 py-1 flex items-center justify-center shrink-0 whitespace-nowrap">
 <span class="font-handwritten text-xl md:text-2xl font-bold text-primary tracking-tight">$3.80</span>
 <div class="absolute inset-0 coffee-ring-subtle rounded-full pointer-events-none opacity-60"></div>
 </div>
 </div>
 <!-- Item 3: Cappuccino -->
-<div class="group flex items-center justify-between gap-2 md:gap-0 p-3 md:p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
-<div class="flex items-center gap-3 md:gap-space-md">
-<div class="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
+<div class="group flex items-center justify-between gap-3 p-3 md:p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
+<div class="flex items-center gap-3 md:gap-space-md min-w-0">
+<div class="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
 <img loading="lazy" decoding="async" srcset="images/5120c99e1bb2-o-640.jpg 640w, images/5120c99e1bb2-o-1024.jpg 1024w, images/5120c99e1bb2-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A velvety cappuccino crowned with thick airy microfoam lightly dusted with raw cocoa, resting inside a clay-colored wide ceramic bowl mug." src="images/5120c99e1bb2-o.jpg">
 </div>
 <div>
@@ -244,15 +244,15 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 </div>
 <!-- Stamped Price -->
-<div class="relative px-3 py-1 flex items-center justify-center">
+<div class="relative px-2 md:px-3 py-1 flex items-center justify-center shrink-0 whitespace-nowrap">
 <span class="font-handwritten text-xl md:text-2xl font-bold text-primary tracking-tight">$4.80</span>
 <div class="absolute inset-0 coffee-ring-subtle rounded-full pointer-events-none opacity-60"></div>
 </div>
 </div>
 <!-- Item 4: Honey Oat Flat White -->
-<div class="group flex items-center justify-between gap-2 md:gap-0 p-3 md:p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
-<div class="flex items-center gap-3 md:gap-space-md">
-<div class="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-secondary-container shadow-sm">
+<div class="group flex items-center justify-between gap-3 p-3 md:p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
+<div class="flex items-center gap-3 md:gap-space-md min-w-0">
+<div class="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-secondary-container shadow-sm">
 <img loading="lazy" decoding="async" srcset="images/15753b592f2c-o-640.jpg 640w, images/15753b592f2c-o-1024.jpg 1024w, images/15753b592f2c-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A silk-textured flat white with exquisite rosette leaf latte art in a light sage green ceramic cup, set on a textured cream linen placemat." src="images/15753b592f2c-o.jpg">
 </div>
 <div>
@@ -264,15 +264,15 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 </div>
 <!-- Stamped Price -->
-<div class="relative px-3 py-1 flex items-center justify-center">
+<div class="relative px-2 md:px-3 py-1 flex items-center justify-center shrink-0 whitespace-nowrap">
 <span class="font-handwritten text-xl md:text-2xl font-bold text-primary tracking-tight">$5.20</span>
 <div class="absolute inset-0 coffee-ring-subtle rounded-full pointer-events-none opacity-60"></div>
 </div>
 </div>
 <!-- Item 5: Iced Latte -->
-<div class="group flex items-center justify-between gap-2 md:gap-0 p-3 md:p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
-<div class="flex items-center gap-3 md:gap-space-md">
-<div class="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
+<div class="group flex items-center justify-between gap-3 p-3 md:p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
+<div class="flex items-center gap-3 md:gap-space-md min-w-0">
+<div class="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
 <img loading="lazy" decoding="async" srcset="images/4439e1ec0220-o-640.jpg 640w, images/4439e1ec0220-o-1024.jpg 1024w, images/4439e1ec0220-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An aesthetic tall ribbed glass of layered iced latte showing dark espresso slowly cascading through chilled oat milk over crystal clear artisanal ice cubes." src="images/4439e1ec0220-o.jpg">
 </div>
 <div>
@@ -281,7 +281,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 </div>
 <!-- Stamped Price -->
-<div class="relative px-3 py-1 flex items-center justify-center">
+<div class="relative px-2 md:px-3 py-1 flex items-center justify-center shrink-0 whitespace-nowrap">
 <span class="font-handwritten text-xl md:text-2xl font-bold text-primary tracking-tight">$5.40</span>
 <div class="absolute inset-0 coffee-ring-subtle rounded-full pointer-events-none opacity-60"></div>
 </div>
@@ -304,10 +304,10 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
         </p>
 </div>
 <!-- Tea Editorial Grid -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-space-xl items-center mb-6 lg:mb-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-space-xl items-center mb-6 md:mb-space-xl">
 <!-- Left: Feature Teapot Photography -->
 <div class="lg:col-span-5">
-<div class="relative rounded-2xl overflow-hidden shadow-2xl border border-secondary-fixed/20 bg-primary/20 aspect-video md:aspect-[4/3] lg:aspect-square">
+<div class="relative rounded-2xl overflow-hidden shadow-2xl border border-secondary-fixed/20 bg-primary/20 aspect-[4/3] lg:aspect-square">
 <img loading="lazy" decoding="async" srcset="images/90c276ba28c6-o-640.jpg 640w, images/90c276ba28c6-o-1024.jpg 1024w, images/90c276ba28c6-o.jpg 1376w" sizes="100vw" class="w-full h-full object-cover" data-alt="A clean, sun-drenched horizontal still-life of an amber-hued glass teapot steeping fragrant golden herbal tea alongside two handmade ceramic cups and scattered fragrant loose-leaf green tea leaves on an unpolished light wooden table." src="images/90c276ba28c6-o.jpg">
 <div class="absolute top-4 left-4 bg-primary/70 backdrop-blur-sm text-surface px-3 py-1 rounded-full font-label-sm text-label-sm">
               Blended in-house by Amira
@@ -317,7 +317,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Right: 3 Circular Framed Items with Descriptions & Stamped Prices -->
 <div class="lg:col-span-7 flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-5 px-5 md:grid md:grid-cols-3 md:gap-space-lg md:overflow-visible md:mx-0 md:px-0">
 <!-- Card 1: Cardamom Chai Latte -->
-<div class="shrink-0 basis-[72%] snap-start md:basis-auto flex flex-col items-center text-center p-space-lg rounded-2xl bg-primary/25 border border-secondary-fixed/20 backdrop-blur-sm hover:bg-primary/35 transition-all">
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto flex flex-col items-center text-center p-space-lg rounded-2xl bg-primary/25 border border-secondary-fixed/20 backdrop-blur-sm hover:bg-primary/35 transition-all">
 <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-secondary-fixed-dim/60 mb-space-md shadow-md">
 <img loading="lazy" decoding="async" srcset="images/200f3c8c7f61-o-640.jpg 640w, images/200f3c8c7f61-o-1024.jpg 1024w, images/200f3c8c7f61-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="A warm mug of spiced cardamom chai latte topped with foamy steamed milk and crushed green cardamom pods in soft café lighting." src="images/200f3c8c7f61-o.jpg">
 </div>
@@ -328,7 +328,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
             </div>
 </div>
 <!-- Card 2: Mint & Lemon Tea -->
-<div class="shrink-0 basis-[72%] snap-start md:basis-auto flex flex-col items-center text-center p-space-lg rounded-2xl bg-primary/25 border border-secondary-fixed/20 backdrop-blur-sm hover:bg-primary/35 transition-all">
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto flex flex-col items-center text-center p-space-lg rounded-2xl bg-primary/25 border border-secondary-fixed/20 backdrop-blur-sm hover:bg-primary/35 transition-all">
 <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-secondary-fixed-dim/60 mb-space-md shadow-md">
 <img loading="lazy" decoding="async" srcset="images/b087e180d13d-o-640.jpg 640w, images/b087e180d13d-o.jpg 768w" sizes="100vw" class="w-full h-full object-cover" data-alt="Fresh vibrant green Moroccan mint sprigs and bright yellow lemon slices floating in hot infused water inside a delicate clear glass teacup with soft morning light." src="images/b087e180d13d-o.jpg">
 </div>
@@ -339,7 +339,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
             </div>
 </div>
 <!-- Card 3: Hot Chocolate -->
-<div class="shrink-0 basis-[72%] snap-start md:basis-auto flex flex-col items-center text-center p-space-lg rounded-2xl bg-primary/25 border border-secondary-fixed/20 backdrop-blur-sm hover:bg-primary/35 transition-all">
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto flex flex-col items-center text-center p-space-lg rounded-2xl bg-primary/25 border border-secondary-fixed/20 backdrop-blur-sm hover:bg-primary/35 transition-all">
 <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-secondary-fixed-dim/60 mb-space-md shadow-md">
 <img loading="lazy" decoding="async" srcset="images/4d531c8e55a9-o-640.jpg 640w, images/4d531c8e55a9-o.jpg 768w" sizes="100vw" class="w-full h-full object-cover" data-alt="A comforting mug of rich molten dark hot chocolate topped with thick swirls of fresh whipped cream and shavings of 70 percent single origin chocolate." src="images/4d531c8e55a9-o.jpg">
 </div>
@@ -358,17 +358,17 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Coffee ring watermark accent in warm terracotta container -->
 <div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full border border-tertiary-fixed/15 pointer-events-none"></div>
 <div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-space-xl items-center">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-space-xl items-center">
 <!-- Left: Seasonal Copy & Specially styled Cards -->
 <div class="lg:col-span-7">
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md mb-space-md font-bold">
 <span class="material-symbols-outlined text-[16px]">local_florist</span>
             Limited Run
           </div>
-<h2 class="font-headline-xl text-4xl md:text-headline-xl text-surface font-headline-xl tracking-tight leading-none mb-space-sm">
+<h2 class="font-headline-xl text-4xl md:text-headline-xl text-surface tracking-tight leading-none mb-space-sm">
             Seasonal specials
           </h2>
-<p class="font-body-lg text-body-lg text-tertiary-fixed-dim mb-5 md:mb-space-xl max-w-md">
+<p class="font-body-lg text-body-lg text-tertiary-fixed-dim mb-6 md:mb-space-xl max-w-md">
             Changing with the weather and Amira's imagination.
           </p>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
@@ -376,7 +376,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <div class="bg-primary/40 border border-tertiary-fixed/20 rounded-2xl p-4 md:p-space-lg backdrop-blur-sm relative group hover:border-tertiary-fixed transition-colors">
 <div class="flex justify-between items-start mb-2">
 <h3 class="font-headline-sm text-headline-sm text-surface">Maple Cinnamon Latte</h3>
-<span class="font-handwritten text-2xl md:text-3xl font-bold text-tertiary-fixed">$5.90</span>
+<span class="font-handwritten text-3xl font-bold text-tertiary-fixed">$5.90</span>
 </div>
 <p class="font-body-md text-body-md text-surface-container-high mb-space-md">
                 Real maple and a pinch of cinnamon.
@@ -389,7 +389,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <div class="bg-primary/40 border border-tertiary-fixed/20 rounded-2xl p-4 md:p-space-lg backdrop-blur-sm relative group hover:border-tertiary-fixed transition-colors">
 <div class="flex justify-between items-start mb-2">
 <h3 class="font-headline-sm text-headline-sm text-surface">Orange Cold Brew</h3>
-<span class="font-handwritten text-2xl md:text-3xl font-bold text-tertiary-fixed">$5.80</span>
+<span class="font-handwritten text-3xl font-bold text-tertiary-fixed">$5.80</span>
 </div>
 <p class="font-body-md text-body-md text-surface-container-high mb-space-md">
                 Cold brew, orange peel, sparkling water.
@@ -408,7 +408,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <img loading="lazy" decoding="async" srcset="images/c21b56d1b1ea-o-640.jpg 640w, images/c21b56d1b1ea-o-1024.jpg 1024w, images/c21b56d1b1ea-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="An artisanal maple cinnamon latte dusted with freshly ground cinnamon bark, set on a rustic wooden cafe table next to organic dried orange slices, cinnamon sticks, and fall foliage in cozy warm lighting." src="images/c21b56d1b1ea-o.jpg">
 </div>
 <!-- Handwritten playful sticker -->
-<div class="absolute -top-4 -right-4 bg-surface-container-lowest text-primary px-4 py-2 rounded-full shadow-lg border border-outline-variant font-handwritten text-xl font-bold -rotate-6">
+<div class="absolute -top-4 -right-2 lg:-right-4 bg-surface-container-lowest text-primary px-4 py-2 rounded-full shadow-lg border border-outline-variant font-handwritten text-xl font-bold -rotate-6">
               Staff favorite! 🍁
             </div>
 </div>
@@ -427,7 +427,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
         </p>
 </div>
 <!-- Four Interactive Milk Options -->
-<div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-space-lg mb-6 md:mb-space-2xl">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-space-lg mb-8 md:mb-space-2xl">
 <!-- Milk 1 -->
 <div class="group flex flex-col items-center text-center p-3 md:p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/40 hover:border-primary transition-all duration-200">
 <div class="w-16 h-16 md:w-24 md:h-24 rounded-full coffee-ring-stroke flex items-center justify-center mb-space-md group-hover:scale-105 transition-transform">
@@ -466,9 +466,9 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 </div>
 <!-- Handwritten Size Scale Representation -->
-<div class="bg-surface-container rounded-2xl p-4 md:p-space-xl border border-outline-variant/30 grid grid-cols-3 gap-2 items-end md:flex md:flex-row md:items-center md:justify-around md:gap-space-lg mb-6 md:mb-space-2xl">
+<div class="bg-surface-container rounded-2xl p-4 md:p-space-xl border border-outline-variant/30 grid grid-cols-3 md:flex md:flex-row items-start md:items-center justify-around gap-2 md:gap-space-lg mb-8 md:mb-space-2xl">
 <div class="text-center">
-<div class="w-14 h-14 md:w-16 md:h-16 mx-auto mb-2 flex items-center justify-center rounded-full bg-surface-container-lowest border border-outline-variant font-handwritten text-lg md:text-2xl font-bold text-primary">
+<div class="w-14 h-14 md:w-16 md:h-16 mx-auto mb-2 flex items-center justify-center rounded-full bg-surface-container-lowest border border-outline-variant font-handwritten text-xl md:text-2xl font-bold text-primary">
             8 oz
           </div>
 <div class="font-headline-sm text-headline-sm text-primary">Small</div>
@@ -476,7 +476,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 <div class="hidden md:block w-12 border-t-2 border-dashed border-outline-variant"></div>
 <div class="text-center">
-<div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-2 flex items-center justify-center rounded-full bg-surface-container-lowest border-2 border-tertiary-container font-handwritten text-xl md:text-3xl font-bold text-tertiary-container shadow-sm">
+<div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-2 flex items-center justify-center rounded-full bg-surface-container-lowest border-2 border-tertiary-container font-handwritten text-2xl md:text-3xl font-bold text-tertiary-container shadow-sm">
             12 oz
           </div>
 <div class="font-headline-sm text-headline-sm text-primary">Regular</div>
@@ -484,7 +484,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 </div>
 <div class="hidden md:block w-12 border-t-2 border-dashed border-outline-variant"></div>
 <div class="text-center">
-<div class="w-20 h-20 md:w-24 md:h-24 mx-auto mb-2 flex items-center justify-center rounded-full bg-surface-container-lowest border border-outline-variant font-handwritten text-2xl md:text-4xl font-bold text-primary">
+<div class="w-20 h-20 md:w-24 md:h-24 mx-auto mb-2 flex items-center justify-center rounded-full bg-surface-container-lowest border border-outline-variant font-handwritten text-3xl md:text-4xl font-bold text-primary">
             16 oz
           </div>
 <div class="font-headline-sm text-headline-sm text-primary">Large</div>
@@ -515,13 +515,13 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
             Roasted deliberately, poured warmly. A quiet neighborhood counter crafted for conversation, pause, and good ritual.
           </p>
 <div class="flex items-center gap-4 mt-space-sm text-primary">
-<a aria-label="Instagram" class="w-11 h-11 md:w-9 md:h-9 rounded-full bg-surface-container-lowest flex items-center justify-center border border-outline-variant/40 hover:text-tertiary transition-colors" href="#" data-inert="">
+<a aria-label="Instagram" class="w-9 h-9 rounded-full bg-surface-container-lowest flex items-center justify-center border border-outline-variant/40 hover:text-tertiary transition-colors" href="#" data-inert="">
 <span class="material-symbols-outlined text-[18px]">photo_camera</span>
 </a>
-<a aria-label="Location" class="w-11 h-11 md:w-9 md:h-9 rounded-full bg-surface-container-lowest flex items-center justify-center border border-outline-variant/40 hover:text-tertiary transition-colors" href="#" data-inert="">
+<a aria-label="Location" class="w-9 h-9 rounded-full bg-surface-container-lowest flex items-center justify-center border border-outline-variant/40 hover:text-tertiary transition-colors" href="#" data-inert="">
 <span class="material-symbols-outlined text-[18px]">pin_drop</span>
 </a>
-<a aria-label="Mail" class="w-11 h-11 md:w-9 md:h-9 rounded-full bg-surface-container-lowest flex items-center justify-center border border-outline-variant/40 hover:text-tertiary transition-colors" href="#" data-inert="">
+<a aria-label="Mail" class="w-9 h-9 rounded-full bg-surface-container-lowest flex items-center justify-center border border-outline-variant/40 hover:text-tertiary transition-colors" href="#" data-inert="">
 <span class="material-symbols-outlined text-[18px]">mail</span>
 </a>
 </div>
@@ -568,7 +568,7 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
 <!-- Bottom Bar: Exact Copyright text from JSON -->
 <div class="flex flex-col sm:flex-row items-center justify-between text-body-sm font-body-sm text-on-surface-variant gap-4">
 <span>© 2024 you café. Roasted deliberately, poured warmly.</span>
-<div class="flex items-center gap-6">
+<div class="flex flex-wrap items-center justify-center gap-3 md:gap-6">
 <a class="hover:text-tertiary transition-colors" href="#" data-inert="">Privacy Policy</a>
 <span>•</span>
 <a class="hover:text-tertiary transition-colors" href="#" data-inert="">Terms of Service</a>
@@ -601,5 +601,20 @@ if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
     btn.setAttribute('aria-haspopup','true');btn.setAttribute('aria-expanded','false');
     btn.addEventListener('click',function(e){e.stopPropagation();var on=box.hasAttribute('data-wm-open');document.querySelectorAll('[data-wm-open]').forEach(function(x){x.removeAttribute('data-wm-open')});if(!on){box.setAttribute('data-wm-open','');btn.setAttribute('aria-expanded','true')}else btn.setAttribute('aria-expanded','false')});
     document.addEventListener('click',function(){box.removeAttribute('data-wm-open');btn.setAttribute('aria-expanded','false')})});
+  // the hero was moved from over the photo to under it (see hero.js): its buttons were drawn for a dark photo and can vanish on the page, so they are recoloured when too faint
+  function rgb(c){var m=(c||'').match(/[\d.]+/g)||[];return {r:+m[0]||0,g:+m[1]||0,b:+m[2]||0,a:m.length>3?+m[3]:1}}
+  function L(c){function f(v){v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4)}return 0.2126*f(c.r)+0.7152*f(c.g)+0.0722*f(c.b)}
+  function cr(a,b){var x=L(a),y=L(b);return (Math.max(x,y)+0.05)/(Math.min(x,y)+0.05)}
+  function pageBg(from){var e=from;while(e){var c=rgb(getComputedStyle(e).backgroundColor);if(c.a>0.6)return c;e=e.parentElement}return {r:255,g:255,b:255,a:1}}
+  function heroButtons(){var s=document.querySelector('[data-hero-stacked]');if(!s)return;var phone=innerWidth<768;
+    s.querySelectorAll('a,button').forEach(function(b){
+      if(b.closest('header'))return;
+      if(!phone){['background-color','color','border-color'].forEach(function(p){b.style.removeProperty(p)});return}
+      var bgp=pageBg(s.parentElement||s),ink=rgb(getComputedStyle(document.body).color),cs=getComputedStyle(b),bg=rgb(cs.backgroundColor),fg=rgb(cs.color);
+      var solid=bg.a>0.6,eff=solid?bg:bgp;
+      if(solid&&cr(bg,bgp)<1.35){b.style.setProperty('background-color','rgb('+ink.r+','+ink.g+','+ink.b+')','important');b.style.setProperty('color','rgb('+bgp.r+','+bgp.g+','+bgp.b+')','important')}
+      else if(cr(fg,eff)<3){b.style.setProperty('color','rgb('+ink.r+','+ink.g+','+ink.b+')','important');if(!solid)b.style.setProperty('border-color','rgb('+ink.r+','+ink.g+','+ink.b+')','important')}
+    })}
+  heroButtons();addEventListener('resize',heroButtons);
   sync();addEventListener('resize',sync);addEventListener('scroll',function(){if(p.classList.contains('wm-open'))place()},{passive:true});
 })();</script></body></html>
