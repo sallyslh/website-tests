@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish>/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a row of three or more buttons (filters, chips) wraps on a phone instead of running off the edge of the screen */
+@media (max-width:767px){div:has(>button+button+button),ul:has(>li>button){flex-wrap:wrap}}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish>(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact &amp; Directions • Layla Skin Studio Achrafieh</title>
+<!-- Fonts: Epilogue & Plus Jakarta Sans as per system config tokens -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+
+
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Architectural plaster & steam ripple effects */
+    .ripple-ring-1 {
+      box-shadow: 0 0 0 1px rgba(71, 91, 76, 0.08), 0 0 0 32px rgba(71, 91, 76, 0.03), 0 0 0 64px rgba(71, 91, 76, 0.015);
+    }
+    .mineral-glow {
+      box-shadow: 0 16px 40px -12px rgba(43, 50, 41, 0.08), 0 4px 16px -2px rgba(71, 91, 76, 0.05);
+    }
+    .arch-niche {
+      border-radius: 9999px 9999px 1.5rem 1.5rem;
+    }
+    .arch-top {
+      border-radius: 5rem 5rem 1rem 1rem;
+    }
+  </style>
+</head>
+<body data-responsive class="bg-surface text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen flex flex-col">
+<!-- ==================== HEADER (SHARED COMPONENT) ==================== -->
+<header class="bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md docked full-width top-0 sticky z-50 shadow-sm">
+<div class="flex flex-wrap justify-between items-center w-full px-5 py-3 lg:px-8 lg:py-5 max-w-[1360px] mx-auto gap-y-2">
+<!-- Brand Logo / Wordmark -->
+<a class="flex flex-col group transition-transform duration-200 ease-out hover:-translate-y-0.5 active:scale-95" href="index.html">
+<span class="text-title font-title tracking-[0.1em] lg:tracking-[0.15em] text-on-surface dark:text-inverse-on-surface uppercase font-medium">LAYLA SKIN STUDIO</span>
+<span class="text-label-sm font-label-sm tracking-[0.25em] text-secondary text-opacity-80 uppercase mt-0.5">ACHRAFIEH • BEIRUT</span>
+</a>
+<!-- Web Navigation Links -->
+<nav class="flex w-full order-3 justify-center items-center gap-5 md:w-auto md:order-none md:gap-8">
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-200 text-label-lg font-label-lg" href="treatments.html">Treatments</a>
+
+
+
+<a class="text-primary dark:text-inverse-primary font-semibold border-b-2 border-primary dark:border-inverse-primary pb-1 text-label-lg font-label-lg" href="contact.html">Contact Concierge</a>
+
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-2 lg:gap-4">
+<a class="hidden lg:inline-flex items-center gap-1.5 text-label-lg font-label-lg text-primary hover:text-on-surface transition-colors" href="#" data-inert>
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>+1 555 010 042</span>
+</a>
+<a class="bg-tertiary text-on-tertiary hover:bg-tertiary-container transition-transform duration-200 ease-out hover:-translate-y-0.5 active:scale-95 px-4 lg:px-6 py-2.5 rounded-xl text-label-lg font-label-lg tracking-wide shadow-sm flex items-center gap-2 min-h-[44px]" href="book-appointment.html">
+<span>Book Appointment</span>
+<span class="hidden sm:inline-block material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN CANVAS ==================== -->
+<main class="flex-grow">
+<!-- Hero / Atmospheric Sanctuary Prelude -->
+<section class="relative pt-10 pb-10 lg:pt-16 lg:pb-20 overflow-hidden">
+<!-- Ambient Steam Ripple Concentric Outlines -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none border border-primary/5 ripple-ring-1 -z-10"></div>
+<div class="max-w-[1360px] mx-auto px-5 lg:px-8">
+<div class="max-w-3xl mx-auto text-center flex flex-col items-center">
+<!-- Sanctuary Badge -->
+<div class="inline-flex items-center gap-2 px-3 lg:px-4 py-1.5 rounded-full bg-secondary-container/80 text-on-secondary-fixed-variant text-label-sm font-label-sm uppercase tracking-[0.14em] mb-5 lg:mb-6 text-center">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>ACHRAFIEH SANCTUARY • DIRECTIONS &amp; ENQUIRIES</span>
+</div>
+<!-- Main Title -->
+<h1 class="text-4xl md:text-5xl lg:text-display font-display text-on-surface tracking-tight leading-none mb-4 lg:mb-6">
+            Visit us in Achrafieh
+          </h1>
+<!-- Poetic Subheading -->
+<p class="text-base lg:text-body-lg font-body-lg text-on-surface-variant max-w-2xl font-light leading-relaxed mb-6 lg:mb-10">
+            Stepping into a quiet Achrafieh treatment room: sage plaster walls, pale limestone, and a slow misty morning haze that lifts as you arrive, with the booking button always within reach.
+          </p>
+<!-- Quick Navigation Pill Indicators -->
+<div class="flex flex-wrap items-center justify-center gap-3 lg:gap-4">
+<a class="inline-flex items-center gap-2 px-4 lg:px-5 py-2.5 min-h-[44px] rounded-full bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors text-label-md font-label-md tracking-wider uppercase" href="#contact-address">
+<span class="material-symbols-outlined text-[16px] text-primary">explore</span>
+              Find The Sanctuary
+            </a>
+<a class="inline-flex items-center gap-2 px-4 lg:px-5 py-2.5 min-h-[44px] rounded-full border border-outline-variant/60 text-secondary hover:border-primary hover:text-primary transition-colors text-label-md font-label-md tracking-wider uppercase" href="#contact-enquiry">
+<span class="material-symbols-outlined text-[16px] text-tertiary">edit_note</span>
+              Send an Enquiry
+            </a>
+<a class="inline-flex items-center gap-2 px-4 lg:px-5 py-2.5 min-h-[44px] rounded-full border border-outline-variant/60 text-secondary hover:border-primary hover:text-primary transition-colors text-label-md font-label-md tracking-wider uppercase" href="#contact-hours">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span>
+              Studio Cadence
+            </a>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 1: ADDRESS & ARTISTIC MAP ==================== -->
+<section class="py-10 lg:py-16 relative" id="contact-address">
+<div class="max-w-[1360px] mx-auto px-5 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+<!-- Left: Arched Limestone Niche Map -->
+<div class="lg:col-span-7 relative group">
+<div class="relative overflow-hidden arch-top bg-surface-container-high border border-outline-variant/30 mineral-glow aspect-[4/3] w-full">
+<img fetchpriority="high" decoding="async" srcset="images/ecbbd2f76914-o-640.jpg 640w, images/ecbbd2f76914-o-1024.jpg 1024w, images/ecbbd2f76914-o.jpg 1200w" sizes="100vw" alt="Artistic textured map of Achrafieh Beirut on linen with terracotta location seal and dried olive sprig" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out" src="images/ecbbd2f76914-o.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/40 via-transparent to-transparent pointer-events-none"></div>
+<!-- Map Corner Stamp -->
+<div class="absolute bottom-3 left-3 lg:bottom-6 lg:left-6 bg-surface/90 backdrop-blur-md px-3 lg:px-4 py-2 rounded-lg border border-outline-variant/30 flex items-center gap-2.5 shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px]" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div>
+<p class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface">Achrafieh Heights</p>
+<p class="text-body-sm font-body-sm text-secondary">33°53'18.2"N 35°30'52.4"E</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Overlapping Deep Sage Card -->
+<div class="lg:col-span-5 lg:-ml-12 z-10">
+<div class="bg-primary text-on-primary rounded-3xl p-6 md:p-8 lg:p-10 shadow-2xl relative overflow-hidden border border-primary-fixed-dim/20">
+<!-- Decorative subtle background arc -->
+<div class="absolute -right-16 -top-16 w-48 h-48 rounded-full border border-primary-fixed-dim/10 pointer-events-none"></div>
+<div class="flex items-center gap-2 text-primary-fixed text-label-sm font-label-sm uppercase tracking-[0.2em] mb-3">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span>
+                SANCTUARY LOCATION
+              </div>
+<h2 class="text-2xl lg:text-headline-md font-headline-md text-on-primary mb-4 leading-tight">
+                Address &amp; map
+              </h2>
+<p class="text-body-md font-body-md text-inverse-on-surface/90 leading-relaxed mb-6 font-light">
+                Rue Huvelin, Achrafieh, Beirut. Ring the bell for <strong class="font-medium text-white">Layla Skin Studio</strong>. Our team is stationed at the quiet limestone foyer to guide your private ascent.
+              </p>
+<!-- Curated Features -->
+<div class="space-y-3 mb-6 lg:mb-8 pt-4 border-t border-primary-fixed-dim/15">
+<div class="flex items-start gap-3 text-body-sm font-body-sm text-inverse-on-surface">
+<span class="material-symbols-outlined text-primary-fixed mt-0.5 text-[18px]">verified</span>
+<span>Valet assistance upon arrival at Rue Huvelin archway</span>
+</div>
+<div class="flex items-start gap-3 text-body-sm font-body-sm text-inverse-on-surface">
+<span class="material-symbols-outlined text-primary-fixed mt-0.5 text-[18px]">nature_people</span>
+<span>Located on quiet Rue Huvelin, historic residential Achrafieh</span>
+</div>
+<div class="flex items-start gap-3 text-body-sm font-body-sm text-inverse-on-surface">
+<span class="material-symbols-outlined text-primary-fixed mt-0.5 text-[18px]">lock</span>
+<span>Discreet private entrance reserved exclusively for scheduled clients</span>
+</div>
+</div>
+<!-- Button actions -->
+<div class="flex flex-wrap items-center gap-3">
+<a class="bg-tertiary text-on-tertiary hover:bg-tertiary-container transition-all duration-200 px-6 py-3 min-h-[44px] rounded-xl text-label-lg font-label-lg tracking-wide flex items-center justify-center gap-2 shadow-sm" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+<span>Get directions</span>
+<span class="material-symbols-outlined text-[16px]">near_me</span>
+</a>
+<button class="border border-outline-variant/40 hover:bg-white/10 text-on-primary transition-all duration-200 px-5 py-3 min-h-[44px] rounded-xl text-label-lg font-label-lg tracking-wide flex items-center justify-center gap-2" onclick="navigator.clipboard.writeText('Rue Huvelin, Achrafieh, Beirut, Lebanon'); alert('Address copied to clipboard');">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copy Address</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 2: OPENING HOURS & STUDIO CADENCE ==================== -->
+<section class="py-10 lg:py-16 bg-surface-container-low/60 relative" id="contact-hours">
+<div class="max-w-[1360px] mx-auto px-5 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Left: Tall Narrow Arched Photograph (Morning Light Plaster) -->
+<div class="lg:col-span-5 order-2 lg:order-1 flex justify-center">
+<div class="relative w-full max-w-md aspect-[4/3] lg:aspect-[3/4] overflow-hidden arch-niche border border-outline-variant/30 mineral-glow bg-surface-container">
+<img loading="lazy" decoding="async" srcset="images/ac89464e51b1-640.jpg 640w, images/ac89464e51b1-1024.jpg 1024w, images/ac89464e51b1.jpg 2880w" sizes="100vw" alt="Morning sunlight streaming onto a pale sage lime-plaster wall with natural eucalyptus and botanical glassware on limestone shelf" class="w-full h-full object-cover object-center" src="images/ac89464e51b1.jpg"/>
+<!-- Ambient floating quote badge -->
+<div class="absolute bottom-3 left-3 right-3 lg:bottom-6 lg:left-6 lg:right-6 bg-surface/90 backdrop-blur-md p-3 lg:p-5 rounded-2xl border border-outline-variant/30 text-center">
+<p class="text-body-sm font-body-sm italic text-secondary">
+                  "Every ritual is spaced with 30 unhurried minutes of air purification and bespoke herbal infusion."
+                </p>
+</div>
+</div>
+</div>
+<!-- Right: Stacked Schedule Card on Pale Sage Surface -->
+<div class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
+<div class="max-w-xl">
+<div class="inline-flex items-center gap-2 text-primary text-label-sm font-label-sm uppercase tracking-[0.2em] mb-3">
+<span class="material-symbols-outlined text-[16px]">cloud_download</span>
+                STUDIO CADENCE
+              </div>
+<h2 class="text-3xl lg:text-headline-lg font-headline-lg text-on-surface mb-3 tracking-tight">
+                Opening hours
+              </h2>
+<p class="text-body-md font-body-md text-on-surface-variant font-light mb-6 lg:mb-8 leading-relaxed">
+                Treatments are strictly by appointment to preserve our quiet private atmosphere. Holiday schedules and private atelier closures are updated live on our message line.
+              </p>
+<!-- Schedule Grid Box -->
+<div class="bg-secondary-container/50 rounded-2xl p-5 lg:p-8 border border-outline-variant/30 space-y-4 mb-6">
+<div class="flex items-center justify-between gap-3 pb-4 border-b border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-body-md font-body-md font-medium text-on-surface">Monday – Friday</span>
+</div>
+<span class="text-label-lg font-label-lg text-primary tracking-wide">09:00 – 19:00</span>
+</div>
+<div class="flex items-center justify-between gap-3 pb-4 border-b border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-body-md font-body-md font-medium text-on-surface">Saturday</span>
+</div>
+<span class="text-label-lg font-label-lg text-primary tracking-wide">10:00 – 16:00</span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-1">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="text-body-md font-body-md font-medium text-secondary">Sunday</span>
+</div>
+<span class="text-label-lg font-label-lg text-secondary tracking-wide italic text-right">Closed for Rest &amp; Preparation</span>
+</div>
+</div>
+<!-- Holiday Notice Callout Banner -->
+<div class="p-4 rounded-xl bg-surface-container-high border-l-4 border-tertiary flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary mt-0.5 text-[20px]">info</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+<strong class="font-medium text-on-surface">Holidays &amp; Seasonal Breaks:</strong> Hours may adjust during Lebanese national holidays. Please check with concierge on WhatsApp before visiting.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 3: PHONE & MESSAGING TILES ==================== -->
+<section class="py-10 lg:py-20 relative" id="contact-phone">
+<div class="max-w-[1360px] mx-auto px-5 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-8 lg:mb-16">
+<div class="inline-flex items-center gap-2 text-primary text-label-sm font-label-sm uppercase tracking-[0.2em] mb-2">
+<span class="material-symbols-outlined text-[16px]">contact_support</span>
+            DIRECT CHANNELS
+          </div>
+<h2 class="text-3xl lg:text-headline-lg font-headline-lg text-on-surface tracking-tight mb-3 lg:mb-4">
+            Phone &amp; messaging
+          </h2>
+<p class="text-body-md font-body-md text-on-surface-variant font-light">
+            Call, write, or message us. We reply promptly within a few hours to assist with appointments, barrier diagnostics, and concierge bookings.
+          </p>
+</div>
+<!-- 3 Rounded Luxury Tiles -->
+<div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-5 px-5 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:mx-0 md:px-0">
+<!-- Tile 1: Call -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 rounded-3xl p-6 lg:p-8 border border-outline-variant/30 flex flex-col justify-between mineral-glow group">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">call</span>
+</div>
+<p class="text-label-sm font-label-sm uppercase tracking-widest text-secondary mb-1">Direct Line</p>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2">Call</h3>
+<p class="text-title font-title text-primary font-semibold mb-3 tracking-wide">+1 555 010 042</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-light">Direct clinic desk Mon–Sat for bespoke bookings and urgent questions.</p>
+</div>
+<div class="mt-6 lg:mt-8 pt-5 lg:pt-6 border-t border-outline-variant/20">
+<a class="inline-flex items-center gap-2 text-label-md font-label-md font-semibold text-primary hover:text-tertiary transition-colors uppercase tracking-wider" href="#" data-inert>
+<span>Dial Studio</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Tile 2: Email -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 rounded-3xl p-6 lg:p-8 border border-outline-variant/30 flex flex-col justify-between mineral-glow group">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">mail</span>
+</div>
+<p class="text-label-sm font-label-sm uppercase tracking-widest text-secondary mb-1">Written Inquiries</p>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2">Email</h3>
+<p class="text-title font-title text-primary font-semibold mb-3 tracking-wide">hello@example.com</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-light">General inquiries, corporate retreat bookings, receipts &amp; ingredient queries.</p>
+</div>
+<div class="mt-6 lg:mt-8 pt-5 lg:pt-6 border-t border-outline-variant/20">
+<a class="inline-flex items-center gap-2 text-label-md font-label-md font-semibold text-primary hover:text-tertiary transition-colors uppercase tracking-wider" href="#" data-inert>
+<span>Write to Concierge</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Tile 3: Message / WhatsApp -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container rounded-3xl p-6 lg:p-8 border border-tertiary/20 flex flex-col justify-between mineral-glow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary/5 rounded-bl-full pointer-events-none"></div>
+<div>
+<div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+</div>
+<p class="text-label-sm font-label-sm uppercase tracking-widest text-tertiary mb-1">Fast Concierge</p>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2">Message</h3>
+<p class="text-body-md font-body-md text-on-surface font-medium mb-3">Chat with us on messaging apps, Mon–Sat</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-light">Instant skin consultation scheduling and live directions support.</p>
+</div>
+<div class="mt-6 lg:mt-8 pt-5 lg:pt-6 border-t border-outline-variant/30">
+<a class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-tertiary text-on-tertiary hover:bg-tertiary-container transition-all text-label-md font-label-md tracking-wider uppercase font-semibold shadow-sm" rel="noopener noreferrer" target="_blank" href="#" data-inert>
+<span>Message us</span>
+<span class="material-symbols-outlined text-[16px]">send</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 4: PARKING & ACCESS ==================== -->
+<section class="py-10 lg:py-16 bg-surface-container-low/50" id="contact-access">
+<div class="max-w-[1360px] mx-auto px-5 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Left: Architectural Photograph of Traditional Limestone Facade & Sage Door -->
+<div class="lg:col-span-6 relative">
+<div class="relative overflow-hidden arch-top bg-surface-container border border-outline-variant/30 mineral-glow aspect-[4/3] lg:aspect-square w-full">
+<img loading="lazy" decoding="async" srcset="images/4c2734239c80-o-640.jpg 640w, images/4c2734239c80-o-1024.jpg 1024w, images/4c2734239c80-o.jpg 1376w" sizes="100vw" alt="Traditional elegant limestone building facade in Achrafieh Beirut with sage green entrance door and bougainvillea blossoms" class="w-full h-full object-cover object-center" src="images/4c2734239c80-o.jpg"/>
+<div class="absolute bottom-3 left-3 lg:bottom-6 lg:left-6 bg-surface/90 backdrop-blur-md px-3 lg:px-4 py-2 lg:py-3 rounded-xl border border-outline-variant/30 flex items-center gap-3 max-w-[90%]">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="text-label-md font-label-md text-on-surface font-medium">Entrance marked with signature sage green door</span>
+</div>
+</div>
+</div>
+<!-- Right: Detailed Access Information -->
+<div class="lg:col-span-6 flex flex-col justify-center">
+<div class="inline-flex items-center gap-2 text-primary text-label-sm font-label-sm uppercase tracking-[0.2em] mb-3">
+<span class="material-symbols-outlined text-[16px]">door_front</span>
+              QUIET ARRIVAL
+            </div>
+<h2 class="text-3xl lg:text-headline-lg font-headline-lg text-on-surface tracking-tight mb-4">
+              Parking &amp; access
+            </h2>
+<p class="text-body-md font-body-md text-on-surface-variant font-light mb-6 lg:mb-8 leading-relaxed">
+              Street parking is available nearby, and there is a paid car park a short walk away. The clinic is on the ground floor with step-free access, and the entrance is marked with a sage door.
+            </p>
+<!-- Three Access Cards -->
+<div class="space-y-3 lg:space-y-4">
+<div class="flex items-start gap-4 p-4 lg:p-5 rounded-2xl bg-surface border border-outline-variant/30">
+<div class="p-3 rounded-xl bg-secondary-container text-primary">
+<span class="material-symbols-outlined text-[20px]">local_parking</span>
+</div>
+<div>
+<h4 class="text-title font-title text-on-surface mb-1">Parking</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-light">
+                    Street parking along Rue Huvelin and a dedicated valet-attended public lot 90 meters down the street.
+                  </p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 lg:p-5 rounded-2xl bg-surface border border-outline-variant/30">
+<div class="p-3 rounded-xl bg-secondary-container text-primary">
+<span class="material-symbols-outlined text-[20px]">accessible</span>
+</div>
+<div>
+<h4 class="text-title font-title text-on-surface mb-1">Step-free</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-light">
+                    Ground floor, step-free entrance with wide limestone passageways accommodating all mobility needs seamlessly.
+                  </p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 lg:p-5 rounded-2xl bg-surface border border-outline-variant/30">
+<div class="p-3 rounded-xl bg-secondary-container text-primary">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+</div>
+<div>
+<h4 class="text-title font-title text-on-surface mb-1">Arriving</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-light">
+                    Ring the bell and we will welcome you with botanical water and warm organic towels before your session begins.
+                  </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 5: CONTACT ENQUIRY FORM & TEA STILL LIFE ==================== -->
+<section class="py-10 lg:py-20 relative" id="contact-enquiry">
+<div class="max-w-[1360px] mx-auto px-5 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Left: Elegant Cream Form Panel -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-3xl p-5 md:p-8 lg:p-12 border border-outline-variant/40 mineral-glow">
+<div class="mb-6 lg:mb-8">
+<div class="inline-flex items-center gap-2 text-primary text-label-sm font-label-sm uppercase tracking-[0.2em] mb-2">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+                GET IN TOUCH
+              </div>
+<h2 class="text-2xl lg:text-headline-md font-headline-md text-on-surface mb-2">
+                Send us a question
+              </h2>
+<p class="text-body-md font-body-md text-on-surface-variant font-light">
+                For questions that are not bookings. For appointments, please use our online booking system.
+              </p>
+</div>
+<!-- Instant Booking Callout Notice Box -->
+<div class="mb-6 lg:mb-8 p-4 rounded-2xl bg-surface-container-high border border-outline-variant/40 flex items-center justify-between gap-4 flex-wrap">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-[22px]">calendar_month</span>
+<p class="text-body-sm font-body-sm text-on-surface">
+<strong>Need an immediate treatment?</strong> Online booking gives real-time calendar access.
+                </p>
+</div>
+<a class="text-label-md font-label-md text-tertiary font-semibold hover:underline inline-flex items-center gap-1 uppercase tracking-wider min-h-[44px]" href="book-appointment.html">
+<span>Book Now</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+<!-- Contact Form -->
+<form class="space-y-5 lg:space-y-6" onsubmit="event.preventDefault(); alert('Thank you. Your message has been received by our Achrafieh studio concierge.');">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+<div>
+<label class="block text-label-md font-label-md uppercase tracking-wider text-secondary mb-2" for="fullName">
+                    Full Name *
+                  </label>
+<input class="w-full bg-surface border border-outline-variant/60 rounded-xl px-4 py-3 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant" id="fullName" placeholder="Maya Khoury" required="" type="text"/>
+</div>
+<div>
+<label class="block text-label-md font-label-md uppercase tracking-wider text-secondary mb-2" for="emailAddress">
+                    Email Address *
+                  </label>
+<input class="w-full bg-surface border border-outline-variant/60 rounded-xl px-4 py-3 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant" id="emailAddress" placeholder="maya@example.com" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-label-md font-label-md uppercase tracking-wider text-secondary mb-2" for="phoneNumber">
+                  Phone Number
+                </label>
+<input class="w-full bg-surface border border-outline-variant/60 rounded-xl px-4 py-3 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant" id="phoneNumber" placeholder="+961 3 000 000" type="tel"/>
+</div>
+<div>
+<label class="block text-label-md font-label-md uppercase tracking-wider text-secondary mb-2" for="message">
+                  Inquiries / Message *
+                </label>
+<textarea class="w-full bg-surface border border-outline-variant/60 rounded-xl px-4 py-3 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant" id="message" placeholder="Share details regarding your skin inquiry, barrier recovery needs, or sanctuary access..." required="" rows="4"></textarea>
+</div>
+<div class="flex items-center justify-between pt-2 flex-wrap gap-4">
+<p class="text-body-sm font-body-sm text-secondary">
+                  Your privacy is sacred. We never share intake data.
+                </p>
+<button class="bg-tertiary text-on-tertiary hover:bg-tertiary-container transition-all duration-200 px-8 py-3.5 min-h-[44px] w-full justify-center sm:w-auto rounded-xl text-label-lg font-label-lg font-medium tracking-wide flex items-center gap-2 shadow-sm" type="submit">
+<span>Send message</span>
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Right: Tall Arched Frame (Handwritten card & Herbal Steaming Tea Still Life) -->
+<div class="lg:col-span-5 flex justify-center">
+<div class="relative w-full max-w-md aspect-[4/3] lg:aspect-[3/4] overflow-hidden arch-niche border border-outline-variant/30 mineral-glow bg-surface-container">
+<img loading="lazy" decoding="async" srcset="images/a0b44c49a5fd-o-640.jpg 640w, images/a0b44c49a5fd-o.jpg 896w" sizes="100vw" alt="Delicate handwritten personalized skincare note with herbal steaming tea in an artisan ceramic cup on a pale Levant limestone table" class="w-full h-full object-cover object-center" src="images/a0b44c49a5fd-o.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/30 via-transparent to-transparent pointer-events-none"></div>
+<!-- Floating note snippet on photo -->
+<div class="absolute bottom-3 left-3 right-3 lg:bottom-6 lg:left-6 lg:right-6 bg-surface/90 backdrop-blur-md p-3 lg:p-4 rounded-xl border border-outline-variant/30 text-center">
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-primary font-semibold">Sanctuary Hospitality</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+                  Complimentary mountain chamomile infusion served upon arrival.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== BOOKING ANCHOR CALLOUT ==================== -->
+<section class="py-10 lg:py-16 bg-primary text-on-primary relative overflow-hidden" id="booking">
+<div class="max-w-[1360px] mx-auto px-5 lg:px-8 text-center relative z-10">
+<span class="text-primary-fixed text-label-sm font-label-sm uppercase tracking-[0.2em] block mb-3">CONCIERGE RESERVATIONS</span>
+<h2 class="text-3xl lg:text-headline-lg font-headline-lg mb-4 text-on-primary">
+          Begin your ritual at Layla Skin Studio
+        </h2>
+<p class="text-base lg:text-body-lg font-body-lg text-inverse-on-surface/90 max-w-xl mx-auto font-light mb-6 lg:mb-8">
+          Personalized facial architecture, lymphatic drainage, and cellular skin health in an unhurried, mineral environment.
+        </p>
+<div class="flex items-center justify-center gap-4 flex-wrap">
+<a class="w-full sm:w-auto text-center bg-tertiary text-on-tertiary hover:bg-tertiary-container px-6 sm:px-8 py-3.5 min-h-[44px] rounded-xl text-label-lg font-label-lg font-semibold tracking-wide shadow-md transition-all" href="book-appointment.html">
+            Reserve Online Consultation
+          </a>
+<a class="w-full sm:w-auto text-center border border-primary-fixed-dim/30 hover:bg-white/10 px-6 sm:px-8 py-3.5 min-h-[44px] rounded-xl text-label-lg font-label-lg tracking-wide transition-all" href="#" data-inert>
+            Call +1 555 010 042
+          </a>
+</div>
+</div>
+<!-- Subtle steam circle in footer banner -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-primary-fixed-dim/10 pointer-events-none"></div>
+</section>
+</main>
+<!-- ==================== FOOTER (SHARED COMPONENT) ==================== -->
+<footer class="bg-surface-container-high dark:bg-inverse-surface border-t border-outline-variant/40 w-full">
+<div class="w-full px-5 py-10 lg:px-8 lg:py-16 max-w-[1360px] mx-auto flex flex-col gap-8 lg:gap-12">
+<!-- Top Grid: Studio Brand, Protocols, and Concierge Details -->
+<div class="grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-5 lg:gap-10">
+<!-- Column 1 & 2: Brand Identity & Location -->
+<div class="col-span-2 lg:col-span-2 space-y-4">
+<span class="text-headline-sm font-headline-sm tracking-[0.12em] text-on-surface dark:text-inverse-on-surface uppercase block">
+            LAYLA SKIN STUDIO
+          </span>
+<p class="text-body-md font-body-md text-on-surface-variant dark:text-secondary-fixed-dim font-light max-w-sm">
+            Sensory esthetic sanctuary in Achrafieh, Beirut. Hand-troweled sage lime plaster, pale limestone slabs, and warm botanical steam dedicated to long-term skin vitality.
+          </p>
+<div class="pt-2 text-body-sm font-body-sm text-secondary space-y-1">
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+<span>Rue Huvelin, Achrafieh, Beirut, Lebanon</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">call</span>
+<span>+1 555 010 042</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">mail</span>
+<span>hello@example.com</span>
+</p>
+</div>
+</div>
+<!-- Column 3: Treatment Protocols -->
+<div class="space-y-3">
+<h4 class="text-title font-title text-on-surface dark:text-inverse-on-surface font-semibold">
+            Protocols
+          </h4>
+<ul class="space-y-2.5">
+<li><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary transition-colors duration-200" href="treatments.html">Facial Architecture</a></li>
+<li><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary transition-colors duration-200" href="treatments.html">Lymphatic Protocols</a></li>
+<li><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary transition-colors duration-200" href="treatments.html">Barrier Restoration</a></li>
+<li><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary transition-colors duration-200" href="treatments.html">Oxygen Micro-Infusion</a></li>
+<li><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary transition-colors duration-200" href="book-appointment.html">Private Consultations</a></li>
+</ul>
+</div>
+<!-- Column 4: Sanctuary & Etiquette -->
+<div class="space-y-3">
+<h4 class="text-title font-title text-on-surface dark:text-inverse-on-surface font-semibold">
+            The Studio
+          </h4>
+<ul class="space-y-2.5">
+<li><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary transition-colors duration-200" href="#" data-inert>Sanctuary Etiquette</a></li>
+<li><a class="text-label-md font-label-md text-primary font-medium hover:text-tertiary transition-colors duration-200" href="#" data-inert>Achrafieh Studio Directions</a></li>
+<li><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary transition-colors duration-200" href="team.html">Practitioner Roster</a></li>
+<li><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary transition-colors duration-200" href="#" data-inert>Botanical Dispensary</a></li>
+<li><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary transition-colors duration-200" href="#" data-inert>Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Column 5: Hours Snapshot -->
+<div class="col-span-2 md:col-span-1 space-y-3">
+<h4 class="text-title font-title text-on-surface dark:text-inverse-on-surface font-semibold">
+            Studio Hours
+          </h4>
+<div class="text-body-sm font-body-sm text-on-surface-variant space-y-1.5 font-light">
+<p><strong class="font-medium text-on-surface">Mon–Fri:</strong> 09:00 – 19:00</p>
+<p><strong class="font-medium text-on-surface">Sat:</strong> 10:00 – 16:00</p>
+<p><strong class="font-medium text-on-surface">Sun:</strong> Closed (Atelier Rest)</p>
+</div>
+<div class="pt-3">
+<span class="inline-block px-3 py-1 rounded-full bg-surface text-secondary text-label-sm font-label-sm border border-outline-variant/40">
+              Achrafieh, Beirut
+            </span>
+</div>
+</div>
+</div>
+<!-- Bottom Bar: Legal & Attribution -->
+<div class="pt-6 lg:pt-8 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim text-center sm:text-left">
+          © 2024 Layla Skin Studio. Achrafieh, Beirut. All rights reserved.
+        </p>
+<div class="flex flex-wrap justify-center items-center gap-3 lg:gap-6 text-label-md font-label-md text-secondary">
+<a class="hover:text-tertiary transition-colors" href="#" data-inert>Instagram</a>
+<span class="text-outline-variant">•</span>
+<a class="hover:text-tertiary transition-colors" href="#" data-inert>WhatsApp</a>
+<span class="text-outline-variant">•</span>
+<a class="hover:text-tertiary transition-colors" href="#" data-inert>Terms of Sanctuary</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

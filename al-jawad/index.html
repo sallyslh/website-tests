@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish>/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a row of three or more buttons (filters, chips) wraps on a phone instead of running off the edge of the screen */
+@media (max-width:767px){div:has(>button+button+button),ul:has(>li>button){flex-wrap:wrap}}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish>(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Jawad — Home</title>
+  <!-- Google Fonts: Tenor Sans, Albert Sans, Noto Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+Arabic:wght@300;400;500&family=Tenor+Sans&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  
+  
+  <style>
+    /* Base Reset & Typography */
+    body {
+      background-color: #F6F2EA;
+      color: #2B2B2A;
+      font-family: 'Albert Sans', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      selection-background-color: #EDE8DE;
+    }
+    
+    ::selection {
+      background: #EDE8DE;
+      color: #1F5C7A;
+    }
+
+    /* Signature Buoy Line Animation */
+    .buoy-line {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      height: 1px;
+      background-color: transparent;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .buoy-line-inner {
+      position: relative;
+      height: 1px;
+      background-color: #1F5C7A;
+      width: 0%;
+      transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .buoy-line-inner::after {
+      content: '';
+      position: absolute;
+      right: -3px;
+      top: -3px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #1F5C7A;
+      box-shadow: 0 0 0 2px #F6F2EA;
+      opacity: 0;
+      transition: opacity 0.4s ease 1s;
+    }
+
+    .reveal-active .buoy-line-inner {
+      width: 100%;
+    }
+
+    .reveal-active .buoy-line-inner::after {
+      opacity: 1;
+    }
+
+    /* Gentle Scroll Reveals */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Slow Drift on Scroll for Photographs */
+    .drift-image {
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: transform;
+    }
+
+    /* Subtle Review Carousel Cross-fade */
+    .review-slide {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .review-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+      position: relative;
+    }
+
+    /* Tiny subtle brushed grain touch */
+    .limewash-glow {
+      background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.45) 0%, rgba(246, 242, 234, 0) 70%);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll, .buoy-line-inner, .drift-image, .review-slide {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body data-responsive class="antialiased min-h-screen selection:bg-brand-secondary selection:text-brand-primary">
+
+  <!-- HEADER (Exact Brand Architecture) -->
+  <header class="sticky top-0 z-50 bg-[#F6F2EA]/90 backdrop-blur-md border-b border-brand-border/60 transition-all duration-300">
+    <div class="max-w-[1440px] mx-auto px-5 md:px-14 py-3 lg:py-5 flex items-center justify-between">
+      <!-- Left: Wordmark & Quiet Arabic Accent -->
+      <a class="group flex items-center gap-3" href="#" data-inert>
+        <span class="font-heading text-2xl tracking-[0.06em] text-brand-text group-hover:text-brand-primary transition-colors duration-200">
+          Al Jawad
+        </span>
+        <span class="font-arabic text-lg text-brand-muted/70 font-light group-hover:text-brand-primary transition-colors duration-200">
+          الجواد
+        </span>
+      </a>
+
+      <!-- Middle: Navigation Links -->
+      <nav class="hidden md:flex items-center gap-10">
+        <a class="text-xs uppercase tracking-[0.2em] font-medium text-brand-primary border-b border-brand-primary pb-1" href="index.html">
+          Home
+        </a>
+        <a class="text-xs uppercase tracking-[0.2em] font-medium text-brand-muted hover:text-brand-primary transition-colors pb-1" href="menu.html">
+          Menu
+        </a>
+        <a class="text-xs uppercase tracking-[0.2em] font-medium text-brand-muted hover:text-brand-primary transition-colors pb-1" href="contact.html">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Right: Main Action Button -->
+      <div class="flex items-center gap-3 lg:gap-5">
+        <a class="inline-flex items-center justify-center px-4 lg:px-6 py-3 lg:py-2.5 min-h-[44px] bg-brand-primary text-white text-[11px] lg:text-xs uppercase tracking-[0.12em] lg:tracking-[0.16em] font-medium rounded-none hover:bg-brand-primary/90 transition-all duration-200 shadow-sm active:scale-[0.98]" href="#" data-inert>
+          Order delivery
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: HOME-HERO -->
+    <section id="home-hero" class="relative min-h-0 lg:min-h-[92vh] flex items-center pt-6 lg:pt-8 pb-10 md:pb-20 lg:pb-28 overflow-hidden limewash-glow">
+      <div class="max-w-[1440px] w-full mx-auto px-5 md:px-14">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
+          
+          <!-- Text Column (Left) -->
+          <div class="lg:col-span-5 reveal-on-scroll flex flex-col justify-center order-2 lg:order-1 pt-4 lg:pt-0">
+            <!-- Small Name and City Stamp -->
+            <div class="flex items-center gap-3 mb-4 lg:mb-6">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
+              <p class="text-[11px] uppercase tracking-[0.26em] text-brand-muted font-medium">Al Jawad · Tyre / Sour</p>
+            </div>
+
+            <!-- Page Headline -->
+            <h1 class="font-heading text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.12] tracking-normal text-brand-text mb-4 lg:mb-6">
+              From Tyre,<br>with love.
+            </h1>
+
+            <!-- Signature Buoy Line -->
+            <div class="w-40 lg:w-48 mb-4 lg:mb-6">
+              <div class="buoy-line">
+                <div class="buoy-line-inner"></div>
+              </div>
+            </div>
+
+            <!-- Concept Text -->
+            <p class="text-brand-muted text-base sm:text-lg font-light leading-relaxed mb-6 lg:mb-10 max-w-md">
+              Lebanese table, dine in and delivery. A tranquil culinary ritual steeped in ancient maritime memory and generous pace.
+            </p>
+
+            <!-- Harbour Blue Action & Links -->
+            <div class="flex flex-wrap items-center gap-6 pt-2">
+              <a class="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-3.5 min-h-[48px] bg-brand-primary text-white text-xs uppercase tracking-[0.2em] font-medium hover:bg-brand-primary/90 transition-all shadow-sm active:scale-[0.98]" href="#" data-inert>
+                <span>Order delivery</span>
+                <span class="text-sm font-normal">→</span>
+              </a>
+              <a class="text-xs uppercase tracking-[0.2em] font-medium text-brand-primary hover:text-brand-text transition-colors flex items-center gap-1.5 py-2" href="menu.html">
+                <span>Explore our menu</span>
+                <span class="text-xs">↗</span>
+              </a>
+            </div>
+
+            <!-- Contextual Provenance Badges -->
+            <div class="grid grid-cols-2 gap-4 lg:gap-6 mt-8 lg:mt-14 pt-6 lg:pt-8 border-t border-brand-border/70 max-w-md">
+              <div>
+                <span class="text-[10px] uppercase tracking-[0.22em] text-brand-muted block mb-1">Cold-Pressed Harvest</span>
+                <p class="font-heading text-sm text-brand-text">Tyre Extra Virgin Olive Oil</p>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase tracking-[0.22em] text-brand-muted block mb-1">Slow Hearth Cadence</span>
+                <p class="font-heading text-sm text-brand-text">Wood &amp; Charcoal Embers</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Image Column (Off-centre to Right) -->
+          <div class="lg:col-span-7 reveal-on-scroll order-1 lg:order-2">
+            <div class="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[16/11] bg-brand-secondary/40 overflow-hidden shadow-[0_12px_40px_rgba(43,43,42,0.04)] border border-brand-border/60">
+              <img fetchpriority="high" decoding="async" srcset="images/07d4d42fb1be-640.jpg 640w, images/07d4d42fb1be-1024.jpg 1024w, images/07d4d42fb1be.jpg 2880w" sizes="100vw" 
+                src="images/07d4d42fb1be.jpg" 
+                alt="A single white ceramic plate of Lebanese mezze with hummus, olives, and warm flatbread on a bare limewashed table in soft window light" 
+                class="w-full h-full object-cover object-center drift-image transform scale-[1.02] hover:scale-100 transition-transform duration-1000 ease-out"
+                id="hero-img"
+              />
+              
+              <!-- Subtle Fine-Art Monograph Plate Label -->
+              <div class="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 bg-[#F6F2EA]/95 backdrop-blur-sm border border-brand-border/80 px-3 py-1.5 sm:px-4 sm:py-2 pointer-events-none">
+                <p class="text-[10px] uppercase tracking-[0.22em] text-brand-muted font-medium">The Morning Pour</p>
+                <p class="font-heading text-xs text-brand-text">Plate 01 · First Harvest Mezze</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: HOME-NAME (Vast White Limewashed Screen, Brushed Arabic Mark) -->
+    <section id="home-name" class="py-12 md:py-40 lg:py-40 bg-[#FBF8F2] border-y border-brand-border/40 relative overflow-hidden">
+      <div class="max-w-4xl mx-auto px-5 md:px-6 text-center reveal-on-scroll">
+        
+        <!-- Large Brushed Arabic Mark 'الجواد' -->
+        <div class="mb-6">
+          <span class="font-arabic text-5xl sm:text-7xl lg:text-8xl text-brand-text/80 font-light tracking-wide select-none">
+            الجواد
+          </span>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl text-brand-text tracking-[0.04em] mb-4">
+          The generous one
+        </h2>
+
+        <!-- Signature Buoy Line Centered -->
+        <div class="w-32 mx-auto mb-6 lg:mb-8">
+          <div class="buoy-line">
+            <div class="buoy-line-inner"></div>
+          </div>
+        </div>
+
+        <!-- Concept Narrative -->
+        <p class="text-brand-text/80 text-base sm:text-xl font-light leading-relaxed max-w-xl mx-auto mb-6 lg:mb-10">
+          Al Jawad means the generous one. We keep the table bare and the welcome wide, and bring you one dish at a time.
+        </p>
+
+        <!-- Poetic Detail Accent -->
+        <div class="inline-flex flex-wrap justify-center items-center gap-x-3 gap-y-2 lg:gap-4 text-[11px] lg:text-xs uppercase tracking-[0.18em] lg:tracking-[0.24em] text-brand-muted">
+          <span>Unrushed Service</span>
+          <span class="w-1 h-1 rounded-full bg-brand-primary"></span>
+          <span>Phoenician Coastline</span>
+          <span class="w-1 h-1 rounded-full bg-brand-primary"></span>
+          <span>Daily Hearth</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: HOME-DISH-HUMMUS (Asymmetric: Photo Low-Left ~60% Width, Text Top-Right) -->
+    <section id="home-dish-hummus" class="py-10 md:py-24 lg:py-36 relative overflow-hidden">
+      <div class="max-w-[1440px] mx-auto px-5 md:px-14">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
+          
+          <!-- Image Column (Low-Left, ~60% Width on Large Screens / Col 7) -->
+          <div class="lg:col-span-7 reveal-on-scroll">
+            <div class="relative w-full aspect-[4/3] bg-brand-secondary/40 overflow-hidden border border-brand-border/60 shadow-[0_12px_40px_rgba(43,43,42,0.03)]">
+              <img loading="lazy" decoding="async" srcset="images/d76dd34b0ef9-o-640.jpg 640w, images/d76dd34b0ef9-o-1024.jpg 1024w, images/d76dd34b0ef9-o.jpg 1200w" sizes="100vw" 
+                src="images/d76dd34b0ef9-o.jpg" 
+                alt="Close view of shallow bowl of smooth hummus with olive oil and hands tearing warm flatbread" 
+                class="w-full h-full object-cover object-center drift-image"
+              />
+            </div>
+            <!-- Tiny caption -->
+            <p class="text-[11px] uppercase tracking-[0.2em] text-brand-muted mt-3 lg:mt-4 font-normal">
+              Silky tahini, fresh lemon, cold-pressed southern olive oil &amp; warm bread.
+            </p>
+          </div>
+
+          <!-- Text Column (Top-Right, Floating with Generous Space / Col 5) -->
+          <div class="lg:col-span-5 reveal-on-scroll lg:pl-8 flex flex-col justify-center">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-[10px] uppercase tracking-[0.26em] text-brand-primary font-semibold">Signature Mezze</span>
+            </div>
+
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.2] text-brand-text mb-3 lg:mb-4">
+              Hummus, olive oil,<br class="hidden sm:block">a little salt
+            </h2>
+
+            <!-- Buoy Line -->
+            <div class="w-36 mb-4 lg:mb-6">
+              <div class="buoy-line">
+                <div class="buoy-line-inner"></div>
+              </div>
+            </div>
+
+            <p class="text-brand-muted text-base sm:text-lg font-light leading-relaxed mb-6 lg:mb-8">
+              Chickpeas ground smooth, tahini, lemon, and a green pour of olive oil. We start every meal here, served lukewarm alongside fresh hearth-baked flatbreads still steaming from the clay oven.
+            </p>
+
+            <div>
+              <a class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] font-medium text-brand-primary hover:text-brand-text transition-colors border-b border-brand-primary pb-1" href="menu.html">
+                <span>See the menu</span>
+                <span class="text-sm font-normal">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: HOME-DISH-GRILL (Mirror: Text Left, Photo Right in Narrow Vertical Frame) -->
+    <section id="home-dish-grill" class="py-10 md:py-24 lg:py-36 bg-[#FBF8F2] border-y border-brand-border/40 relative overflow-hidden">
+      <div class="max-w-[1440px] mx-auto px-5 md:px-14">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
+          
+          <!-- Text Column (Left) -->
+          <div class="lg:col-span-5 lg:col-start-2 reveal-on-scroll flex flex-col justify-center order-2 lg:order-1">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-[10px] uppercase tracking-[0.26em] text-brand-primary font-semibold">Over the Embers</span>
+            </div>
+
+            <h2 class="font-heading text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.2] text-brand-text mb-3 lg:mb-4">
+              Charcoal, then rest
+            </h2>
+
+            <!-- Buoy Line -->
+            <div class="w-36 mb-4 lg:mb-6">
+              <div class="buoy-line">
+                <div class="buoy-line-inner"></div>
+              </div>
+            </div>
+
+            <p class="text-brand-muted text-base sm:text-lg font-light leading-relaxed mb-6 lg:mb-8 max-w-md">
+              Chicken marinated in garlic and lemon, grilled over charcoal and served with toum and pickles. We allow every skewer its proper resting moment so every tender bite holds its smoky maritime zest.
+            </p>
+
+            <div>
+              <a class="inline-flex w-full sm:w-auto items-center justify-center px-7 py-3 min-h-[48px] bg-brand-primary text-white text-xs uppercase tracking-[0.18em] font-medium hover:bg-brand-primary/90 transition-all shadow-sm active:scale-[0.98]" href="menu.html">
+                Taste the grill
+              </a>
+            </div>
+
+            <div class="mt-8 lg:mt-12 pt-6 border-t border-brand-border/80 flex flex-wrap items-center gap-4 lg:gap-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-brand-muted block">Marination</span>
+                <span class="font-heading text-sm text-brand-text">24-Hour Wild Oregano</span>
+              </div>
+              <div class="h-6 w-[1px] bg-brand-border"></div>
+              <div>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-brand-muted block">Wood Fuel</span>
+                <span class="font-heading text-sm text-brand-text">Citrus &amp; Olive Embers</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo Right in Narrow Vertical Frame (Col 5) -->
+          <div class="lg:col-span-5 reveal-on-scroll order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div class="w-full max-w-md">
+              <div class="relative aspect-[4/3] md:aspect-[3/4] bg-brand-secondary/40 overflow-hidden border border-brand-border/60 shadow-[0_12px_40px_rgba(43,43,42,0.03)]">
+                <img loading="lazy" decoding="async" srcset="images/6613e9aa381a-o-640.jpg 640w, images/6613e9aa381a-o.jpg 896w" sizes="100vw" 
+                  src="images/6613e9aa381a-o.jpg" 
+                  alt="A single grilled chicken skewer on a matte grey plate with garlic toum and pickled turnips" 
+                  class="w-full h-full object-cover object-center drift-image"
+                />
+              </div>
+              <!-- Subtle Minimal Caption -->
+              <div class="flex justify-between items-center mt-3 text-[10px] uppercase tracking-[0.2em] text-brand-muted">
+                <span>Shish Tawook · Toum</span>
+                <span>Fresh Pickles</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: HOME-ORDER (Three Quiet Numbered Lines, Single Photo Above/Beside) -->
+    <section id="home-order" class="py-10 md:py-24 lg:py-36 relative overflow-hidden">
+      <div class="max-w-[1440px] mx-auto px-5 md:px-14">
+        
+        <!-- Header of Order Section -->
+        <div class="max-w-2xl reveal-on-scroll mb-8 lg:mb-16">
+          <span class="text-[10px] uppercase tracking-[0.26em] text-brand-primary font-semibold block mb-3">Simple Cadence</span>
+          <h2 class="font-heading text-3xl sm:text-4xl lg:text-[2.75rem] text-brand-text mb-4">
+            How to order
+          </h2>
+          <div class="w-36 mb-4">
+            <div class="buoy-line">
+              <div class="buoy-line-inner"></div>
+            </div>
+          </div>
+          <p class="text-brand-muted text-base sm:text-lg font-light leading-relaxed">
+            Delivery to your door, or a quiet table with us. Both are simple.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
+          
+          <!-- Photo Column: Kraft Paper Bag in Linen Sleeves -->
+          <div class="lg:col-span-6 reveal-on-scroll">
+            <div class="relative aspect-[4/3] bg-brand-secondary/40 overflow-hidden border border-brand-border/60 shadow-[0_12px_40px_rgba(43,43,42,0.03)]">
+              <img loading="lazy" decoding="async" srcset="images/52beefc3f332-o-640.jpg 640w, images/52beefc3f332-o-1024.jpg 1024w, images/52beefc3f332-o.jpg 1376w" sizes="100vw" 
+                src="images/52beefc3f332-o.jpg" 
+                alt="Two hands in linen sleeves gently sealing a kraft paper delivery bag on a pale limewashed table" 
+                class="w-full h-full object-cover object-center drift-image"
+              />
+            </div>
+          </div>
+
+          <!-- Numbered Lines Column: 01, 02, 03 with Hairline Dividers -->
+          <div class="lg:col-span-6 reveal-on-scroll lg:pl-6 flex flex-col justify-center">
+            
+            <div class="space-y-0">
+              <!-- Item 01 -->
+              <div class="py-5 lg:py-8 border-t border-brand-border flex items-start gap-5 lg:gap-8 group">
+                <span class="font-heading text-2xl text-brand-muted/70 group-hover:text-brand-primary transition-colors">01</span>
+                <div>
+                  <h3 class="font-heading text-xl text-brand-text mb-1.5">Choose</h3>
+                  <p class="text-brand-muted text-sm sm:text-base font-light leading-relaxed">
+                    Pick from the menu, one dish or many. Every item is packed in breathable, thermal kraft boxes that retain crust and heat.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 02 -->
+              <div class="py-5 lg:py-8 border-t border-brand-border flex items-start gap-5 lg:gap-8 group">
+                <span class="font-heading text-2xl text-brand-muted/70 group-hover:text-brand-primary transition-colors">02</span>
+                <div>
+                  <h3 class="font-heading text-xl text-brand-text mb-1.5">Order or reserve</h3>
+                  <p class="text-brand-muted text-sm sm:text-base font-light leading-relaxed">
+                    Order online for delivery, or reserve a table by phone. We prepare every plate to the moment of departure.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 03 -->
+              <div class="py-5 lg:py-8 border-t border-b border-brand-border flex items-start gap-5 lg:gap-8 group">
+                <span class="font-heading text-2xl text-brand-muted/70 group-hover:text-brand-primary transition-colors">03</span>
+                <div>
+                  <h3 class="font-heading text-xl text-brand-text mb-1.5">Enjoy</h3>
+                  <p class="text-brand-muted text-sm sm:text-base font-light leading-relaxed">
+                    Hot food in about 40 minutes, or a seat waiting for you beneath the archway overlooking the coast.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Button & Dispatch Note -->
+            <div class="mt-6 lg:mt-10 flex flex-wrap items-center gap-4 lg:gap-6">
+              <a class="inline-flex w-full sm:w-auto items-center justify-center px-8 py-3.5 min-h-[48px] bg-brand-primary text-white text-xs uppercase tracking-[0.18em] font-medium hover:bg-brand-primary/90 transition-all shadow-sm active:scale-[0.98]" href="#" data-inert>
+                Order delivery
+              </a>
+              <span class="text-xs text-brand-muted font-light tracking-wider">Free coastal delivery over $35</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: HOME-VOICES (Single Large Pull-Quote, Slow Cross-Fade Between 4 Reviews) -->
+    <section id="home-voices" class="py-12 md:py-40 lg:py-40 bg-[#FBF8F2] border-y border-brand-border/40 relative overflow-hidden">
+      <div class="max-w-4xl mx-auto px-5 md:px-6 text-center">
+        
+        <!-- Header -->
+        <div class="reveal-on-scroll mb-8 lg:mb-14">
+          <span class="text-[10px] uppercase tracking-[0.26em] text-brand-primary font-semibold block mb-3">Guest Chronicles</span>
+          <h2 class="font-heading text-3xl sm:text-4xl text-brand-text mb-4">
+            Kind words
+          </h2>
+          <div class="w-24 mx-auto mb-4">
+            <div class="buoy-line">
+              <div class="buoy-line-inner"></div>
+            </div>
+          </div>
+          <p class="text-brand-muted text-sm sm:text-base font-light">
+            Said quietly, by people who came back.
+          </p>
+        </div>
+
+        <!-- Carousel Frame -->
+        <div class="relative min-h-[240px] sm:min-h-[180px] flex items-center justify-center">
+          
+          <!-- Review 1 -->
+          <div class="review-slide active" data-index="0">
+            <blockquote class="font-heading text-xl sm:text-3xl lg:text-4xl text-brand-text leading-snug font-normal max-w-2xl mx-auto mb-5 lg:mb-6">
+              “One plate at a time, nothing rushed. The hummus tasted like someone’s home.”
+            </blockquote>
+            <p class="text-xs uppercase tracking-[0.24em] text-brand-primary font-medium">
+              Sarah M. <span class="text-brand-muted/70 font-light ml-2">· Dine-in Guest</span>
+            </p>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-slide" data-index="1">
+            <blockquote class="font-heading text-xl sm:text-3xl lg:text-4xl text-brand-text leading-snug font-normal max-w-2xl mx-auto mb-5 lg:mb-6">
+              “Delivery arrived warm and beautifully packed. The grilled chicken was perfect.”
+            </blockquote>
+            <p class="text-xs uppercase tracking-[0.24em] text-brand-primary font-medium">
+              Karim A. <span class="text-brand-muted/70 font-light ml-2">· Home Delivery</span>
+            </p>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-slide" data-index="2">
+            <blockquote class="font-heading text-xl sm:text-3xl lg:text-4xl text-brand-text leading-snug font-normal max-w-2xl mx-auto mb-5 lg:mb-6">
+              “A calm, generous room. We ordered the mezze to share and stayed for hours.”
+            </blockquote>
+            <p class="text-xs uppercase tracking-[0.24em] text-brand-primary font-medium">
+              Nadine R. <span class="text-brand-muted/70 font-light ml-2">· Private Dining</span>
+            </p>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="review-slide" data-index="3">
+            <blockquote class="font-heading text-xl sm:text-3xl lg:text-4xl text-brand-text leading-snug font-normal max-w-2xl mx-auto mb-5 lg:mb-6">
+              “The lemon, the olive oil, the bread. Simple things done with real care.”
+            </blockquote>
+            <p class="text-xs uppercase tracking-[0.24em] text-brand-primary font-medium">
+              David L. <span class="text-brand-muted/70 font-light ml-2">· Culinary Critic</span>
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Controls: Quiet Dots & Subtle Arrows -->
+        <div class="flex items-center justify-center gap-6 mt-8 lg:mt-12">
+          <button id="prev-review" aria-label="Previous review" class="w-11 h-11 lg:w-8 lg:h-8 rounded-full border border-brand-border flex items-center justify-center text-brand-muted hover:text-brand-primary hover:border-brand-primary transition-colors text-sm">
+            ←
+          </button>
+          <div class="flex items-center gap-2.5" id="review-dots">
+            <button class="w-2 h-2 rounded-full bg-brand-primary transition-all duration-300" aria-label="Review 1"></button>
+            <button class="w-2 h-2 rounded-full bg-brand-border transition-all duration-300" aria-label="Review 2"></button>
+            <button class="w-2 h-2 rounded-full bg-brand-border transition-all duration-300" aria-label="Review 3"></button>
+            <button class="w-2 h-2 rounded-full bg-brand-border transition-all duration-300" aria-label="Review 4"></button>
+          </div>
+          <button id="next-review" aria-label="Next review" class="w-11 h-11 lg:w-8 lg:h-8 rounded-full border border-brand-border flex items-center justify-center text-brand-muted hover:text-brand-primary hover:border-brand-primary transition-colors text-sm">
+            →
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: HOME-RESERVE (Full-Bleed Soft Photograph with Wide Margin, Small Text Block & 2 Buttons) -->
+    <section id="home-reserve" class="py-10 md:py-24 lg:py-36 relative overflow-hidden">
+      <div class="max-w-[1440px] mx-auto px-5 md:px-14">
+        
+        <div class="relative bg-brand-secondary/40 border border-brand-border/60 overflow-hidden shadow-[0_16px_50px_rgba(43,43,42,0.04)]">
+          
+          <!-- Background Image: Empty Set Table by Archway Window -->
+          <div class="w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[21/9] overflow-hidden">
+            <img loading="lazy" decoding="async" srcset="images/5ac68a477ef2-o-640.jpg 640w, images/5ac68a477ef2-o-1024.jpg 1024w, images/5ac68a477ef2-o.jpg 1376w" sizes="100vw" 
+              src="images/5ac68a477ef2-o.jpg" 
+              alt="An empty set table by a sunlit arched window: white plates, folded linen napkins, olive wood bread board, soft morning light" 
+              class="w-full h-full object-cover object-center drift-image transform hover:scale-[1.01] transition-transform duration-1000 ease-out"
+            />
+          </div>
+
+          <!-- Floating Narrative & Reservation Card with Off-White Margin -->
+          <div class="p-5 sm:p-12 lg:p-16 bg-[#F6F2EA] border-t border-brand-border/70">
+            <div class="max-w-2xl reveal-on-scroll">
+              <span class="text-[10px] uppercase tracking-[0.26em] text-brand-primary font-semibold block mb-3">Hospitality</span>
+              <h2 class="font-heading text-3xl sm:text-4xl lg:text-[2.75rem] text-brand-text mb-4">
+                Come and sit with us
+              </h2>
+              
+              <div class="w-36 mb-4 lg:mb-5">
+                <div class="buoy-line">
+                  <div class="buoy-line-inner"></div>
+                </div>
+              </div>
+
+              <p class="text-brand-muted text-base sm:text-lg font-light leading-relaxed mb-6 lg:mb-8">
+                A table is always kept for a guest. Reserve yours, or call us on +1 555 010 042. We welcome you with freshly poured spring water, warmed bread, and the calm rhythm of the ancient Phoenician coast.
+              </p>
+
+              <!-- Two Harbour Blue Action Buttons -->
+              <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 lg:gap-5">
+                <a class="inline-flex items-center justify-center px-8 py-3.5 min-h-[48px] bg-brand-primary text-white text-xs uppercase tracking-[0.18em] font-medium hover:bg-brand-primary/90 transition-all shadow-sm active:scale-[0.98]" href="#" data-inert>
+                  Reserve a table
+                </a>
+                <a class="inline-flex items-center justify-center px-8 py-3.5 min-h-[48px] bg-transparent border border-brand-border text-brand-text hover:border-brand-primary hover:text-brand-primary text-xs uppercase tracking-[0.18em] font-medium transition-all active:scale-[0.98]" href="#" data-inert>
+                  Call +1 555 010 042
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (Identical on Every Page: Wordmark, All Page Links, Contact Details, Socials) -->
+  <footer class="bg-[#FBF8F2] border-t border-brand-border pt-10 lg:pt-20 pb-8 lg:pb-12">
+    <div class="max-w-[1440px] mx-auto px-5 md:px-14">
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-x-5 gap-y-8 lg:gap-16 pb-10 lg:pb-16 border-b border-brand-border/70">
+        
+        <!-- Brand Monograph & Philosophy (Col 5) -->
+        <div class="col-span-2 md:col-span-2 lg:col-span-5">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="font-heading text-2xl tracking-[0.06em] text-brand-text">Al Jawad</span>
+            <span class="font-arabic text-xl text-brand-muted font-light">الجواد</span>
+          </div>
+          <p class="text-brand-muted text-sm font-light leading-relaxed max-w-sm mb-6">
+            Rooted in Tyre’s ancient Phoenician coastline. Honouring cold-pressed harvest oils, stone-hearth flatbreads, and leisurely seaside gatherings.
+          </p>
+          <div class="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-brand-muted">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
+            <span>Sample address, Tyre Port District</span>
+          </div>
+        </div>
+
+        <!-- Navigation Links (Col 2) -->
+        <div class="lg:col-span-2">
+          <p class="text-[11px] uppercase tracking-[0.24em] font-semibold text-brand-text mb-4 lg:mb-6">The House</p>
+          <ul class="space-y-3.5 text-xs tracking-wider font-light text-brand-muted">
+            <li><a class="text-brand-primary font-medium border-b border-brand-primary pb-0.5" href="index.html">Home</a></li>
+            <li><a class="hover:text-brand-primary transition-colors" href="menu.html">Menu</a></li>
+            <li><a class="hover:text-brand-primary transition-colors" href="contact.html">Contact</a></li>
+            <li><a class="hover:text-brand-primary transition-colors" href="#" data-inert>Reservations</a></li>
+            <li><a class="hover:text-brand-primary transition-colors" href="#" data-inert>Private Dining</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Details & Hours (Col 3) -->
+        <div class="col-span-2 md:col-span-1 lg:col-span-3">
+          <p class="text-[11px] uppercase tracking-[0.24em] font-semibold text-brand-text mb-4 lg:mb-6">Visit &amp; Reach</p>
+          <div class="space-y-3 text-xs tracking-wider font-light text-brand-muted leading-relaxed">
+            <p><span class="text-brand-text font-normal">Phone:</span> +1 555 010 042</p>
+            <p><span class="text-brand-text font-normal">Email:</span> hello@example.com</p>
+            <div class="pt-2">
+              <p class="text-brand-text font-normal mb-1">Hours:</p>
+              <p>Mon–Thu: 12:00 – 22:00</p>
+              <p>Fri–Sun: 12:00 – 23:00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Heritage & Connect (Col 2) -->
+        <div class="lg:col-span-2">
+          <p class="text-[11px] uppercase tracking-[0.24em] font-semibold text-brand-text mb-4 lg:mb-6">Quiet Connect</p>
+          <div class="flex flex-col gap-3 text-xs tracking-wider font-light text-brand-muted">
+            <a class="hover:text-brand-primary transition-colors" href="#" data-inert>Instagram</a>
+            <a class="hover:text-brand-primary transition-colors" href="#" data-inert>Journal</a>
+            <a class="hover:text-brand-primary transition-colors" href="#" data-inert>Phoenician Press</a>
+          </div>
+          <div class="mt-8 pt-4 border-t border-brand-border/60">
+            <span class="text-[10px] uppercase tracking-[0.2em] text-brand-muted block">Delivery Cadence</span>
+            <span class="text-xs text-brand-text">12:00 – 21:30 daily</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-6 lg:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-light text-brand-muted tracking-widest uppercase text-center sm:text-left">
+        <p>© 2024 Al Jawad. Mediterranean Heritage &amp; Maritime Cuisine. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <a class="hover:text-brand-primary transition-colors" href="#" data-inert>Privacy Policy</a>
+          <a class="hover:text-brand-primary transition-colors" href="#" data-inert>Terms of Service</a>
+          <a href="#home-hero" class="text-brand-primary hover:text-brand-text transition-colors">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Motion and Interaction Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Intersection Observer for Smooth Reveal Animations and Buoy Line Growth
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -80px 0px',
+        threshold: 0.12
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-active');
+            // Trigger buoy line growth inside this container
+            const buoyInners = entry.target.querySelectorAll('.buoy-line-inner');
+            buoyInners.forEach(el => {
+              el.style.width = '100%';
+            });
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Immediately activate hero reveal
+      setTimeout(() => {
+        document.querySelectorAll('#home-hero .reveal-on-scroll').forEach(el => {
+          el.classList.add('reveal-active');
+          const buoy = el.querySelector('.buoy-line-inner');
+          if (buoy) buoy.style.width = '100%';
+        });
+      }, 100);
+
+      // 2. Subtle Parallax Drift for Photography on Scroll
+      let ticking = false;
+      const driftImages = document.querySelectorAll('.drift-image');
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollY = window.pageYOffset;
+            driftImages.forEach(img => {
+              const rect = img.getBoundingClientRect();
+              const offset = (window.innerHeight - rect.top) * 0.035;
+              if (rect.top < window.innerHeight && rect.bottom > 0) {
+                img.style.transform = `translateY(${Math.min(Math.max(-12, offset - 15), 12)}px)`;
+              }
+            });
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // 3. Review Cross-fade Carousel
+      const slides = document.querySelectorAll('.review-slide');
+      const dots = document.querySelectorAll('#review-dots button');
+      const prevBtn = document.getElementById('prev-review');
+      const nextBtn = document.getElementById('next-review');
+      let currentSlide = 0;
+      let reviewTimer;
+
+      function goToSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.remove('active');
+          dots[i].classList.remove('bg-brand-primary');
+          dots[i].classList.add('bg-brand-border');
+        });
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.remove('bg-brand-border');
+        dots[currentSlide].classList.add('bg-brand-primary');
+      }
+
+      function nextSlide() {
+        goToSlide(currentSlide + 1);
+      }
+
+      function prevSlide() {
+        goToSlide(currentSlide - 1);
+      }
+
+      if (nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', () => {
+          nextSlide();
+          resetTimer();
+        });
+        prevBtn.addEventListener('click', () => {
+          prevSlide();
+          resetTimer();
+        });
+      }
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          resetTimer();
+        });
+      });
+
+      function startTimer() {
+        reviewTimer = setInterval(nextSlide, 7000);
+      }
+
+      function resetTimer() {
+        clearInterval(reviewTimer);
+        startTimer();
+      }
+
+      startTimer();
+    });
+  </script>
+</body>
+</html>

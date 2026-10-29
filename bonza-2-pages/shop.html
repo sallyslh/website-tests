@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>bonza — The Full Collection</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,200..900;1,200..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS & Theme Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#251913",
+            "primary-container": "#2b2623",
+            "on-error-container": "#93000a",
+            "tertiary": "#1c1000",
+            "on-surface": "#1d1b17",
+            "primary-fixed": "#ebe0db",
+            "on-background": "#1d1b17",
+            "on-secondary-fixed-variant": "#53433d",
+            "secondary": "#6c5b54",
+            "on-secondary-container": "#736059",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#ede7df",
+            "secondary-fixed": "#f6ddd4",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#ecbf7c",
+            "on-primary": "#ffffff",
+            "outline-variant": "#d0c4be",
+            "inverse-surface": "#32302b",
+            "tertiary-container": "#372300",
+            "secondary-container": "#f6ddd4",
+            "surface-container": "#f3ede5",
+            "error-container": "#ffdad6",
+            "primary": "#16120f",
+            "outline": "#7f7570",
+            "tertiary-fixed": "#ffddaf",
+            "inverse-on-surface": "#f6f0e8",
+            "surface-bright": "#fff8f0",
+            "surface-variant": "#e7e2da",
+            "on-tertiary-container": "#af874a",
+            "on-tertiary-fixed": "#281800",
+            "on-error": "#ffffff",
+            "surface-tint": "#645d59",
+            "inverse-primary": "#cec5c0",
+            "on-primary-container": "#958c88",
+            "background": "#fff8f0",
+            "on-surface-variant": "#4d4540",
+            "surface-container-highest": "#e7e2da",
+            "on-primary-fixed": "#1f1b18",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#d9c2b9",
+            "primary-fixed-dim": "#cec5c0",
+            "surface": "#fff8f0",
+            "surface-container-low": "#f9f3eb",
+            "error": "#ba1a1a",
+            "surface-dim": "#dfd9d1",
+            "on-tertiary-fixed-variant": "#5f4108",
+            "on-primary-fixed-variant": "#4c4642"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "2rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "2rem",
+            "margin": "3.5rem",
+            "space-xl": "3.5rem"
+          },
+          "fontFamily": {
+            "label-price": ["Epilogue"],
+            "headline-sm": ["Epilogue"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Epilogue"],
+            "headline-lg": ["Epilogue"],
+            "label-uppercase": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Epilogue"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Epilogue"],
+            "headline-md": ["Epilogue"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-price": ["16px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "30px", "letterSpacing": "0.01em", "fontWeight": "300" }],
+            "display-hero": ["56px", { "lineHeight": "68px", "letterSpacing": "0.12em", "fontWeight": "300" }],
+            "headline-lg": ["40px", { "lineHeight": "50px", "letterSpacing": "0.08em", "fontWeight": "300" }],
+            "label-uppercase": ["11px", { "lineHeight": "16px", "letterSpacing": "0.22em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "0.06em", "fontWeight": "300" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "0.08em", "fontWeight": "300" }],
+            "headline-md": ["26px", { "lineHeight": "34px", "letterSpacing": "0.06em", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+    }
+    /* Scent Ring & Hairline Drop Geometry */
+    .scent-ring-frame {
+      box-shadow: 0 0 0 1px #B38B4D;
+    }
+    .scent-ring-subtle {
+      border: 1px solid rgba(179, 139, 77, 0.45);
+    }
+    .gold-pendulum::after {
+      content: "";
+      display: block;
+      width: 4px;
+      height: 4px;
+      background-color: #B38B4D;
+      border-radius: 9999px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-background text-primary antialiased selection:bg-secondary-fixed selection:text-primary min-h-screen relative overflow-x-hidden">
+<!-- Top Navigation (Shared Component Execution) -->
+<header class="w-full bg-surface border-b border-tertiary-fixed-dim/40 sticky top-0 z-40 transition-all duration-300">
+<div class="w-full px-space-lg md:px-margin max-w-full flex items-center justify-between h-20">
+<!-- Brand Logo Wordmark -->
+<a class="font-headline-md text-headline-md tracking-[0.2em] uppercase text-primary transition-colors duration-200" href="#">
+        bonza
+      </a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-10">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-uppercase text-label-uppercase" href="index.html">
+          Home
+        </a>
+<a class="text-primary border-b border-tertiary-fixed-dim pb-1 font-label-uppercase text-label-uppercase" href="shop.html">
+          Shop
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-uppercase text-label-uppercase" href="#">
+          Olfactory Archive
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-uppercase text-label-uppercase" href="#">
+          About
+        </a>
+</nav>
+<!-- Trailing Primary Action & Icons -->
+<div class="flex items-center space-x-6">
+<button class="text-primary hover:text-on-tertiary-container transition-colors duration-200 p-1 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="relative text-primary hover:text-on-tertiary-container transition-colors duration-200 p-1 flex items-center justify-center" onclick="toggleCartDrawer()">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-primary text-surface text-[9px] font-medium flex items-center justify-center" id="nav-cart-badge">
+            0
+          </span>
+</button>
+<a class="hidden lg:inline-flex items-center justify-center bg-primary text-background px-6 py-2.5 font-label-uppercase text-label-uppercase transition-colors duration-200 hover:bg-[#B38B4D]" href="#shop-grid">
+          Explore Collection
+        </a>
+</div>
+</div>
+</header>
+<!-- Slide-in Luxury Basket Panel -->
+<aside class="fixed inset-y-0 right-0 z-50 w-full sm:w-[420px] bg-surface-container-low border-l border-tertiary-fixed-dim/40 shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8" id="cart-drawer">
+<div>
+<div class="flex items-center justify-between border-b border-tertiary-fixed-dim/30 pb-4 mb-6">
+<div>
+<span class="font-label-uppercase text-label-uppercase text-secondary tracking-[0.2em]">Sanctuary</span>
+<h3 class="font-headline-sm text-headline-sm text-primary" id="drawer-title">Your Olfactory Bag (0 items)</h3>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary" onclick="toggleCartDrawer()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="space-y-6 overflow-y-auto max-h-[60vh] pr-2" id="cart-items">
+<div class="py-16 text-center" id="empty-cart-state">
+<div class="w-12 h-12 rounded-full border border-tertiary-fixed-dim/50 flex items-center justify-center mx-auto mb-4 text-tertiary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="spa">spa</span>
+</div>
+<p class="font-body-md text-body-md text-secondary">Your collection canvas is currently empty.</p>
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container mt-2 block tracking-widest">Select an artifact to begin</span>
+</div>
+</div>
+</div>
+<div class="border-t border-tertiary-fixed-dim/40 pt-6">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-uppercase text-label-uppercase text-secondary">Subtotal</span>
+<span class="font-label-price text-label-price text-primary font-medium" id="cart-subtotal">$0.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Complimentary archival shipping & sample vials included.</p>
+<button class="w-full bg-primary text-background py-3.5 font-label-uppercase text-label-uppercase tracking-[0.2em] transition-colors duration-200 hover:bg-[#B38B4D]">
+        Proceed to Checkout
+      </button>
+</div>
+</aside>
+<div class="fixed inset-0 bg-[#2B2623]/40 backdrop-blur-sm z-40 hidden transition-opacity" id="cart-backdrop" onclick="toggleCartDrawer()"></div>
+<main>
+<!-- SECTION 1: shop-hero -->
+<section class="w-full px-space-lg md:px-margin pt-12 md:pt-20 pb-16 max-w-7xl mx-auto" id="shop-hero">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Left: Editorial Presentation Text -->
+<div class="lg:col-span-6 flex flex-col justify-center space-y-6">
+<div class="flex items-center space-x-3">
+<span class="w-8 h-[1px] bg-[#B38B4D]"></span>
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container tracking-[0.25em]">GALLERY CATALOGUE 2025</span>
+</div>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary tracking-[0.06em]">
+            The full collection
+          </h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-lg leading-relaxed">
+            Every fragrance we carry, from soft florals to deep ambers. Filter by brand, scent family or size.
+          </p>
+<div class="pt-4 flex items-center space-x-6">
+<a class="inline-flex items-center space-x-2 text-primary group" href="#shop-filters">
+<span class="font-label-uppercase text-label-uppercase tracking-[0.2em] border-b border-[#B38B4D] pb-1 group-hover:text-on-tertiary-container transition-colors">Curate by Note</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-y-0.5" data-icon="arrow_downward">arrow_downward</span>
+</a>
+<div class="h-4 w-[1px] bg-tertiary-fixed-dim/50"></div>
+<span class="font-label-uppercase text-label-uppercase text-secondary">6 Artifacts In Vault</span>
+</div>
+</div>
+<!-- Right: Single Bottle Highlight in Scent Ring -->
+<div class="lg:col-span-6 flex justify-center lg:justify-end relative">
+<div class="relative w-full max-w-md aspect-square flex items-center justify-center p-6">
+<!-- Calibrated Gold Scent Ring (Brand Anchor) -->
+<div class="absolute inset-4 rounded-full border border-[#B38B4D]/50 pointer-events-none transition-transform duration-700 hover:scale-105"></div>
+<div class="absolute -inset-1 rounded-full border border-[#B38B4D]/20 pointer-events-none scale-90"></div>
+<div class="relative w-full h-full bg-secondary-container/40 p-4 overflow-hidden flex items-center justify-center">
+<img class="object-cover w-full h-full transform hover:scale-105 transition-transform duration-500 ease-out" data-alt="A luxurious octagonal glass perfume bottle filled with translucent blush-pink liquid catching bright sunlight, placed on a pristine warm cream stone plinth with soft rose petals nearby. Minimalist gallery aesthetic with gentle golden lighting and warm neutral shadows." src="images/17a1d283289c-o.jpg"/>
+</div>
+<!-- Focal Plinth Label -->
+<div class="absolute -bottom-4 right-8 bg-surface border border-[#B38B4D]/40 px-4 py-2 flex items-center space-x-3">
+<span class="w-2 h-2 rounded-full bg-[#B38B4D]"></span>
+<span class="font-label-uppercase text-label-uppercase text-primary">Exhibit № 01 — Velvet Hour</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Divider: Pendulum Gold Hairline Drop -->
+<div class="w-full flex justify-center py-6">
+<div class="w-[1px] h-16 bg-[#B38B4D]/60 gold-pendulum"></div>
+</div>
+<!-- SECTION 2: shop-filters -->
+<section class="w-full bg-surface-container-low border-y border-tertiary-fixed-dim/30 py-8 sticky top-20 z-30 transition-all backdrop-blur-md" id="shop-filters">
+<div class="w-full px-space-lg md:px-margin max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-6 pb-4 border-b border-tertiary-fixed-dim/20">
+<div>
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container tracking-[0.2em]">CURATED SELECTION</span>
+<h2 class="font-headline-md text-headline-md text-primary mt-1">Find your match</h2>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">Choose a brand, scent family and size. Sizes: 30 ml, 50 ml, 100 ml.</p>
+</div>
+<div class="mt-4 md:mt-0 flex items-center space-x-6">
+<button class="font-label-uppercase text-label-uppercase text-secondary hover:text-primary transition-colors border-b border-secondary/40 pb-0.5" onclick="resetFilters()">
+              Clear filters
+            </button>
+<div class="flex items-center space-x-2 text-on-surface-variant text-body-sm font-body-sm bg-surface px-3 py-1 border border-tertiary-fixed-dim/40">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B38B4D]"></span>
+<span id="filter-status-text">Displaying 6 Fragrances</span>
+</div>
+</div>
+</div>
+<!-- Filter Chips Matrix -->
+<div class="space-y-4">
+<!-- Brands -->
+<div class="flex items-center flex-wrap gap-2 text-label-uppercase font-label-uppercase">
+<span class="text-secondary w-20 text-[10px] tracking-[0.2em]">BRAND:</span>
+<button class="filter-chip active-filter px-4 py-1.5 border border-[#B38B4D] bg-primary text-surface transition-all" onclick="setFilter('brand', 'all', this)">All Brands</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('brand', 'maison-verrel', this)">Maison Verrel</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('brand', 'atelier-nox', this)">Atelier Nox</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('brand', 'oro-lune', this)">Oro & Lune</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('brand', 'haven-botanica', this)">Haven Botanica</button>
+</div>
+<!-- Families -->
+<div class="flex items-center flex-wrap gap-2 text-label-uppercase font-label-uppercase">
+<span class="text-secondary w-20 text-[10px] tracking-[0.2em]">FAMILY:</span>
+<button class="filter-chip active-family px-4 py-1.5 border border-[#B38B4D] bg-primary text-surface transition-all" onclick="setFilter('family', 'all', this)">All Families</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('family', 'floral', this)">Floral</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('family', 'woody', this)">Woody</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('family', 'fresh', this)">Fresh</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('family', 'oriental', this)">Oriental</button>
+</div>
+<!-- Sizes -->
+<div class="flex items-center flex-wrap gap-2 text-label-uppercase font-label-uppercase">
+<span class="text-secondary w-20 text-[10px] tracking-[0.2em]">SIZE:</span>
+<button class="filter-chip active-size px-4 py-1.5 border border-[#B38B4D] bg-primary text-surface transition-all" onclick="setFilter('size', 'all', this)">All Sizes</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('size', '30', this)">30 ml</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('size', '50', this)">50 ml</button>
+<button class="filter-chip px-4 py-1.5 border border-[#B38B4D]/40 hover:border-[#B38B4D] text-primary transition-all" onclick="setFilter('size', '100', this)">100 ml</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Divider: Pendulum Gold Hairline Drop -->
+<div class="w-full flex justify-center py-8">
+<div class="w-[1px] h-16 bg-[#B38B4D]/60 gold-pendulum"></div>
+</div>
+<!-- SECTION 3: shop-grid -->
+<section class="w-full px-space-lg md:px-margin max-w-7xl mx-auto pb-20" id="shop-grid">
+<div class="text-center max-w-xl mx-auto mb-14">
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container tracking-[0.25em]">ARCHIVAL GALLERY</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-[0.05em] mt-2">Shop the range</h2>
+<p class="font-body-md text-body-md text-secondary mt-2">Tap a bottle to see its notes, then add it to your basket.</p>
+</div>
+<!-- Gallery Grid of 6 Artifact Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+<!-- Product 1: Velvet Hour -->
+<article class="product-item group relative bg-surface-container-low border border-tertiary-fixed-dim/30 p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#B38B4D]" data-brand="maison-verrel" data-family="floral" data-size="50">
+<div class="relative w-full aspect-square bg-[#F8F2EA] flex items-center justify-center p-6 overflow-hidden">
+<!-- Calibrated Centering Gold Ring -->
+<div class="absolute w-44 h-44 rounded-full border border-[#B38B4D]/40 transition-transform duration-500 group-hover:scale-110"></div>
+<img class="relative z-10 w-4/5 h-4/5 object-contain transition-transform duration-500 group-hover:scale-105" data-alt="A delicate and refined glass perfume bottle filled with soft rose-tinted fragrance, seated on raw stone against an ethereal bright cream wall with morning daylight. High-end editorial photography with sharp clarity." src="images/da596d4da71c-o.jpg"/>
+<div class="absolute top-3 left-3 bg-surface/90 px-2.5 py-1 border border-tertiary-fixed-dim/30">
+<span class="font-label-uppercase text-label-uppercase text-secondary text-[10px]">Maison Verrel</span>
+</div>
+</div>
+<div class="mt-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-on-tertiary-container transition-colors">
+                  Velvet Hour, 50 ml
+                </h3>
+<!-- Price inside Gold Ring Framing -->
+<div class="w-11 h-11 rounded-full border border-[#B38B4D] flex items-center justify-center font-label-price text-label-price text-primary">
+                  $128
+                </div>
+</div>
+<!-- Olfactory Note Chip -->
+<div class="mt-4 p-3 bg-surface border border-secondary-fixed text-primary font-body-sm text-body-sm">
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container block mb-1">NOTES</span>
+                Floral · Rose, pink pepper, soft musk
+              </div>
+</div>
+<button class="mt-6 w-full py-3 bg-primary text-surface font-label-uppercase text-label-uppercase tracking-[0.18em] transition-colors duration-200 hover:bg-[#B38B4D] flex items-center justify-center space-x-2" onclick="addToCart('Velvet Hour, 50 ml', 128)">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Add to basket</span>
+</button>
+</div>
+</article>
+<!-- Product 2: Cedar & Salt -->
+<article class="product-item group relative bg-surface-container-low border border-tertiary-fixed-dim/30 p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#B38B4D]" data-brand="atelier-nox" data-family="woody" data-size="100">
+<div class="relative w-full aspect-square bg-[#F8F2EA] flex items-center justify-center p-6 overflow-hidden">
+<div class="absolute w-44 h-44 rounded-full border border-[#B38B4D]/40 transition-transform duration-500 group-hover:scale-110"></div>
+<img class="relative z-10 w-4/5 h-4/5 object-contain transition-transform duration-500 group-hover:scale-105" src="images/8779c3b40c54-o.jpg"/>
+<div class="absolute top-3 left-3 bg-surface/90 px-2.5 py-1 border border-tertiary-fixed-dim/30">
+<span class="font-label-uppercase text-label-uppercase text-secondary text-[10px]">Atelier Nox</span>
+</div>
+</div>
+<div class="mt-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-on-tertiary-container transition-colors">
+                  Cedar & Salt, 100 ml
+                </h3>
+<div class="w-11 h-11 rounded-full border border-[#B38B4D] flex items-center justify-center font-label-price text-label-price text-primary">
+                  $112
+                </div>
+</div>
+<div class="mt-4 p-3 bg-surface border border-secondary-fixed text-primary font-body-sm text-body-sm">
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container block mb-1">NOTES</span>
+                Woody · Sea salt, cedar, driftwood
+              </div>
+</div>
+<button class="mt-6 w-full py-3 bg-primary text-surface font-label-uppercase text-label-uppercase tracking-[0.18em] transition-colors duration-200 hover:bg-[#B38B4D] flex items-center justify-center space-x-2" onclick="addToCart('Cedar & Salt, 100 ml', 112)">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Add to basket</span>
+</button>
+</div>
+</article>
+<!-- Product 3: Oro Noir -->
+<article class="product-item group relative bg-surface-container-low border border-tertiary-fixed-dim/30 p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#B38B4D]" data-brand="oro-lune" data-family="oriental" data-size="50">
+<div class="relative w-full aspect-square bg-[#F8F2EA] flex items-center justify-center p-6 overflow-hidden">
+<div class="absolute w-44 h-44 rounded-full border border-[#B38B4D]/40 transition-transform duration-500 group-hover:scale-110"></div>
+<img class="relative z-10 w-4/5 h-4/5 object-contain transition-transform duration-500 group-hover:scale-105" src="images/68ef26f4551d-o.jpg"/>
+<div class="absolute top-3 left-3 bg-surface/90 px-2.5 py-1 border border-tertiary-fixed-dim/30">
+<span class="font-label-uppercase text-label-uppercase text-secondary text-[10px]">Oro & Lune</span>
+</div>
+</div>
+<div class="mt-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-on-tertiary-container transition-colors">
+                  Oro Noir, 50 ml
+                </h3>
+<div class="w-11 h-11 rounded-full border border-[#B38B4D] flex items-center justify-center font-label-price text-label-price text-primary">
+                  $165
+                </div>
+</div>
+<div class="mt-4 p-3 bg-surface border border-secondary-fixed text-primary font-body-sm text-body-sm">
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container block mb-1">NOTES</span>
+                Oriental · Oud, saffron, vanilla
+              </div>
+</div>
+<button class="mt-6 w-full py-3 bg-primary text-surface font-label-uppercase text-label-uppercase tracking-[0.18em] transition-colors duration-200 hover:bg-[#B38B4D] flex items-center justify-center space-x-2" onclick="addToCart('Oro Noir, 50 ml', 165)">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Add to basket</span>
+</button>
+</div>
+</article>
+<!-- Product 4: Green Morning -->
+<article class="product-item group relative bg-surface-container-low border border-tertiary-fixed-dim/30 p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#B38B4D]" data-brand="haven-botanica" data-family="fresh" data-size="100">
+<div class="relative w-full aspect-square bg-[#F8F2EA] flex items-center justify-center p-6 overflow-hidden">
+<div class="absolute w-44 h-44 rounded-full border border-[#B38B4D]/40 transition-transform duration-500 group-hover:scale-110"></div>
+<img class="relative z-10 w-4/5 h-4/5 object-contain transition-transform duration-500 group-hover:scale-105" src="images/fc109fd454a8-o.jpg"/>
+<div class="absolute top-3 left-3 bg-surface/90 px-2.5 py-1 border border-tertiary-fixed-dim/30">
+<span class="font-label-uppercase text-label-uppercase text-secondary text-[10px]">Haven Botanica</span>
+</div>
+</div>
+<div class="mt-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-on-tertiary-container transition-colors">
+                  Green Morning, 100 ml
+                </h3>
+<div class="w-11 h-11 rounded-full border border-[#B38B4D] flex items-center justify-center font-label-price text-label-price text-primary">
+                  $98
+                </div>
+</div>
+<div class="mt-4 p-3 bg-surface border border-secondary-fixed text-primary font-body-sm text-body-sm">
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container block mb-1">NOTES</span>
+                Fresh · Fig leaf, bergamot, white tea
+              </div>
+</div>
+<button class="mt-6 w-full py-3 bg-primary text-surface font-label-uppercase text-label-uppercase tracking-[0.18em] transition-colors duration-200 hover:bg-[#B38B4D] flex items-center justify-center space-x-2" onclick="addToCart('Green Morning, 100 ml', 98)">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Add to basket</span>
+</button>
+</div>
+</article>
+<!-- Product 5: Moonpetal -->
+<article class="product-item group relative bg-surface-container-low border border-tertiary-fixed-dim/30 p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#B38B4D]" data-brand="maison-verrel" data-family="floral" data-size="30">
+<div class="relative w-full aspect-square bg-[#F8F2EA] flex items-center justify-center p-6 overflow-hidden">
+<div class="absolute w-44 h-44 rounded-full border border-[#B38B4D]/40 transition-transform duration-500 group-hover:scale-110"></div>
+<img class="relative z-10 w-4/5 h-4/5 object-contain transition-transform duration-500 group-hover:scale-105" src="images/0103649cb009-o.jpg"/>
+<div class="absolute top-3 left-3 bg-surface/90 px-2.5 py-1 border border-tertiary-fixed-dim/30">
+<span class="font-label-uppercase text-label-uppercase text-secondary text-[10px]">Maison Verrel</span>
+</div>
+</div>
+<div class="mt-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-on-tertiary-container transition-colors">
+                  Moonpetal, 30 ml
+                </h3>
+<div class="w-11 h-11 rounded-full border border-[#B38B4D] flex items-center justify-center font-label-price text-label-price text-primary">
+                  $74
+                </div>
+</div>
+<div class="mt-4 p-3 bg-surface border border-secondary-fixed text-primary font-body-sm text-body-sm">
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container block mb-1">NOTES</span>
+                Floral · Jasmine, pear blossom, sandalwood
+              </div>
+</div>
+<button class="mt-6 w-full py-3 bg-primary text-surface font-label-uppercase text-label-uppercase tracking-[0.18em] transition-colors duration-200 hover:bg-[#B38B4D] flex items-center justify-center space-x-2" onclick="addToCart('Moonpetal, 30 ml', 74)">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Add to basket</span>
+</button>
+</div>
+</article>
+<!-- Product 6: Quiet Cedar -->
+<article class="product-item group relative bg-surface-container-low border border-tertiary-fixed-dim/30 p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#B38B4D]" data-brand="atelier-nox" data-family="woody" data-size="50">
+<div class="relative w-full aspect-square bg-[#F8F2EA] flex items-center justify-center p-6 overflow-hidden">
+<div class="absolute w-44 h-44 rounded-full border border-[#B38B4D]/40 transition-transform duration-500 group-hover:scale-110"></div>
+<img class="relative z-10 w-4/5 h-4/5 object-contain transition-transform duration-500 group-hover:scale-105" src="images/dfd161e8a744-o.jpg"/>
+<div class="absolute top-3 left-3 bg-surface/90 px-2.5 py-1 border border-tertiary-fixed-dim/30">
+<span class="font-label-uppercase text-label-uppercase text-secondary text-[10px]">Atelier Nox</span>
+</div>
+</div>
+<div class="mt-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-on-tertiary-container transition-colors">
+                  Quiet Cedar, 50 ml
+                </h3>
+<div class="w-11 h-11 rounded-full border border-[#B38B4D] flex items-center justify-center font-label-price text-label-price text-primary">
+                  $119
+                </div>
+</div>
+<div class="mt-4 p-3 bg-surface border border-secondary-fixed text-primary font-body-sm text-body-sm">
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container block mb-1">NOTES</span>
+                Woody · Cedar, vetiver, cardamom
+              </div>
+</div>
+<button class="mt-6 w-full py-3 bg-primary text-surface font-label-uppercase text-label-uppercase tracking-[0.18em] transition-colors duration-200 hover:bg-[#B38B4D] flex items-center justify-center space-x-2" onclick="addToCart('Quiet Cedar, 50 ml', 119)">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Add to basket</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Signature Divider: Pendulum Gold Hairline Drop -->
+<div class="w-full flex justify-center py-6">
+<div class="w-[1px] h-16 bg-[#B38B4D]/60 gold-pendulum"></div>
+</div>
+<!-- SECTION 4: shop-scentfamily (Discovery Box Feature) -->
+<section class="w-full px-space-lg md:px-margin max-w-7xl mx-auto py-12" id="shop-scentfamily">
+<div class="relative w-full rounded-none overflow-hidden border border-[#B38B4D]/40">
+<!-- Full-Bleed Discovery Box Image -->
+<div class="w-full h-[520px] relative">
+<img class="w-full h-full object-cover object-center" data-alt="An exquisite open luxury perfume discovery box with five miniature glass sample spray bottles resting in pale pink fabric lining on a light natural linen table with soft warm morning sunlight. High key minimalist fragrance editorial photography." src="images/32360a0dd469-o.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/50 via-transparent to-transparent"></div>
+</div>
+<!-- Overlapping Warm Cream Curated Card -->
+<div class="relative md:absolute md:bottom-8 md:left-8 bg-surface-container-low border border-[#B38B4D] p-8 md:p-10 max-w-lg shadow-xl m-4 md:m-0">
+<div class="flex items-center space-x-2 mb-3">
+<span class="w-2 h-2 rounded-full bg-[#B38B4D]"></span>
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container tracking-[0.2em]">INTRODUCTORY VAULT</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">
+            Not sure where to start?
+          </h2>
+<p class="font-body-md text-body-md text-secondary mt-3 leading-relaxed">
+            Try our Discovery Set. Five best-sellers in 2 ml sprays, with the price credited toward your first full bottle.
+          </p>
+<div class="mt-6 pt-6 border-t border-tertiary-fixed-dim/40 flex items-center justify-between">
+<div>
+<span class="font-label-uppercase text-label-uppercase text-primary block">Discovery Set</span>
+<span class="font-body-sm text-body-sm text-secondary">Five 2 ml sprays</span>
+</div>
+<!-- Price with Delicate Gold Ring -->
+<div class="w-12 h-12 rounded-full border border-[#B38B4D] flex items-center justify-center font-label-price text-label-price text-primary">
+              $42
+            </div>
+</div>
+<button class="mt-6 w-full py-3.5 bg-primary text-surface font-label-uppercase text-label-uppercase tracking-[0.2em] transition-colors duration-200 hover:bg-[#B38B4D]" onclick="addToCart('Discovery Set — Five 2 ml sprays', 42)">
+            Add to basket
+          </button>
+</div>
+</div>
+</section>
+<!-- Signature Divider: Pendulum Gold Hairline Drop -->
+<div class="w-full flex justify-center py-6">
+<div class="w-[1px] h-16 bg-[#B38B4D]/60 gold-pendulum"></div>
+</div>
+<!-- SECTION 5: shop-help -->
+<section class="w-full bg-[#EBD3CA]/30 border-y border-tertiary-fixed-dim/30 py-16" id="shop-help">
+<div class="w-full px-space-lg md:px-margin max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Editorial Text & 3 Promises -->
+<div class="lg:col-span-7 space-y-8">
+<div>
+<span class="font-label-uppercase text-label-uppercase text-on-tertiary-container tracking-[0.25em]">OUR COMMITMENT</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mt-2">
+                Free samples with every order
+              </h2>
+<p class="font-body-lg text-body-lg text-secondary mt-3 max-w-lg">
+                Choose two samples at checkout. Free shipping over $90, gift wrapping on request.
+              </p>
+</div>
+<!-- Three Promises with Gold Ring Icons -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+<!-- Promise 1 -->
+<div class="space-y-3">
+<div class="w-10 h-10 rounded-full border border-[#B38B4D] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="science">science</span>
+</div>
+<h4 class="font-label-uppercase text-label-uppercase text-primary">Free samples</h4>
+<p class="font-body-sm text-body-sm text-secondary">Two with every order</p>
+</div>
+<!-- Promise 2 -->
+<div class="space-y-3">
+<div class="w-10 h-10 rounded-full border border-[#B38B4D] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="local_shipping">local_shipping</span>
+</div>
+<h4 class="font-label-uppercase text-label-uppercase text-primary">Free shipping</h4>
+<p class="font-body-sm text-body-sm text-secondary">On orders over $90</p>
+</div>
+<!-- Promise 3 -->
+<div class="space-y-3">
+<div class="w-10 h-10 rounded-full border border-[#B38B4D] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="featured_seasonal_and_gifts">featured_seasonal_and_gifts</span>
+</div>
+<h4 class="font-label-uppercase text-label-uppercase text-primary">Gift wrapping</h4>
+<p class="font-body-sm text-body-sm text-secondary">Hand-tied ribbons</p>
+</div>
+</div>
+</div>
+<!-- Editorial Photography Flat Lay -->
+<div class="lg:col-span-5 relative">
+<div class="relative p-3 bg-surface border border-[#B38B4D]/40">
+<div class="relative overflow-hidden aspect-[4/3]">
+<img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="images/1f508709f8ff-o.jpg"/>
+</div>
+<div class="mt-3 flex justify-between items-center text-body-sm text-secondary px-1">
+<span class="font-label-uppercase text-label-uppercase text-[10px]">Vial Provenance Archive</span>
+<span class="font-label-uppercase text-label-uppercase text-[10px]">Curated complimentary</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER (Shared Component Exact Implementation) -->
+<footer class="w-full bg-surface-container-low border-t border-tertiary-fixed-dim/40 py-space-xl px-space-lg md:px-margin flex flex-col justify-between">
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16">
+<!-- Brand & Mission Column -->
+<div class="lg:col-span-4 space-y-4">
+<h2 class="font-headline-lg text-headline-lg tracking-[0.25em] uppercase text-primary">
+          bonza
+        </h2>
+<p class="font-body-sm text-body-sm text-secondary max-w-sm leading-relaxed">
+          An austere digital sanctuary curating artisanal fragrances. Each formulation treated as an architectural artifact under focused ambient gallery lighting.
+        </p>
+<div class="pt-2 text-body-sm font-body-sm text-on-surface-variant space-y-1">
+<p>Hours: Mon–Sat 10:00–19:00, Sun 11:00–17:00</p>
+<p>Location: Sample address</p>
+<p>Inquiries: hello@example.com · +1 555 010 042</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="lg:col-span-3 space-y-3">
+<span class="font-label-uppercase text-label-uppercase text-primary block mb-4 tracking-[0.2em]">COLLECTION ARCHIVE</span>
+<ul class="space-y-2.5">
+<li>
+<a class="text-on-surface-variant hover:text-primary font-label-uppercase text-label-uppercase transition-colors" href="#">
+              Olfactory Archive
+            </a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-primary font-label-uppercase text-label-uppercase transition-colors" href="#">
+              Private Consultation
+            </a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-primary font-label-uppercase text-label-uppercase transition-colors" href="#">
+              Shipping & Provenance
+            </a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-primary font-label-uppercase text-label-uppercase transition-colors" href="#">
+              Terms of Inquiry
+            </a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-primary font-label-uppercase text-label-uppercase transition-colors" href="#">
+              Privacy Policy
+            </a>
+</li>
+</ul>
+</div>
+<!-- Newsletter Section -->
+<div class="lg:col-span-5 space-y-4">
+<span class="font-label-uppercase text-label-uppercase text-primary block tracking-[0.2em]">THE OLFACTORY GAZETTE</span>
+<p class="font-body-sm text-body-sm text-secondary">
+          Receive occasional missives on rare harvests, limited extractions, and newly commissioned flacons.
+        </p>
+<form class="pt-2" onsubmit="event.preventDefault();">
+<div class="relative flex items-center">
+<input class="w-full bg-transparent border-0 border-b border-[#B38B4D] pb-2 text-primary placeholder-on-surface-variant text-body-sm focus:ring-0 focus:border-primary transition-all" placeholder="Your archival email address" type="email"/>
+<button class="absolute right-0 bottom-2 text-primary hover:text-on-tertiary-container transition-colors" type="submit">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Bottom Copyright -->
+<div class="border-t border-tertiary-fixed-dim/20 pt-8 flex flex-col sm:flex-row items-center justify-between text-body-sm text-on-surface-variant">
+<p class="font-label-uppercase text-label-uppercase">
+        © 2025 BONZA PARFUMERIE. ALL RIGHTS RESERVED.
+      </p>
+<div class="flex items-center space-x-6 mt-4 sm:mt-0 font-label-uppercase text-label-uppercase text-[10px]">
+<span>Artisanal Extraction</span>
+<span>•</span>
+<span>Glass Blowers Guild</span>
+<span>•</span>
+<span>Quiet Refinement</span>
+</div>
+</div>
+</footer>
+<!-- Interactive Logic for Cart & Micro-filtering -->
+<script>
+    let cart = [];
+    let activeFilters = {
+      brand: 'all',
+      family: 'all',
+      size: 'all'
+    };
+
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cart-drawer');
+      const backdrop = document.getElementById('cart-backdrop');
+      const isClosed = drawer.classList.contains('translate-x-full');
+      
+      if (isClosed) {
+        drawer.classList.remove('translate-x-full');
+        backdrop.classList.remove('hidden');
+      } else {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+      }
+    }
+
+    function addToCart(title, price) {
+      cart.push({ title, price });
+      renderCart();
+      toggleCartDrawer();
+    }
+
+    function renderCart() {
+      const itemsContainer = document.getElementById('cart-items');
+      const badge = document.getElementById('nav-cart-badge');
+      const drawerTitle = document.getElementById('drawer-title');
+      const subtotalEl = document.getElementById('cart-subtotal');
+
+      badge.innerText = cart.length;
+      drawerTitle.innerText = `Your Olfactory Bag (${cart.length} items)`;
+
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = `
+          <div class="py-16 text-center">
+            <div class="w-12 h-12 rounded-full border border-tertiary-fixed-dim/50 flex items-center justify-center mx-auto mb-4 text-tertiary-fixed-dim">
+              <span class="material-symbols-outlined" data-icon="spa">spa</span>
+            </div>
+            <p class="font-body-md text-body-md text-secondary">Your collection canvas is currently empty.</p>
+            <span class="font-label-uppercase text-label-uppercase text-on-tertiary-container mt-2 block tracking-widest">Select an artifact to begin</span>
+          </div>
+        `;
+        subtotalEl.innerText = "$0.00";
+        return;
+      }
+
+      let subtotal = 0;
+      let html = '';
+      cart.forEach((item, index) => {
+        subtotal += item.price;
+        html += `
+          <div class="flex items-center justify-between border-b border-tertiary-fixed-dim/20 pb-4">
+            <div>
+              <h4 class="font-headline-sm text-body-lg text-primary">${item.title}</h4>
+              <span class="font-label-price text-label-price text-on-tertiary-container">$${item.price}</span>
+            </div>
+            <button onclick="removeFromCart(${index})" class="text-secondary hover:text-primary p-1">
+              <span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+            </button>
+          </div>
+        `;
+      });
+
+      itemsContainer.innerHTML = html;
+      subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    function setFilter(type, value, btn) {
+      activeFilters[type] = value;
+      
+      // Update chip visual active state
+      const siblingChips = btn.parentElement.querySelectorAll('.filter-chip');
+      siblingChips.forEach(chip => {
+        chip.classList.remove('bg-primary', 'text-surface', 'border-[#B38B4D]');
+        chip.classList.add('border-[#B38B4D]/40', 'text-primary');
+      });
+      btn.classList.add('bg-primary', 'text-surface', 'border-[#B38B4D]');
+      btn.classList.remove('border-[#B38B4D]/40');
+
+      applyFilterGrid();
+    }
+
+    function applyFilterGrid() {
+      const items = document.querySelectorAll('.product-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const brandMatch = activeFilters.brand === 'all' || item.dataset.brand === activeFilters.brand;
+        const familyMatch = activeFilters.family === 'all' || item.dataset.family === activeFilters.family;
+        const sizeMatch = activeFilters.size === 'all' || item.dataset.size === activeFilters.size;
+
+        if (brandMatch && familyMatch && sizeMatch) {
+          item.style.display = 'flex';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      document.getElementById('filter-status-text').innerText = `Displaying ${visibleCount} Fragrances`;
+    }
+
+    function resetFilters() {
+      activeFilters = { brand: 'all', family: 'all', size: 'all' };
+      document.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.classList.remove('bg-primary', 'text-surface', 'border-[#B38B4D]');
+        chip.classList.add('border-[#B38B4D]/40', 'text-primary');
+      });
+      // Activate the 'All' chips
+      document.querySelectorAll('.active-filter, .active-family, .active-size').forEach(chip => {
+        chip.classList.add('bg-primary', 'text-surface', 'border-[#B38B4D]');
+        chip.classList.remove('border-[#B38B4D]/40');
+      });
+      applyFilterGrid();
+    }
+  </script>
+</body></html>

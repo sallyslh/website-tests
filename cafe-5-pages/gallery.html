@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish>/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish>(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>you, a Café — Gallery</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&amp;family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with custom theme config -->
+
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .arch-crop-top {
+      border-radius: 120px 120px 24px 24px;
+    }
+    .arch-crop-large {
+      border-radius: 180px 180px 32px 32px;
+    }
+    .coffee-stain-glow {
+      filter: drop-shadow(0 12px 28px rgba(49, 23, 10, 0.08));
+    }
+    /* Hide scrollbar for carousel smoothly */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased selection:bg-primary-fixed-dim selection:text-primary">
+<!-- TOP APP BAR (Shared Components JSON Anchor) -->
+<header class="sticky top-0 z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 shadow-sm transition-all duration-200">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto flex items-center justify-between py-space-md">
+<!-- Brand Logo -->
+<a class="flex items-baseline gap-1 group" href="index.html">
+<span class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary tracking-tight">you</span>
+<span class="font-handwritten text-xl text-on-surface-variant font-normal tracking-normal">. a café</span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="menu.html">Menu</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="about.html">About</a>
+<!-- Active Nav: Gallery -->
+<a class="text-tertiary dark:text-tertiary-fixed font-label-lg text-label-lg border-b-2 border-tertiary dark:border-tertiary-fixed pb-1 relative" href="gallery.html">
+          Gallery
+          <span class="absolute -top-1 -right-2 w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="drinks-menu.html">Drinks</a>
+
+<!-- More dropdown -->
+<div class="relative group cursor-pointer py-1">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-lg text-label-lg hover:text-tertiary transition-colors">
+<span>More</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<div class="absolute left-0 mt-2 w-40 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+
+
+
+
+</div>
+</div>
+</nav>
+<!-- Trailing Action -->
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-primary hover:text-on-tertiary-container transition-colors rounded-full hover:bg-surface-container" title="View Cart">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+</button>
+<button class="bg-primary-container text-surface px-5 py-2.5 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-container hover:text-on-tertiary transition-all duration-200 shadow-sm flex items-center gap-2">
+<span>Order Online</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="overflow-hidden">
+<!-- 1. SECTION 'gallery-hero' -->
+<section class="relative pt-12 pb-24 md:pt-20 md:pb-32 bg-surface-bright border-b border-outline-variant/20 overflow-hidden" id="gallery-hero">
+<!-- Delicate Coffee Ring Watermark Background -->
+<div class="absolute -right-24 -top-20 w-96 h-96 pointer-events-none opacity-20">
+<svg class="w-full h-full text-primary" fill="none" stroke="currentColor" viewbox="0 0 200 200">
+<circle cx="100" cy="100" r="78" stroke-dasharray="14 8 26 12 18 10 40 14" stroke-linecap="round" stroke-width="7"></circle>
+<circle cx="102" cy="98" opacity="0.6" r="82" stroke-dasharray="5 15 35 12" stroke-linecap="round" stroke-width="2"></circle>
+<circle cx="98" cy="102" opacity="0.4" r="74" stroke-dasharray="2 18 12 25" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Hero Header with Artisanal Coffee Ring circling 'inside' -->
+<div class="text-center max-w-3xl mx-auto mb-16 relative z-10">
+<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary/10 text-secondary mb-4 font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>A quiet visual notebook</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary font-semibold tracking-tight leading-tight md:leading-tight">
+            A look 
+            <span class="relative inline-block px-4 py-1">
+              inside
+              <!-- Handcrafted coffee ring SVG wrapping 'inside' -->
+<svg class="absolute inset-0 w-full h-full -top-1 -left-1 text-on-tertiary-container/80 pointer-events-none transform -rotate-3" fill="none" viewbox="0 0 160 70">
+<path d="M12,35 C12,18 42,8 80,8 C122,8 148,19 148,35 C148,51 118,62 80,62 C40,62 12,52 14,35" stroke="currentColor" stroke-dasharray="80 12 50 8" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M18,36 C18,22 45,12 80,12 C115,12 142,22 142,36" opacity="0.6" stroke="currentColor" stroke-dasharray="20 18" stroke-linecap="round" stroke-width="1.2"></path>
+</svg>
+</span> 
+            you
+          </h1>
+<p class="mt-4 font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
+            Light, steam, flour and good company, captured on ordinary days.
+          </p>
+<div class="mt-3 font-handwritten text-xl text-secondary flex items-center justify-center gap-2">
+<span>where moments settle softly</span>
+<span class="text-on-tertiary-container text-sm">✦</span>
+<span>corner of 4th &amp; Elm</span>
+</div>
+</div>
+<!-- Overlapping Collage Layout -->
+<div class="relative max-w-5xl mx-auto mt-8 h-[480px] md:h-[580px]">
+<!-- Left Arch Image -->
+<div class="absolute left-0 bottom-4 w-5/12 h-[380px] md:h-[450px] z-10 transition-transform duration-500 hover:-translate-y-2">
+<div class="w-full h-full arch-crop-large overflow-hidden border-4 border-surface-container-lowest coffee-stain-glow bg-surface-container">
+<img fetchpriority="high" decoding="async" srcset="images/6ffa3e0911f4-o-640.jpg 640w, images/6ffa3e0911f4-o-1024.jpg 1024w, images/6ffa3e0911f4-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Sunlit morning sunlight illuminating a barista in a dark linen apron pouring steamed oat milk into a ceramic latte cup on an artisanal oak espresso bar. Soft steam billows in the gentle golden morning light, evoking an artisanal, serene, and warm neighborhood café ambience with warm terracotta and sage accents in the background." src="images/6ffa3e0911f4-o.jpg"/>
+</div>
+<!-- Hand-written caption tag -->
+<div class="absolute -bottom-3 left-6 bg-surface-container-lowest px-4 py-1.5 rounded-full border border-outline-variant/40 shadow-sm">
+<p class="font-handwritten text-lg text-primary leading-tight">First brew at 7:02 am</p>
+</div>
+</div>
+<!-- Center Circular Image Frame (Elevated) -->
+<div class="absolute left-1/2 -translate-x-1/2 top-0 w-64 md:w-80 h-64 md:h-80 z-20 transition-transform duration-500 hover:scale-105">
+<div class="relative w-full h-full p-2 bg-surface-container-lowest rounded-full coffee-stain-glow border-2 border-outline-variant/30">
+<div class="w-full h-full rounded-full overflow-hidden">
+<img loading="lazy" decoding="async" srcset="images/b1a70e77576d-640.jpg 640w, images/b1a70e77576d-1024.jpg 1024w, images/b1a70e77576d.jpg 2880w" sizes="100vw" class="w-full h-full object-cover" data-alt="An overhead close-up shot of a delicate latte art rosette in a hand-thrown warm cream ceramic cup placed on an unbleached linen napkin on a weathered wooden table. An imperfect coffee ring stain sits next to the saucer in warm, natural morning light with soft editorial colors." src="images/b1a70e77576d.jpg"/>
+</div>
+<!-- Floating coffee ring badge -->
+<div class="absolute -top-3 -right-3 w-16 h-16 rounded-full bg-secondary text-surface flex items-center justify-center font-handwritten text-base leading-none text-center shadow-md rotate-12">
+                slow<br/>batch
+              </div>
+</div>
+</div>
+<!-- Right Arch Frame (Asymmetrical) -->
+<div class="absolute right-2 bottom-8 w-5/12 h-[340px] md:h-[420px] z-10 transition-transform duration-500 hover:-translate-y-2">
+<div class="w-full h-full rounded-3xl overflow-hidden border-4 border-surface-container-lowest coffee-stain-glow bg-surface-container">
+<img loading="lazy" decoding="async" srcset="images/7cf9f44d4442-o-640.jpg 640w, images/7cf9f44d4442-o-1024.jpg 1024w, images/7cf9f44d4442-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Cozy interior scene of a warm neighborhood coffee shop with tall window arches, leafy indoor fiddle leaf fig plants, guests quietly reading novels at blonde wooden tables, and soft glowing pendant lamps casting warm paper-toned light across the space." src="images/7cf9f44d4442-o.jpg"/>
+</div>
+<div class="absolute -bottom-4 right-6 bg-surface-container-lowest px-4 py-1.5 rounded-full border border-outline-variant/40 shadow-sm">
+<p class="font-handwritten text-lg text-secondary leading-tight">Window bench quiet</p>
+</div>
+</div>
+<!-- Atmospheric floating ring accent -->
+<div class="absolute top-1/3 left-1/4 -translate-x-8 pointer-events-none opacity-40 z-0">
+<svg class="w-32 h-32 text-on-tertiary-container" fill="none" stroke="currentColor" viewbox="0 0 100 100">
+<circle cx="50" cy="50" r="42" stroke-dasharray="18 10 32 8" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. SECTION 'gallery-drinks' -->
+<section class="py-20 md:py-28 bg-surface-container-low border-b border-outline-variant/30 relative" id="gallery-drinks">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Section Title and Lead -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<div class="flex items-center gap-2 text-on-tertiary-container font-label-md text-label-md mb-2">
+<span class="material-symbols-outlined text-sm" data-icon="coffee">coffee</span>
+<span>RITUALS &amp; INFUSIONS</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-semibold tracking-tight">In the cup</h2>
+<p class="mt-2 font-body-lg text-body-lg text-on-surface-variant">Every pour is a small moment.</p>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-3">
+<span class="font-handwritten text-xl text-secondary">Crafted without rush</span>
+<div class="h-px w-16 bg-outline-variant/60"></div>
+</div>
+</div>
+<!-- Horizontal Scroll Carousel -->
+<div class="flex gap-6 overflow-x-auto pb-8 pt-2 no-scrollbar scroll-smooth snap-x snap-mandatory">
+<!-- Item 1: Morning pour -->
+<div class="min-w-[280px] md:min-w-[340px] flex-shrink-0 snap-start group">
+<div class="bg-surface-container-lowest rounded-2xl p-3 border border-outline-variant/40 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+<div class="h-80 arch-crop-top overflow-hidden bg-surface-container relative">
+<img loading="lazy" decoding="async" srcset="images/fc92658ecae7-o-640.jpg 640w, images/fc92658ecae7-o-1024.jpg 1024w, images/fc92658ecae7-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A velvety flat white in a warm neutral ceramic cup showing delicate, precise latte art heart pattern sitting on an organic wooden counter top with morning weekday golden hour light reflecting gently on the ceramic glaze." src="images/fc92658ecae7-o.jpg"/>
+<!-- Coffee Ring Stamp -->
+<div class="absolute bottom-3 right-3 w-10 h-10 rounded-full border border-primary/40 bg-surface/80 backdrop-blur-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="water_drop">water_drop</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-primary font-medium">Morning pour</h3>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">House Roast</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">A flat white at opening time.</p>
+<p class="mt-3 font-handwritten text-lg text-on-tertiary-container">"Still warm when the sun hits the floor."</p>
+</div>
+</div>
+</div>
+<!-- Item 2: Iced orange cold brew -->
+<div class="min-w-[280px] md:min-w-[340px] flex-shrink-0 snap-start group">
+<div class="bg-surface-container-lowest rounded-2xl p-3 border border-outline-variant/40 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+<div class="h-80 rounded-2xl overflow-hidden bg-surface-container relative">
+<img loading="lazy" decoding="async" srcset="images/7cb47ad1dd4a-o-640.jpg 640w, images/7cb47ad1dd4a-o-1024.jpg 1024w, images/7cb47ad1dd4a-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An artisanal iced cold brew coffee in a ribbed highball glass filled with crystal-clear square ice cubes, garnished with a fresh slice of blood orange with fine droplets of condensation running down the glass in warm ambient daylight." src="images/7cb47ad1dd4a-o.jpg"/>
+<!-- Coffee Ring Stamp -->
+<div class="absolute top-3 left-3 w-10 h-10 rounded-full border border-on-tertiary-container/50 bg-surface/80 backdrop-blur-sm flex items-center justify-center">
+<span class="font-handwritten text-sm text-on-tertiary-container font-bold">18h</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-primary font-medium">Iced orange cold brew</h3>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Slow Steep</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Summer in a glass.</p>
+<p class="mt-3 font-handwritten text-lg text-on-tertiary-container">"Citrus zest cuts the chocolate note clean."</p>
+</div>
+</div>
+</div>
+<!-- Item 3: Chai steam -->
+<div class="min-w-[280px] md:min-w-[340px] flex-shrink-0 snap-start group">
+<div class="bg-surface-container-lowest rounded-2xl p-3 border border-outline-variant/40 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+<div class="h-80 arch-crop-top overflow-hidden bg-surface-container relative">
+<img loading="lazy" decoding="async" srcset="images/3255ddaa26b6-o-640.jpg 640w, images/3255ddaa26b6-o-1024.jpg 1024w, images/3255ddaa26b6-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A steaming handcrafted spiced chai latte served in an unglazed earthen pottery mug, dusted with crushed green cardamom pods and cinnamon bark, with delicate vapor steam curling up in soft directional window light." src="images/3255ddaa26b6-o.jpg"/>
+<!-- Stamp -->
+<div class="absolute bottom-3 right-3 w-10 h-10 rounded-full border border-secondary bg-surface/80 backdrop-blur-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="spa">spa</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-primary font-medium">Chai steam</h3>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Single Origin Spices</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cardamom and cinnamon rising.</p>
+<p class="mt-3 font-handwritten text-lg text-on-tertiary-container">"Boiled three times in small copper pots."</p>
+</div>
+</div>
+</div>
+<!-- Item 4: Honey Oat Cortado -->
+<div class="min-w-[280px] md:min-w-[340px] flex-shrink-0 snap-start group">
+<div class="bg-surface-container-lowest rounded-2xl p-3 border border-outline-variant/40 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+<div class="h-80 rounded-2xl overflow-hidden bg-surface-container relative">
+<img loading="lazy" decoding="async" srcset="images/53372b516c04-o-640.jpg 640w, images/53372b516c04-o-1024.jpg 1024w, images/53372b516c04-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A small four-ounce glass cortado with layers of espresso and silky microfoam, with a light golden honey drizzle at the base, resting on a ceramic saucer with a small brass stirring spoon beside it." src="images/53372b516c04-o.jpg"/>
+<div class="absolute top-3 right-3 bg-secondary-fixed text-on-secondary-fixed px-2.5 py-0.5 rounded-full font-label-sm text-label-sm">
+                  Seasonal
+                </div>
+</div>
+<div class="p-4">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-primary font-medium">Honey Oat Cortado</h3>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Small cup</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Silky wildflower drizzle.</p>
+<p class="mt-3 font-handwritten text-lg text-on-tertiary-container">"Local comb honey from the valley farm."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. SECTION 'gallery-food' -->
+<section class="py-20 md:py-28 bg-surface relative" id="gallery-food">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Section Heading -->
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed/40 text-on-primary-fixed mb-3 font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm" data-icon="bakery_dining">bakery_dining</span>
+<span>MORNING BATCHES</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-semibold tracking-tight">From the oven</h2>
+<p class="mt-2 font-body-lg text-body-lg text-on-surface-variant">Fresh, golden and still warm.</p>
+</div>
+<!-- Asymmetric Masonry Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Column 1: Tall Arch Photo (Sunrise bake) -->
+<div class="md:col-span-5 relative group">
+<div class="arch-crop-large overflow-hidden border-2 border-outline-variant/30 bg-surface-container h-[560px] shadow-sm relative">
+<img loading="lazy" decoding="async" srcset="images/fad1bd876e86-o-640.jpg 640w, images/fad1bd876e86-o-1024.jpg 1024w, images/fad1bd876e86-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A vintage zinc cooling rack filled with freshly baked Swedish cardamom buns, golden brown with pearl sugar crystals and coarse ground spices glistening under warm bakery sunlight, with light flour dust visible on the counter." src="images/fad1bd876e86-o.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-8 text-surface">
+<span class="font-handwritten text-2xl text-secondary-fixed mb-1">Pulled out at 6:45 am</span>
+<h3 class="font-headline-md text-headline-md font-medium text-surface">Sunrise bake</h3>
+<p class="font-body-md text-body-md text-surface-container opacity-90 mt-1">Buns cooling on the rack with crushed black cardamom.</p>
+</div>
+</div>
+<!-- Organic Coffee Ring Stamp overlay -->
+<div class="absolute -top-6 -right-6 w-20 h-20 rounded-full border-2 border-dashed border-on-tertiary-container/60 pointer-events-none rotate-12 flex items-center justify-center bg-surface-bright/70 backdrop-blur-sm">
+<span class="font-handwritten text-xs text-primary font-semibold text-center leading-tight">100%<br/>butter</span>
+</div>
+</div>
+<!-- Column 2: Two Square Rounded Photos Stacked -->
+<div class="md:col-span-7 flex flex-col gap-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<!-- Square 1: Tart season -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/40 shadow-sm group">
+<div class="w-full aspect-square rounded-xl overflow-hidden bg-surface-container relative">
+<img loading="lazy" decoding="async" srcset="images/36551c47a61f-o-640.jpg 640w, images/36551c47a61f-o-1024.jpg 1024w, images/36551c47a61f-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A rustic French pear and frangipane almond tart baked to deep caramelization on crumpled brown baking parchment, arranged on a marble pastry slab dusted with powdered sugar." src="images/36551c47a61f-o.jpg"/>
+<div class="absolute bottom-2 left-2 bg-surface/90 backdrop-blur-sm px-2.5 py-1 rounded-md text-primary font-handwritten text-base">
+                    Crisp crust
+                  </div>
+</div>
+<div class="mt-4">
+<h4 class="font-headline-sm text-headline-sm text-primary font-medium">Tart season</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Pear and almond slices on brown butter shortcrust.</p>
+</div>
+</div>
+<!-- Square 2: Rich bakery details -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/40 shadow-sm group">
+<div class="w-full aspect-square rounded-xl overflow-hidden bg-surface-container relative">
+<img loading="lazy" decoding="async" srcset="images/0c458eb8a6db-o-640.jpg 640w, images/0c458eb8a6db-o-1024.jpg 1024w, images/0c458eb8a6db-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A serene close-up of a baker's hands in a natural linen apron gently dusting white organic rye flour over a wooden work table in soft morning ambient rays." src="images/0c458eb8a6db-o.jpg"/>
+<div class="absolute top-2 right-2 bg-surface-container-high px-2 py-0.5 rounded-full text-secondary font-label-sm text-label-sm">
+                    Organic stoneground
+                  </div>
+</div>
+<div class="mt-4">
+<h4 class="font-headline-sm text-headline-sm text-primary font-medium">Flour &amp; fold</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Thirty-six hours of natural fermentation.</p>
+</div>
+</div>
+</div>
+<!-- Wide Landscape: Fresh loaves -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/40 shadow-sm group">
+<div class="w-full h-64 rounded-xl overflow-hidden bg-surface-container relative">
+<img loading="lazy" decoding="async" srcset="images/bcb454e5b9c2-o-640.jpg 640w, images/bcb454e5b9c2-o-1024.jpg 1024w, images/bcb454e5b9c2-o.jpg 1376w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sliced loaf of country sourdough with a blistered dark brown crust and airy open crumb resting on a heavy oak cutting board beside a cast iron Dutch oven with sea salt flakes." src="images/bcb454e5b9c2-o.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/60 via-transparent to-transparent flex items-end p-6">
+<div>
+<span class="font-handwritten text-xl text-surface-variant">Daily Country Loaf</span>
+<h4 class="font-headline-md text-headline-md text-surface font-medium">Fresh loaves</h4>
+<p class="font-body-sm text-body-sm text-surface-container opacity-90">Sourdough with a crisp crust and tender open crumb.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. SECTION 'gallery-space' -->
+<section class="py-20 md:py-28 bg-surface-container relative border-y border-outline-variant/30 overflow-hidden" id="gallery-space">
+<!-- Watermark stamp background -->
+<div class="absolute -left-16 bottom-0 w-80 h-80 opacity-15 pointer-events-none">
+<svg class="w-full h-full text-primary" fill="none" stroke="currentColor" viewbox="0 0 100 100">
+<circle cx="50" cy="50" r="40" stroke-dasharray="14 10 20 8 35 12" stroke-width="6"></circle>
+</svg>
+</div>
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin relative z-10">
+<!-- Title and Subtitle -->
+<div class="max-w-3xl mb-12">
+<div class="flex items-center gap-2 text-secondary font-label-md text-label-md mb-2">
+<span class="material-symbols-outlined text-base" data-icon="chair">chair</span>
+<span>THE SANCTUARY</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-semibold tracking-tight">The space</h2>
+<p class="mt-2 font-body-lg text-body-lg text-on-surface-variant">
+            Six tables, a long window bench and a wall of plants.
+          </p>
+</div>
+<!-- Wide Expansive Photo with Corner Inset Photo & Coffee Stamp -->
+<div class="relative rounded-3xl overflow-hidden border-2 border-outline-variant/40 shadow-md">
+<!-- Main Full-Bleed Café Interior -->
+<div class="w-full h-[480px] md:h-[620px] bg-surface-container-high overflow-hidden">
+<img loading="lazy" decoding="async" srcset="images/0b12111ba5ef-o-640.jpg 640w, images/0b12111ba5ef-o-1024.jpg 1024w, images/0b12111ba5ef-o.jpg 1376w" sizes="100vw" class="w-full h-full object-cover" data-alt="Wide expansive architectural interior photo of a quiet sun-drenched neighborhood coffee shop with tall arched south-facing windows, warm blonde oak community tables, vintage ceramic pendant lighting, and an abundant living wall of tropical plants in soft morning light." src="images/0b12111ba5ef-o.jpg"/>
+</div>
+<!-- Bottom Banner details -->
+<div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent p-6 md:p-10 flex flex-col md:flex-row md:items-end justify-between text-surface">
+<div>
+<span class="font-handwritten text-2xl text-secondary-fixed">Natural acoustics &amp; morning sun</span>
+<p class="font-body-md text-body-md text-surface-container max-w-md mt-1">
+                Designed to slow down breath. We kept the original 1920s brick, poured raw unsealed lime plaster, and let the morning light do the rest.
+              </p>
+</div>
+<div class="mt-4 md:mt-0 flex gap-4 text-surface font-label-md text-label-md">
+<span class="flex items-center gap-1.5 bg-surface/20 backdrop-blur-md px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="volume_down">volume_down</span>
+                Soft Vinyl Only
+              </span>
+<span class="flex items-center gap-1.5 bg-surface/20 backdrop-blur-md px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="wb_sunny">wb_sunny</span>
+                South Facing
+              </span>
+</div>
+</div>
+<!-- Overlapping Corner Inset Photo (Charming Asymmetric Placement) -->
+<div class="absolute top-6 right-6 md:top-10 md:right-10 w-48 md:w-64 bg-surface-container-lowest p-3 rounded-2xl shadow-xl border border-outline-variant/40 rotate-2 transition-transform hover:rotate-0 duration-300">
+<div class="w-full h-40 md:h-48 rounded-xl overflow-hidden bg-surface-container relative">
+<img loading="lazy" decoding="async" srcset="images/686d948a72a4-o-640.jpg 640w, images/686d948a72a4-o-1024.jpg 1024w, images/686d948a72a4-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="A sunlit corner vignette inside a café showing a ceramic vase with wild dried grasses on a small wooden table beside an open paperback book and a small water glass casting refractive light patterns on the linen cloth." src="images/686d948a72a4-o.jpg"/>
+<!-- Coffee ring mark stamp on inset photo -->
+<div class="absolute -top-3 -left-3 w-12 h-12 pointer-events-none opacity-80">
+<svg class="w-full h-full text-on-tertiary-container" fill="none" stroke="currentColor" viewbox="0 0 100 100">
+<circle cx="50" cy="50" r="38" stroke-dasharray="16 8 24 12" stroke-width="5"></circle>
+</svg>
+</div>
+</div>
+<div class="pt-2 text-center">
+<p class="font-handwritten text-lg text-primary leading-snug">The sunny table four</p>
+<p class="font-label-sm text-label-sm text-secondary">Best before 11:00 am</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. SECTION 'gallery-people' -->
+<section class="py-20 md:py-28 bg-surface-bright relative" id="gallery-people">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Section Header -->
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/15 text-secondary mb-3 font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm" data-icon="groups">groups</span>
+<span>COMMUNITY ESSENCE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-semibold tracking-tight">Daily life</h2>
+<p class="mt-2 font-body-lg text-body-lg text-on-surface-variant">
+            Readers, writers, friends and neighbors.
+          </p>
+</div>
+<!-- Three Stacked Rows of Distinct Creative Crops Alternating Left & Right -->
+<div class="space-y-16 md:space-y-24 max-w-5xl mx-auto">
+<!-- Row 1: Saturday reading (Image Left, Text Right) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+<div class="md:col-span-6 relative">
+<div class="arch-crop-top overflow-hidden border-2 border-outline-variant/30 h-[380px] bg-surface-container shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/dae51f986413-o-640.jpg 640w, images/dae51f986413-o-1024.jpg 1024w, images/dae51f986413-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="A warm candid portrait of a woman in an oatmeal knit sweater sitting at a sunny cafe window nook reading an open paperback novel, with a half-empty cappuccino mug resting on the wooden sill." src="images/dae51f986413-o.jpg"/>
+</div>
+<div class="absolute -bottom-4 right-8 bg-surface-container-lowest px-4 py-2 rounded-full border border-outline-variant/40 shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm" data-icon="auto_stories">auto_stories</span>
+<span class="font-handwritten text-lg text-primary">Chapter four in peace</span>
+</div>
+</div>
+<div class="md:col-span-6 md:pl-6">
+<span class="font-handwritten text-2xl text-on-tertiary-container">Table by the glass</span>
+<h3 class="font-headline-md text-headline-md text-primary font-medium mt-1">Saturday reading</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                Quiet morning with a book. No one rushes you to turn the table. Turn another page, let the tea steep a little longer, and watch the street slowly wake up.
+              </p>
+<div class="mt-6 flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-container rounded-full text-secondary font-label-sm text-label-sm">Quiet hours</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">8:00 AM — 11:00 AM</span>
+</div>
+</div>
+</div>
+<!-- Row 2: Friends and cake (Text Left, Image Right) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+<div class="md:col-span-6 order-2 md:order-1 md:pr-6">
+<span class="font-handwritten text-2xl text-secondary">The big center table</span>
+<h3 class="font-headline-md text-headline-md text-primary font-medium mt-1">Friends and cake</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                Sharing a slice. Two dessert forks, warm laughter that bounces off the lime plaster walls, and catching up on everything that couldn’t be said in a text.
+              </p>
+<div class="mt-6 flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-container rounded-full text-secondary font-label-sm text-label-sm">Cardamom cake</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Always made for two</span>
+</div>
+</div>
+<div class="md:col-span-6 order-1 md:order-2 relative">
+<div class="rounded-3xl overflow-hidden border-2 border-outline-variant/30 h-[380px] bg-surface-container shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/e9ee968a29fb-o-640.jpg 640w, images/e9ee968a29fb-o-1024.jpg 1024w, images/e9ee968a29fb-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Two close friends laughing naturally across a round wooden cafe table, sharing a slice of layered spiced cake with two small brass forks and two warm glasses of filtered coffee in candid morning sunlight." src="images/e9ee968a29fb-o.jpg"/>
+</div>
+<!-- Coffee Ring accent on side -->
+<div class="absolute -top-4 -left-4 w-16 h-16 rounded-full border border-primary/30 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-sm">
+<span class="font-handwritten text-xs text-primary font-bold">shared</span>
+</div>
+</div>
+</div>
+<!-- Row 3: Laptop corner (Image Left, Text Right) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+<div class="md:col-span-6 relative">
+<div class="arch-crop-top overflow-hidden border-2 border-outline-variant/30 h-[380px] bg-surface-container shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/9e066a4c063f-o-640.jpg 640w, images/9e066a4c063f-o-1024.jpg 1024w, images/9e066a4c063f-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="A focused young designer working comfortably on a laptop at a sunny corner timber desk in a quiet cafe with a warm ceramic cappuccino and headphones placed neatly to the side." src="images/9e066a4c063f-o.jpg"/>
+</div>
+<div class="absolute -bottom-4 left-8 bg-surface-container-lowest px-4 py-2 rounded-full border border-outline-variant/40 shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="bolt">bolt</span>
+<span class="font-handwritten text-lg text-primary">Quiet focus corner</span>
+</div>
+</div>
+<div class="md:col-span-6 md:pl-6">
+<span class="font-handwritten text-2xl text-on-tertiary-container">The oak nook</span>
+<h3 class="font-headline-md text-headline-md text-primary font-medium mt-1">Laptop corner</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                A perfect place to focus. Plugs tucked discreetly under the timber benches, steady warm light, and continuous fresh pour-overs while you get things done.
+              </p>
+<div class="mt-6 flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-container rounded-full text-secondary font-label-sm text-label-sm">High-speed fiber</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sockets at every bench seat</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Prominent Main CTA & Hours Banner -->
+<div class="mt-24 p-8 md:p-12 rounded-3xl bg-surface-container border border-outline-variant/50 max-w-4xl mx-auto text-center relative overflow-hidden shadow-sm">
+<!-- Background decorative coffee rings -->
+<div class="absolute -right-12 -bottom-12 w-64 h-64 opacity-10 pointer-events-none">
+<svg class="w-full h-full text-primary" fill="none" stroke="currentColor" viewbox="0 0 100 100">
+<circle cx="50" cy="50" r="42" stroke-dasharray="25 15 30 10" stroke-width="7"></circle>
+</svg>
+</div>
+<span class="font-handwritten text-3xl text-on-tertiary-container block mb-2">The kettle is always warm</span>
+<h3 class="font-headline-lg text-headline-lg text-primary font-semibold mb-4">Come find your favorite corner</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto mb-8">
+            Walk in any morning or afternoon. No reservations needed — just come as you are.
+          </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<!-- CTA Button -->
+<a class="w-full sm:w-auto px-8 py-4 bg-tertiary-container text-on-tertiary font-label-lg text-label-lg rounded-xl shadow-md hover:bg-tertiary transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2" href="index.html">
+<span>Visit us today</span>
+<span class="material-symbols-outlined text-sm" data-icon="pin_drop">pin_drop</span>
+</a>
+<!-- Quick Hours Pill -->
+<div class="w-full sm:w-auto px-6 py-3.5 bg-surface-container-lowest rounded-xl border border-outline-variant/60 flex items-center justify-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-md text-label-md text-primary">Open now until 18:00</span>
+<span class="text-outline-variant">|</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Mon–Sun</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER (Shared Components JSON Anchor) -->
+<footer class="bg-surface-container dark:bg-surface-container-high border-t border-outline-variant/40">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto py-space-2xl flex flex-col gap-space-xl">
+<!-- Top Grid of Footer -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+<!-- Brand & Description Column -->
+<div class="md:col-span-4 flex flex-col gap-4">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary">you</span>
+<span class="font-handwritten text-xl text-on-surface-variant">. a café</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+            A small neighborhood café where every ritual belongs to whoever walks through the doorway.
+          </p>
+<div class="pt-2 font-handwritten text-lg text-secondary">
+            Slow coffee always served with love.
+          </div>
+</div>
+<!-- Links Navigation Column -->
+<div class="md:col-span-4">
+<h4 class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider mb-4">Explore</h4>
+<div class="grid grid-cols-2 gap-y-2 gap-x-4">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="index.html">Home</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="menu.html">Menu</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="about.html">About</a>
+<a class="font-body-sm text-body-sm text-primary font-bold" href="gallery.html">Gallery</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="drinks-menu.html">Drinks</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#" data-inert>Gift Cards</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#" data-inert>Loyalty</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#" data-inert>Order</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#" data-inert>Reviews</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#" data-inert>Contact</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#" data-inert>Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors duration-200" href="#" data-inert>Terms of Service</a>
+</div>
+</div>
+<!-- Contact & Hours Column -->
+<div class="md:col-span-4 flex flex-col gap-4" id="visit">
+<h4 class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider mb-1">Visit &amp; Say Hello</h4>
+<div class="space-y-2 text-on-surface-variant font-body-sm text-body-sm">
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container" data-icon="location_on">location_on</span>
+<span>Sample address, Neighborhood District</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container" data-icon="call">call</span>
+<span>+1 555 010 021</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container" data-icon="mail">mail</span>
+<span>hello@example.com</span>
+</p>
+</div>
+<div class="mt-2 pt-3 border-t border-outline-variant/30">
+<p class="font-label-sm text-label-sm text-primary uppercase font-bold mb-1">Hours</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mon-Fri 7:00-18:00</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sat-Sun 8:00-17:00</p>
+</div>
+</div>
+</div>
+<!-- Bottom Copyright Row -->
+<div class="pt-6 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center sm:text-left">
+          © 2024 you café. Roasted deliberately, poured warmly.
+        </p>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="font-handwritten text-lg text-primary">Made for you</span>
+<div class="w-4 h-4 rounded-full border border-primary/40"></div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

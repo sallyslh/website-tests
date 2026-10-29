@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish>/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a row of three or more buttons (filters, chips) wraps on a phone instead of running off the edge of the screen */
+@media (max-width:767px){div:has(>button+button+button),ul:has(>li>button){flex-wrap:wrap}}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish>(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layla Skin Studio - Team</title>
+  
+  <!-- Google Fonts: Tenor Sans & Albert Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  
+  
+
+  <style>
+    /* Custom subtleties */
+    body {
+      background-color: #F6F0E3;
+      color: #2A3128;
+      font-family: 'Albert Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Tenor Sans', sans-serif;
+      letter-spacing: -0.01em;
+    }
+
+    /* Steam Ripple concentric decorative rings */
+    .steam-ripple {
+      position: absolute;
+      border-radius: 9999px;
+      border: 1px solid rgba(95, 116, 100, 0.12);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+    }
+
+    .arch-mask {
+      border-radius: 180px 180px 16px 16px;
+      overflow: hidden;
+    }
+
+    .arch-mask-sm {
+      border-radius: 90px 90px 12px 12px;
+      overflow: hidden;
+    }
+
+    /* Soft misty haze over images */
+    .mist-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(246, 240, 227, 0) 55%, rgba(246, 240, 227, 0.45) 100%);
+      pointer-events: none;
+    }
+
+    .mist-overlay-dark {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(59, 72, 62, 0) 45%, rgba(59, 72, 62, 0.6) 100%);
+      pointer-events: none;
+    }
+
+    /* Warm subtle hover transitions */
+    .btn-clay {
+      background-color: #B8806B;
+      color: #FFFFFF;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-clay:hover {
+      background-color: #A46F5C;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px -6px rgba(184, 128, 107, 0.35);
+    }
+
+    .btn-outline-sage {
+      border: 1px solid rgba(95, 116, 100, 0.3);
+      color: #2A3128;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-sage:hover {
+      background-color: rgba(95, 116, 100, 0.08);
+      border-color: #5F7464;
+    }
+
+    /* Tab active style */
+    .tab-btn.active {
+      background-color: #5F7464;
+      color: #F6F0E3;
+      border-color: #5F7464;
+    }
+  </style>
+</head>
+<body data-responsive class="selection:bg-brand-secondary selection:text-brand-text">
+
+  <!-- ==================== HEADER (Identical on every page) ==================== -->
+  <header class="sticky top-0 z-50 bg-[#F6F0E3]/90 backdrop-blur-md border-b border-brand-primary/10 transition-colors">
+    <div class="max-w-7xl mx-auto px-5 md:px-10 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo / Wordmark -->
+      <a class="group flex flex-col" href="index.html">
+        <span class="font-heading text-base tracking-[0.12em] md:text-2xl md:tracking-[0.16em] uppercase text-brand-text font-normal">
+          Layla Skin Studio
+        </span>
+        <span class="text-[10px] tracking-[0.25em] text-brand-muted uppercase -mt-0.5">
+          Achrafieh · Beirut
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center space-x-9 text-[13px] font-medium tracking-wide text-brand-muted">
+        <a class="hover:text-brand-text transition-colors" href="index.html">Home</a>
+        <a class="hover:text-brand-text transition-colors" href="treatments.html">Treatments</a>
+        <a class="hover:text-brand-text transition-colors" href="book-appointment.html">Book online</a>
+        <a class="hover:text-brand-text transition-colors" href="prices.html">Prices</a>
+        <a class="text-brand-primary font-semibold border-b border-brand-primary pb-0.5" href="team.html">Team</a>
+        <a class="hover:text-brand-text transition-colors" href="before-after.html">Results</a>
+        
+        <!-- More Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center space-x-1 hover:text-brand-text transition-colors focus:outline-none">
+            <span>More</span>
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 top-full pt-2 w-44 hidden group-hover:block transition-all">
+            <div class="bg-[#FBF8F1] border border-brand-primary/15 rounded-xl shadow-lg shadow-brand-text/5 py-2 px-1">
+              <a class="block px-4 py-2 text-xs text-brand-muted hover:text-brand-text hover:bg-brand-secondary/40 rounded-lg transition-colors" href="contact.html">Contact Concierge</a>
+              
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Prominent Header CTA -->
+      <div class="flex items-center space-x-4">
+        <a class="btn-clay text-xs tracking-wider uppercase font-medium px-4 lg:px-5 py-3 lg:py-2.5 rounded-full shadow-sm" href="book-appointment.html">
+          Book online
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== HERO / INTRO ==================== -->
+  <section class="relative pt-12 pb-10 px-5 md:pt-28 md:pb-24 md:px-10 overflow-hidden bg-[#F6F0E3]">
+    <!-- Steam Ripple Signature Concentric Rings -->
+    <div class="steam-ripple w-[540px] h-[540px] top-1/2 left-1/2 -z-0 opacity-40"></div>
+    <div class="steam-ripple w-[820px] h-[820px] top-1/2 left-1/2 -z-0 opacity-25"></div>
+    <div class="steam-ripple w-[1140px] h-[1140px] top-1/2 left-1/2 -z-0 opacity-15"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      
+      <!-- Quiet Breadcrumb Tag -->
+      <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-secondary/60 border border-brand-primary/15 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
+        <span class="text-[10px] tracking-[0.14em] md:text-[11px] md:tracking-[0.2em] uppercase text-brand-muted font-medium">Achrafieh Sanctuary · Clinical Team</span>
+      </div>
+
+      <!-- PAGE HEADLINE (Exact verbatim) -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-brand-text leading-[1.08] tracking-tight mb-5 md:mb-7">
+        The people who care <br class="hidden sm:inline">for your skin
+      </h1>
+
+      <!-- Concept Body -->
+      <p class="text-base sm:text-lg md:text-xl text-brand-muted font-light leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10">
+        Stepping into a quiet Achrafieh treatment room: sage plaster walls, pale limestone and a slow haze that lifts as you arrive, with four dedicated practitioners united by one honest, unhurried approach.
+      </p>
+
+      <!-- Jump Anchors -->
+      <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xs font-medium text-brand-muted">
+        <a href="#team-meet" class="px-4 py-3.5 md:py-2 rounded-full border border-brand-primary/20 bg-brand-surface/60 hover:border-brand-primary hover:text-brand-text transition-all">
+          Explore Practitioners ↓
+        </a>
+        <a href="#team-quals" class="px-4 py-3.5 md:py-2 rounded-full border border-brand-primary/20 bg-brand-surface/60 hover:border-brand-primary hover:text-brand-text transition-all">
+          Qualifications & Degrees
+        </a>
+        <a href="#team-specialties" class="px-4 py-3.5 md:py-2 rounded-full border border-brand-primary/20 bg-brand-surface/60 hover:border-brand-primary hover:text-brand-text transition-all">
+          Specialties Guide
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 1: team-meet ==================== -->
+  <!-- Asymmetric grid of four tall arched portraits with name, role and a one-sentence bio beneath, staggered in height over cream -->
+  <section id="team-meet" class="relative py-10 px-5 md:py-28 md:px-10 bg-[#F6F0E3] border-t border-brand-primary/10">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-xl mx-auto mb-8 md:mb-20">
+        <span class="text-xs uppercase tracking-[0.22em] text-brand-primary font-medium block mb-2">Our Dedicated Practitioners</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-normal text-brand-text mb-3">Meet the team</h2>
+        <p class="text-base text-brand-muted font-light">Four practitioners, one calm approach.</p>
+      </div>
+
+      <!-- Asymmetric Staggered Grid of 4 Tall Arched Portraits -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-5 px-5 pb-2 md:grid md:grid-cols-2 md:overflow-visible md:mx-0 md:px-0 md:pb-0 lg:grid-cols-4 md:gap-6 lg:gap-8 items-start">
+        
+        <!-- Team Member 1: Dr. Layla Haddad (Founder) -->
+        <div class="flex flex-col group transition-transform duration-500 hover:-translate-y-1.5 lg:pt-0 shrink-0 basis-[82%] snap-start md:basis-auto">
+          <div class="relative w-full aspect-square md:aspect-[3/4] arch-mask bg-brand-secondary/40 shadow-sm border border-brand-primary/15 overflow-hidden mb-5">
+            <img fetchpriority="high" decoding="async" srcset="images/1d8797baae58-o-640.jpg 640w, images/1d8797baae58-o.jpg 896w" sizes="100vw" 
+              src="images/1d8797baae58-o.jpg" 
+              alt="Dr. Layla Haddad - Founder and Skin Clinician" 
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+            <div class="mist-overlay"></div>
+            <!-- Discreet Badge -->
+            <div class="absolute bottom-3 left-3 bg-[#FBF8F1]/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] tracking-widest uppercase font-medium text-brand-primary border border-brand-primary/15">
+              Founder · 15 Yrs
+            </div>
+          </div>
+          <div class="px-1">
+            <div class="flex items-baseline justify-between mb-1">
+              <h3 class="text-xl md:text-2xl font-normal text-brand-text font-heading">Dr. Layla Haddad</h3>
+            </div>
+            <p class="text-xs uppercase tracking-wider text-brand-primary font-medium mb-2.5">Founder &amp; Skin Clinician</p>
+            <p class="text-sm text-brand-muted font-light leading-relaxed mb-4">
+              Founder &amp; Skin Clinician. Leads every consultation with a calm, honest approach.
+            </p>
+            <a class="inline-flex items-center text-xs tracking-wider text-brand-accent font-medium hover:text-brand-accentHover group-hover:translate-x-0.5 transition-all" href="book-appointment.html">
+              <span>View consultation slots</span>
+              <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Team Member 2: Nour Khalil (Staggered slightly down) -->
+        <div class="flex flex-col group transition-transform duration-500 hover:-translate-y-1.5 lg:pt-10 shrink-0 basis-[82%] snap-start md:basis-auto">
+          <div class="relative w-full aspect-square md:aspect-[3/4] arch-mask bg-brand-secondary/40 shadow-sm border border-brand-primary/15 overflow-hidden mb-5">
+            <img loading="lazy" decoding="async" srcset="images/4c1c0279e815-640.jpg 640w, images/4c1c0279e815-1024.jpg 1024w, images/4c1c0279e815.jpg 2880w" sizes="100vw" 
+              src="images/4c1c0279e815.jpg" 
+              alt="Nour Khalil - Senior Facial Therapist" 
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+            <div class="mist-overlay"></div>
+            <div class="absolute bottom-3 left-3 bg-[#FBF8F1]/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] tracking-widest uppercase font-medium text-brand-primary border border-brand-primary/15">
+              Facials &amp; LED
+            </div>
+          </div>
+          <div class="px-1">
+            <div class="flex items-baseline justify-between mb-1">
+              <h3 class="text-xl md:text-2xl font-normal text-brand-text font-heading">Nour Khalil</h3>
+            </div>
+            <p class="text-xs uppercase tracking-wider text-brand-primary font-medium mb-2.5">Senior Facial Therapist</p>
+            <p class="text-sm text-brand-muted font-light leading-relaxed mb-4">
+              Senior Facial Therapist. Gentle expert in HydraFacial, LED and sensitive skin.
+            </p>
+            <a class="inline-flex items-center text-xs tracking-wider text-brand-accent font-medium hover:text-brand-accentHover group-hover:translate-x-0.5 transition-all" href="book-appointment.html">
+              <span>View facial availability</span>
+              <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Team Member 3: Rami Saab (Staggered aligned) -->
+        <div class="flex flex-col group transition-transform duration-500 hover:-translate-y-1.5 lg:pt-3 shrink-0 basis-[82%] snap-start md:basis-auto">
+          <div class="relative w-full aspect-square md:aspect-[3/4] arch-mask bg-brand-secondary/40 shadow-sm border border-brand-primary/15 overflow-hidden mb-5">
+            <img loading="lazy" decoding="async" srcset="images/05e7e76f2051-o-640.jpg 640w, images/05e7e76f2051-o.jpg 896w" sizes="100vw" 
+              src="images/05e7e76f2051-o.jpg" 
+              alt="Rami Saab - Laser & Rejuvenation Specialist" 
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+            <div class="mist-overlay"></div>
+            <div class="absolute bottom-3 left-3 bg-[#FBF8F1]/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] tracking-widest uppercase font-medium text-brand-primary border border-brand-primary/15">
+              Laser &amp; Dermal
+            </div>
+          </div>
+          <div class="px-1">
+            <div class="flex items-baseline justify-between mb-1">
+              <h3 class="text-xl md:text-2xl font-normal text-brand-text font-heading">Rami Saab</h3>
+            </div>
+            <p class="text-xs uppercase tracking-wider text-brand-primary font-medium mb-2.5">Laser &amp; Rejuvenation Specialist</p>
+            <p class="text-sm text-brand-muted font-light leading-relaxed mb-4">
+              Laser &amp; Rejuvenation Specialist. Careful, patch-test-first, always explains each step.
+            </p>
+            <a class="inline-flex items-center text-xs tracking-wider text-brand-accent font-medium hover:text-brand-accentHover group-hover:translate-x-0.5 transition-all" href="book-appointment.html">
+              <span>Book patch test &amp; laser</span>
+              <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Team Member 4: Maya Torbey (Staggered down) -->
+        <div class="flex flex-col group transition-transform duration-500 hover:-translate-y-1.5 lg:pt-14 shrink-0 basis-[82%] snap-start md:basis-auto">
+          <div class="relative w-full aspect-square md:aspect-[3/4] arch-mask bg-brand-secondary/40 shadow-sm border border-brand-primary/15 overflow-hidden mb-5">
+            <img loading="lazy" decoding="async" srcset="images/675a2072424e-o-640.jpg 640w, images/675a2072424e-o.jpg 896w" sizes="100vw" 
+              src="images/675a2072424e-o.jpg" 
+              alt="Maya Torbey - Brow, Lash & Beauty Artist" 
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+            <div class="mist-overlay"></div>
+            <div class="absolute bottom-3 left-3 bg-[#FBF8F1]/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] tracking-widest uppercase font-medium text-brand-primary border border-brand-primary/15">
+              Brows &amp; Bridal
+            </div>
+          </div>
+          <div class="px-1">
+            <div class="flex items-baseline justify-between mb-1">
+              <h3 class="text-xl md:text-2xl font-normal text-brand-text font-heading">Maya Torbey</h3>
+            </div>
+            <p class="text-xs uppercase tracking-wider text-brand-primary font-medium mb-2.5">Brow, Lash &amp; Beauty Artist</p>
+            <p class="text-sm text-brand-muted font-light leading-relaxed mb-4">
+              Brow, Lash &amp; Beauty Artist. Natural-looking definition and bridal trials.
+            </p>
+            <a class="inline-flex items-center text-xs tracking-wider text-brand-accent font-medium hover:text-brand-accentHover group-hover:translate-x-0.5 transition-all" href="book-appointment.html">
+              <span>Reserve brow &amp; bridal</span>
+              <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quiet Sanctuary Treatment Room Vignette (Team in space context) -->
+      <div class="mt-10 md:mt-24 bg-brand-surface/70 rounded-3xl p-5 sm:p-8 md:p-10 border border-brand-primary/15 shadow-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
+          <div class="lg:col-span-7 rounded-2xl overflow-hidden aspect-[16/9] border border-brand-primary/10">
+            <img loading="lazy" decoding="async" srcset="images/9a3caa42215a-640.jpg 640w, images/9a3caa42215a-1024.jpg 1024w, images/9a3caa42215a.jpg 2880w" sizes="100vw" 
+              src="images/9a3caa42215a.jpg" 
+              alt="Achrafieh quiet treatment room interior with limestone and sage plaster" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="lg:col-span-5 lg:pl-4">
+            <span class="text-[11px] uppercase tracking-[0.2em] text-brand-primary font-medium block mb-2">Sanctuary Architecture</span>
+            <h3 class="text-2xl md:text-3xl font-normal text-brand-text mb-4">Acoustic privacy &amp; medical-grade calm</h3>
+            <p class="text-base lg:text-sm text-brand-muted font-light leading-relaxed mb-5 lg:mb-6">
+              Every practitioner works within our sound-insulated Achrafieh treatment rooms. Hand-troweled sage lime plaster, warm limestone counters, HEPA-filtered airflow, and natural unhurried daylight ensure both physical hygiene and deep sensory restoration.
+            </p>
+            <div class="flex flex-wrap gap-y-2 items-center space-x-6 text-xs text-brand-text font-medium">
+              <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-brand-primary"></span>
+                <span>Single-client suites</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-brand-primary"></span>
+                <span>No double-booking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 2: team-quals ==================== -->
+  <!-- Pale sage panel with a quiet table-like layout: each person has a row with training, certifications and years of experience, and a thin arch marker -->
+  <section id="team-quals" class="relative py-10 px-5 md:py-28 md:px-10 bg-brand-secondary/40 border-t border-b border-brand-primary/15">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Intro -->
+      <div class="max-w-2xl mb-8 md:mb-16">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-secondary border border-brand-primary/15 mb-3">
+          <span class="text-[10px] uppercase tracking-[0.2em] text-brand-primary font-semibold">Continuous Accreditation</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-normal text-brand-text mb-3">Qualifications</h2>
+        <p class="text-base md:text-lg text-brand-muted font-light leading-relaxed">
+          Training you can rely on, kept up to date every year.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-10 lg:gap-14 items-start">
+        
+        <!-- Table-like layout of rows (8 cols) -->
+        <div class="lg:col-span-7 bg-[#FBF8F1] rounded-3xl p-5 sm:p-8 md:p-10 border border-brand-primary/15 shadow-sm">
+          <div class="divide-y divide-brand-primary/15">
+            
+            <!-- Row 1: Dr. Layla Haddad -->
+            <div class="py-4 md:py-6 first:pt-0 group">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <div class="flex items-center space-x-3">
+                  <!-- Thin Arch Marker -->
+                  <div class="w-5 h-7 arch-mask-sm border border-brand-primary bg-brand-secondary/60 flex items-center justify-center shrink-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg md:text-xl font-normal text-brand-text font-heading group-hover:text-brand-primary transition-colors">
+                      Dr. Layla Haddad
+                    </h3>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-brand-secondary/70 text-brand-primary font-semibold text-xs tracking-wider uppercase shrink-0">
+                  15 years
+                </span>
+              </div>
+              <p class="text-sm text-brand-muted font-light pl-8 leading-relaxed">
+                Medical degree, dermatology diploma, certified in aesthetic medicine.
+              </p>
+            </div>
+
+            <!-- Row 2: Nour Khalil -->
+            <div class="py-4 md:py-6 group">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <div class="flex items-center space-x-3">
+                  <!-- Thin Arch Marker -->
+                  <div class="w-5 h-7 arch-mask-sm border border-brand-primary bg-brand-secondary/60 flex items-center justify-center shrink-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg md:text-xl font-normal text-brand-text font-heading group-hover:text-brand-primary transition-colors">
+                      Nour Khalil
+                    </h3>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-brand-secondary/70 text-brand-primary font-semibold text-xs tracking-wider uppercase shrink-0">
+                  9 years
+                </span>
+              </div>
+              <p class="text-sm text-brand-muted font-light pl-8 leading-relaxed">
+                Advanced facial and HydraFacial certification, LED therapy training.
+              </p>
+            </div>
+
+            <!-- Row 3: Rami Saab -->
+            <div class="py-4 md:py-6 group">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <div class="flex items-center space-x-3">
+                  <!-- Thin Arch Marker -->
+                  <div class="w-5 h-7 arch-mask-sm border border-brand-primary bg-brand-secondary/60 flex items-center justify-center shrink-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg md:text-xl font-normal text-brand-text font-heading group-hover:text-brand-primary transition-colors">
+                      Rami Saab
+                    </h3>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-brand-secondary/70 text-brand-primary font-semibold text-xs tracking-wider uppercase shrink-0">
+                  8 years
+                </span>
+              </div>
+              <p class="text-sm text-brand-muted font-light pl-8 leading-relaxed">
+                Certified laser operator, microneedling and mesotherapy courses.
+              </p>
+            </div>
+
+            <!-- Row 4: Maya Torbey -->
+            <div class="py-4 md:py-6 last:pb-0 group">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <div class="flex items-center space-x-3">
+                  <!-- Thin Arch Marker -->
+                  <div class="w-5 h-7 arch-mask-sm border border-brand-primary bg-brand-secondary/60 flex items-center justify-center shrink-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg md:text-xl font-normal text-brand-text font-heading group-hover:text-brand-primary transition-colors">
+                      Maya Torbey
+                    </h3>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-brand-secondary/70 text-brand-primary font-semibold text-xs tracking-wider uppercase shrink-0">
+                  7 years
+                </span>
+              </div>
+              <p class="text-sm text-brand-muted font-light pl-8 leading-relaxed">
+                Lash and brow academy diploma, microblading certification, bridal makeup course.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Bottom Assurance note -->
+          <div class="mt-8 pt-6 border-t border-brand-primary/10 flex items-center justify-between text-xs text-brand-muted">
+            <span class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Certified under Lebanese Ministry of Public Health protocols</span>
+            </span>
+            <span class="hidden sm:inline text-brand-primary font-medium">Re-evaluated annually</span>
+          </div>
+        </div>
+
+        <!-- Accompanying Photograph (Certificates on limestone shelf) -->
+        <div class="lg:col-span-5 flex flex-col">
+          <div class="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-brand-primary/15 shadow-sm bg-brand-surface">
+            <img loading="lazy" decoding="async" srcset="images/3b5fb88623ba-o-640.jpg 640w, images/3b5fb88623ba-o-1024.jpg 1024w, images/3b5fb88623ba-o.jpg 1376w" sizes="100vw" 
+              src="images/3b5fb88623ba-o.jpg" 
+              alt="Framed diplomas and certificates on pale limestone shelf beside potted olive sprig" 
+              class="w-full h-full object-cover"
+            />
+            <div class="mist-overlay"></div>
+          </div>
+          <div class="mt-4 px-2">
+            <p class="text-xs text-brand-muted italic leading-relaxed">
+              Quiet clinical credibility: Framed international credentials and dermatological degrees displayed on the limestone shelf at our Achrafieh entrance.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 3: team-specialties ==================== -->
+  <!-- Horizontal tabs on cream with a person name and chips for specialties, and an arched hands-at-work photo beside each tab -->
+  <section id="team-specialties" class="relative py-10 px-5 md:py-28 md:px-10 bg-[#F6F0E3]">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-xl mx-auto mb-8 md:mb-16">
+        <span class="text-xs uppercase tracking-[0.22em] text-brand-primary font-medium block mb-2">Protocol Matching</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-normal text-brand-text mb-3">Specialties</h2>
+        <p class="text-base text-brand-muted font-light">Who to see for what.</p>
+      </div>
+
+      <!-- Tab Navigation Buttons -->
+      <div class="grid grid-cols-4 gap-2 sm:flex sm:flex-wrap items-center justify-center sm:gap-3 mb-8 md:mb-12">
+        <button onclick="switchTab('layla')" id="tab-btn-layla" class="tab-btn active px-2 sm:px-6 py-3.5 sm:py-2.5 rounded-full border border-brand-primary/25 text-xs sm:text-sm font-medium tracking-wide transition-all shadow-sm">
+          Dr. Layla
+        </button>
+        <button onclick="switchTab('nour')" id="tab-btn-nour" class="tab-btn px-2 sm:px-6 py-3.5 sm:py-2.5 rounded-full border border-brand-primary/25 text-xs sm:text-sm font-medium tracking-wide transition-all shadow-sm">
+          Nour
+        </button>
+        <button onclick="switchTab('rami')" id="tab-btn-rami" class="tab-btn px-2 sm:px-6 py-3.5 sm:py-2.5 rounded-full border border-brand-primary/25 text-xs sm:text-sm font-medium tracking-wide transition-all shadow-sm">
+          Rami
+        </button>
+        <button onclick="switchTab('maya')" id="tab-btn-maya" class="tab-btn px-2 sm:px-6 py-3.5 sm:py-2.5 rounded-full border border-brand-primary/25 text-xs sm:text-sm font-medium tracking-wide transition-all shadow-sm">
+          Maya
+        </button>
+      </div>
+
+      <!-- TAB CONTENT PANELS -->
+
+      <!-- Panel 1: Dr. Layla (Active default) -->
+      <div id="tab-content-layla" class="tab-panel transition-all duration-300">
+        <div class="bg-[#FBF8F1] rounded-3xl p-5 sm:p-8 md:p-12 border border-brand-primary/15 shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-8 lg:gap-12 items-center">
+            
+            <div class="lg:col-span-7 order-2 lg:order-1">
+              <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-secondary/60 text-brand-primary text-[11px] uppercase tracking-wider font-semibold mb-4">
+                Founder · Aesthetic Physician
+              </div>
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-normal text-brand-text mb-4">
+                Dr. Layla Haddad
+              </h3>
+              <p class="text-base text-brand-muted font-light leading-relaxed mb-6">
+                Specialised in clinical facial architecture, bespoke anti-aging strategies, medical peels, and deep barrier renewal protocols. Dr. Layla personally performs all doctor-led consultations and injectable assessments.
+              </p>
+
+              <!-- Specialty Chips -->
+              <div class="mb-8">
+                <span class="text-xs uppercase tracking-wider text-brand-text font-medium block mb-3">Focused Specialties:</span>
+                <div class="flex flex-wrap gap-2.5">
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Skin analysis
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Peels
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Anti-wrinkle
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Filler
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Acne and pigmentation plans
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-4">
+                <a class="btn-clay w-full sm:w-auto text-center justify-center text-xs tracking-wider uppercase font-medium px-6 py-3.5 md:py-3 rounded-full" href="book-appointment.html">
+                  Book with Layla
+                </a>
+                <span class="text-xs text-brand-muted italic">Consultations: Monday – Thursday</span>
+              </div>
+            </div>
+
+            <!-- Arched Hands-at-work Photo -->
+            <div class="lg:col-span-5 order-1 lg:order-2">
+              <div class="relative w-full aspect-[4/3] lg:aspect-[4/5] arch-mask bg-brand-secondary/40 border border-brand-primary/20 shadow-sm overflow-hidden">
+                <img loading="lazy" decoding="async" srcset="images/c81c99ad3cfd-o-640.jpg 640w, images/c81c99ad3cfd-o-1024.jpg 1024w, images/c81c99ad3cfd-o.jpg 1200w" sizes="100vw" 
+                  src="images/c81c99ad3cfd-o.jpg" 
+                  alt="Close-up of therapist gentle hands performing a calming facial massage in warm light" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="mist-overlay"></div>
+                <div class="absolute bottom-4 left-4 right-4 bg-[#FBF8F1]/85 backdrop-blur-md p-3 rounded-xl border border-brand-primary/15 text-center">
+                  <span class="text-[11px] text-brand-text font-medium tracking-wide">Doctor-led clinical precision with tactile calm</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: Nour Khalil -->
+      <div id="tab-content-nour" class="tab-panel hidden transition-all duration-300">
+        <div class="bg-[#FBF8F1] rounded-3xl p-5 sm:p-8 md:p-12 border border-brand-primary/15 shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-8 lg:gap-12 items-center">
+            
+            <div class="lg:col-span-7 order-2 lg:order-1">
+              <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-secondary/60 text-brand-primary text-[11px] uppercase tracking-wider font-semibold mb-4">
+                Senior Facial Specialist
+              </div>
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-normal text-brand-text mb-4">
+                Nour Khalil
+              </h3>
+              <p class="text-base text-brand-muted font-light leading-relaxed mb-6">
+                Mastery in active nutrient infusions, clinical pore cleansing, and gentle recovery for reactive skin. Nour creates relaxing rhythmic facial rituals paired with medical-grade equipment.
+              </p>
+
+              <!-- Specialty Chips (Item: Nour) -->
+              <div class="mb-8">
+                <span class="text-xs uppercase tracking-wider text-brand-text font-medium block mb-3">Focused Specialties:</span>
+                <div class="flex flex-wrap gap-2.5">
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    HydraFacial
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Deep cleansing
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    LED
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Dermaplaning
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Sensitive skin
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-4">
+                <a class="btn-clay w-full sm:w-auto text-center justify-center text-xs tracking-wider uppercase font-medium px-6 py-3.5 md:py-3 rounded-full" href="book-appointment.html">
+                  Book with Nour
+                </a>
+                <span class="text-xs text-brand-muted italic">Facials: Tuesday – Saturday</span>
+              </div>
+            </div>
+
+            <!-- Arched Hands-at-work Photo -->
+            <div class="lg:col-span-5 order-1 lg:order-2">
+              <div class="relative w-full aspect-[4/3] lg:aspect-[4/5] arch-mask bg-brand-secondary/40 border border-brand-primary/20 shadow-sm overflow-hidden">
+                <img loading="lazy" decoding="async" srcset="images/a008dca3b427-o-640.jpg 640w, images/a008dca3b427-o.jpg 896w" sizes="100vw" 
+                  src="images/a008dca3b427-o.jpg" 
+                  alt="Therapist hands warming pristine towel above ceramic steam bowl" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="mist-overlay"></div>
+                <div class="absolute bottom-4 left-4 right-4 bg-[#FBF8F1]/85 backdrop-blur-md p-3 rounded-xl border border-brand-primary/15 text-center">
+                  <span class="text-[11px] text-brand-text font-medium tracking-wide">Signature Levant warm botanical towel ritual</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Rami Saab -->
+      <div id="tab-content-rami" class="tab-panel hidden transition-all duration-300">
+        <div class="bg-[#FBF8F1] rounded-3xl p-5 sm:p-8 md:p-12 border border-brand-primary/15 shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-8 lg:gap-12 items-center">
+            
+            <div class="lg:col-span-7 order-2 lg:order-1">
+              <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-secondary/60 text-brand-primary text-[11px] uppercase tracking-wider font-semibold mb-4">
+                Laser &amp; Device Specialist
+              </div>
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-normal text-brand-text mb-4">
+                Rami Saab
+              </h3>
+              <p class="text-base text-brand-muted font-light leading-relaxed mb-6">
+                Targeted fractional laser technologies, gentle micro-channeling for texture refinement, and skin vitality. Rami enforces mandatory patch tests and clear expectation management.
+              </p>
+
+              <!-- Specialty Chips (Item: Rami) -->
+              <div class="mb-8">
+                <span class="text-xs uppercase tracking-wider text-brand-text font-medium block mb-3">Focused Specialties:</span>
+                <div class="flex flex-wrap gap-2.5">
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Laser hair removal
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Microneedling
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Mesotherapy
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-4">
+                <a class="btn-clay w-full sm:w-auto text-center justify-center text-xs tracking-wider uppercase font-medium px-6 py-3.5 md:py-3 rounded-full" href="book-appointment.html">
+                  Book with Rami
+                </a>
+                <span class="text-xs text-brand-muted italic">Device Suite: Monday, Wednesday, Friday, Saturday</span>
+              </div>
+            </div>
+
+            <!-- Arched Device Room Photo -->
+            <div class="lg:col-span-5 order-1 lg:order-2">
+              <div class="relative w-full aspect-[4/3] lg:aspect-[4/5] arch-mask bg-brand-secondary/40 border border-brand-primary/20 shadow-sm overflow-hidden">
+                <img loading="lazy" decoding="async" srcset="images/cd4483695150-o-640.jpg 640w, images/cd4483695150-o.jpg 896w" sizes="100vw" 
+                  src="images/cd4483695150-o.jpg" 
+                  alt="Modern sleek aesthetic laser device softly lit in Achrafieh treatment alcove" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="mist-overlay"></div>
+                <div class="absolute bottom-4 left-4 right-4 bg-[#FBF8F1]/85 backdrop-blur-md p-3 rounded-xl border border-brand-primary/15 text-center">
+                  <span class="text-[11px] text-brand-text font-medium tracking-wide">Sub-zero contact cooling for Levant phototypes</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Maya Torbey -->
+      <div id="tab-content-maya" class="tab-panel hidden transition-all duration-300">
+        <div class="bg-[#FBF8F1] rounded-3xl p-5 sm:p-8 md:p-12 border border-brand-primary/15 shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-8 lg:gap-12 items-center">
+            
+            <div class="lg:col-span-7 order-2 lg:order-1">
+              <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-secondary/60 text-brand-primary text-[11px] uppercase tracking-wider font-semibold mb-4">
+                Brow, Lash &amp; Esthetic Artist
+              </div>
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-normal text-brand-text mb-4">
+                Maya Torbey
+              </h3>
+              <p class="text-base text-brand-muted font-light leading-relaxed mb-6">
+                Precision symmetry mapping, natural semi-permanent brow architecture, hygienic manicure care, and graceful event preparations.
+              </p>
+
+              <!-- Specialty Chips (Item: Maya) -->
+              <div class="mb-8">
+                <span class="text-xs uppercase tracking-wider text-brand-text font-medium block mb-3">Focused Specialties:</span>
+                <div class="flex flex-wrap gap-2.5">
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Lash lifts
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Brows
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Microblading
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Waxing
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Nails
+                  </span>
+                  <span class="px-4 py-2 rounded-full bg-brand-secondary text-brand-text text-xs font-medium border border-brand-primary/20">
+                    Bridal trials
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-4">
+                <a class="btn-clay w-full sm:w-auto text-center justify-center text-xs tracking-wider uppercase font-medium px-6 py-3.5 md:py-3 rounded-full" href="book-appointment.html">
+                  Book with Maya
+                </a>
+                <span class="text-xs text-brand-muted italic">Beauty Studio: Tuesday – Saturday</span>
+              </div>
+            </div>
+
+            <!-- Arched Brow Close-up Photo -->
+            <div class="lg:col-span-5 order-1 lg:order-2">
+              <div class="relative w-full aspect-[4/3] lg:aspect-[4/5] arch-mask bg-brand-secondary/40 border border-brand-primary/20 shadow-sm overflow-hidden">
+                <img loading="lazy" decoding="async" srcset="images/d692d2ec1f4b-o-640.jpg 640w, images/d692d2ec1f4b-o-1024.jpg 1024w, images/d692d2ec1f4b-o.jpg 1200w" sizes="100vw" 
+                  src="images/d692d2ec1f4b-o.jpg" 
+                  alt="Naturally groomed woman eyebrow and clean fluttery eyelashes with dewy skin" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="mist-overlay"></div>
+                <div class="absolute bottom-4 left-4 right-4 bg-[#FBF8F1]/85 backdrop-blur-md p-3 rounded-xl border border-brand-primary/15 text-center">
+                  <span class="text-[11px] text-brand-text font-medium tracking-wide">Disciplined, feathered Mediterranean arch tailoring</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 4: team-book ==================== -->
+  <!-- Four rounded panels in deep sage, each with a small arched portrait, the therapist's name and a clay Book link, in a row above a quiet closing line. -->
+  <section id="team-book" class="relative py-10 px-5 md:py-28 md:px-10 bg-brand-darkPanel text-[#F6F0E3] overflow-hidden">
+    <!-- Concentric Steam Ripple in deep panel -->
+    <div class="steam-ripple w-[700px] h-[700px] top-1/2 left-1/2 -z-0 opacity-10 border-white/40"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-8 md:mb-20">
+        <span class="text-xs uppercase tracking-[0.22em] text-brand-secondary font-medium block mb-2">Direct Sanctuary Reservation</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-normal text-white mb-4">Book with a therapist</h2>
+        <p class="text-base text-brand-secondary/80 font-light leading-relaxed">
+          Choose the person you would like to see and go straight to their available times.
+        </p>
+      </div>
+
+      <!-- Four Rounded Panels in Deep Sage in a Row -->
+      <div class="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4 mb-10 md:mb-16">
+        
+        <!-- Booking Card 1: Layla -->
+        <div class="bg-[#2E3931]/80 backdrop-blur-sm rounded-3xl p-3 sm:p-6 border border-white/10 flex flex-col items-center text-center transition-all duration-300 hover:border-brand-accent/60 hover:-translate-y-1">
+          <!-- Small arched portrait with haze -->
+          <div class="relative w-20 h-28 sm:w-28 sm:h-36 arch-mask-sm bg-brand-primary/40 border border-white/20 overflow-hidden mb-4 shrink-0 shadow-inner">
+            <img loading="lazy" decoding="async" srcset="images/1d8797baae58-o-640.jpg 640w, images/1d8797baae58-o.jpg 896w" sizes="100vw" 
+              src="images/1d8797baae58-o.jpg" 
+              alt="Dr. Layla Haddad" 
+              class="w-full h-full object-cover"
+            />
+            <div class="mist-overlay-dark"></div>
+          </div>
+          
+          <h3 class="text-base sm:text-xl font-normal text-white font-heading mb-1">Dr. Layla Haddad</h3>
+          <p class="text-xs text-brand-secondary/70 font-light mb-5">
+            Consultations, peels, injectables
+          </p>
+          
+          <div class="mt-auto w-full">
+            <a class="btn-clay block w-full py-3.5 sm:py-2.5 rounded-full text-[11px] sm:text-xs uppercase tracking-wide sm:tracking-wider font-medium text-center" href="book-appointment.html">
+              Book with Layla
+            </a>
+          </div>
+        </div>
+
+        <!-- Booking Card 2: Nour -->
+        <div class="bg-[#2E3931]/80 backdrop-blur-sm rounded-3xl p-3 sm:p-6 border border-white/10 flex flex-col items-center text-center transition-all duration-300 hover:border-brand-accent/60 hover:-translate-y-1">
+          <div class="relative w-20 h-28 sm:w-28 sm:h-36 arch-mask-sm bg-brand-primary/40 border border-white/20 overflow-hidden mb-4 shrink-0 shadow-inner">
+            <img loading="lazy" decoding="async" srcset="images/4c1c0279e815-640.jpg 640w, images/4c1c0279e815-1024.jpg 1024w, images/4c1c0279e815.jpg 2880w" sizes="100vw" 
+              src="images/4c1c0279e815.jpg" 
+              alt="Nour Khalil" 
+              class="w-full h-full object-cover"
+            />
+            <div class="mist-overlay-dark"></div>
+          </div>
+          
+          <h3 class="text-base sm:text-xl font-normal text-white font-heading mb-1">Nour Khalil</h3>
+          <p class="text-xs text-brand-secondary/70 font-light mb-5">
+            Facials and LED
+          </p>
+          
+          <div class="mt-auto w-full">
+            <a class="btn-clay block w-full py-3.5 sm:py-2.5 rounded-full text-[11px] sm:text-xs uppercase tracking-wide sm:tracking-wider font-medium text-center" href="book-appointment.html">
+              Book with Nour
+            </a>
+          </div>
+        </div>
+
+        <!-- Booking Card 3: Rami -->
+        <div class="bg-[#2E3931]/80 backdrop-blur-sm rounded-3xl p-3 sm:p-6 border border-white/10 flex flex-col items-center text-center transition-all duration-300 hover:border-brand-accent/60 hover:-translate-y-1">
+          <div class="relative w-20 h-28 sm:w-28 sm:h-36 arch-mask-sm bg-brand-primary/40 border border-white/20 overflow-hidden mb-4 shrink-0 shadow-inner">
+            <img loading="lazy" decoding="async" srcset="images/05e7e76f2051-o-640.jpg 640w, images/05e7e76f2051-o.jpg 896w" sizes="100vw" 
+              src="images/05e7e76f2051-o.jpg" 
+              alt="Rami Saab" 
+              class="w-full h-full object-cover"
+            />
+            <div class="mist-overlay-dark"></div>
+          </div>
+          
+          <h3 class="text-base sm:text-xl font-normal text-white font-heading mb-1">Rami Saab</h3>
+          <p class="text-xs text-brand-secondary/70 font-light mb-5">
+            Laser and microneedling
+          </p>
+          
+          <div class="mt-auto w-full">
+            <a class="btn-clay block w-full py-3.5 sm:py-2.5 rounded-full text-[11px] sm:text-xs uppercase tracking-wide sm:tracking-wider font-medium text-center" href="book-appointment.html">
+              Book with Rami
+            </a>
+          </div>
+        </div>
+
+        <!-- Booking Card 4: Maya -->
+        <div class="bg-[#2E3931]/80 backdrop-blur-sm rounded-3xl p-3 sm:p-6 border border-white/10 flex flex-col items-center text-center transition-all duration-300 hover:border-brand-accent/60 hover:-translate-y-1">
+          <div class="relative w-20 h-28 sm:w-28 sm:h-36 arch-mask-sm bg-brand-primary/40 border border-white/20 overflow-hidden mb-4 shrink-0 shadow-inner">
+            <img loading="lazy" decoding="async" srcset="images/675a2072424e-o-640.jpg 640w, images/675a2072424e-o.jpg 896w" sizes="100vw" 
+              src="images/675a2072424e-o.jpg" 
+              alt="Maya Torbey" 
+              class="w-full h-full object-cover"
+            />
+            <div class="mist-overlay-dark"></div>
+          </div>
+          
+          <h3 class="text-base sm:text-xl font-normal text-white font-heading mb-1">Maya Torbey</h3>
+          <p class="text-xs text-brand-secondary/70 font-light mb-5">
+            Brows, lashes, nails, bridal
+          </p>
+          
+          <div class="mt-auto w-full">
+            <a class="btn-clay block w-full py-3.5 sm:py-2.5 rounded-full text-[11px] sm:text-xs uppercase tracking-wide sm:tracking-wider font-medium text-center" href="book-appointment.html">
+              Book with Maya
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quiet Closing Line and General Booking Button -->
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+        <div>
+          <p class="text-base font-light text-brand-secondary">
+            Prefer to choose by treatment rather than therapist?
+          </p>
+          <p class="text-xs text-brand-secondary/60 mt-0.5">
+            Our clinic coordinator will match you with the practitioner best suited to your skin intake.
+          </p>
+        </div>
+        
+        <a class="btn-clay w-full sm:w-auto text-center justify-center text-xs tracking-wider uppercase font-medium px-8 py-3.5 md:py-3 rounded-full shrink-0 shadow-lg" href="book-appointment.html">
+          Book online
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER (Identical on every page) ==================== -->
+  <footer class="bg-[#ECE6D8] border-t border-brand-primary/15 pt-10 pb-8 px-5 md:pt-16 md:pb-12 md:px-10 text-brand-text">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 pb-8 md:pb-14 border-b border-brand-primary/15">
+        
+        <!-- Col 1: Wordmark & Philosophy (2 cols) -->
+        <div class="col-span-2 md:col-span-1 lg:col-span-2">
+          <a class="inline-block mb-4" href="index.html">
+            <span class="font-heading text-2xl tracking-[0.16em] uppercase text-brand-text font-normal block">
+              Layla Skin Studio
+            </span>
+            <span class="text-[10px] tracking-[0.25em] text-brand-muted uppercase">
+              Achrafieh Esthetic Sanctuary
+            </span>
+          </a>
+          <p class="text-sm text-brand-muted font-light leading-relaxed max-w-sm mb-6">
+            A quiet esthetic sanctuary grounded in the quiet mineral beauty of Achrafieh, Beirut. Clinical efficacy wrapped in quiet hospitality and honest skin guidance.
+          </p>
+          <!-- Social Icons -->
+          <div class="flex items-center space-x-4 text-brand-muted">
+            <a class="hover:text-brand-text transition-colors" aria-label="Instagram" href="#" data-inert>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.13-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a class="hover:text-brand-text transition-colors" aria-label="WhatsApp Concierge" href="#" data-inert>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Studio Navigation Links -->
+        <div>
+          <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-brand-text mb-4">Studio Pages</h4>
+          <ul class="space-y-2.5 text-xs text-brand-muted font-normal">
+            <li><a class="hover:text-brand-text transition-colors" href="index.html">Home</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="treatments.html">Treatments</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="book-appointment.html">Book online</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="prices.html">Prices</a></li>
+            <li><a class="text-brand-primary font-medium hover:text-brand-text transition-colors" href="team.html">Team</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="before-after.html">Results</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Care Protocols -->
+        <div>
+          <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-brand-text mb-4">Care Protocols</h4>
+          <ul class="space-y-2.5 text-xs text-brand-muted font-normal">
+            <li><a class="hover:text-brand-text transition-colors" href="treatments.html">Facial Architecture</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="treatments.html">Lymphatic Protocols</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="treatments.html">Barrier Restoration</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="#" data-inert>Sanctuary Etiquette</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="contact.html">Achrafieh Studio Directions</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="book-appointment.html">Private Consultations</a></li>
+            <li><a class="hover:text-brand-text transition-colors" href="#" data-inert>Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact details & Hours -->
+        <div>
+          <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-brand-text mb-4">Sanctuary Contact</h4>
+          <div class="space-y-2.5 text-xs text-brand-muted font-normal">
+            <p><span class="font-medium text-brand-text">Phone:</span> +1 555 010 042</p>
+            <p><span class="font-medium text-brand-text">Email:</span> hello@example.com</p>
+            <p><span class="font-medium text-brand-text">Address:</span> Sample address, Achrafieh, Beirut</p>
+            <div class="pt-2">
+              <span class="font-medium text-brand-text block mb-1">Opening Hours:</span>
+              <p>Mon–Fri: 9:00 – 19:00</p>
+              <p>Saturday: 10:00 – 16:00</p>
+              <p>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Bottom notes -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-brand-muted gap-4">
+        <p>© 2024 Layla Skin Studio. Achrafieh, Beirut. All rights reserved.</p>
+        <div class="flex items-center space-x-6">
+          <a class="hover:text-brand-text transition-colors" href="#" data-inert>Sanctuary Etiquette</a>
+          <a class="hover:text-brand-text transition-colors" href="#" data-inert>Doctor Protocols</a>
+          <a class="hover:text-brand-text transition-colors" href="#" data-inert>Privacy Policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Simple JavaScript for Tab Switching in Section 3 -->
+  <script>
+    function switchTab(tabId) {
+      // Hide all tab panels
+      document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.add('hidden');
+      });
+
+      // Remove active class from all tab buttons
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Show selected panel
+      const targetPanel = document.getElementById('tab-content-' + tabId);
+      if (targetPanel) {
+        targetPanel.classList.remove('hidden');
+      }
+
+      // Add active state to clicked button
+      const targetBtn = document.getElementById('tab-btn-' + tabId);
+      if (targetBtn) {
+        targetBtn.classList.add('active');
+      }
+    }
+  </script>
+
+</body>
+</html>

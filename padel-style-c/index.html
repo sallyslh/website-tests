@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smash Point Padel — Botanical Conservatory Club</title>
+<!-- Google Fonts: Tenor Sans & Albert Sans strictly per specification -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=Tenor+Sans&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-high": "#e7e9e5",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#d8dbd7",
+            "surface-variant": "#e1e3df",
+            "tertiary-fixed-dim": "#ffb4a2",
+            "on-primary-fixed-variant": "#244f3c",
+            "secondary": "#4d6358",
+            "error-container": "#ffdad6",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#414944",
+            "secondary-container": "#cfe8da",
+            "on-surface": "#191c1a",
+            "on-error-container": "#93000a",
+            "surface-container": "#eceeeb",
+            "inverse-surface": "#2e312f",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#b4ccbf",
+            "on-tertiary-container": "#ff9176",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#cfe8da",
+            "surface-tint": "#3c6753",
+            "primary-container": "#1f4a38",
+            "on-primary-container": "#8cb9a2",
+            "primary": "#033323",
+            "primary-fixed": "#beedd4",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdad2",
+            "primary-fixed-dim": "#a3d1b9",
+            "background": "#f8faf6",
+            "tertiary-container": "#7d210b",
+            "on-tertiary-fixed-variant": "#83260f",
+            "on-primary": "#ffffff",
+            "on-primary-fixed": "#002114",
+            "on-secondary-fixed-variant": "#364b41",
+            "on-background": "#191c1a",
+            "tertiary": "#5a0f00",
+            "inverse-primary": "#a3d1b9",
+            "inverse-on-surface": "#eff1ed",
+            "on-secondary-fixed": "#0a1f17",
+            "on-tertiary-fixed": "#3c0700",
+            "outline-variant": "#c0c8c2",
+            "outline": "#717973",
+            "surface-container-highest": "#e1e3df",
+            "terracotta": "#C4553A",
+            "terracotta-dark": "#a84028",
+            "leaf-green": "#1F4A38",
+            "mint-glass": "#CFE8DA",
+            "steamed-white": "#F6F8F4",
+            "forest-dark": "#14261E"
+          },
+          fontFamily: {
+            "display-lg": ["Tenor Sans", "sans-serif"],
+            "headline-lg": ["Tenor Sans", "sans-serif"],
+            "headline-md": ["Tenor Sans", "sans-serif"],
+            "headline-sm": ["Tenor Sans", "sans-serif"],
+            "body-lg": ["Albert Sans", "sans-serif"],
+            "body-md": ["Albert Sans", "sans-serif"],
+            "body-sm": ["Albert Sans", "sans-serif"],
+            "label-lg": ["Albert Sans", "sans-serif"],
+            "label-md": ["Albert Sans", "sans-serif"],
+            "label-tag": ["Albert Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Albert Sans', sans-serif;
+      background-color: #F6F8F4;
+      color: #14261E;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Tenor Sans', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    /* Subtle conservatory mullion hairline pattern */
+    .conservatory-grid {
+      background-image: linear-gradient(to right, rgba(31, 74, 58, 0.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(31, 74, 58, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .mullion-border {
+      border: 1px solid rgba(31, 74, 58, 0.14);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary-container selection:text-primary-container">
+<!-- 1. TopNavBar (Shared Component JSON Conformance) -->
+<header class="sticky top-0 z-50 w-full bg-surface/80 dark:bg-surface-container-high/80 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-200">
+<div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex justify-between items-center">
+<!-- Brand Logo / Wordmark -->
+<a class="flex items-center gap-3 group" href="#home-hero">
+<span class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-primary-fixed shadow-sm">
+<!-- Geometric 4-petal terracotta/mint motif -->
+<svg class="w-5 h-5 text-primary-fixed" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path>
+</svg>
+</span>
+<span class="font-headline-sm text-headline-sm tracking-tight text-primary font-heading uppercase text-lg tracking-wider font-semibold">
+          Smash Point Padel
+        </span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<!-- Active link: Home -->
+<a class="text-primary font-medium border-b-2 border-primary pb-1 font-label-lg text-label-lg transition-colors duration-200" href="#home-hero">
+          Home
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg" href="#home-bays">
+          Courts
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg" href="#home-growth">
+          Academy
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg" href="#home-pots">
+          Memberships
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg" href="#home-voices">
+          Clubhouse
+        </a>
+</nav>
+<!-- Trailing CTAs -->
+<div class="flex items-center gap-4">
+<a class="hidden lg:inline-flex text-on-surface-variant hover:text-primary font-label-lg text-label-lg font-medium transition-colors" href="#home-visit">
+          Member Login
+        </a>
+<a class="bg-terracotta hover:bg-[#a84028] text-white font-label-lg text-label-lg tracking-wider uppercase font-semibold px-6 py-2.5 rounded-full shadow-md active:scale-95 transition-all duration-150 inline-flex items-center gap-2" href="#home-bays">
+<span>Book a court</span>
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</a>
+</div>
+</div>
+</header>
+<!-- 2. Section 'home-hero' -->
+<section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden" id="home-hero">
+<!-- Full-bleed glasshouse court image background with prompt image token -->
+<div class="absolute inset-0 z-0">
+<img alt="Panoramic view inside the soaring Victorian iron and glass conservatory featuring an illuminated professional padel court with pristine blue turf, framed by giant indoor monstera plants and hanging ferns in soft daylight." class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 ease-out" src="images/e849c2b4d8b6-o.jpg"/>
+<!-- Deep green glass tint (65% opacity) overlay with subtle leaf haze -->
+<div class="absolute inset-0 bg-[#1F4A38]/65 backdrop-blur-[2px]"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#14261E] via-transparent to-[#1F4A38]/30"></div>
+</div>
+<!-- Hero Content Container -->
+<div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-20 w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+<!-- Left Column: Expressive Headline & Intro -->
+<div class="lg:col-span-8 text-white space-y-6">
+<!-- Specimen plant tag -->
+<div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white shadow-sm">
+<svg class="w-3.5 h-3.5 text-terracotta" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path>
+</svg>
+<span class="font-label-tag text-label-tag tracking-widest uppercase font-semibold text-white/90">Sanctuary of Botanics &amp; Precision</span>
+</div>
+<h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08] text-white tracking-tight font-normal">
+            Come and grow<br class="hidden sm:inline"/> your game
+          </h1>
+<p class="font-body-lg text-body-lg text-white/85 max-w-2xl font-light leading-relaxed">
+            A glass-walled padel club where every court feels like a sunlit conservatory. New to the sport? You are exactly who we built it for.
+          </p>
+<!-- Buttons -->
+<div class="pt-4 flex flex-wrap items-center gap-4">
+<a class="bg-terracotta hover:bg-[#a84028] text-white px-8 py-3.5 rounded-full font-label-lg text-label-lg tracking-wider uppercase font-semibold shadow-lg hover:shadow-xl transition-all duration-200 active:scale-98" href="#home-bays">
+              Book a court
+            </a>
+<a class="bg-white/15 hover:bg-white/25 backdrop-blur-md text-white border border-white/40 px-8 py-3.5 rounded-full font-label-lg text-label-lg tracking-wider uppercase font-medium transition-all duration-200" href="#home-bays">
+              Explore the bays
+            </a>
+</div>
+<!-- Micro specs pill -->
+<div class="pt-6 flex flex-wrap items-center gap-6 text-xs text-white/70 tracking-wide uppercase font-label-tag">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary-fixed">thermostat</span> 21.5°C Conservatory Climate</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary-fixed">wb_sunny</span> Pure Natural Light Glasshouse</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary-fixed">spa</span> Living Air Bio-Filtration</span>
+</div>
+</div>
+<!-- Lower Right Column: Today's Free Slots Frosted Card -->
+<div class="lg:col-span-4 lg:justify-self-end w-full max-w-sm">
+<div class="backdrop-blur-md bg-white/20 border border-white/40 p-6 rounded-2xl shadow-xl text-white space-y-4">
+<div class="flex items-center justify-between border-b border-white/25 pb-3">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-terracotta animate-pulse"></span>
+<h2 class="font-heading text-lg tracking-wider uppercase font-medium">Today’s free slots</h2>
+</div>
+<span class="text-[11px] uppercase tracking-wider font-semibold bg-white/20 px-2 py-0.5 rounded text-white/90">Live</span>
+</div>
+<div class="space-y-3 font-body-sm text-body-sm">
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-black/15 hover:bg-black/25 transition-colors border border-white/10">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-terracotta"></span>
+<span class="font-medium text-white">Court 1 – Clay Blue</span>
+</div>
+<span class="font-mono bg-white/20 px-2.5 py-1 rounded text-xs font-semibold">17:00</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-black/15 hover:bg-black/25 transition-colors border border-white/10">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-terracotta"></span>
+<span class="font-medium text-white">Court 2 – Botanical Palm</span>
+</div>
+<span class="font-mono bg-white/20 px-2.5 py-1 rounded text-xs font-semibold">18:30</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-black/15 hover:bg-black/25 transition-colors border border-white/10">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-terracotta"></span>
+<span class="font-medium text-white">Court 3 – Fern Vista</span>
+</div>
+<span class="font-mono bg-white/20 px-2.5 py-1 rounded text-xs font-semibold">19:00</span>
+</div>
+</div>
+<div class="pt-2 text-center">
+<a class="text-xs text-secondary-fixed hover:text-white inline-flex items-center gap-1 uppercase tracking-wider font-semibold transition-colors" href="#home-bays">
+                View all court availability
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Section 'home-welcome' -->
+<section class="py-24 md:py-32 bg-steamed-white conservatory-grid relative overflow-hidden" id="home-welcome">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-0">
+<!-- Left: Arched Greenhouse Window Frame (portrait woman beginner with racket) -->
+<div class="lg:col-span-6 flex justify-center lg:justify-start relative">
+<!-- Victorian Conservatory Arched Frame -->
+<div class="relative w-full max-w-md rounded-t-[140px] rounded-b-2xl border-4 border-white shadow-2xl overflow-hidden bg-surface-container aspect-[3/4]">
+<img alt="Smiling female beginner padel player in an athletic zip jacket holding an elegant racket surrounded by lush greenhouse ferns and soft light beams in a historic conservatory." class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out" src="images/ce4d97e59111-o.jpg"/>
+<!-- Glass reflection overlay -->
+<div class="absolute inset-0 bg-gradient-to-tr from-[#1F4A38]/30 via-transparent to-white/20 pointer-events-none"></div>
+<!-- Mullion hairline frame accents -->
+<div class="absolute inset-2 rounded-t-[132px] rounded-b-xl border border-white/50 pointer-events-none"></div>
+<!-- Floating tag on image -->
+<div class="absolute bottom-5 left-5 right-5 p-3 rounded-xl bg-white/90 backdrop-blur-md border border-[#1F4A38]/10 text-xs font-body-sm text-[#14261E] flex items-center justify-between shadow-sm">
+<span class="font-medium flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-terracotta"></span>
+                Complimentary Starter Kit Included
+              </span>
+<span class="text-primary font-semibold">Level: All Welcome</span>
+</div>
+</div>
+</div>
+<!-- Right: Overlapping Mint Panel -->
+<div class="lg:col-span-6 lg:-ml-12 relative z-10 mt-6 lg:mt-0">
+<div class="bg-[#CFE8DA]/75 backdrop-blur-md rounded-3xl p-8 sm:p-10 md:p-14 border border-[#1F4A38]/15 shadow-xl space-y-6">
+<!-- Plant tag specimen -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-[#1F4A38]/20 shadow-xs">
+<svg class="w-3.5 h-3.5 text-terracotta" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path>
+</svg>
+<span class="font-label-tag text-label-tag text-primary uppercase font-bold tracking-widest">
+                CONSERVATORY SPORTS SANCTUARY
+              </span>
+</div>
+<!-- Heading -->
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl text-primary leading-tight font-normal">
+              A conservatory for your sport
+            </h2>
+<!-- Text Description -->
+<p class="font-body-lg text-body-lg text-[#14261E]/90 leading-relaxed font-light">
+              Padel is played inside glass, so we let the glass do the talking: light, leaves and calm. Rackets and balls are included for your first visit, and our coaches will meet you at the door.
+            </p>
+<!-- Three bullet values with terracotta motif -->
+<div class="space-y-3.5 pt-2 font-body-md text-body-md text-[#14261E]">
+<div class="flex items-start gap-3">
+<span class="mt-1 w-4 h-4 text-terracotta flex-shrink-0">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+</span>
+<span><strong>Zero intimidating club etiquette:</strong> step in, grab an iced mint water, and simply hit.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="mt-1 w-4 h-4 text-terracotta flex-shrink-0">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+</span>
+<span><strong>Top-tier acoustics &amp; lighting:</strong> non-reflective tempered glass with acoustic plant buffering.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="mt-1 w-4 h-4 text-terracotta flex-shrink-0">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+</span>
+<span><strong>Organic garden lounge:</strong> stay after your set for botanical teas and warm social vibes.</span>
+</div>
+</div>
+<!-- Button: Try a lesson -->
+<div class="pt-4">
+<a class="inline-flex items-center gap-3 bg-primary-container text-white hover:bg-primary font-label-lg text-label-lg tracking-wider uppercase font-semibold px-8 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 group" href="#home-growth">
+<span>Try a lesson</span>
+<span class="w-6 h-6 rounded-full bg-terracotta flex items-center justify-center text-white text-xs group-hover:translate-x-0.5 transition-transform">
+                  →
+                </span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Section 'home-bays' -->
+<section class="py-24 bg-white border-y border-[#1F4A38]/10 relative" id="home-bays">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<!-- Section Header -->
+<div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-primary font-label-tag text-label-tag uppercase tracking-widest font-semibold">
+<svg class="w-3 h-3 text-terracotta" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+          Greenhouse Architecture
+        </div>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl text-primary font-normal">
+          Three bays, one garden
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant font-light">
+          Wander through the club like a greenhouse, one bay at a time.
+        </p>
+</div>
+<!-- Horizontal Gallery of 3 Arched-Window Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+<!-- Card 1: Court 1 – Clay-blue – indoor -->
+<div class="group rounded-t-[100px] rounded-b-2xl bg-steamed-white border border-[#1F4A38]/15 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img alt="Indoor glasshouse padel court 1 with blue surface surrounded by lush palm fronds, hanging ferns, and Victorian cathedral glass ceilings." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="images/6ee265fa7d1f-o.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+<!-- Specimen Nursery Tag -->
+<div class="absolute top-6 left-6 right-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/90 backdrop-blur-md border border-[#1F4A38]/20 font-label-tag text-label-tag uppercase font-semibold text-primary shadow-xs">
+<svg class="w-2.5 h-2.5 text-terracotta" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+                Court 1 – Clay-blue – indoor
+              </span>
+</div>
+<div class="absolute bottom-4 left-6 text-white text-xs uppercase tracking-wider font-semibold font-label-tag">
+              Bay Alpha · Center Glasshouse
+            </div>
+</div>
+<div class="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
+<div>
+<h3 class="font-heading text-xl text-primary mb-2">The Cathedral Court</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+                Our flagship glasshouse court, bright and temperate all year.
+              </p>
+</div>
+<div class="pt-2 border-t border-[#1F4A38]/10 flex items-center justify-between text-xs text-primary font-semibold uppercase tracking-wider">
+<span>Panoramic Glass · Heated Floor</span>
+<span class="material-symbols-outlined text-[18px]">sports_tennis</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Court 4 – Sage-green – outdoor -->
+<div class="group rounded-t-[100px] rounded-b-2xl bg-steamed-white border border-[#1F4A38]/15 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img alt="Outdoor court 4 bathed in warm golden twilight with palm trees and players relaxing on benches by the glass fencing." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="images/ca9f5f705eb1-o.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+<!-- Specimen Nursery Tag -->
+<div class="absolute top-6 left-6 right-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/90 backdrop-blur-md border border-[#1F4A38]/20 font-label-tag text-label-tag uppercase font-semibold text-primary shadow-xs">
+<svg class="w-2.5 h-2.5 text-terracotta" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+                Court 4 – Sage-green – outdoor
+              </span>
+</div>
+<div class="absolute bottom-4 left-6 text-white text-xs uppercase tracking-wider font-semibold font-label-tag">
+              Bay Delta · Sunset Grove
+            </div>
+</div>
+<div class="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
+<div>
+<h3 class="font-heading text-xl text-primary mb-2">The Palm Pavilion</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+                Open sky, palms and evening peach light.
+              </p>
+</div>
+<div class="pt-2 border-t border-[#1F4A38]/10 flex items-center justify-between text-xs text-primary font-semibold uppercase tracking-wider">
+<span>Fresh Breeze · Open Canopy</span>
+<span class="material-symbols-outlined text-[18px]">wb_twilight</span>
+</div>
+</div>
+</div>
+<!-- Card 3: The Potting Lounge -->
+<div class="group rounded-t-[100px] rounded-b-2xl bg-steamed-white border border-[#1F4A38]/15 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img alt="The Potting Lounge social conservatory cafe filled with wicker armchairs, terracotta tiles, fresh citrus water, and sprawling garden foliage." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="images/4d1fb57a990e-o.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+<!-- Specimen Nursery Tag -->
+<div class="absolute top-6 left-6 right-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/90 backdrop-blur-md border border-[#1F4A38]/20 font-label-tag text-label-tag uppercase font-semibold text-primary shadow-xs">
+<svg class="w-2.5 h-2.5 text-terracotta" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+                The Potting Lounge
+              </span>
+</div>
+<div class="absolute bottom-4 left-6 text-white text-xs uppercase tracking-wider font-semibold font-label-tag">
+              Bay Zeta · Social Greenhouse
+            </div>
+</div>
+<div class="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
+<div>
+<h3 class="font-heading text-xl text-primary mb-2">Botanical Wellness Bar</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+                Herbal iced teas, fruit and a place to cool down.
+              </p>
+</div>
+<div class="pt-2 border-t border-[#1F4A38]/10 flex items-center justify-between text-xs text-primary font-semibold uppercase tracking-wider">
+<span>Cold Pressed Juices · Terrace</span>
+<span class="material-symbols-outlined text-[18px]">local_cafe</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button Below Cards -->
+<div class="mt-14 text-center">
+<a class="inline-flex items-center gap-3 border-2 border-primary-container text-primary-container hover:bg-primary-container hover:text-white font-label-lg text-label-lg tracking-wider uppercase font-semibold px-8 py-3.5 rounded-full transition-all duration-200" href="#home-bays">
+<span>See our courts</span>
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 5. Section 'home-growth' -->
+<section class="py-24 md:py-32 bg-steamed-white conservatory-grid relative" id="home-growth">
+<div class="max-w-6xl mx-auto px-6 md:px-12">
+<!-- Section Header -->
+<div class="text-center max-w-2xl mx-auto mb-20 space-y-3">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-fixed text-primary font-label-tag text-label-tag uppercase tracking-widest font-semibold">
+<svg class="w-3 h-3 text-terracotta" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+          Academy Pathway
+        </div>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl text-primary font-normal">
+          From seedling to bloom
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant font-light">
+          Our academy grows with you, in four gentle stages from first hit to match play.
+        </p>
+</div>
+<!-- Vertical Progression Timeline (Stem & Leaves) -->
+<div class="relative">
+<!-- Central Vine Stem -->
+<div class="absolute left-4 md:left-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-secondary-fixed via-primary to-terracotta -translate-x-1/2 hidden md:block"></div>
+<div class="space-y-12 md:space-y-16">
+<!-- Stage 1: Seedling -->
+<div class="relative flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-12 md:text-right w-full">
+<div class="bg-white p-7 rounded-2xl border border-[#1F4A38]/12 shadow-sm hover:shadow-md transition-shadow">
+<span class="inline-block px-2.5 py-1 rounded bg-[#CFE8DA] text-primary font-label-tag text-label-tag font-bold uppercase tracking-wider mb-2">
+                  Stage 01
+                </span>
+<h3 class="font-heading text-2xl text-primary">Seedling</h3>
+<p class="font-body-md text-body-md font-semibold text-terracotta mt-1">Never held a racket. Welcome.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-light mt-2">
+                  Beginner adult learning a first serve. We cover court geography, soft grip mechanics, gentle underhand feeds, and how the back glass becomes your ally.
+                </p>
+</div>
+</div>
+<!-- Node Badge -->
+<div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 border-primary items-center justify-center text-primary shadow-md z-10">
+<span class="w-3.5 h-3.5 rounded-full bg-secondary-fixed"></span>
+</div>
+<div class="md:w-1/2 md:pl-12 w-full mt-4 md:mt-0 text-left text-xs uppercase tracking-wider text-on-surface-variant font-semibold">
+<span class="inline-flex items-center gap-2 bg-[#CFE8DA]/40 px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-[16px] text-primary">filter_vintage</span> Focus: Grip, Stance &amp; Confidence
+              </span>
+</div>
+</div>
+<!-- Stage 2: Sprout -->
+<div class="relative flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-12 md:text-right w-full order-2 md:order-1 text-xs uppercase tracking-wider text-on-surface-variant font-semibold">
+<span class="inline-flex items-center gap-2 bg-[#CFE8DA]/40 px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-[16px] text-primary">psychology</span> Focus: Wall Rebounds &amp; Rhythm
+              </span>
+</div>
+<!-- Node Badge -->
+<div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 border-primary items-center justify-center text-primary shadow-md z-10 order-2">
+<span class="w-3.5 h-3.5 rounded-full bg-primary-fixed"></span>
+</div>
+<div class="md:w-1/2 md:pl-12 w-full order-1 md:order-3">
+<div class="bg-white p-7 rounded-2xl border border-[#1F4A38]/12 shadow-sm hover:shadow-md transition-shadow">
+<span class="inline-block px-2.5 py-1 rounded bg-[#CFE8DA] text-primary font-label-tag text-label-tag font-bold uppercase tracking-wider mb-2">
+                  Stage 02
+                </span>
+<h3 class="font-heading text-2xl text-primary">Sprout</h3>
+<p class="font-body-md text-body-md font-semibold text-terracotta mt-1">Rallies, walls and basic rules.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-light mt-2">
+                  Two players rallying slowly. Learn glass angles, basic volley footwork, serving rotation, and how to maintain continuous, enjoyable 8-shot rallies.
+                </p>
+</div>
+</div>
+</div>
+<!-- Stage 3: Leaf -->
+<div class="relative flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-12 md:text-right w-full">
+<div class="bg-white p-7 rounded-2xl border border-[#1F4A38]/12 shadow-sm hover:shadow-md transition-shadow">
+<span class="inline-block px-2.5 py-1 rounded bg-[#CFE8DA] text-primary font-label-tag text-label-tag font-bold uppercase tracking-wider mb-2">
+                  Stage 03
+                </span>
+<h3 class="font-heading text-2xl text-primary">Leaf</h3>
+<p class="font-body-md text-body-md font-semibold text-terracotta mt-1">Tactics, positioning and doubles play.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-light mt-2">
+                  Doubles pair at the net. Synchronize with your partner, master the bandeja and chiquita overheads, and take control of the transition zone.
+                </p>
+</div>
+</div>
+<!-- Node Badge -->
+<div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 border-primary items-center justify-center text-primary shadow-md z-10">
+<span class="w-3.5 h-3.5 rounded-full bg-primary"></span>
+</div>
+<div class="md:w-1/2 md:pl-12 w-full mt-4 md:mt-0 text-left text-xs uppercase tracking-wider text-on-surface-variant font-semibold">
+<span class="inline-flex items-center gap-2 bg-[#CFE8DA]/40 px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-[16px] text-primary">groups</span> Focus: Doubles Chemistry &amp; Bandeja
+              </span>
+</div>
+</div>
+<!-- Stage 4: Bloom -->
+<div class="relative flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-12 md:text-right w-full order-2 md:order-1 text-xs uppercase tracking-wider text-on-surface-variant font-semibold">
+<span class="inline-flex items-center gap-2 bg-terracotta/10 text-terracotta px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-[16px]">military_tech</span> Focus: Match Strategy &amp; The 'Por Tres'
+              </span>
+</div>
+<!-- Node Badge -->
+<div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-terracotta border-2 border-white items-center justify-center text-white shadow-md z-10 order-2">
+<span class="w-3.5 h-3.5 rounded-full bg-white"></span>
+</div>
+<div class="md:w-1/2 md:pl-12 w-full order-1 md:order-3">
+<div class="bg-white p-7 rounded-2xl border-2 border-terracotta/40 shadow-md">
+<span class="inline-block px-2.5 py-1 rounded bg-terracotta text-white font-label-tag text-label-tag font-bold uppercase tracking-wider mb-2">
+                  Stage 04
+                </span>
+<h3 class="font-heading text-2xl text-primary">Bloom</h3>
+<p class="font-body-md text-body-md font-semibold text-terracotta mt-1">Competitive match play and fine-tuning.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-light mt-2">
+                  Advanced player in a smash. Speed reading opponent patterns, defensive recovery from difficult wall rebounds, and match tournament stamina.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-16 text-center">
+<a class="inline-flex items-center gap-3 bg-primary-container text-white hover:bg-primary font-label-lg text-label-lg tracking-wider uppercase font-semibold px-8 py-3.5 rounded-full shadow-md transition-all duration-200" href="#home-bays">
+<span>Explore the academy</span>
+<span class="material-symbols-outlined text-[18px]">school</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 6. Section 'home-pots' -->
+<section class="py-24 md:py-32 bg-white relative" id="home-pots">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<!-- Section Header -->
+<div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-fixed text-primary font-label-tag text-label-tag uppercase tracking-widest font-semibold">
+<svg class="w-3 h-3 text-terracotta" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+          Seasonal Subscriptions
+        </div>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl text-primary font-normal">
+          Three pots, pick your own
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant font-light">
+          Memberships made simple: choose how often you want to play and we will take care of the rest.
+        </p>
+</div>
+<!-- Three Potted-Plant Tier Cards Scaling in Size -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-end max-w-6xl mx-auto">
+<!-- Tier 1: 'Sprig' (Small card) -->
+<div class="bg-steamed-white rounded-2xl p-8 border border-[#1F4A38]/15 shadow-sm flex flex-col justify-between h-full lg:mb-4">
+<div class="space-y-6">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-tag text-label-tag uppercase tracking-widest text-secondary font-bold">Tier 01</span>
+<h3 class="font-heading text-2xl text-primary mt-1">Sprig</h3>
+</div>
+<span class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">potted_plant</span>
+</span>
+</div>
+<div class="border-b border-[#1F4A38]/10 pb-5">
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-heading text-primary font-medium">$39</span>
+<span class="font-body-sm text-on-surface-variant">/ month</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 font-medium">Off-peak court time and member rates.</p>
+</div>
+<!-- Features -->
+<ul class="space-y-3 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Off-peak court access (Mon–Fri 8–16h)</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Member-rate court hire during peak</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Complimentary racket rental &amp; balls</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>7-day advance booking window</span>
+</li>
+</ul>
+</div>
+<div class="pt-8">
+<button class="w-full py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-white font-label-lg text-label-lg tracking-wider uppercase font-semibold transition-all">
+              Select Sprig
+            </button>
+</div>
+</div>
+<!-- Tier 2: 'Fern' (Highlighted Terracotta Card) -->
+<div class="bg-primary-container text-white rounded-3xl p-8 md:p-10 border-2 border-terracotta shadow-2xl relative flex flex-col justify-between lg:scale-105 z-10">
+<!-- Greenhouse Badge -->
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-terracotta text-white px-4 py-1.5 rounded-full font-label-tag text-label-tag tracking-wider uppercase font-bold shadow-md whitespace-nowrap">
+            Most popular in the greenhouse
+          </div>
+<div class="space-y-6 pt-2">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-tag text-label-tag uppercase tracking-widest text-primary-fixed font-bold">Tier 02 · Conservatory Core</span>
+<h3 class="font-heading text-3xl text-white mt-1">Fern</h3>
+</div>
+<span class="w-12 h-12 rounded-full bg-terracotta flex items-center justify-center text-white shadow-inner">
+<span class="material-symbols-outlined text-[24px]">forest</span>
+</span>
+</div>
+<div class="border-b border-white/20 pb-5">
+<div class="flex items-baseline gap-1">
+<span class="text-5xl font-heading text-white font-medium">$79</span>
+<span class="font-body-sm text-primary-fixed">/ month</span>
+</div>
+<p class="text-xs text-primary-fixed mt-2 font-medium">More hours, earlier booking, one guest pass.</p>
+</div>
+<!-- Features -->
+<ul class="space-y-3 font-body-sm text-body-sm text-white/90">
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-terracotta-dark bg-white rounded-full text-[18px]">check_circle</span>
+<span>Expanded hours including weekend mornings</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-terracotta-dark bg-white rounded-full text-[18px]">check_circle</span>
+<span>14-day advance booking window</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-terracotta-dark bg-white rounded-full text-[18px]">check_circle</span>
+<span>1 complimentary monthly guest pass</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-terracotta-dark bg-white rounded-full text-[18px]">check_circle</span>
+<span>15% off Academy coaching clinics</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-terracotta-dark bg-white rounded-full text-[18px]">check_circle</span>
+<span>Locker room &amp; herbal towel service</span>
+</li>
+</ul>
+</div>
+<div class="pt-8">
+<button class="w-full py-4 rounded-full bg-terracotta hover:bg-[#a84028] text-white font-label-lg text-label-lg tracking-wider uppercase font-bold shadow-lg transition-all active:scale-98">
+              Select Fern
+            </button>
+</div>
+</div>
+<!-- Tier 3: 'Palm' (Large tall card) -->
+<div class="bg-steamed-white rounded-2xl p-8 border border-[#1F4A38]/15 shadow-sm flex flex-col justify-between h-full lg:mb-4">
+<div class="space-y-6">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-tag text-label-tag uppercase tracking-widest text-secondary font-bold">Tier 03 · Patron</span>
+<h3 class="font-heading text-2xl text-primary mt-1">Palm</h3>
+</div>
+<span class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">yard</span>
+</span>
+</div>
+<div class="border-b border-[#1F4A38]/10 pb-5">
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-heading text-primary font-medium">$139</span>
+<span class="font-body-sm text-on-surface-variant">/ month</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 font-medium">Unlimited play, priority booking, lessons included.</p>
+</div>
+<!-- Features -->
+<ul class="space-y-3 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Unlimited peak &amp; off-peak court time</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>21-day VIP advance booking privileges</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>2 private 1-on-1 coaching sessions / month</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Unlimited guest passes on weekends</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Reserved lounge seating at The Potting Bar</span>
+</li>
+</ul>
+</div>
+<div class="pt-8">
+<button class="w-full py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-white font-label-lg text-label-lg tracking-wider uppercase font-semibold transition-all">
+              Select Palm
+            </button>
+</div>
+</div>
+</div>
+<!-- Action Button Below Cards -->
+<div class="mt-14 text-center">
+<a class="text-sm font-semibold tracking-wider uppercase text-primary hover:text-terracotta inline-flex items-center gap-2 transition-colors" href="#home-pots">
+<span>Compare memberships in full detail</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 7. Section 'home-voices' -->
+<section class="py-24 md:py-32 bg-[#CFE8DA]/40 relative overflow-hidden border-t border-[#1F4A38]/10" id="home-voices">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<!-- Section Header -->
+<div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 text-primary font-label-tag text-label-tag uppercase tracking-widest font-semibold border border-[#1F4A38]/15">
+<svg class="w-3 h-3 text-terracotta" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+          Player Stories
+        </div>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl text-primary font-normal">
+          Kind words from the garden
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant font-light">
+          What our players say about their first season with us.
+        </p>
+</div>
+<!-- Featured Oversized Quote in Large Elegant Type -->
+<div class="max-w-4xl mx-auto text-center mb-16 bg-white/70 backdrop-blur-md p-10 md:p-14 rounded-3xl border border-[#1F4A38]/15 shadow-sm">
+<span class="font-heading text-5xl md:text-6xl text-terracotta leading-none block mb-4">“</span>
+<blockquote class="font-heading text-2xl sm:text-3xl md:text-4xl text-primary leading-snug font-normal">
+          I have never felt at ease in a sports club until here. The glass, the plants and the coaches made my first lesson feel like a treat.
+        </blockquote>
+<div class="mt-6 flex items-center justify-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#1F4A38] text-white flex items-center justify-center font-heading text-sm">
+            HR
+          </div>
+<div class="text-left">
+<div class="font-heading text-base text-primary">Hannah R.</div>
+<div class="font-body-sm text-xs text-on-surface-variant">Member since Spring 2024 · Seedling to Sprout</div>
+</div>
+</div>
+</div>
+<!-- Horizontal Card Strip with Other Reviews -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-[#1F4A38]/10 shadow-xs flex flex-col justify-between">
+<p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+            "Booking takes seconds, the courts are spotless, and the off-peak membership is great value. We are here every Thursday."
+          </p>
+<div class="mt-6 pt-4 border-t border-[#1F4A38]/10 flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-terracotta"></span>
+<div>
+<div class="font-heading text-sm text-primary">Tomas B.</div>
+<div class="text-[11px] text-on-surface-variant">Fern Member · Doubles League</div>
+</div>
+</div>
+</div>
+<div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-[#1F4A38]/10 shadow-xs flex flex-col justify-between">
+<p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+            "My daughter started in the Seedling group and now asks to play every weekend. Maya is wonderful with the kids."
+          </p>
+<div class="mt-6 pt-4 border-t border-[#1F4A38]/10 flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-terracotta"></span>
+<div>
+<div class="font-heading text-sm text-primary">Aisha K.</div>
+<div class="text-[11px] text-on-surface-variant">Family Academy Patron</div>
+</div>
+</div>
+</div>
+<div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-[#1F4A38]/10 shadow-xs flex flex-col justify-between">
+<p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+            "Beautiful space and serious coaching. Daniel fixed my backhand in two sessions."
+          </p>
+<div class="mt-6 pt-4 border-t border-[#1F4A38]/10 flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-terracotta"></span>
+<div>
+<div class="font-heading text-sm text-primary">Peter L.</div>
+<div class="text-[11px] text-on-surface-variant">Bloom Level · Palm Member</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Coaches & Team Spotlight Pill Row -->
+<div class="border-t border-[#1F4A38]/15 pt-10">
+<div class="text-center mb-6">
+<span class="font-label-tag text-label-tag uppercase tracking-widest text-primary font-bold">
+            Conservatory Coaching Staff
+          </span>
+</div>
+<div class="flex flex-wrap justify-center gap-3 md:gap-4">
+<div class="bg-white px-5 py-2.5 rounded-full border border-[#1F4A38]/15 text-sm shadow-xs flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-terracotta"></span>
+<span class="font-semibold text-primary">Lucia Moreno</span>
+<span class="text-xs text-on-surface-variant">Head Coach &amp; Co-founder</span>
+</div>
+<div class="bg-white px-5 py-2.5 rounded-full border border-[#1F4A38]/15 text-sm shadow-xs flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-terracotta"></span>
+<span class="font-semibold text-primary">Daniel Okafor</span>
+<span class="text-xs text-on-surface-variant">Performance Coach</span>
+</div>
+<div class="bg-white px-5 py-2.5 rounded-full border border-[#1F4A38]/15 text-sm shadow-xs flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-terracotta"></span>
+<span class="font-semibold text-primary">Maya Lindqvist</span>
+<span class="text-xs text-on-surface-variant">Junior &amp; Family Coach</span>
+</div>
+<div class="bg-white px-5 py-2.5 rounded-full border border-[#1F4A38]/15 text-sm shadow-xs flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-terracotta"></span>
+<span class="font-semibold text-primary">Samir Haddad</span>
+<span class="text-xs text-on-surface-variant">Club Manager</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. Section 'home-visit' -->
+<section class="relative min-h-[750px] flex items-end justify-center overflow-hidden" id="home-visit">
+<!-- Full-bleed exterior dusk photo of illuminated greenhouse pavilion -->
+<div class="absolute inset-0 z-0">
+<img alt="Striking dusk view of the illuminated glasshouse sports complex glowing with warm amber interior lights against a peach evening sky with palms and stone paths." class="w-full h-full object-cover object-center" src="images/24f0f4160905-o.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+</div>
+<!-- Overlaid Frosted Glass Conservatory Band Across the Bottom -->
+<div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-16 pt-32">
+<div class="bg-white/90 dark:bg-surface-container-high/90 backdrop-blur-xl border border-white/60 p-8 sm:p-12 rounded-3xl shadow-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left details -->
+<div class="lg:col-span-7 space-y-4 text-on-surface">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-primary font-label-tag text-label-tag uppercase tracking-widest font-semibold">
+<svg class="w-3 h-3 text-terracotta" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path></svg>
+              Directions &amp; Schedule
+            </div>
+<h2 class="font-heading text-3xl sm:text-4xl text-primary font-normal">
+              Visit the glasshouse
+            </h2>
+<div class="space-y-2 font-body-md text-body-md text-on-surface-variant">
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+<span>Open every day from early morning to evening. <strong>Mon–Fri 7:00–22:00</strong> · <strong>Sat–Sun 8:00–20:00</strong></span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">pin_drop</span>
+<span>Glasshouse Way, Estate Grounds · Free electric charging &amp; bicycle bays</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">call</span>
+<span>+1 555 010 042 · hello@example.com</span>
+</p>
+</div>
+</div>
+<!-- Right actions -->
+<div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3.5 lg:items-end justify-center">
+<a class="w-full sm:w-auto text-center bg-primary hover:bg-leaf-green text-white font-label-lg text-label-lg tracking-wider uppercase font-semibold px-8 py-3.5 rounded-full shadow-md transition-all" href="#">
+              Get in touch
+            </a>
+<a class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] border border-[#25D366]/30 font-label-lg text-label-lg tracking-wider uppercase font-semibold px-8 py-3.5 rounded-full transition-all" rel="noopener noreferrer" target="_blank" href="#">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>WhatsApp Club Concierge</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. Footer (Shared Component JSON Conformance) -->
+<footer class="w-full bg-primary text-surface px-6 md:px-12 py-16 border-t border-primary-container">
+<div class="max-w-7xl mx-auto space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+<!-- Brand Info -->
+<div class="md:col-span-5 space-y-4">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-lg bg-surface text-primary flex items-center justify-center">
+<svg class="w-5 h-5 text-primary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"></path>
+</svg>
+</span>
+<span class="font-headline-md text-headline-md text-surface font-heading tracking-wider uppercase font-semibold">
+              Smash Point Padel
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-container max-w-sm font-light">
+            A serene glasshouse sanctuary blending architectural light, botanical tranquility, and world-class padel athletic precision.
+          </p>
+<div class="pt-2 flex items-center gap-4 text-surface-container">
+<a aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</a>
+<a aria-label="Mail" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+<a aria-label="Location" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">map</span>
+</a>
+</div>
+</div>
+<!-- Links Columns matching shared JSON array -->
+<div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 font-body-sm text-body-sm">
+<div class="space-y-3">
+<h4 class="font-label-tag text-label-tag uppercase tracking-widest text-primary-fixed font-bold">The Club</h4>
+<ul class="space-y-2">
+<li><a class="text-surface-container hover:text-surface transition-colors" href="#home-bays">Courts &amp; Hours</a></li>
+<li><a class="text-surface-container hover:text-surface transition-colors" href="#">Conservatory Rules</a></li>
+<li><a class="text-surface-container hover:text-surface transition-colors" href="#home-visit">Wellness Pavilion</a></li>
+</ul>
+</div>
+<div class="space-y-3">
+<h4 class="font-label-tag text-label-tag uppercase tracking-widest text-primary-fixed font-bold">Instruction</h4>
+<ul class="space-y-2">
+<li><a class="text-surface-container hover:text-surface transition-colors" href="#home-growth">Academy &amp; Coaching</a></li>
+<li><a class="text-surface-container hover:text-surface transition-colors" href="#home-pots">Memberships</a></li>
+<li><a class="text-surface-container hover:text-surface transition-colors" href="#">Events &amp; Privates</a></li>
+</ul>
+</div>
+<div class="space-y-3">
+<h4 class="font-label-tag text-label-tag uppercase tracking-widest text-primary-fixed font-bold">Location</h4>
+<ul class="space-y-2">
+<li><a class="text-surface-container hover:text-surface transition-colors" href="#home-visit">Contact &amp; Directions</a></li>
+<li><span class="text-surface-container/70">+1 555 010 042</span></li>
+<li><span class="text-surface-container/70">hello@example.com</span></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Copyright Bottom Bar -->
+<div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-surface-container/80">
+<p>© 2024 Smash Point Padel Sanctuary. All rights reserved. Glasshouse botanical club.</p>
+<div class="flex gap-6">
+<a class="hover:text-surface transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-surface transition-colors" href="#">Conservatory Terms</a>
+<a class="hover:text-surface transition-colors" href="#">Court Etiquette</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

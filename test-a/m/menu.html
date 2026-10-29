@@ -1,0 +1,697 @@
+<!DOCTYPE html><html lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish="">/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a row of three or more buttons (filters, chips) wraps on a phone instead of running off the edge of the screen */
+@media (max-width:767px){div:has(>button+button+button),ul:has(>li>button){flex-wrap:wrap}}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish="">(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>you café — Menu</title>
+  <!-- Google Fonts: Gluten & Karla & Caveat for handwritten notes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=Gluten:wght@400;500;600;700;800&amp;family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  
+  
+  <style>
+    body {
+      background-color: #F7EEDF;
+      color: #33200F;
+      font-family: 'Karla', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Gluten', cursive, sans-serif;
+    }
+
+    .font-hand {
+      font-family: 'Caveat', cursive;
+    }
+
+    /* Coffee Ring signature mark */
+    .coffee-ring-stamp {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .coffee-ring-svg {
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Smooth scroll for horizontal strip */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Arch shapes */
+    .rounded-arch-top {
+      border-radius: 9999px 9999px 1.5rem 1.5rem;
+    }
+    .rounded-arch-right {
+      border-radius: 2rem 9999px 9999px 2rem;
+    }
+
+    /* Hover effect */
+    .btn-warm {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-warm:hover {
+      background-color: #b0532e;
+      transform: translateY(-1px);
+    }
+    .btn-warm:active {
+      transform: scale(0.98);
+    }
+  </style>
+<style data-wm-menu>.wm-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;margin-left:8px;border:0;border-radius:10px;background:transparent;color:inherit;cursor:pointer;flex:none}
+.wm-burger.wm-on{display:inline-flex}.wm-burger svg{width:26px;height:26px}
+.wm-panel{position:fixed;left:0;right:0;z-index:2147483000;overflow-y:auto;padding:8px 20px 20px;box-shadow:0 18px 40px rgba(0,0,0,.35);display:none}
+[data-wm-open]>div{display:block !important}
+.wm-panel.wm-open{display:block}.wm-panel a{display:block;padding:14px 4px;font-size:18px;text-decoration:none;color:inherit;border-bottom:1px solid rgba(127,127,127,.25)}
+.wm-panel a.wm-cta{margin-top:14px;text-align:center;border:0;border-radius:10px;font-weight:700}</style><script>if(innerWidth>=768&&!/[?&]stay/.test(location.search)){var f=location.pathname.split('/').pop()||'index.html';location.replace('../'+f+location.hash)}</script></head>
+<body class="bg-cafe-bg text-cafe-text selection:bg-cafe-accent/20">
+
+  <!-- ==================== HEADER (Identical across pages) ==================== -->
+  <header class="bg-surface dark:bg-surface-container docked full-width top-0 sticky z-50 shadow-[0px_4px_16px_-2px_rgba(51,32,15,0.08)]">
+<div class="flex justify-between items-center px-margin py-space-sm w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-space-sm">
+<a class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-primary dark:text-inverse-primary lowercase flex items-center gap-1.5 group" href="index.html">
+<span class="text-[#C4623A] font-extrabold tracking-tighter text-3xl">you</span>
+<span class="w-2 h-2 rounded-full bg-[#8E9C6E] inline-block animate-pulse"></span>
+</a>
+</div>
+<!-- Navigation links and primary Order CTA -->
+<nav class="flex items-center gap-3">
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary px-1 text-label-lg font-label-lg transition-colors" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-on-surface px-1 text-label-lg font-label-lg transition-colors" href="menu.html" aria-current="page">Menu</a>
+
+</nav>
+</div>
+</header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="max-w-md mx-auto overflow-hidden pb-24">
+
+    <!-- ==================== 1. SECTION: menu-hero ==================== -->
+    <section id="menu-hero" class="relative px-5 pt-7 pb-10 overflow-hidden">
+      <!-- Background subtle coffee stain aesthetic -->
+      <div class="absolute -top-12 -right-12 w-48 h-48 opacity-15 pointer-events-none">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="88" stroke="#4A2C1D" stroke-width="5" stroke-dasharray="240 20 80 15" stroke-linecap="round"></circle>
+          <circle cx="102" cy="98" r="82" stroke="#4A2C1D" stroke-width="2" stroke-opacity="0.6"></circle>
+        </svg>
+      </div>
+
+      <!-- Tag badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cafe-cream border border-[#4A2C1D]/10 text-xs font-medium text-cafe-primary mb-4 shadow-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-cafe-secondary"></span>
+        Daily slow-crafted menu
+      </div>
+
+      <!-- Hero Headline with asymmetric arch photo break out -->
+      <div class="grid grid-cols-12 gap-3 items-end">
+        <div class="col-span-7 pr-1">
+          <h1 class="text-3xl leading-[1.12] font-heading font-extrabold text-cafe-primary tracking-tight">
+            Something good for every <span class="relative inline-block text-cafe-accent">hour
+              <!-- Hand drawn small under-ring arc -->
+              <svg class="absolute -bottom-1 left-0 w-full h-2.5 text-cafe-accent" viewBox="0 0 100 12" fill="none">
+                <path d="M2 7C30 13 70 12 98 4" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+              </svg>
+            </span>
+          </h1>
+          <p class="mt-3 text-sm text-cafe-text/80 leading-relaxed font-normal">
+            Coffee, tea, breakfast, lunch and fresh pastries, all made in-house each day.
+          </p>
+
+          <!-- Quick category jump pills -->
+          <div class="flex flex-wrap gap-1.5 mt-5">
+            <a href="#menu-coffee" class="text-[11px] font-semibold bg-cafe-cream text-cafe-primary px-2.5 py-1 rounded-full border border-cafe-primary/10">Coffee</a>
+            <a href="#menu-breakfast" class="text-[11px] font-semibold bg-cafe-cream text-cafe-primary px-2.5 py-1 rounded-full border border-cafe-primary/10">Breakfast</a>
+            <a href="#menu-pastries" class="text-[11px] font-semibold bg-cafe-cream text-cafe-primary px-2.5 py-1 rounded-full border border-cafe-primary/10">Bakehouse</a>
+          </div>
+        </div>
+
+        <!-- Arch photo breaking out on the right -->
+        <div class="col-span-5 relative">
+          <!-- Coffee ring frame behind arch -->
+          <div class="absolute -bottom-4 -left-4 w-32 h-32 opacity-25 pointer-events-none">
+            <svg viewBox="0 0 120 120" fill="none">
+              <circle cx="60" cy="60" r="52" stroke="#4A2C1D" stroke-width="3.5" stroke-dasharray="140 18 60 12" stroke-linecap="round"></circle>
+            </svg>
+          </div>
+
+          <div class="relative w-full aspect-[3/4.4] rounded-arch-top overflow-hidden shadow-float border-2 border-cafe-cream/80 transform translate-x-1.5 rotate-1">
+            <img fetchpriority="high" decoding="async" srcset="images/8b1e52ac1635-o-640.jpg 640w, images/8b1e52ac1635-o.jpg 896w" sizes="100vw" src="images/8b1e52ac1635-o.jpg" alt="A table full of café food: toast, pastries, a latte and a teapot" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-cafe-primary/30 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Handwritten caption tag -->
+          <div class="absolute -bottom-2 -left-2 bg-cafe-cream px-2 py-0.5 rounded-lg border border-cafe-primary/15 shadow-sm transform -rotate-3">
+            <span class="font-hand text-sm font-bold text-cafe-primary">table no. 3</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. SECTION: menu-coffee ==================== -->
+    <section id="menu-coffee" class="px-5 py-9 bg-cafe-cream/60 border-y border-[#4A2C1D]/10 relative">
+      <!-- Section Header -->
+      <div class="flex items-end justify-between mb-5">
+        <div>
+          <span class="font-hand text-lg text-cafe-accent font-bold tracking-wide block -mb-1">Slow drip &amp; silky steamed</span>
+          <h2 class="text-2xl font-heading font-bold text-cafe-primary tracking-tight">Coffee &amp; tea</h2>
+        </div>
+        <!-- Coffee ring stamp badge -->
+        <div class="relative w-12 h-12 flex items-center justify-center">
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 60 60" fill="none">
+            <circle cx="30" cy="30" r="26" stroke="#8E9C6E" stroke-width="2.5" stroke-dasharray="70 12 40 8" stroke-linecap="round"></circle>
+          </svg>
+          <span class="material-symbols-outlined text-cafe-secondary text-xl">local_cafe</span>
+        </div>
+      </div>
+
+      <p class="text-xs text-cafe-text/75 mb-6 max-w-[90%] leading-relaxed">
+        Our most-loved drinks. See the full drinks list for sizes and milks.
+      </p>
+
+      <!-- Center Barista Circular Photo floating between menu rows -->
+      <div class="relative my-4 flex items-center justify-center">
+        <!-- Coffee ring enclosing the round portrait photo -->
+        <div class="relative w-36 h-36 flex items-center justify-center">
+          <!-- The imperfect coffee ring mark -->
+          <svg class="absolute -inset-2 w-[112%] h-[112%] text-cafe-primary/40" viewBox="0 0 160 160" fill="none">
+            <circle cx="80" cy="80" r="72" stroke="currentColor" stroke-width="3.5" stroke-dasharray="190 20 120 15" stroke-linecap="round"></circle>
+            <circle cx="82" cy="78" r="68" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="90 30 180 20"></circle>
+          </svg>
+          
+          <div class="w-32 h-32 rounded-full overflow-hidden shadow-float border-3 border-cafe-cream relative z-10">
+            <img loading="lazy" decoding="async" srcset="images/77226bb914d2-640.jpg 640w, images/77226bb914d2-1024.jpg 1024w, images/77226bb914d2.jpg 2880w" sizes="100vw" src="images/77226bb914d2.jpg" alt="A barista pouring steamed milk into a cup" class="w-full h-full object-cover" style="object-position: 53% 19%;">
+          </div>
+
+          <!-- Small handwritten badge tag overlapping photo -->
+          <div class="absolute -bottom-2 -right-3 z-20 bg-cafe-bg px-2.5 py-1 rounded-full border border-cafe-primary/20 shadow-sm flex items-center gap-1 transform rotate-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-cafe-accent"></span>
+            <span class="font-hand text-xs font-bold text-cafe-primary">oat milk standard</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two-column styled drink list -->
+      <div class="grid grid-cols-2 gap-3 mt-6">
+        
+        <!-- Item 1: Espresso -->
+        <div class="bg-cafe-bg/70 p-3 rounded-2xl border border-cafe-primary/10 flex flex-col justify-between relative shadow-sm group">
+          <div>
+            <div class="w-full aspect-square rounded-xl overflow-hidden mb-2.5 border border-cafe-primary/10">
+              <img loading="lazy" decoding="async" srcset="images/4967c3b94a2c-o-640.jpg 640w, images/4967c3b94a2c-o.jpg 1024w" sizes="100vw" src="images/4967c3b94a2c-o.jpg" alt="Small espresso cup on a saucer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <h3 class="font-heading text-sm font-bold text-cafe-primary leading-tight">Espresso</h3>
+            <p class="text-[11px] text-cafe-text/75 mt-1 leading-snug">Rich, sweet and balanced, with notes of cocoa.</p>
+          </div>
+          <!-- Handwritten price in coffee-ring mark -->
+          <div class="mt-3 flex items-center justify-between pt-2 border-t border-cafe-primary/10">
+            <div class="relative flex items-center justify-center w-11 h-7">
+              <svg class="absolute inset-0 w-full h-full text-cafe-primary/35" viewBox="0 0 50 30" fill="none">
+                <ellipse cx="25" cy="15" rx="22" ry="12" stroke="currentColor" stroke-width="1.8" stroke-dasharray="55 8 30 5" stroke-linecap="round"></ellipse>
+              </svg>
+              <span class="font-hand text-base font-bold text-cafe-primary relative z-10">$3.40</span>
+            </div>
+            <button class="w-6 h-6 rounded-full bg-cafe-cream flex items-center justify-center text-cafe-primary border border-cafe-primary/15 text-xs font-bold hover:bg-cafe-accent hover:text-white transition-colors" title="Add to cup">+</button>
+          </div>
+        </div>
+
+        <!-- Item 2: Honey Oat Flat White -->
+        <div class="bg-cafe-bg/70 p-3 rounded-2xl border border-cafe-primary/10 flex flex-col justify-between relative shadow-sm group">
+          <div>
+            <div class="w-full aspect-square rounded-xl overflow-hidden mb-2.5 border border-cafe-primary/10 relative">
+              <img loading="lazy" decoding="async" srcset="images/e8b90d49e6bb-o-640.jpg 640w, images/e8b90d49e6bb-o.jpg 1024w" sizes="100vw" src="images/e8b90d49e6bb-o.jpg" alt="Latte art in a cream cup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <!-- Badge -->
+              <span class="absolute top-1.5 left-1.5 bg-cafe-accent text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">Top pick</span>
+            </div>
+            <h3 class="font-heading text-sm font-bold text-cafe-primary leading-tight">Honey Oat Flat White</h3>
+            <p class="text-[11px] text-cafe-text/75 mt-1 leading-snug">Double shot, oat milk, wildflower honey.</p>
+          </div>
+          <!-- Handwritten price in coffee-ring mark -->
+          <div class="mt-3 flex items-center justify-between pt-2 border-t border-cafe-primary/10">
+            <div class="relative flex items-center justify-center w-11 h-7">
+              <svg class="absolute inset-0 w-full h-full text-cafe-accent/50" viewBox="0 0 50 30" fill="none">
+                <ellipse cx="25" cy="15" rx="22" ry="12" stroke="currentColor" stroke-width="1.8" stroke-dasharray="50 10 32 6" stroke-linecap="round"></ellipse>
+              </svg>
+              <span class="font-hand text-base font-bold text-cafe-accent relative z-10">$5.20</span>
+            </div>
+            <button class="w-6 h-6 rounded-full bg-cafe-cream flex items-center justify-center text-cafe-primary border border-cafe-primary/15 text-xs font-bold hover:bg-cafe-accent hover:text-white transition-colors" title="Add to cup">+</button>
+          </div>
+        </div>
+
+        <!-- Item 3: Cardamom Chai Latte -->
+        <div class="bg-cafe-bg/70 p-3 rounded-2xl border border-cafe-primary/10 flex flex-col justify-between relative shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold text-cafe-secondary uppercase tracking-wider">House-Spiced</span>
+              <span class="material-symbols-outlined text-cafe-primary/40 text-sm">spa</span>
+            </div>
+            <h3 class="font-heading text-sm font-bold text-cafe-primary leading-tight">Cardamom Chai Latte</h3>
+            <p class="text-[11px] text-cafe-text/75 mt-1 leading-snug">House-spiced black tea with steamed milk.</p>
+          </div>
+          <!-- Handwritten price in coffee-ring mark -->
+          <div class="mt-3 flex items-center justify-between pt-2 border-t border-cafe-primary/10">
+            <div class="relative flex items-center justify-center w-11 h-7">
+              <svg class="absolute inset-0 w-full h-full text-cafe-primary/35" viewBox="0 0 50 30" fill="none">
+                <ellipse cx="25" cy="15" rx="22" ry="12" stroke="currentColor" stroke-width="1.8" stroke-dasharray="55 8 30 5" stroke-linecap="round"></ellipse>
+              </svg>
+              <span class="font-hand text-base font-bold text-cafe-primary relative z-10">$5.00</span>
+            </div>
+            <button class="w-6 h-6 rounded-full bg-cafe-cream flex items-center justify-center text-cafe-primary border border-cafe-primary/15 text-xs font-bold hover:bg-cafe-accent hover:text-white transition-colors" title="Add to cup">+</button>
+          </div>
+        </div>
+
+        <!-- Item 4: Mint & Lemon Tea -->
+        <div class="bg-cafe-bg/70 p-3 rounded-2xl border border-cafe-primary/10 flex flex-col justify-between relative shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold text-cafe-secondary uppercase tracking-wider">Caffeine-Free</span>
+              <span class="material-symbols-outlined text-cafe-primary/40 text-sm">local_florist</span>
+            </div>
+            <h3 class="font-heading text-sm font-bold text-cafe-primary leading-tight">Mint &amp; Lemon Tea</h3>
+            <p class="text-[11px] text-cafe-text/75 mt-1 leading-snug">Fresh mint, lemon and a touch of honey.</p>
+          </div>
+          <!-- Handwritten price in coffee-ring mark -->
+          <div class="mt-3 flex items-center justify-between pt-2 border-t border-cafe-primary/10">
+            <div class="relative flex items-center justify-center w-11 h-7">
+              <svg class="absolute inset-0 w-full h-full text-cafe-primary/35" viewBox="0 0 50 30" fill="none">
+                <ellipse cx="25" cy="15" rx="22" ry="12" stroke="currentColor" stroke-width="1.8" stroke-dasharray="55 8 30 5" stroke-linecap="round"></ellipse>
+              </svg>
+              <span class="font-hand text-base font-bold text-cafe-primary relative z-10">$4.20</span>
+            </div>
+            <button class="w-6 h-6 rounded-full bg-cafe-cream flex items-center justify-center text-cafe-primary border border-cafe-primary/15 text-xs font-bold hover:bg-cafe-accent hover:text-white transition-colors" title="Add to cup">+</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 3. SECTION: menu-breakfast ==================== -->
+    <section id="menu-breakfast" class="relative pt-8 pb-10">
+      <!-- Full-bleed photo with a cream menu card overlapping on the left -->
+      <div class="px-5 mb-3 flex items-center justify-between">
+        <div>
+          <span class="font-hand text-lg text-cafe-secondary font-bold block -mb-1">From the kitchen</span>
+          <h2 class="text-2xl font-heading font-bold text-cafe-primary tracking-tight">Breakfast &amp; lunch</h2>
+        </div>
+        <span class="text-[11px] font-semibold text-cafe-secondary bg-cafe-sage-light px-2.5 py-1 rounded-full border border-cafe-secondary/20">All Day</span>
+      </div>
+
+      <div class="px-5 mb-5">
+        <p class="text-xs text-cafe-text/80 leading-relaxed">
+          Served all day. Vegetarian-friendly and made with local produce.
+        </p>
+      </div>
+
+      <!-- Photo stage with overlapping cream card layout -->
+      <div class="relative w-full">
+        <!-- Photographic image banner with rounded ends -->
+        <div class="mx-4 h-64 rounded-3xl overflow-hidden shadow-float relative border-2 border-cafe-cream">
+          <img loading="lazy" decoding="async" srcset="images/a52f60299019-o-640.jpg 640w, images/a52f60299019-o-1024.jpg 1024w, images/a52f60299019-o.jpg 1200w" sizes="100vw" src="images/a52f60299019-o.jpg" alt="Open-faced avocado toast with herbs, and a bowl of granola with berries, in daylight" class="w-full h-full object-cover object-center">
+          <div class="absolute inset-0 bg-gradient-to-t from-cafe-primary/50 via-transparent to-transparent"></div>
+          
+          <div class="absolute bottom-3 right-4 text-right">
+            <span class="font-hand text-white text-base font-bold drop-shadow">warm from the grill</span>
+          </div>
+        </div>
+
+        <!-- Overlapping Cream Menu Card on the left (asymmetric editorial look) -->
+        <div class="relative -mt-16 mx-5 bg-cafe-cream p-5 rounded-3xl shadow-float border border-cafe-primary/10">
+          
+          <!-- Coffee ring subtle graphic stamp in corner of card -->
+          <div class="absolute -top-3 -right-3 w-16 h-16 pointer-events-none opacity-20">
+            <svg viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="42" stroke="#4A2C1D" stroke-width="3" stroke-dasharray="110 15 60 10"></circle>
+            </svg>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Item 1: Avocado Sourdough -->
+            <div class="flex items-start justify-between gap-3 pb-3 border-b border-cafe-primary/10">
+              <div class="flex-1">
+                <div class="flex items-center gap-1.5">
+                  <h3 class="font-heading text-sm font-bold text-cafe-primary">Avocado Sourdough</h3>
+                  <span class="w-1.5 h-1.5 rounded-full bg-cafe-secondary"></span>
+                </div>
+                <p class="text-xs text-cafe-text/75 mt-0.5 leading-snug">Smashed avocado, lemon, chili flakes, seeds.</p>
+              </div>
+              <div class="relative flex items-center justify-center w-12 h-7 flex-shrink-0">
+                <svg class="absolute inset-0 w-full h-full text-cafe-primary/30" viewBox="0 0 52 30" fill="none">
+                  <ellipse cx="26" cy="15" rx="23" ry="12" stroke="currentColor" stroke-width="1.8" stroke-dasharray="55 8 30 5" stroke-linecap="round"></ellipse>
+                </svg>
+                <span class="font-hand text-base font-bold text-cafe-primary relative z-10">$9.20</span>
+              </div>
+            </div>
+
+            <!-- Item 2: Garden Toastie -->
+            <div class="flex items-start justify-between gap-3 pb-3 border-b border-cafe-primary/10">
+              <div class="flex-1">
+                <h3 class="font-heading text-sm font-bold text-cafe-primary">Garden Toastie</h3>
+                <p class="text-xs text-cafe-text/75 mt-0.5 leading-snug">Whipped feta, roasted peppers, basil.</p>
+              </div>
+              <div class="relative flex items-center justify-center w-12 h-7 flex-shrink-0">
+                <svg class="absolute inset-0 w-full h-full text-cafe-primary/30" viewBox="0 0 52 30" fill="none">
+                  <ellipse cx="26" cy="15" rx="23" ry="12" stroke="currentColor" stroke-width="1.8" stroke-dasharray="55 8 30 5" stroke-linecap="round"></ellipse>
+                </svg>
+                <span class="font-hand text-base font-bold text-cafe-primary relative z-10">$9.50</span>
+              </div>
+            </div>
+
+            <!-- Item 3: Berry Granola Bowl -->
+            <div class="flex items-start justify-between gap-3 pb-3 border-b border-cafe-primary/10">
+              <div class="flex-1">
+                <h3 class="font-heading text-sm font-bold text-cafe-primary">Berry Granola Bowl</h3>
+                <p class="text-xs text-cafe-text/75 mt-0.5 leading-snug">Greek yogurt, house granola, berries, honey.</p>
+              </div>
+              <div class="relative flex items-center justify-center w-12 h-7 flex-shrink-0">
+                <svg class="absolute inset-0 w-full h-full text-cafe-primary/30" viewBox="0 0 52 30" fill="none">
+                  <ellipse cx="26" cy="15" rx="23" ry="12" stroke="currentColor" stroke-width="1.8" stroke-dasharray="55 8 30 5" stroke-linecap="round"></ellipse>
+                </svg>
+                <span class="font-hand text-base font-bold text-cafe-primary relative z-10">$8.40</span>
+              </div>
+            </div>
+
+            <!-- Item 4: Soup of the Day -->
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex-1">
+                <div class="flex items-center gap-1.5">
+                  <h3 class="font-heading text-sm font-bold text-cafe-primary">Soup of the Day</h3>
+                  <span class="text-[10px] font-semibold text-cafe-accent bg-cafe-accent/10 px-1.5 py-0.2 rounded">Warm</span>
+                </div>
+                <p class="text-xs text-cafe-text/75 mt-0.5 leading-snug">Served with warm sourdough.</p>
+              </div>
+              <div class="relative flex items-center justify-center w-12 h-7 flex-shrink-0">
+                <svg class="absolute inset-0 w-full h-full text-cafe-primary/30" viewBox="0 0 52 30" fill="none">
+                  <ellipse cx="26" cy="15" rx="23" ry="12" stroke="currentColor" stroke-width="1.8" stroke-dasharray="55 8 30 5" stroke-linecap="round"></ellipse>
+                </svg>
+                <span class="font-hand text-base font-bold text-cafe-primary relative z-10">$7.80</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. SECTION: menu-pastries ==================== -->
+    <section id="menu-pastries" class="pt-6 pb-9 bg-cafe-panel/50 border-t border-[#4A2C1D]/10 relative">
+      <!-- Section Header -->
+      <div class="px-5 mb-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="font-hand text-lg text-cafe-accent font-bold block -mb-1">Baked before sunrise</span>
+            <h2 class="text-2xl font-heading font-bold text-cafe-primary tracking-tight">From Daniel's oven</h2>
+          </div>
+          <!-- Bakery icon badge with coffee ring -->
+          <div class="relative w-11 h-11 flex items-center justify-center">
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 50 50" fill="none">
+              <circle cx="25" cy="25" r="22" stroke="#4A2C1D" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="55 10 30 8"></circle>
+            </svg>
+            <span class="material-symbols-outlined text-cafe-primary text-lg">bakery_dining</span>
+          </div>
+        </div>
+        <p class="text-xs text-cafe-text/75 mt-1">Baked before sunrise, gone by afternoon.</p>
+      </div>
+
+      <!-- Oven context hero strip (A wooden tray of golden pastries cooling beside the oven) -->
+      <div class="mx-5 mb-5 rounded-2xl overflow-hidden shadow-card border border-cafe-primary/10 relative h-36">
+        <img loading="lazy" decoding="async" srcset="images/3a77848b7469-o-640.jpg 640w, images/3a77848b7469-o.jpg 1024w" sizes="100vw" src="images/3a77848b7469-o.jpg" alt="A wooden tray of golden pastries cooling beside the oven" class="w-full h-full object-cover object-center" style="object-position: 77% 16%;">
+        <div class="absolute inset-0 bg-gradient-to-r from-cafe-primary/70 via-cafe-primary/20 to-transparent"></div>
+        <div class="absolute inset-y-0 left-0 p-4 flex flex-col justify-center max-w-[65%]">
+          <span class="font-hand text-cafe-cream text-sm font-bold">Small batches only</span>
+          <span class="font-heading text-white text-base font-extrabold leading-tight">Warm sourdough &amp; lamination</span>
+        </div>
+      </div>
+
+      <!-- Horizontal scrolling strip of square photos with price stamps in coffee rings -->
+      <div class="flex items-center justify-between px-5 mb-2">
+        <span class="text-[11px] font-bold text-cafe-primary/60 uppercase tracking-wider">Swipe for fresh bakes</span>
+        <span class="text-xs text-cafe-primary/50 font-hand flex items-center gap-1">scroll →</span>
+      </div>
+
+      <div class="flex gap-4 overflow-x-auto no-scrollbar px-5 pb-2 pt-1 snap-x snap-mandatory">
+        
+        <!-- Pastry 1: Pistachio Croissant (with image) -->
+        <div class="snap-start flex-shrink-0 w-44 bg-cafe-cream p-3 rounded-2xl border border-cafe-primary/10 shadow-card flex flex-col justify-between">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-2.5 border border-cafe-primary/10">
+            <img loading="lazy" decoding="async" srcset="images/b3396f6a7fd5-o-640.jpg 640w, images/b3396f6a7fd5-o.jpg 1024w" sizes="100vw" src="images/b3396f6a7fd5-o.jpg" alt="Croissant cut open to show pistachio filling" class="w-full h-full object-cover">
+            <!-- Coffee ring price stamp in corner -->
+            <div class="absolute top-1.5 right-1.5 coffee-ring-stamp w-10 h-10 bg-cafe-bg/95 rounded-full shadow-sm flex items-center justify-center">
+              <svg class="coffee-ring-svg w-12 h-12 text-cafe-accent" viewBox="0 0 50 50" fill="none">
+                <circle cx="25" cy="25" r="21" stroke="currentColor" stroke-width="2.2" stroke-dasharray="60 10 30 7" stroke-linecap="round"></circle>
+              </svg>
+              <span class="font-hand text-sm font-bold text-cafe-accent relative z-10">$4.90</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm font-bold text-cafe-primary leading-tight">Pistachio Croissant</h3>
+            <p class="text-[11px] text-cafe-text/75 mt-1 leading-snug">Flaky, with a creamy pistachio center.</p>
+          </div>
+          <button class="mt-3 w-full py-1.5 bg-cafe-bg rounded-lg text-xs font-bold text-cafe-primary border border-cafe-primary/15 hover:bg-cafe-accent hover:text-white transition-colors">
+            Add to bag +
+          </button>
+        </div>
+
+        <!-- Pastry 2: Cardamom Morning Bun -->
+        <div class="snap-start flex-shrink-0 w-44 bg-cafe-cream p-3 rounded-2xl border border-cafe-primary/10 shadow-card flex flex-col justify-between">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-2.5 border border-cafe-primary/10">
+            <!-- Using our high-res pastry photography close-up -->
+            <img loading="lazy" decoding="async" srcset="images/3a77848b7469-o-640.jpg 640w, images/3a77848b7469-o.jpg 1024w" sizes="100vw" src="images/3a77848b7469-o.jpg" alt="Cardamom bun on a plate" class="w-full h-full object-cover" style="object-position: 77% 16%;">
+            <!-- Coffee ring price stamp -->
+            <div class="absolute top-1.5 right-1.5 coffee-ring-stamp w-10 h-10 bg-cafe-bg/95 rounded-full shadow-sm flex items-center justify-center">
+              <svg class="coffee-ring-svg w-12 h-12 text-cafe-primary" viewBox="0 0 50 50" fill="none">
+                <circle cx="25" cy="25" r="21" stroke="currentColor" stroke-width="2.2" stroke-dasharray="65 12 25 8" stroke-linecap="round"></circle>
+              </svg>
+              <span class="font-hand text-sm font-bold text-cafe-primary relative z-10">$4.50</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm font-bold text-cafe-primary leading-tight">Cardamom Morning Bun</h3>
+            <p class="text-[11px] text-cafe-text/75 mt-1 leading-snug">Soft, buttery, lightly glazed.</p>
+          </div>
+          <button class="mt-3 w-full py-1.5 bg-cafe-bg rounded-lg text-xs font-bold text-cafe-primary border border-cafe-primary/15 hover:bg-cafe-accent hover:text-white transition-colors">
+            Add to bag +
+          </button>
+        </div>
+
+        <!-- Pastry 3: Olive Oil Lemon Cake -->
+        <div class="snap-start flex-shrink-0 w-44 bg-cafe-cream p-3 rounded-2xl border border-cafe-primary/10 shadow-card flex flex-col justify-between">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-2.5 border border-cafe-primary/10 bg-cafe-bg flex items-center justify-center">
+            <!-- Editorial styling with rustic cake detail -->
+            <img loading="lazy" decoding="async" srcset="images/8b1e52ac1635-o-640.jpg 640w, images/8b1e52ac1635-o.jpg 896w" sizes="100vw" src="images/8b1e52ac1635-o.jpg" alt="Slice of lemon cake with glaze" class="w-full h-full object-cover" style="object-position: 80% 30%;">
+            <!-- Coffee ring price stamp -->
+            <div class="absolute top-1.5 right-1.5 coffee-ring-stamp w-10 h-10 bg-cafe-bg/95 rounded-full shadow-sm flex items-center justify-center">
+              <svg class="coffee-ring-svg w-12 h-12 text-cafe-primary" viewBox="0 0 50 50" fill="none">
+                <circle cx="25" cy="25" r="21" stroke="currentColor" stroke-width="2.2" stroke-dasharray="50 15 40 8" stroke-linecap="round"></circle>
+              </svg>
+              <span class="font-hand text-sm font-bold text-cafe-primary relative z-10">$4.20</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm font-bold text-cafe-primary leading-tight">Olive Oil Lemon Cake</h3>
+            <p class="text-[11px] text-cafe-text/75 mt-1 leading-snug">Moist, bright and gently sweet.</p>
+          </div>
+          <button class="mt-3 w-full py-1.5 bg-cafe-bg rounded-lg text-xs font-bold text-cafe-primary border border-cafe-primary/15 hover:bg-cafe-accent hover:text-white transition-colors">
+            Add to bag +
+          </button>
+        </div>
+
+        <!-- Pastry 4: Oat & Date Cookie -->
+        <div class="snap-start flex-shrink-0 w-44 bg-cafe-cream p-3 rounded-2xl border border-cafe-primary/10 shadow-card flex flex-col justify-between">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-2.5 border border-cafe-primary/10 bg-cafe-bg flex items-center justify-center">
+            <img loading="lazy" decoding="async" srcset="images/a52f60299019-o-640.jpg 640w, images/a52f60299019-o-1024.jpg 1024w, images/a52f60299019-o.jpg 1200w" sizes="100vw" src="images/a52f60299019-o.jpg" alt="Stack of oat cookies" class="w-full h-full object-cover" style="object-position: 70% 60%;">
+            <!-- Coffee ring price stamp -->
+            <div class="absolute top-1.5 right-1.5 coffee-ring-stamp w-10 h-10 bg-cafe-bg/95 rounded-full shadow-sm flex items-center justify-center">
+              <svg class="coffee-ring-svg w-12 h-12 text-cafe-primary" viewBox="0 0 50 50" fill="none">
+                <circle cx="25" cy="25" r="21" stroke="currentColor" stroke-width="2.2" stroke-dasharray="70 8 20 8" stroke-linecap="round"></circle>
+              </svg>
+              <span class="font-hand text-sm font-bold text-cafe-primary relative z-10">$3.20</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm font-bold text-cafe-primary leading-tight">Oat &amp; Date Cookie</h3>
+            <p class="text-[11px] text-cafe-text/75 mt-1 leading-snug">Chewy, nutty and made without refined sugar.</p>
+          </div>
+          <button class="mt-3 w-full py-1.5 bg-cafe-bg rounded-lg text-xs font-bold text-cafe-primary border border-cafe-primary/15 hover:bg-cafe-accent hover:text-white transition-colors">
+            Add to bag +
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 5. SECTION: menu-note ==================== -->
+    <section id="menu-note" class="mx-5 my-8 bg-cafe-secondary/20 border border-cafe-secondary/35 rounded-3xl p-6 relative overflow-hidden">
+      <!-- Background signature coffee ring -->
+      <div class="absolute -right-8 -bottom-8 w-40 h-40 opacity-20 pointer-events-none">
+        <svg viewBox="0 0 160 160" fill="none">
+          <circle cx="80" cy="80" r="70" stroke="#4A2C1D" stroke-width="4" stroke-dasharray="180 30 90 20"></circle>
+        </svg>
+      </div>
+
+      <div class="relative z-10">
+        <!-- Circle icon badge -->
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-8 h-8 rounded-full bg-cafe-secondary/30 flex items-center justify-center text-cafe-primary">
+            <span class="material-symbols-outlined text-base">info</span>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-cafe-cream/80 flex items-center justify-center text-cafe-primary border border-cafe-secondary/20">
+            <span class="material-symbols-outlined text-base">eco</span>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-cafe-cream/80 flex items-center justify-center text-cafe-primary border border-cafe-secondary/20">
+            <span class="material-symbols-outlined text-base">favorite</span>
+          </div>
+        </div>
+
+        <h2 class="font-heading text-2xl font-bold text-cafe-primary mb-2">Good to know</h2>
+        
+        <!-- Large handwritten style statement text -->
+        <p class="font-hand text-xl text-cafe-primary leading-snug mb-3">
+          "All drinks come with oat, almond, soy or dairy milk."
+        </p>
+
+        <p class="text-xs text-cafe-text/85 leading-relaxed mb-6 font-normal">
+          We label allergens clearly and are happy to answer any question at the counter.
+        </p>
+
+        <!-- Prominent Button -->
+        <a id="order" class="btn-warm inline-flex items-center justify-center w-full py-3.5 px-6 rounded-full bg-cafe-accent text-white font-semibold text-sm shadow-md text-center" href="#" data-inert="">
+          <span>Order online</span>
+          <span class="material-symbols-outlined ml-2 text-base">arrow_forward</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER (Identical across pages) ==================== -->
+  <footer class="bg-cafe-cream border-t border-[#4A2C1D]/15 pt-10 pb-20 px-6 text-center text-cafe-text">
+    <div class="max-w-md mx-auto space-y-6">
+      
+      <!-- Wordmark -->
+      <div>
+        <div class="font-heading text-3xl font-bold text-cafe-primary">you</div>
+        <p class="text-xs uppercase tracking-widest text-cafe-text/60 font-semibold mt-0.5">Neighborhood Café</p>
+      </div>
+
+      <!-- Links (Home, Menu) -->
+      <div class="flex justify-center items-center gap-6 text-xs font-bold text-cafe-primary">
+        <a class="hover:text-cafe-accent transition-colors" href="index.html">Home</a>
+        <span class="w-1 h-1 rounded-full bg-cafe-primary/30"></span>
+        <a class="text-cafe-accent hover:underline" href="menu.html">Menu</a>
+        <span class="w-1 h-1 rounded-full bg-cafe-primary/30"></span>
+        <a class="hover:text-cafe-accent transition-colors" href="#" data-inert="">Contact</a>
+        <span class="w-1 h-1 rounded-full bg-cafe-primary/30"></span>
+        <a class="hover:text-cafe-accent transition-colors" href="index.html">Hours &amp; Location</a>
+      </div>
+
+      <!-- Contact details -->
+      <div class="bg-cafe-bg/60 p-4 rounded-2xl border border-cafe-primary/10 text-xs space-y-1.5 text-cafe-text/80">
+        <p class="font-medium text-cafe-primary">Sample address • Mon-Fri 7:00-18:00, Sat-Sun 8:00-17:00</p>
+        <p>Phone: <a class="underline hover:text-cafe-primary" href="#" data-inert="">+1 555 010 021</a> • Email: <a class="underline hover:text-cafe-primary" href="#" data-inert="">hello@example.com</a></p>
+      </div>
+
+      <!-- Social icons -->
+      <div class="flex justify-center items-center gap-4 text-xs font-semibold text-cafe-primary/70">
+        <a class="hover:text-cafe-accent transition-colors" href="#" data-inert="">Instagram</a>
+        <span>•</span>
+        <a class="hover:text-cafe-accent transition-colors" href="#" data-inert="">Newsletter</a>
+        <span>•</span>
+        <a class="hover:text-cafe-accent transition-colors" href="#" data-inert="">Spotify Playlist</a>
+      </div>
+
+      <!-- Copyright & unhurried mark -->
+      <div class="pt-3 border-t border-cafe-primary/10 text-[11px] text-cafe-text/60">
+        © 2024 you café. slow-crafted &amp; unhurried.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== Mobile Bottom Navigation ==================== -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 bg-[#FFF9F0]/95 backdrop-blur-md border-t border-cafe-primary/15 py-2 px-8 flex justify-around items-center max-w-md mx-auto shadow-float">
+    <a class="flex flex-col items-center gap-0.5 text-cafe-primary/60 hover:text-cafe-primary" href="index.html">
+      <span class="material-symbols-outlined text-xl">cottage</span>
+      <span class="text-[10px] font-semibold">Home</span>
+    </a>
+    <a class="flex flex-col items-center gap-0.5 text-cafe-accent font-bold" href="menu.html">
+      <div class="relative">
+        <span class="material-symbols-outlined text-xl">menu_book</span>
+        <span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-cafe-accent"></span>
+      </div>
+      <span class="text-[10px]">Menu</span>
+    </a>
+    <a class="flex flex-col items-center gap-0.5 text-cafe-primary/60 hover:text-cafe-primary" href="#" data-inert="">
+      <span class="material-symbols-outlined text-xl">local_mall</span>
+      <span class="text-[10px] font-semibold">Order</span>
+    </a>
+  </div>
+
+
+
+<script data-wm-menu>(function(){
+  var h=document.querySelector('header');if(!h)return;var nav=h.querySelector('nav');if(!nav)return;
+  // the top bar scrolls away with the page instead of following the visitor (a bar that stays is annoying, most of all on a phone)
+  var pos=getComputedStyle(h).position;if(pos==='fixed')h.style.setProperty('position','absolute','important');else if(pos==='sticky')h.style.setProperty('position','relative','important');
+  var b=document.createElement('button');b.type='button';b.className='wm-burger';b.setAttribute('aria-label','Menu');b.setAttribute('aria-expanded','false');
+  b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+  var bar=h.firstElementChild&&h.firstElementChild.children.length?h.firstElementChild:h;bar.appendChild(b);
+  var p=document.createElement('div');p.className='wm-panel';p.setAttribute('role','navigation');document.body.appendChild(p);
+  function label(a){var c=a.cloneNode(true);c.querySelectorAll('[class*=material],svg,img').forEach(function(x){x.remove()});return c.textContent.replace(/\s+/g,' ').trim()}
+  function bg(){var e=h;while(e){var c=getComputedStyle(e).backgroundColor;if(c&&c!=='rgba(0, 0, 0, 0)'&&c!=='transparent'){var m=c.match(/[\d.]+/g);if(!m||m.length<4||+m[3]>0.6)return c.replace(/rgba\(([^,]+),([^,]+),([^,]+),[^)]+\)/,'rgb($1,$2,$3)')}e=e.parentElement}return getComputedStyle(document.body).backgroundColor}
+  function fill(){var seen={},html='';var links=[].slice.call(nav.querySelectorAll('a[href]'));
+    links.forEach(function(a){var href=a.getAttribute('href');var t=label(a);if(!t||!href||href==='#'||seen[href])return;seen[href]=1;html+='<a href="'+href+'">'+t.replace(/</g,'&lt;')+'</a>'});
+    var cta=[].slice.call(h.querySelectorAll('a[href]')).filter(function(a){return !nav.contains(a)&&a.getAttribute('href')!=='#'&&a.getAttribute('href')!=='index.html'}).pop();
+    if(cta&&!seen[cta.getAttribute('href')]){var s=getComputedStyle(cta);html+='<a class="wm-cta" href="'+cta.getAttribute('href')+'" style="background:'+s.backgroundColor+';color:'+s.color+'">'+label(cta).replace(/</g,'&lt;')+'</a>'}
+    p.innerHTML=html}
+  function place(){var r=h.getBoundingClientRect();p.style.top=Math.max(0,r.bottom)+'px';p.style.maxHeight=(innerHeight-Math.max(0,r.bottom))+'px';p.style.background=bg();p.style.color=getComputedStyle(h).color}
+  function close(){p.classList.remove('wm-open');b.setAttribute('aria-expanded','false')}
+  b.addEventListener('click',function(e){e.stopPropagation();if(p.classList.contains('wm-open'))return close();fill();place();p.classList.add('wm-open');b.setAttribute('aria-expanded','true')});
+  document.addEventListener('click',function(e){if(!p.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  function sync(){var hidden=getComputedStyle(nav).display==='none';b.classList.toggle('wm-on',hidden);if(!hidden)close()}
+  // a "More" button with a list of links opens by tap or click too (the drawn design opens it only on mouse hover)
+  [].slice.call(nav.querySelectorAll('button')).forEach(function(btn){var box=btn.parentElement;if(!box||!box.querySelector('a[href]'))return;
+    btn.setAttribute('aria-haspopup','true');btn.setAttribute('aria-expanded','false');
+    btn.addEventListener('click',function(e){e.stopPropagation();var on=box.hasAttribute('data-wm-open');document.querySelectorAll('[data-wm-open]').forEach(function(x){x.removeAttribute('data-wm-open')});if(!on){box.setAttribute('data-wm-open','');btn.setAttribute('aria-expanded','true')}else btn.setAttribute('aria-expanded','false')});
+    document.addEventListener('click',function(){box.removeAttribute('data-wm-open');btn.setAttribute('aria-expanded','false')})});
+  sync();addEventListener('resize',sync);addEventListener('scroll',function(){if(p.classList.contains('wm-open'))place()},{passive:true});
+})();</script></body></html>

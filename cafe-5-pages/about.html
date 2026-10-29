@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish>/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish>(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us — you, a Café</title>
+<!-- Google Fonts: Epilogue, Karla, and Gluten for rounded coffeehouse headlines -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Gluten:wght@300;400;500;600;700&amp;family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+
+<!-- Tailwind Configuration verbatim from Design System -->
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Subtle organic coffee ring rendering */
+    .coffee-stain-ring {
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+      border: 3.5px solid rgba(74, 44, 29, 0.16);
+      box-shadow: 0 0 0 1.5px rgba(74, 44, 29, 0.05) inset, 0 0 8px rgba(74, 44, 29, 0.08);
+      filter: blur(0.2px);
+    }
+    .coffee-stain-ring::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px dashed rgba(74, 44, 29, 0.12);
+      transform: rotate(24deg);
+    }
+
+    /* Arched window shape */
+    .arch-mask {
+      border-radius: 240px 240px 24px 24px;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-fixed selection:text-primary min-h-screen flex flex-col">
+<!-- TOP APP BAR (Shared Component: TopNavBar) -->
+<header class="bg-surface/90 backdrop-blur-md dark:bg-surface-container/90 text-primary dark:text-primary-fixed docked full-width top-0 sticky z-50 transition-all duration-200 ease-out border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-6 md:px-12 max-w-7xl mx-auto h-20">
+<!-- Brand Logo Wordmark -->
+<a class="flex items-baseline space-x-2 group" href="index.html">
+<span class="font-gluten text-3xl font-semibold tracking-tight italic text-primary dark:text-primary-fixed transition-transform duration-200 group-hover:scale-105">you</span>
+<span class="font-label-md text-label-md tracking-widest text-on-surface-variant font-medium opacity-80">· a café</span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors hover:text-tertiary-container dark:hover:text-tertiary-fixed font-label-lg text-label-lg" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors hover:text-tertiary-container dark:hover:text-tertiary-fixed font-label-lg text-label-lg" href="menu.html">Menu</a>
+<!-- Active Tab: About -->
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary-container dark:border-primary-fixed pb-1 font-label-lg text-label-lg" href="about.html">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors hover:text-tertiary-container dark:hover:text-tertiary-fixed font-label-lg text-label-lg" href="gallery.html">Gallery</a>
+<a class="text-on-surface-variant dark:text-surface-variant transition-colors hover:text-tertiary-container dark:hover:text-tertiary-fixed font-label-lg text-label-lg" href="drinks-menu.html">Drinks</a>
+
+<!-- Dropdown "More" -->
+<div class="relative group py-2">
+<button class="text-on-surface-variant dark:text-surface-variant transition-colors hover:text-tertiary-container dark:hover:text-tertiary-fixed flex items-center space-x-1 font-label-lg text-label-lg">
+<span>More</span>
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+<div class="absolute right-0 top-full hidden group-hover:block w-48 bg-surface-container-lowest shadow-xl rounded-lg py-2 border border-outline-variant/30 transition-all z-50">
+
+
+
+
+</div>
+</div>
+</nav>
+<!-- Trailing Action: Order Online -->
+<div class="flex items-center space-x-4">
+<a class="inline-flex items-center space-x-2 bg-primary-container text-surface px-5 py-2.5 rounded-lg font-label-md text-label-md hover:bg-on-tertiary-container transition-all duration-200 shadow-sm active:scale-95" href="#" data-inert>
+<span class="material-symbols-outlined text-[18px]" data-icon="shopping_bag">shopping_bag</span>
+<span>Order Online</span>
+</a>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="flex-grow">
+<!-- 1. SECTION: about-hero -->
+<section class="relative w-full max-w-7xl mx-auto px-6 md:px-12 pt-8 pb-20" id="about-hero">
+<div class="relative overflow-hidden rounded-2xl md:rounded-[2rem] shadow-sm min-h-[580px] flex items-end">
+<!-- Hero Background Image -->
+<div class="absolute inset-0 z-0 bg-cover bg-center" data-alt="Cinematic wide-angle view of a tranquil artisanal cafe interior at opening dawn light with golden sun rays streaming through expansive steel-framed arched windows onto rustic reclaimed wooden tables, handmade ceramic mugs, quiet morning book corners, and freshly swept terrazzo floors in warm organic earth tones with a calming editorial atmosphere." style="background-image: url('images/71ba0d20b972.jpg')">
+</div>
+<!-- Gradient overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent z-10 opacity-95"></div>
+<!-- Lower Third Editorial Narrative & Coffee Ring Stamp -->
+<div class="relative z-20 w-full p-8 md:p-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+<div class="max-w-2xl">
+<!-- Headline -->
+<h1 class="font-gluten text-4xl md:text-5xl lg:text-6xl text-primary tracking-tight leading-[1.1] mb-4">
+              We built a café around you
+            </h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl font-normal leading-relaxed">
+              It started with a kitchen table, a small espresso machine and a lot of friends who kept coming back.
+            </p>
+</div>
+<!-- Coffee-ring outline badge / stamp -->
+<div class="relative self-start md:self-end flex-shrink-0">
+<div class="w-36 h-36 rounded-full border-2 border-dashed border-primary/30 flex flex-col items-center justify-center text-center p-3 relative bg-surface/50 backdrop-blur-sm shadow-inner rotate-[-4deg]">
+<!-- Coffee Stain Ring Layer -->
+<div class="coffee-stain-ring inset-1"></div>
+<span class="font-label-sm text-label-sm uppercase text-primary/80 font-semibold tracking-widest">Est. 2021</span>
+<span class="w-8 h-px bg-primary/20 my-1"></span>
+<span class="font-body-sm text-body-sm italic text-on-surface-variant text-[12px] leading-tight">6 tables, one big oven</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. SECTION: about-story -->
+<section class="w-full max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 relative overflow-hidden" id="about-story">
+<!-- Watermark subtle coffee ring background accent -->
+<div class="coffee-stain-ring w-96 h-96 -top-24 -right-20 opacity-40"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<!-- Left Column: Tall Elegant Arched Portrait -->
+<div class="lg:col-span-5 relative">
+<div class="relative mx-auto max-w-md lg:max-w-none">
+<!-- Framing Coffee Ring Graphic -->
+<div class="coffee-stain-ring w-48 h-48 -bottom-6 -left-6 z-20 opacity-70"></div>
+<!-- Arched Picture Card -->
+<div class="arch-mask overflow-hidden bg-surface-container shadow-md border-4 border-surface-container-low aspect-[3/4] relative">
+<img fetchpriority="high" decoding="async" srcset="images/f630833f22ea-o-640.jpg 640w, images/f630833f22ea-o-1024.jpg 1024w, images/f630833f22ea-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Authentic candid portrait of cafe co-founders Maya and Daniel leaning comfortably together in the sunlit wooden doorway of their bakery cafe wearing textured natural linen aprons and warm cozy knitwear with gentle morning daylight, smiling warmly toward the camera in an unhurried, heartfelt editorial style with natural earthy tones." src="images/f630833f22ea-o.jpg"/>
+</div>
+<!-- Soft floating card caption -->
+<div class="absolute -bottom-5 right-4 bg-surface-container-lowest px-5 py-3 rounded-lg shadow-sm border border-outline-variant/30 z-20">
+<p class="font-label-sm text-label-sm text-primary font-semibold">Maya &amp; Daniel</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">Founders · Roaster &amp; Baker</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Story Narrative -->
+<div class="lg:col-span-7 space-y-6">
+<div class="flex items-center space-x-4">
+<!-- Sage Badge -->
+<span class="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-label-md text-label-md bg-secondary-container text-on-secondary-container">
+              Our Origins
+            </span>
+<!-- Circled Year Badge with Coffee-Ring Motif -->
+<div class="relative inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-primary/20 bg-surface-container-low">
+<span class="font-label-md text-label-md font-bold text-primary">2021</span>
+<span class="mx-2 text-primary/30">·</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs italic">The first pour</span>
+</div>
+</div>
+<h2 class="font-gluten text-3xl md:text-4xl lg:text-5xl text-primary font-medium tracking-tight">
+            How it began
+          </h2>
+<!-- Editorial narrative with prominent initial drop cap 'M' -->
+<div class="pt-2 text-on-surface-variant font-body-lg text-body-lg leading-relaxed space-y-4">
+<p>
+<span class="float-left text-5xl md:text-6xl font-gluten text-primary leading-none pr-3 pt-1">M</span>
+              aya was a barista who missed the feeling of a place that knows you. Daniel was a baker who wanted people to eat his bread while it was still warm. In a former neighborhood bookshop with creaky oak floors, they put their ideas together and opened six tables and one big oven.
+            </p>
+<p>
+              There were no screens for ordering, no algorithmic timers, just the smell of roasted Ethiopian beans grinding at 6:45 AM and sourdough rising under unbleached baker’s linen. They believed that when you take the rush out of morning coffee, people start looking each other in the eye again.
+            </p>
+</div>
+<!-- Terracotta handwritten quote note -->
+<div class="pt-4 border-l-2 border-on-tertiary-container pl-6 my-6">
+<p class="font-headline-sm text-headline-sm italic text-on-tertiary-container font-normal">
+              “We wanted a counter where nobody is just a transaction.”
+            </p>
+<p class="font-label-sm text-label-sm text-outline mt-1 uppercase tracking-wider">
+              — Maya &amp; Daniel, Note from Opening Morning
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. SECTION: about-values -->
+<section class="w-full bg-surface-container py-20 md:py-28 relative" id="about-values">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<!-- Section Header -->
+<div class="text-center max-w-xl mx-auto mb-16 md:mb-24">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold mb-2 block">
+            Guiding Philosophy
+          </span>
+<h2 class="font-gluten text-3xl md:text-4xl lg:text-5xl text-primary tracking-tight mb-4">
+            What we care about
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Three small promises we keep every day.
+          </p>
+</div>
+<!-- Three Oversized Numbered Statements Stacked Vertically -->
+<div class="space-y-16 md:space-y-24">
+<!-- Item 01 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-4 flex justify-center md:justify-start">
+<!-- Circular photo crop with coffee-ring accent -->
+<div class="relative w-52 h-52 md:w-64 md:h-64 flex-shrink-0">
+<div class="coffee-stain-ring inset-[-10px] scale-105"></div>
+<div class="w-full h-full rounded-full overflow-hidden border-4 border-surface shadow-sm relative z-10">
+<img loading="lazy" decoding="async" srcset="images/ec7553db1893-640.jpg 640w, images/ec7553db1893-1024.jpg 1024w, images/ec7553db1893.jpg 2880w" sizes="100vw" class="w-full h-full object-cover" data-alt="Intimate warm candid shot of a friendly barista with folded sleeves gently handing a glazed artisanal ceramic mug with steam rising to a smiling regular guest across a smooth oak counter in gentle window lighting." src="images/ec7553db1893.jpg"/>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 md:pl-8">
+<span class="font-gluten text-5xl md:text-6xl text-primary/20 block mb-2">01</span>
+<h3 class="font-gluten text-2xl md:text-3xl text-primary mb-3">
+                01. Know your name
+              </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+                We remember people, not just orders. From your preference for oat milk at extra temperature to how you like your corner table in the winter sun, our hospitality is personal, quiet, and attentive.
+              </p>
+</div>
+</div>
+<!-- Item 02 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-4 flex justify-center md:justify-start order-1 md:order-2 md:col-start-9">
+<!-- Circular photo crop with coffee-ring accent -->
+<div class="relative w-52 h-52 md:w-64 md:h-64 flex-shrink-0">
+<div class="coffee-stain-ring inset-[-8px] rotate-45"></div>
+<div class="w-full h-full rounded-full overflow-hidden border-4 border-surface shadow-sm relative z-10">
+<img loading="lazy" decoding="async" srcset="images/1eff74a7904f-o-640.jpg 640w, images/1eff74a7904f-o-1024.jpg 1024w, images/1eff74a7904f-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Artisan baker Daniel with dusting of organic flour on his hands gently shaping crusty country sourdough loaves on a thick timber workbench under golden morning light, surrounded by proofing banneton baskets." src="images/1eff74a7904f-o.jpg"/>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 order-2 md:order-1 md:col-start-1">
+<span class="font-gluten text-5xl md:text-6xl text-primary/20 block mb-2">02</span>
+<h3 class="font-gluten text-2xl md:text-3xl text-primary mb-3">
+                02. Made slowly
+              </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+                Fresh bread and carefully dialed coffee, never rushed. Our loaves ferment for 36 hours before hitting the brick hearth, and every batch of single-origin coffee is weighed and calibrated every single morning.
+              </p>
+</div>
+</div>
+<!-- Item 03 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-4 flex justify-center md:justify-start">
+<!-- Circular photo crop with coffee-ring accent -->
+<div class="relative w-52 h-52 md:w-64 md:h-64 flex-shrink-0">
+<div class="coffee-stain-ring inset-[-12px] rotate-12"></div>
+<div class="w-full h-full rounded-full overflow-hidden border-4 border-surface shadow-sm relative z-10">
+<img loading="lazy" decoding="async" srcset="images/57eb6448c5d7-o-640.jpg 640w, images/57eb6448c5d7-o-1024.jpg 1024w, images/57eb6448c5d7-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Rustic wooden crates brimming with fresh orchard fruits, organic berries, glass bottles of pasture-raised dairy milk, and fragrant fresh herbs delivered at sunrise onto a sunlit cafe doorstep." src="images/57eb6448c5d7-o.jpg"/>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 md:pl-8">
+<span class="font-gluten text-5xl md:text-6xl text-primary/20 block mb-2">03</span>
+<h3 class="font-gluten text-2xl md:text-3xl text-primary mb-3">
+                03. Good neighbors
+              </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+                Local roasters, local farms and a seat for everyone. We source butter from seventy miles away, honey from valley apiaries, and save our day-old crusts for our neighborhood community kitchen garden compost.
+              </p>
+</div>
+</div>
+</div>
+<!-- Additional Visual Accent: Inset photo banner -->
+<div class="mt-20 pt-12 border-t border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-8 bg-surface-container-low p-8 md:p-10 rounded-2xl">
+<div class="max-w-md">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container font-semibold">The Morning Table</span>
+<p class="font-gluten text-2xl text-primary mt-1">Slow mornings are meant to be shared</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Pick up a warm loaf right as the timer chimes at 8:00 AM.</p>
+</div>
+<div class="w-full md:w-80 h-44 rounded-xl overflow-hidden shadow-sm relative">
+<img loading="lazy" decoding="async" srcset="images/68714d0a106c-o-640.jpg 640w, images/68714d0a106c-o-1024.jpg 1024w, images/68714d0a106c-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Close-up editorial photograph of gentle hands cradling a warm earth-toned ceramic cup of latte beside a rustic loaf of seeded sourdough bread and a brown paper bag of whole roasted coffee beans on a weathered linen tablecloth." src="images/68714d0a106c-o.jpg"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. SECTION: about-team -->
+<section class="w-full max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28" id="about-team">
+<!-- Section Header -->
+<div class="text-center max-w-xl mx-auto mb-16 md:mb-20">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary/15 text-secondary font-label-md text-label-md mb-3">
+          Our Craft Collective
+        </span>
+<h2 class="font-gluten text-3xl md:text-4xl lg:text-5xl text-primary tracking-tight mb-4">
+          The people behind the counter
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Meet the team who will make your next cup.
+        </p>
+</div>
+<!-- Staggered Editorial Row of 4 Round Portraits -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+<!-- Member 1: Maya Collins -->
+<div class="flex flex-col items-center text-center group">
+<div class="relative w-44 h-44 mb-6">
+<div class="coffee-stain-ring inset-[-6px] transition-transform duration-300 group-hover:scale-105"></div>
+<div class="w-full h-full rounded-full overflow-hidden border-2 border-outline-variant/50 shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/97db14574ad9-o-640.jpg 640w, images/97db14574ad9-o-1024.jpg 1024w, images/97db14574ad9-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Candid portrait of Maya Collins focused happily while pouring delicate swan latte art into a ceramic flat white cup with steam gently rising in morning light." src="images/97db14574ad9-o.jpg"/>
+</div>
+</div>
+<h3 class="font-gluten text-xl text-primary font-medium">Maya Collins</h3>
+<p class="font-label-md text-label-md text-on-tertiary-container mt-0.5 mb-2 font-semibold">Owner &amp; Head Barista</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Maya opened the café after years of making coffee for friends in her kitchen and dreaming of a place that remembers your order.
+          </p>
+</div>
+<!-- Member 2: Daniel Reyes -->
+<div class="flex flex-col items-center text-center group lg:translate-y-4">
+<div class="relative w-44 h-44 mb-6">
+<div class="coffee-stain-ring inset-[-6px] rotate-90 transition-transform duration-300 group-hover:scale-105"></div>
+<div class="w-full h-full rounded-full overflow-hidden border-2 border-outline-variant/50 shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/dfdaa4de6229-o-640.jpg 640w, images/dfdaa4de6229-o-1024.jpg 1024w, images/dfdaa4de6229-o.jpg 1376w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Daniel Reyes smiling warmly while holding a wide rustic wooden cooling tray loaded with golden brown warm braided cardamom morning buns fresh from the stone oven." src="images/dfdaa4de6229-o.jpg"/>
+</div>
+</div>
+<h3 class="font-gluten text-xl text-primary font-medium">Daniel Reyes</h3>
+<p class="font-label-md text-label-md text-on-tertiary-container mt-0.5 mb-2 font-semibold">Co-owner &amp; Baker</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Daniel gets up before sunrise to bake the cardamom buns and olive-oil loaves that fill the room with warmth.
+          </p>
+</div>
+<!-- Member 3: Amira Haddad -->
+<div class="flex flex-col items-center text-center group">
+<div class="relative w-44 h-44 mb-6">
+<div class="coffee-stain-ring inset-[-6px] rotate-180 transition-transform duration-300 group-hover:scale-105"></div>
+<div class="w-full h-full rounded-full overflow-hidden border-2 border-outline-variant/50 shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/3d820c6f171a-o-640.jpg 640w, images/3d820c6f171a-o-1024.jpg 1024w, images/3d820c6f171a-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Amira Haddad pouring fragrant amber-colored botanical tea from an elegant heatproof glass teapot into a glass cup with dried chamomile and citrus slices nearby on a marble counter." src="images/3d820c6f171a-o.jpg"/>
+</div>
+</div>
+<h3 class="font-gluten text-xl text-primary font-medium">Amira Haddad</h3>
+<p class="font-label-md text-label-md text-on-tertiary-container mt-0.5 mb-2 font-semibold">Tea &amp; Seasonal Menu Lead</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Amira blends our house teas and invents the seasonal drinks, always with a handwritten tasting note.
+          </p>
+</div>
+<!-- Member 4: Theo Brooks -->
+<div class="flex flex-col items-center text-center group lg:translate-y-4">
+<div class="relative w-44 h-44 mb-6">
+<div class="coffee-stain-ring inset-[-6px] rotate-[270deg] transition-transform duration-300 group-hover:scale-105"></div>
+<div class="w-full h-full rounded-full overflow-hidden border-2 border-outline-variant/50 shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/641aa54b4a2f-o-640.jpg 640w, images/641aa54b4a2f-o-1024.jpg 1024w, images/641aa54b4a2f-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Theo Brooks smiling warmly directly at the camera behind a polished timber espresso bar wearing a soft sage canvas apron against warm café tiling." src="images/641aa54b4a2f-o.jpg"/>
+</div>
+</div>
+<h3 class="font-gluten text-xl text-primary font-medium">Theo Brooks</h3>
+<p class="font-label-md text-label-md text-on-tertiary-container mt-0.5 mb-2 font-semibold">Barista &amp; Community Host</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Theo knows every regular by name and organizes our Saturday quiet-reading mornings.
+          </p>
+</div>
+</div>
+<!-- Candid Group Photo Strip -->
+<div class="mt-20 pt-10 border-t border-outline-variant/20 max-w-4xl mx-auto">
+<div class="rounded-2xl overflow-hidden shadow-md relative aspect-[21/9] border border-outline-variant/30">
+<img loading="lazy" decoding="async" srcset="images/e743533c88ba-o-640.jpg 640w, images/e743533c88ba-o-1024.jpg 1024w, images/e743533c88ba-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Warm spontaneous group shot of the four cafe teammates Maya, Daniel, Amira, and Theo gathered closely around the espresso machine counter laughing together in soft early morning light with ceramic cups in hand, capturing authentic team camaraderie." src="images/e743533c88ba-o.jpg"/>
+<div class="absolute bottom-4 left-6 bg-surface/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-label-md text-label-md text-primary">
+            Closing shift laugher · Saturday afternoon
+          </div>
+</div>
+</div>
+</section>
+<!-- 5. SECTION: about-cta -->
+<section class="w-full bg-[#C4623A] text-surface py-24 md:py-32 relative overflow-hidden" id="about-cta">
+<!-- Watermark background rings -->
+<div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full border-4 border-surface/10 pointer-events-none"></div>
+<div class="absolute -right-20 -top-20 w-96 h-96 rounded-full border-4 border-surface/10 pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+<!-- Large Hand-Drawn Coffee Ring Centered Frame -->
+<div class="relative inline-flex items-center justify-center p-8 md:p-14 my-4">
+<!-- Central decorative ring encircling heading -->
+<div class="absolute inset-0 rounded-full border-4 border-surface/30 scale-105 pointer-events-none shadow-inner"></div>
+<div class="absolute inset-1 rounded-full border border-dashed border-surface/25 pointer-events-none rotate-12"></div>
+<div class="relative z-10 max-w-xl">
+<h2 class="font-gluten text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-surface mb-4 leading-tight">
+              Pull up a chair
+            </h2>
+<p class="font-body-lg text-body-lg text-surface/90 text-lg md:text-xl font-normal leading-relaxed">
+              There is always a table with your name on it.
+            </p>
+</div>
+</div>
+<!-- Buttons -->
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
+<a class="px-8 py-3.5 rounded-lg bg-surface text-primary-container font-label-lg text-label-lg hover:bg-surface-bright hover:shadow-lg transition-all duration-200 active:scale-95 shadow-md font-bold" href="index.html">
+            Visit us
+          </a>
+<a class="inline-flex items-center text-surface hover:text-surface-bright font-label-lg text-label-lg font-medium transition-colors group" href="#" data-inert>
+<span>Find directions</span>
+<span class="material-symbols-outlined ml-1 text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER (Shared Component: Footer) -->
+<footer class="bg-surface-container dark:bg-surface-container-high text-primary dark:text-primary-fixed w-full border-t border-outline-variant/40">
+<div class="w-full px-6 md:px-12 py-16 max-w-7xl mx-auto">
+<!-- Top Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-outline-variant/30">
+<!-- Brand Info -->
+<div class="md:col-span-4 space-y-4">
+<a class="flex items-baseline space-x-2" href="index.html">
+<span class="font-gluten text-3xl font-semibold italic text-primary dark:text-primary-fixed">you</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">· a café</span>
+</a>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm leading-relaxed">
+            A quiet neighborhood space built around conversation, hearth-baked bread, and deliberately sourced beans.
+          </p>
+<div class="pt-2 flex items-center space-x-3 text-primary">
+<a class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-container hover:text-surface transition-colors" title="Instagram" href="#" data-inert>
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</a>
+<a class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-container hover:text-surface transition-colors" title="Location Pin" href="#" data-inert>
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+</a>
+<a class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-container hover:text-surface transition-colors" title="Newsletter" href="#" data-inert>
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+<!-- Hours & Location -->
+<div class="md:col-span-4 space-y-3">
+<h4 class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">Hours &amp; Location</h4>
+<div class="font-body-sm text-body-sm text-on-surface-variant space-y-1">
+<p><span class="font-medium text-primary">Mon – Fri:</span> 7:00 – 18:00</p>
+<p><span class="font-medium text-primary">Sat – Sun:</span> 8:00 – 17:00</p>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant pt-2 leading-relaxed">
+<p>424 Orchard Way</p>
+<p>Neighborhood District</p>
+<p class="pt-1 text-primary font-medium">+1 555 010 021 · hello@example.com</p>
+</div>
+</div>
+<!-- Navigation Cluster -->
+<div class="md:col-span-4">
+<h4 class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold mb-3">Navigation</h4>
+<div class="grid grid-cols-2 gap-x-6 gap-y-2">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="index.html">Home</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="menu.html">Menu</a>
+<a class="font-body-sm text-body-sm text-primary font-semibold" href="about.html">About</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="gallery.html">Gallery</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="drinks-menu.html">Drinks</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="#" data-inert>Gift Cards</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="#" data-inert>Loyalty</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="#" data-inert>Order</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="#" data-inert>Reviews</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="#" data-inert>Contact</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="#" data-inert>Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-tertiary-container transition-colors" href="#" data-inert>Terms of Service</a>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-on-surface-variant font-body-sm text-body-sm gap-4">
+<p>© 2024 you café. Roasted deliberately, poured warmly.</p>
+<p class="text-xs text-outline">Deliberately brewed with patience and care.</p>
+</div>
+</div>
+</footer>
+</body></html>

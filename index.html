@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Website tests</title>
+<style>
+:root{--bg:#f6f4ef;--ink:#1f1d1a;--mute:#6b665e;--card:#fff;--line:#e2ded5;--accent:#2f5d50}
+@media (prefers-color-scheme:dark){:root{--bg:#161614;--ink:#f1eee7;--mute:#a39e93;--card:#201f1c;--line:#34322d;--accent:#8fc4b2}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 16px 60px}
+h1{font-size:1.9rem;margin:0 0 6px}h2{font-size:1.2rem;margin:34px 0 10px}
+p.lead{color:var(--mute);margin:0 0 6px}
+.grid{display:grid;gap:12px;grid-template-columns:1fr}@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit}
+a.card:hover{border-color:var(--accent)}a.card b{display:block;font-size:1.05rem;color:var(--accent);margin-bottom:2px}a.card span{color:var(--mute);font-size:.92rem}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.92rem}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line)}th{color:var(--mute);font-weight:600}tr:last-child td{border-bottom:0}
+.note{color:var(--mute);font-size:.92rem}
+</style>
+</head>
+<body>
+<main>
+<h1>Website tests</h1>
+<p class="lead">Drafts and experiments. Sample content only, nothing here is a real business page.</p>
+
+<h2>Phone against laptop (café, Home and Menu)</h2>
+<div class="grid">
+  <a class="card" href="test-a/index.html"><b>Test A: two drawings</b><span>Stitch drew a laptop page and a separate phone page. A narrow screen opens the phone drawing, a wide one the laptop drawing. Open it on your phone and on a laptop.</span></a>
+  <a class="card" href="test-b/index.html"><b>Test B: one drawing, made responsive</b><span>One laptop drawing, converted to code (lists became data), then made responsive for phone, tablet and laptop. This is what the generator does now.</span></a>
+</div>
+<h2 style="margin-top:22px">What the two showed (Home page)</h2>
+<table>
+<tr><th></th><th>A: phone drawing</th><th>B: laptop + responsive</th></tr>
+<tr><td>Phone page height</td><td>5,172 px</td><td>7,490 px</td></tr>
+<tr><td>Tablet page height</td><td>8,694 px (laptop drawing)</td><td>8,069 px</td></tr>
+<tr><td>Content on phone vs laptop</td><td>different sections</td><td>same sections, same words</td></tr>
+<tr><td>Where the owner edits</td><td>two places</td><td>one place</td></tr>
+<tr><td>Stitch screens per page</td><td>2</td><td>1</td></tr>
+</table>
+<p class="note">Decision: one content, two layouts (B). The phone has to be as compact as A, so the generator now measures every page in a real browser and repairs pages that come out too tall, too wide or with tiny text, and nothing is published unless every check passes.</p>
+
+<h2>Earlier tests</h2>
+<div class="grid">
+  <a class="card" href="padel-style-c/index.html"><b>Padel, style C</b><span>One padel club home page in a botanical, conservatory direction.</span></a>
+  <a class="card" href="padel-style-d/index.html"><b>Padel, style D</b><span>The same club in a bold, sporty direction.</span></a>
+  <a class="card" href="padel-style-e/index.html"><b>Padel, style E</b><span>The same club in a sun-and-glass direction.</span></a>
+  <a class="card" href="padel-brand-test/index.html"><b>Padel, brand test</b><span>A padel page built around given brand colours.</span></a>
+  <a class="card" href="bonza-2-pages/index.html"><b>Perfume store, 2 pages</b><span>The earlier Bonza design (Home and Shop).</span></a>
+  <a class="card" href="cafe-5-pages/index.html"><b>Café, 5 pages</b><span>A small café with menu, drinks, gallery and about pages.</span></a>
+  <a class="card" href="al-jawad/index.html"><b>Restaurant (Al Jawad)</b><span>A Lebanese restaurant: Home, Menu, Contact.</span></a>
+  <a class="card" href="layla-skin/index.html"><b>Skin studio (Layla)</b><span>A skin clinic with treatments, prices, team and booking.</span></a>
+</div>
+</main>
+</body>
+</html>

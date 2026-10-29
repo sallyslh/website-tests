@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish>/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a row of three or more buttons (filters, chips) wraps on a phone instead of running off the edge of the screen */
+@media (max-width:767px){div:has(>button+button+button),ul:has(>li>button){flex-wrap:wrap}}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish>(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Layla Skin Studio — Achrafieh, Beirut</title>
+<!-- Google Fonts: Epilogue & Plus Jakarta Sans, along with Tenor Sans & Albert Sans style pairings -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600&amp;family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Tenor+Sans&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with plugins -->
+
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Subtle concentric steam ripple effect */
+    .steam-ripple {
+      position: absolute;
+      border-radius: 9999px;
+      border: 1px solid rgba(95, 116, 100, 0.14);
+      pointer-events: none;
+    }
+    .steam-ripple-glow {
+      box-shadow: 0 0 50px 10px rgba(95, 116, 100, 0.05);
+    }
+    .lifted-shadow {
+      box-shadow: 0 16px 36px -12px rgba(42, 49, 40, 0.06), 0 4px 14px -2px rgba(95, 116, 100, 0.04);
+    }
+    .arch-niche {
+      border-top-left-radius: 120px;
+      border-top-right-radius: 120px;
+    }
+  </style>
+</head>
+<body data-responsive class="bg-brand-cream text-brand-charcoal font-body-md text-body-md antialiased selection:bg-brand-sage-pale selection:text-brand-charcoal overflow-x-hidden">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: TopNavBar (Web Header)                                  -->
+<!-- ========================================================================= -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-5 py-3 lg:px-8 lg:py-5 max-w-[1360px] mx-auto">
+<!-- Left: Wordmark / Brand Logo -->
+<a class="text-title font-title tracking-[0.15em] text-on-surface dark:text-inverse-on-surface uppercase flex items-center gap-3 group" href="index.html">
+<span class="w-2.5 h-2.5 rounded-full bg-brand-clay inline-block transition-transform duration-300 group-hover:scale-125"></span>
+<span class="tracking-[0.1em] lg:tracking-[0.18em] font-medium">LAYLA SKIN STUDIO</span>
+</a>
+<!-- Middle: Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8 text-label-lg font-label-lg">
+<a class="text-primary dark:text-inverse-primary font-semibold border-b-2 border-primary dark:border-inverse-primary pb-1 transition-all duration-200" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-200" href="treatments.html">Treatments</a>
+
+
+
+
+</nav>
+<!-- Right: Action CTA Buttons -->
+<div class="flex items-center gap-2 lg:gap-4">
+<a class="hidden lg:inline-flex text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors py-2 px-3" href="contact.html">
+          Contact Concierge
+        </a>
+<a class="inline-flex items-center justify-center min-h-[44px] lg:min-h-0 bg-brand-clay text-on-tertiary px-4 lg:px-5 py-2.5 rounded-full text-label-lg font-label-lg shadow-sm hover:opacity-95 hover:-translate-y-0.5 active:scale-95 transition-all duration-200" href="book-appointment.html">
+          Book Appointment
+        </a>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- SECTION 1: home-hero                                                      -->
+<!-- ========================================================================= -->
+<section class="relative min-h-[480px] lg:min-h-[90vh] flex items-end pb-8 lg:pb-20 pt-10 lg:pt-16 px-5 lg:px-8 max-w-[1360px] mx-auto overflow-hidden" id="home-hero">
+<!-- Atmospheric Background Image with subtle gradient veil -->
+<div class="absolute inset-0 z-0">
+<img fetchpriority="high" decoding="async" srcset="images/9a3caa42215a-640.jpg 640w, images/9a3caa42215a-1024.jpg 1024w, images/9a3caa42215a.jpg 2880w" sizes="100vw" alt="Sage plastered treatment room at morning with cream linen bed, limestone shelf, ceramic bowls, and misty morning window light" class="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[0.95]" src="images/9a3caa42215a.jpg"/>
+<!-- Soft Morning Haze Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-brand-cream via-brand-cream/40 to-transparent"></div>
+<div class="absolute inset-0 bg-brand-sage/10 mix-blend-soft-light"></div>
+</div>
+<!-- Concentric Steam Ripple Motif (Behind title) -->
+<div class="absolute bottom-16 left-6 w-[520px] h-[520px] pointer-events-none opacity-40 z-10 hidden md:flex items-center justify-center">
+<div class="steam-ripple w-[480px] h-[480px] animate-pulse"></div>
+<div class="steam-ripple w-[360px] h-[360px]"></div>
+<div class="steam-ripple w-[240px] h-[240px]"></div>
+<div class="steam-ripple w-[120px] h-[120px]"></div>
+</div>
+<!-- Hero Content Placed Low-Left in Arch Glass Plaster Card -->
+<div class="relative z-20 max-w-2xl bg-brand-cream/85 backdrop-blur-md p-6 md:p-14 rounded-3xl lifted-shadow border border-outline-variant/30">
+<div class="flex items-center gap-3 mb-4">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-clay"></span>
+<span class="text-label-md font-label-md tracking-[0.14em] text-on-surface-variant uppercase">ESTHETIC SANCTUARY · ACHRAFIEH</span>
+</div>
+<h1 class="text-3xl md:text-headline-lg font-headline-lg text-brand-charcoal mb-3 tracking-tight">
+        Layla Skin Studio
+      </h1>
+<p class="text-title font-title text-primary mb-3">
+        Calm, clinical, kind skin care in Achrafieh
+      </p>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl mb-6 lg:mb-8 leading-relaxed">
+        Facials and peels by appointment, in a quiet room in Achrafieh, Beirut.
+      </p>
+<div class="flex flex-wrap items-center gap-3 lg:gap-4">
+<a class="inline-flex items-center justify-center w-full sm:w-auto bg-brand-clay text-on-tertiary px-7 py-3 rounded-full text-label-lg font-label-lg shadow-sm hover:opacity-95 hover:-translate-y-0.5 active:scale-95 transition-all duration-200" href="book-appointment.html">
+          Book online
+        </a>
+<a class="inline-flex items-center justify-center w-full sm:w-auto bg-brand-sage-pale/70 text-on-surface hover:bg-brand-sage-pale px-7 py-3 rounded-full text-label-lg font-label-lg border border-outline-variant/40 hover:-translate-y-0.5 active:scale-95 transition-all duration-200" href="treatments.html">
+          See treatments
+        </a>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 2: home-welcome                                                   -->
+<!-- ========================================================================= -->
+<section class="py-10 px-5 lg:py-28 lg:px-8 max-w-[1360px] mx-auto bg-brand-cream relative" id="home-welcome">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Left: Tall Arched Niche Frame with Therapist Warming Linen Towel -->
+<div class="lg:col-span-5 relative flex justify-center">
+<!-- Concentric Steam Ripple Backdrop behind arch -->
+<div class="absolute -top-10 -left-6 w-72 h-72 rounded-full border border-primary/10 pointer-events-none hidden md:block"></div>
+<div class="absolute -top-16 -left-12 w-88 h-88 rounded-full border border-primary/5 pointer-events-none hidden md:block"></div>
+<div class="relative w-full max-w-md arch-niche overflow-hidden lifted-shadow border-4 border-surface-container-lowest/80 bg-surface-container">
+<img loading="lazy" decoding="async" srcset="images/a008dca3b427-o-640.jpg 640w, images/a008dca3b427-o.jpg 896w" sizes="100vw" alt="Close-up of aesthetician therapist's hands delicately warming a cream linen towel above a ceramic bowl with soft steam rising in warm studio light" class="w-full h-56 sm:h-72 lg:h-[520px] object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out" src="images/a008dca3b427-o.jpg"/>
+<div class="absolute bottom-4 left-4 right-4 bg-brand-cream/90 backdrop-blur-sm p-3.5 rounded-2xl border border-outline-variant/30 flex items-center justify-between text-label-md font-label-md text-on-surface">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="spa">spa</span>
+              Warm Levant Towel Ritual
+            </span>
+<span class="text-tertiary">Step 01</span>
+</div>
+</div>
+</div>
+<!-- Right: Overlapping Pale Sage Panel -->
+<div class="lg:col-span-7 lg:-ml-12 relative z-10">
+<div class="bg-brand-sage-tint/90 border border-outline-variant/35 p-6 md:p-14 rounded-3xl lifted-shadow">
+<div class="flex items-center gap-2 text-primary mb-3">
+<span class="material-symbols-outlined text-lg" data-icon="temp_preferences_custom">temp_preferences_custom</span>
+<span class="text-label-md font-label-md uppercase tracking-wider">Discreet Consultation Ethos</span>
+</div>
+<h2 class="text-3xl md:text-headline-lg font-headline-lg text-brand-charcoal mb-4 lg:mb-6 leading-tight">
+            A welcome, not a rush
+          </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-6 lg:mb-8 leading-relaxed">
+            Every visit begins with a conversation about your skin. We listen first, then plan a gentle, honest course of care that suits you, your skin and your time.
+          </p>
+<!-- Clinical Reassurance Tags -->
+<div class="flex flex-wrap gap-2 lg:gap-3 mb-6 lg:mb-10">
+<span class="inline-flex items-center gap-2 px-3 py-1.5 lg:px-4 lg:py-2 rounded-full bg-brand-cream text-brand-charcoal text-label-md font-label-md border border-outline-variant/40">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="verified">verified</span>
+              Qualified clinicians
+            </span>
+<span class="inline-flex items-center gap-2 px-3 py-1.5 lg:px-4 lg:py-2 rounded-full bg-brand-cream text-brand-charcoal text-label-md font-label-md border border-outline-variant/40">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="sanitizer">sanitizer</span>
+              Single-use tools
+            </span>
+<span class="inline-flex items-center gap-2 px-3 py-1.5 lg:px-4 lg:py-2 rounded-full bg-brand-cream text-brand-charcoal text-label-md font-label-md border border-outline-variant/40">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="clean_hands">clean_hands</span>
+              Medical-grade hygiene protocols
+            </span>
+</div>
+<!-- Deep Sage Button -->
+<div>
+<a class="inline-flex items-center justify-center w-full sm:w-auto bg-brand-sage-deep text-on-primary px-8 py-3.5 rounded-full text-label-lg font-label-lg hover:bg-primary transition-all duration-200 shadow-sm hover:-translate-y-0.5" href="team.html">
+              Meet the team
+              <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 3: home-signature (Signature Treatments Bento Gallery)           -->
+<!-- ========================================================================= -->
+<section class="py-10 px-5 lg:py-28 lg:px-8 bg-surface-container-low border-y border-outline-variant/20" id="home-signature">
+<div class="max-w-[1360px] mx-auto">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 lg:mb-16 gap-4 lg:gap-6">
+<div>
+<span class="text-label-md font-label-md tracking-[0.14em] text-primary uppercase block mb-2">Curated Protocols</span>
+<h2 class="text-3xl md:text-headline-lg font-headline-lg text-brand-charcoal tracking-tight">
+            Signature treatments
+          </h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2 max-w-xl">
+            Four favourites to begin with. Prices shown are starting prices.
+          </p>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary" data-icon="schedule">schedule</span>
+            All sessions include bespoke dermal intake
+          </span>
+</div>
+</div>
+<!-- Gallery of 4 Tall Arched Cards -->
+<div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-5 px-5 pb-2 sm:grid-cols-2 md:grid md:grid-cols-2 md:overflow-visible md:mx-0 md:px-0 md:pb-0 md:gap-8 lg:grid-cols-4">
+<!-- Card 1: HydraFacial -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest rounded-3xl overflow-hidden border border-outline-variant/40 lifted-shadow flex flex-col group transition-all duration-300 hover:-translate-y-1.5">
+<div class="arch-niche overflow-hidden mx-3 mt-3 relative bg-brand-cream aspect-[4/3] md:aspect-[4/5]">
+<img loading="lazy" decoding="async" srcset="images/19b5b4ba3bff-o-640.jpg 640w, images/19b5b4ba3bff-o.jpg 896w" sizes="100vw" alt="HydraFacial cleansing wand gliding with micro-infusion on client cheek in clean morning light" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="images/19b5b4ba3bff-o.jpg"/>
+<div class="absolute top-3 right-3 bg-brand-cream/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-primary uppercase">
+              60 MIN
+            </div>
+</div>
+<div class="p-4 lg:p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="text-title font-title text-brand-charcoal group-hover:text-primary transition-colors">HydraFacial</h3>
+<span class="text-label-lg font-label-lg text-brand-clay font-semibold">from $95</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                Deep cleanse, gentle exfoliation and hydration for fresh, even skin. 60 minutes.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30">
+<a class="inline-flex items-center text-label-md font-label-md text-primary hover:text-brand-clay transition-colors group-hover:translate-x-1 duration-200" href="treatments.html">
+                Explore Treatment →
+              </a>
+</div>
+</div>
+</div>
+<!-- Card 2: Gentle Chemical Peel -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest rounded-3xl overflow-hidden border border-outline-variant/40 lifted-shadow flex flex-col group transition-all duration-300 hover:-translate-y-1.5">
+<div class="arch-niche overflow-hidden mx-3 mt-3 relative bg-brand-cream aspect-[4/3] md:aspect-[4/5]">
+<img loading="lazy" decoding="async" srcset="images/5ca1687964da-o-640.jpg 640w, images/5ca1687964da-o.jpg 896w" sizes="100vw" alt="Skincare clinic peel treatment close-up with aesthetician hands delicately applying clarifying peel using a soft artisan brush" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="images/5ca1687964da-o.jpg"/>
+<div class="absolute top-3 right-3 bg-brand-cream/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-primary uppercase">
+              45 MIN
+            </div>
+</div>
+<div class="p-4 lg:p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="text-title font-title text-brand-charcoal group-hover:text-primary transition-colors">Gentle Chemical Peel</h3>
+<span class="text-label-lg font-label-lg text-brand-clay font-semibold">from $85</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                A tailored peel to refine texture and brighten dullness. 45 minutes.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30">
+<a class="inline-flex items-center text-label-md font-label-md text-primary hover:text-brand-clay transition-colors group-hover:translate-x-1 duration-200" href="treatments.html">
+                Explore Treatment →
+              </a>
+</div>
+</div>
+</div>
+<!-- Card 3: Microneedling -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest rounded-3xl overflow-hidden border border-outline-variant/40 lifted-shadow flex flex-col group transition-all duration-300 hover:-translate-y-1.5">
+<div class="arch-niche overflow-hidden mx-3 mt-3 relative bg-brand-cream aspect-[4/3] md:aspect-[4/5]">
+<img loading="lazy" decoding="async" srcset="images/87e3d494485d-640.jpg 640w, images/87e3d494485d-1024.jpg 1024w, images/87e3d494485d.jpg 2880w" sizes="100vw" alt="Macro photograph of calm radiant woman skin along the jawline and neck in soft morning north-facing light, fine natural pores and healthy skin glow" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="images/87e3d494485d.jpg"/>
+<div class="absolute top-3 right-3 bg-brand-cream/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-primary uppercase">
+              60 MIN
+            </div>
+</div>
+<div class="p-4 lg:p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="text-title font-title text-brand-charcoal group-hover:text-primary transition-colors">Microneedling</h3>
+<span class="text-label-lg font-label-lg text-brand-clay font-semibold">from $140</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                Collagen-supporting treatment for texture, scars and fine lines. 60 minutes.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30">
+<a class="inline-flex items-center text-label-md font-label-md text-primary hover:text-brand-clay transition-colors group-hover:translate-x-1 duration-200" href="treatments.html">
+                Explore Treatment →
+              </a>
+</div>
+</div>
+</div>
+<!-- Card 4: Laser Hair Removal -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest rounded-3xl overflow-hidden border border-outline-variant/40 lifted-shadow flex flex-col group transition-all duration-300 hover:-translate-y-1.5">
+<div class="arch-niche overflow-hidden mx-3 mt-3 relative bg-brand-cream aspect-[4/3] md:aspect-[4/5]">
+<img loading="lazy" decoding="async" srcset="images/cd4483695150-o-640.jpg 640w, images/cd4483695150-o.jpg 896w" sizes="100vw" alt="Clean skincare treatment room with a modern sleek aesthetic laser device softly out of focus and folded warm cream linen towel on pale wooden tray" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="images/cd4483695150-o.jpg"/>
+<div class="absolute top-3 right-3 bg-brand-cream/90 backdrop-blur-sm px-3 py-1 rounded-full text-label-sm font-label-sm text-primary uppercase">
+              15+ MIN
+            </div>
+</div>
+<div class="p-4 lg:p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="text-title font-title text-brand-charcoal group-hover:text-primary transition-colors">Laser Hair Removal</h3>
+<span class="text-label-lg font-label-lg text-brand-clay font-semibold">from $45</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                Smooth, lasting results with a patch test first. From 15 minutes.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30">
+<a class="inline-flex items-center text-label-md font-label-md text-primary hover:text-brand-clay transition-colors group-hover:translate-x-1 duration-200" href="treatments.html">
+                Explore Treatment →
+              </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Centered Action -->
+<div class="mt-8 lg:mt-16 text-center">
+<a class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 rounded-full border border-primary/40 bg-surface-container text-on-surface hover:bg-brand-sage-pale text-label-lg font-label-lg transition-all duration-200 hover:-translate-y-0.5" href="treatments.html">
+          See all treatments
+          <span class="material-symbols-outlined ml-2 text-base" data-icon="north_east">north_east</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 4: home-reviews (Deep Sage Immersive Panel)                       -->
+<!-- ========================================================================= -->
+<section class="py-10 px-5 lg:py-24 lg:px-8 bg-brand-sage-deep text-brand-cream relative overflow-hidden" id="home-reviews">
+<!-- Subtle architectural ripple rings in background -->
+<div class="absolute -right-24 -bottom-24 w-96 h-96 rounded-full border border-surface/5 pointer-events-none"></div>
+<div class="absolute -right-48 -bottom-48 w-[32rem] h-[32rem] rounded-full border border-surface/5 pointer-events-none"></div>
+<div class="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+<!-- Left: Metric, Stars & Arched Portrait -->
+<div class="lg:col-span-5 space-y-6 lg:space-y-8">
+<div>
+<div class="flex items-center gap-1.5 text-brand-clay mb-3">
+<span class="material-symbols-outlined text-2xl" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-2xl" data-icon="star" data-weight="fill">star</span>
+</div>
+<div class="flex items-baseline gap-3">
+<span class="text-5xl lg:text-[64px] font-headline-lg leading-none font-normal text-on-tertiary">4.9</span>
+<span class="text-title font-title text-brand-sage-pale/80">/ 5.0</span>
+</div>
+<p class="text-body-lg font-body-lg text-brand-cream/90 mt-2 max-w-sm">
+            Rated 4.9 out of 5 by clients who found calm here.
+          </p>
+</div>
+<!-- Arched Portrait of Radiant Client -->
+<div class="flex items-center gap-5 pt-4 border-t border-brand-sage/40">
+<div class="w-20 h-24 arch-niche overflow-hidden border border-brand-sage-pale/30 shrink-0">
+<img loading="lazy" decoding="async" srcset="images/557a1526c6b8-o-640.jpg 640w, images/557a1526c6b8-o.jpg 1024w" sizes="100vw" alt="Portrait of a smiling Lebanese woman in her 30s wearing a soft cream waffle robe, relaxed radiant skin with no heavy makeup, calm joyful expression" class="w-full h-full object-cover" src="images/557a1526c6b8-o.jpg"/>
+</div>
+<div>
+<p class="text-title font-title text-on-tertiary">Client Sanctuary Experience</p>
+<p class="text-label-md font-label-md text-brand-sage-pale/70 tracking-wide uppercase mt-0.5">Achrafieh Studio · Beirut</p>
+<p class="text-body-sm font-body-sm text-brand-cream/60 mt-1 italic">Verified visits 2023–2024</p>
+</div>
+</div>
+</div>
+<!-- Right: 2x2 Grid of Quiet Testimonials -->
+<div class="lg:col-span-7 flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-5 px-5 sm:grid sm:grid-cols-2 sm:overflow-visible sm:mx-0 sm:px-0 sm:gap-6">
+<div class="shrink-0 basis-[82%] snap-start sm:basis-auto bg-brand-sage/25 backdrop-blur-sm p-6 rounded-2xl border border-brand-sage-pale/15">
+<span class="text-2xl text-brand-clay font-serif block mb-2">“</span>
+<p class="text-body-md font-body-md text-brand-cream/90 leading-relaxed mb-4">
+            The room feels like a deep breath. My skin has never looked so calm, and nobody ever rushed me.
+          </p>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-clay"></span>
+<span class="text-label-md font-label-md text-brand-sage-pale">Rima A.</span>
+<span class="text-label-sm font-label-sm text-brand-cream/50 ml-auto">HydraFacial</span>
+</div>
+</div>
+<div class="shrink-0 basis-[82%] snap-start sm:basis-auto bg-brand-sage/25 backdrop-blur-sm p-6 rounded-2xl border border-brand-sage-pale/15">
+<span class="text-2xl text-brand-clay font-serif block mb-2">“</span>
+<p class="text-body-md font-body-md text-brand-cream/90 leading-relaxed mb-4">
+            Layla explained every step of my peel and the downtime honestly. I felt looked after from start to finish.
+          </p>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-clay"></span>
+<span class="text-label-md font-label-md text-brand-sage-pale">Joelle M.</span>
+<span class="text-label-sm font-label-sm text-brand-cream/50 ml-auto">Peel Protocol</span>
+</div>
+</div>
+<div class="shrink-0 basis-[82%] snap-start sm:basis-auto bg-brand-sage/25 backdrop-blur-sm p-6 rounded-2xl border border-brand-sage-pale/15">
+<span class="text-2xl text-brand-clay font-serif block mb-2">“</span>
+<p class="text-body-md font-body-md text-brand-cream/90 leading-relaxed mb-4">
+            My bridal trial was relaxed and thoughtful, and my skin was glowing on the day.
+          </p>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-clay"></span>
+<span class="text-label-md font-label-md text-brand-sage-pale">Sara K.</span>
+<span class="text-label-sm font-label-sm text-brand-cream/50 ml-auto">Bridal Prep</span>
+</div>
+</div>
+<div class="shrink-0 basis-[82%] snap-start sm:basis-auto bg-brand-sage/25 backdrop-blur-sm p-6 rounded-2xl border border-brand-sage-pale/15">
+<span class="text-2xl text-brand-clay font-serif block mb-2">“</span>
+<p class="text-body-md font-body-md text-brand-cream/90 leading-relaxed mb-4">
+            Clean, quiet and kind. The laser course plan was clear, fair and well explained.
+          </p>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-clay"></span>
+<span class="text-label-md font-label-md text-brand-sage-pale">Hala N.</span>
+<span class="text-label-sm font-label-sm text-brand-cream/50 ml-auto">Laser Course</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 5: home-new (New to the Clinic Consultation Module)              -->
+<!-- ========================================================================= -->
+<section class="py-10 px-5 lg:py-24 lg:px-8 max-w-[1360px] mx-auto bg-brand-cream" id="home-new">
+<div class="bg-brand-sage-tint border border-outline-variant/30 rounded-3xl p-5 md:p-14 relative overflow-hidden lifted-shadow">
+<!-- Subtle Concentric Arch Watermark -->
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full border border-primary/10 pointer-events-none"></div>
+<div class="absolute -right-28 -top-28 w-96 h-96 rounded-full border border-primary/10 pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center relative z-10">
+<!-- Left: Consultation Narrative & Dual CTAs -->
+<div class="lg:col-span-6 space-y-4 lg:space-y-6">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cream border border-outline-variant/40 text-primary text-label-md font-label-md">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            First Time Visitors
+          </div>
+<h2 class="text-3xl md:text-headline-lg font-headline-lg text-brand-charcoal">
+            New to the clinic?
+          </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">
+            Start with a free consultation. We look at your skin together, talk about your goals and suggest a simple plan. There is no pressure and no obligation to book a treatment. Read what happens on a first visit.
+          </p>
+<div class="pt-2 flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center justify-center w-full sm:w-auto bg-brand-clay text-on-tertiary px-7 py-3.5 rounded-full text-label-lg font-label-lg shadow-sm hover:opacity-95 hover:-translate-y-0.5 active:scale-95 transition-all duration-200" href="book-appointment.html">
+              Book a free consultation
+            </a>
+<button class="inline-flex items-center justify-center w-full sm:w-auto bg-brand-cream text-brand-charcoal hover:bg-brand-sage-pale px-6 py-3.5 rounded-full text-label-lg font-label-lg border border-outline-variant/40 hover:-translate-y-0.5 active:scale-95 transition-all duration-200">
+              How a first visit works
+            </button>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-2 lg:gap-6 pt-4 text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check_circle">check_circle</span>
+<span>20-minute private talk</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check_circle">check_circle</span>
+<span>Digital barrier reading</span>
+</div>
+</div>
+</div>
+<!-- Right: Photography in Soft Rounded Frame -->
+<div class="lg:col-span-6">
+<div class="rounded-2xl overflow-hidden lifted-shadow border-2 border-surface-container-lowest/80 bg-brand-cream">
+<img loading="lazy" decoding="async" srcset="images/d6ac820acc71-o-640.jpg 640w, images/d6ac820acc71-o-1024.jpg 1024w, images/d6ac820acc71-o.jpg 1200w" sizes="100vw" alt="Therapist and client seated side by side at a minimalist pale limestone desk reviewing digital skin analysis tablet in morning window light" class="w-full h-52 sm:h-64 md:h-96 object-cover object-center" src="images/d6ac820acc71-o.jpg"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 6: home-contact (Find us in Achrafieh)                            -->
+<!-- ========================================================================= -->
+<section class="py-10 px-5 lg:py-24 lg:px-8 max-w-[1360px] mx-auto bg-brand-cream" id="home-contact">
+<div class="mb-8 lg:mb-14 text-center max-w-2xl mx-auto">
+<span class="text-label-md font-label-md tracking-[0.14em] text-primary uppercase block mb-2">Location &amp; Concierge</span>
+<h2 class="text-3xl md:text-headline-lg font-headline-lg text-brand-charcoal">
+        Find us in Achrafieh
+      </h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+        A tranquil haven tucked away on a leafy pedestrian terrace. Quiet access, discreet arrivals.
+      </p>
+</div>
+<!-- Architectural Facade Hero + 4 Quiet Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-12">
+<!-- Architectural Accent Visual -->
+<div class="lg:col-span-5 rounded-3xl overflow-hidden border border-outline-variant/30 lifted-shadow relative aspect-video lg:aspect-auto min-h-[200px] lg:min-h-[380px]">
+<img loading="lazy" decoding="async" srcset="images/4c2734239c80-o-640.jpg 640w, images/4c2734239c80-o-1024.jpg 1024w, images/4c2734239c80-o.jpg 1376w" sizes="100vw" alt="Traditional Achrafieh limestone building facade with soft morning mist, arched entrance and vintage sage green door with flowering bougainvillea" class="absolute inset-0 lg:static w-full h-full object-cover object-center" src="images/4c2734239c80-o.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal/70 via-transparent to-transparent flex items-end p-6">
+<div class="text-on-tertiary">
+<p class="text-title font-title">Rue Huvelin Sanctuary</p>
+<p class="text-body-sm font-body-sm text-brand-cream/80">Achrafieh, Beirut, Lebanon</p>
+</div>
+</div>
+</div>
+<!-- Information & Access Cards -->
+<div class="lg:col-span-7 flex flex-col justify-between gap-4 lg:gap-6">
+<div class="grid grid-cols-2 gap-3 sm:gap-4 flex-1">
+<!-- Column 1: Phone -->
+<div class="bg-surface-container p-4 lg:p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center gap-3 text-primary mb-3">
+<span class="material-symbols-outlined text-xl" data-icon="phone_in_talk">phone_in_talk</span>
+<span class="text-label-md font-label-md uppercase tracking-wider">Direct Line</span>
+</div>
+<div>
+<p class="text-title font-title text-brand-charcoal">+1 555 010 042</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Direct line for booking queries &amp; WhatsApp concierge</p>
+</div>
+</div>
+<!-- Column 2: Address -->
+<div class="bg-surface-container p-4 lg:p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center gap-3 text-primary mb-3">
+<span class="material-symbols-outlined text-xl" data-icon="location_on">location_on</span>
+<span class="text-label-md font-label-md uppercase tracking-wider">Address</span>
+</div>
+<div>
+<p class="text-title font-title text-brand-charcoal">Sample address, Rue Huvelin</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Achrafieh, Beirut</p>
+</div>
+</div>
+<!-- Column 3: Hours -->
+<div class="bg-surface-container p-4 lg:p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center gap-3 text-primary mb-3">
+<span class="material-symbols-outlined text-xl" data-icon="schedule">schedule</span>
+<span class="text-label-md font-label-md uppercase tracking-wider">Studio Hours</span>
+</div>
+<div>
+<p class="text-title font-title text-brand-charcoal">Mon–Fri 9:00–19:00</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Sat 10:00–16:00 · Sun Closed</p>
+</div>
+</div>
+<!-- Column 4: Map & Access -->
+<div class="bg-surface-container p-4 lg:p-6 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center gap-3 text-primary mb-3">
+<span class="material-symbols-outlined text-xl" data-icon="map">map</span>
+<span class="text-label-md font-label-md uppercase tracking-wider">Map &amp; Access</span>
+</div>
+<div>
+<p class="text-title font-title text-brand-charcoal">Valet &amp; Car Sanctuary</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Discreet rear entrance on Huvelin lane</p>
+</div>
+</div>
+</div>
+<!-- Action Banner -->
+<div class="bg-brand-sage-pale/60 p-4 lg:p-6 rounded-2xl border border-outline-variant/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-brand-cream flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="directions">directions</span>
+</span>
+<div>
+<p class="text-title font-title text-brand-charcoal">Visiting for the first time?</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">We send doorstep directions via SMS upon booking confirmation.</p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 w-full sm:w-auto">
+<a class="inline-flex items-center justify-center min-h-[44px] lg:min-h-0 flex-1 sm:flex-none px-5 py-2.5 rounded-full border border-primary/30 text-on-surface bg-brand-cream text-label-md font-label-md hover:bg-surface-container transition-colors" href="contact.html">
+              Get directions
+            </a>
+<a class="inline-flex items-center justify-center min-h-[44px] lg:min-h-0 flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-brand-clay text-on-tertiary text-label-md font-label-md shadow-sm hover:opacity-95 transition-opacity" href="book-appointment.html">
+              Book online
+            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: Footer                                                  -->
+<!-- ========================================================================= -->
+<footer class="w-full border-t border-outline-variant/40 bg-surface-container-high dark:bg-inverse-surface">
+<div class="w-full px-5 py-10 lg:px-8 lg:py-16 max-w-[1360px] mx-auto flex flex-col gap-8 lg:gap-12">
+<!-- Top Row: Brand & Summary & Links -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10">
+<!-- Brand Description -->
+<div class="md:col-span-4 space-y-4">
+<div class="text-headline-sm font-headline-sm tracking-[0.12em] text-on-surface dark:text-inverse-on-surface uppercase flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-brand-clay inline-block"></span>
+            LAYLA SKIN STUDIO
+          </div>
+<p class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim leading-relaxed max-w-sm">
+            A private esthetic sanctuary nestled in Achrafieh, Beirut. Gentle clinical efficacy wrapped in quiet hospitality.
+          </p>
+<div class="pt-2 text-label-sm font-label-sm text-on-surface-variant dark:text-secondary-fixed-dim flex items-center gap-4">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="shield">shield</span>
+              Sterile Clinical Protocols
+            </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="lock">lock</span>
+              Strict Discretion
+            </span>
+</div>
+</div>
+<!-- Links Columns from Shared Components JSON -->
+<div class="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-6 lg:gap-8">
+<div>
+<p class="text-label-md font-label-md text-on-surface dark:text-inverse-on-surface uppercase tracking-wider mb-4 font-semibold">Treatments</p>
+<ul class="space-y-2.5 text-body-sm font-body-sm">
+<li><a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors duration-200" href="treatments.html">Facial Architecture</a></li>
+<li><a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors duration-200" href="treatments.html">Lymphatic Protocols</a></li>
+<li><a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors duration-200" href="treatments.html">Barrier Restoration</a></li>
+</ul>
+</div>
+<div>
+<p class="text-label-md font-label-md text-on-surface dark:text-inverse-on-surface uppercase tracking-wider mb-4 font-semibold">Sanctuary</p>
+<ul class="space-y-2.5 text-body-sm font-body-sm">
+<li><a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors duration-200" href="#" data-inert>Sanctuary Etiquette</a></li>
+<li><a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors duration-200" href="contact.html">Achrafieh Studio Directions</a></li>
+<li><a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors duration-200" href="book-appointment.html">Private Consultations</a></li>
+</ul>
+</div>
+<div>
+<p class="text-label-md font-label-md text-on-surface dark:text-inverse-on-surface uppercase tracking-wider mb-4 font-semibold">Connect</p>
+<ul class="space-y-2.5 text-body-sm font-body-sm">
+<li><a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors duration-200" href="#" data-inert>WhatsApp Concierge</a></li>
+<li><a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors duration-200" href="#" data-inert>Instagram Studio</a></li>
+<li><a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-tertiary dark:hover:text-tertiary-fixed transition-colors duration-200" href="#" data-inert>Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Bottom Row: Copyright & Micro Links -->
+<div class="pt-8 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim">
+<p>© 2024 Layla Skin Studio. Achrafieh, Beirut. All rights reserved.</p>
+<div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 lg:gap-6">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-clay"></span>
+<span>By Appointment Only</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-clay"></span>
+<span>Achrafieh, Beirut</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

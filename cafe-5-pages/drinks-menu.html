@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish>/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish>(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>you, a Café — Coffee &amp; Drinks</title>
+<!-- Typography & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Caveat:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CDN -->
+
+<!-- Tailwind Configuration (VERBATIM from prompt) -->
+
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .arch-frame {
+      border-radius: 120px 120px 16px 16px;
+    }
+    .coffee-ring-stroke {
+      background-image: radial-gradient(circle, transparent 64%, rgba(74, 44, 29, 0.22) 65%, rgba(74, 44, 29, 0.16) 70%, rgba(74, 44, 29, 0.05) 74%, transparent 76%);
+    }
+    .coffee-ring-subtle {
+      background-image: radial-gradient(circle, transparent 65%, rgba(74, 44, 29, 0.12) 66%, rgba(74, 44, 29, 0.08) 72%, transparent 75%);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-tertiary-fixed selection:text-tertiary">
+<!-- ==================== HEADER (SHARED COMPONENT: TopNavBar) ==================== -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 sticky top-0 z-50 shadow-sm transition-all duration-200 ease-in-out">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto flex items-center justify-between py-space-md">
+<!-- Brand Logo / Wordmark -->
+<a class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary tracking-tight flex items-center gap-2 group" href="index.html">
+<span>you</span>
+<span class="font-body-md text-body-md text-on-surface-variant italic font-normal">— a café</span>
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-primary-container/40 group-hover:scale-125 transition-transform duration-200"></span>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-space-lg">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="menu.html">Menu</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="about.html">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="gallery.html">Gallery</a>
+<!-- ACTIVE LINK: Drinks -->
+<a class="text-tertiary dark:text-tertiary-fixed font-label-lg text-label-lg border-b-2 border-tertiary dark:border-tertiary-fixed pb-1" href="drinks-menu.html">Drinks</a>
+
+<!-- More Dropdown -->
+<div class="relative group">
+<button class="flex items-center gap-1 text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg hover:text-tertiary transition-colors duration-200 py-1">
+<span>More</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<div class="absolute left-0 mt-2 w-44 bg-surface-container-lowest rounded-lg shadow-xl border border-outline-variant/40 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out">
+
+
+
+
+</div>
+</div>
+</nav>
+<!-- Trailing Action Button -->
+<div class="flex items-center gap-space-md">
+<a class="inline-flex items-center gap-2 bg-primary-container text-surface px-5 py-2.5 rounded-lg font-label-lg text-label-lg hover:bg-tertiary transition-colors duration-200 shadow-sm active:scale-95" href="#" data-inert>
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span>Order Online</span>
+</a>
+</div>
+</div>
+</header>
+<!-- ==================== 1. SECTION "drinks-hero" ==================== -->
+<section class="relative overflow-hidden pt-space-xl pb-space-2xl md:py-space-2xl bg-surface-bright" id="drinks-hero">
+<!-- Ambient Coffee Ring Watermark Background -->
+<div class="absolute -top-24 -left-20 w-96 h-96 coffee-ring-subtle rounded-full pointer-events-none opacity-40"></div>
+<div class="absolute top-1/2 -right-32 w-[32rem] h-[32rem] coffee-ring-subtle rounded-full pointer-events-none opacity-30"></div>
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-xl items-center">
+<!-- Left: Headline and Copy -->
+<div class="md:col-span-6 flex flex-col items-start gap-space-lg relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+            Handcrafted with patience &amp; care
+          </div>
+<h1 class="font-headline-xl text-headline-xl text-primary leading-[1.08] tracking-tight">
+            Pour, steam, <span class="relative inline-block">sip<span class="absolute -bottom-1 left-0 w-full h-1 bg-tertiary-container/30 rounded-full"></span></span>.
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
+            Carefully roasted beans, house-blended teas and a few seasonal inventions. Served warm, unhurried, and made expressly for you.
+          </p>
+<!-- Stamped Circular Badge with Coffee Ring Motifs -->
+<div class="mt-space-sm flex items-center gap-space-md">
+<div class="relative w-24 h-24 flex items-center justify-center rounded-full bg-surface-container coffee-ring-stroke shadow-sm rotate-[-4deg]">
+<div class="text-center">
+<span class="block font-handwritten text-lg font-bold text-primary leading-tight">roasted</span>
+<span class="block font-label-sm text-label-sm text-tertiary uppercase tracking-widest">fresh</span>
+<span class="block font-body-sm text-[11px] text-on-surface-variant font-medium">every mon</span>
+</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant max-w-[200px]">
+<span class="font-handwritten text-xl font-bold text-primary block">"no rush, take a seat"</span>
+              Ethically sourced direct from cooperative farms.
+            </div>
+</div>
+</div>
+<!-- Right: Arched High-Bleed Photograph -->
+<div class="md:col-span-6 relative flex justify-center md:justify-end">
+<div class="relative w-full max-w-md">
+<!-- Decorative Offset Tinted Layer -->
+<div class="absolute -inset-4 bg-secondary-fixed-dim/30 arch-frame transform rotate-1 translate-x-2 translate-y-2 pointer-events-none"></div>
+<!-- Arched Image Container -->
+<div class="relative arch-frame overflow-hidden shadow-2xl bg-surface-container border border-outline-variant/30 aspect-[3/4]">
+<img fetchpriority="high" decoding="async" srcset="images/664dc984d295-o-640.jpg 640w, images/664dc984d295-o-1024.jpg 1024w, images/664dc984d295-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="A cinematic close-up of velvety steamed whole milk being poured gently into rich espresso, forming an intricate feather latte art pattern inside a matte ceramic earth-toned cup. Soft, golden morning sunlight streams through a café window onto a rustic wooden tabletop, highlighting fine steam rising into the warm paper-toned air. The aesthetic is tactile editorial with warm cream and roasted coffee brown accents." src="images/664dc984d295-o.jpg"/>
+<!-- Ambient Subtle Ring overlay on arch -->
+<div class="absolute bottom-4 right-4 w-28 h-28 coffee-ring-subtle rounded-full pointer-events-none opacity-70"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 2. SECTION "drinks-coffee" ==================== -->
+<section class="py-space-2xl bg-surface-container-low relative" id="drinks-coffee">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto">
+<!-- Section Title & Handwritten Note -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl gap-space-md border-b border-outline-variant/40 pb-space-lg">
+<div>
+<span class="font-label-md text-label-md text-secondary tracking-widest uppercase">The Classics</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Coffee</h2>
+</div>
+<p class="font-handwritten text-2xl text-tertiary-container bg-surface-container px-4 py-1.5 rounded-full inline-block border border-outline-variant/50 self-start md:self-auto">
+          Sizes: small 8 oz, regular 12 oz, large 16 oz <span class="text-primary font-bold">(+$0.60 per step up)</span>
+</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left: Tall Editorial Image Column -->
+<div class="lg:col-span-5 relative order-2 lg:order-1">
+<div class="sticky top-28">
+<div class="relative rounded-2xl overflow-hidden shadow-xl border border-outline-variant/40 aspect-[4/5] bg-surface-container">
+<img loading="lazy" decoding="async" srcset="images/1d07d28f4bc3-640.jpg 640w, images/1d07d28f4bc3-1024.jpg 1024w, images/1d07d28f4bc3.jpg 2880w" sizes="100vw" class="w-full h-full object-cover" data-alt="An editorial flat-lay photograph of a handcrafted warm wooden tray presenting an array of specialty coffee drinks: a petite espresso cup, a velvety cappuccino, and a clear glass cold brew bathed in gentle afternoon light. Natural unbleached linen napkins and scattered roasted coffee beans create an organic, artisanal atmosphere adhering to an earthy palette of deep roast brown, soft cream, and sage." src="images/1d07d28f4bc3.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 text-surface">
+<span class="font-handwritten text-2xl text-tertiary-fixed-dim">Poured slowly &amp; warmly</span>
+<p class="font-body-sm text-body-sm text-surface-container-low mt-1">Every beverage brewed with freshly calibrated grind profiles and sweet filtered mountain water.</p>
+</div>
+</div>
+<!-- Floating Decorative Stamp Card -->
+<div class="absolute -bottom-6 -right-6 hidden sm:flex w-32 h-32 rounded-full bg-surface-container-lowest shadow-lg border border-outline-variant/50 items-center justify-center text-center p-3 coffee-ring-stroke">
+<span class="font-handwritten text-base leading-tight font-bold text-primary">Single Origin<br/><span class="text-tertiary text-xs font-normal">Ethiopia Guji</span></span>
+</div>
+</div>
+</div>
+<!-- Right: Elegant Coffee Menu Items List -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg order-1 lg:order-2">
+<!-- Item 1: Espresso / Doppio -->
+<div class="group flex items-center justify-between p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
+<div class="flex items-center gap-space-md">
+<div class="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/45202021943a-o-640.jpg 640w, images/45202021943a-o-1024.jpg 1024w, images/45202021943a-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A focused close-up of a rich golden-brown crema espresso shot sitting in an earthy beige ceramic demitasse cup, captured in soft morning light on an untreated timber tabletop." src="images/45202021943a-o.jpg"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-tertiary transition-colors">Espresso / Doppio</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Single or double shot.</p>
+</div>
+</div>
+<!-- Stamped Price -->
+<div class="relative px-3 py-1 flex items-center justify-center">
+<span class="font-handwritten text-2xl font-bold text-primary tracking-tight">$3.40 / $4.00</span>
+<div class="absolute inset-0 coffee-ring-subtle rounded-full pointer-events-none opacity-60"></div>
+</div>
+</div>
+<!-- Item 2: Americano -->
+<div class="group flex items-center justify-between p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
+<div class="flex items-center gap-space-md">
+<div class="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/fe29b7a818fb-o-640.jpg 640w, images/fe29b7a818fb-o-1024.jpg 1024w, images/fe29b7a818fb-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A deep black Americano with delicate crema swirls presented in an artisanal warm white ceramic cup on a weathered pine cafe saucer." src="images/fe29b7a818fb-o.jpg"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-tertiary transition-colors">Americano</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Espresso with hot water.</p>
+</div>
+</div>
+<!-- Stamped Price -->
+<div class="relative px-3 py-1 flex items-center justify-center">
+<span class="font-handwritten text-2xl font-bold text-primary tracking-tight">$3.80</span>
+<div class="absolute inset-0 coffee-ring-subtle rounded-full pointer-events-none opacity-60"></div>
+</div>
+</div>
+<!-- Item 3: Cappuccino -->
+<div class="group flex items-center justify-between p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
+<div class="flex items-center gap-space-md">
+<div class="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/5120c99e1bb2-o-640.jpg 640w, images/5120c99e1bb2-o-1024.jpg 1024w, images/5120c99e1bb2-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A velvety cappuccino crowned with thick airy microfoam lightly dusted with raw cocoa, resting inside a clay-colored wide ceramic bowl mug." src="images/5120c99e1bb2-o.jpg"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-tertiary transition-colors">Cappuccino</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Equal parts espresso, milk and foam.</p>
+</div>
+</div>
+<!-- Stamped Price -->
+<div class="relative px-3 py-1 flex items-center justify-center">
+<span class="font-handwritten text-2xl font-bold text-primary tracking-tight">$4.80</span>
+<div class="absolute inset-0 coffee-ring-subtle rounded-full pointer-events-none opacity-60"></div>
+</div>
+</div>
+<!-- Item 4: Honey Oat Flat White -->
+<div class="group flex items-center justify-between p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
+<div class="flex items-center gap-space-md">
+<div class="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-secondary-container shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/15753b592f2c-o-640.jpg 640w, images/15753b592f2c-o-1024.jpg 1024w, images/15753b592f2c-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A silk-textured flat white with exquisite rosette leaf latte art in a light sage green ceramic cup, set on a textured cream linen placemat." src="images/15753b592f2c-o.jpg"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-tertiary transition-colors">Honey Oat Flat White</h3>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Signature</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Our signature, with wildflower honey.</p>
+</div>
+</div>
+<!-- Stamped Price -->
+<div class="relative px-3 py-1 flex items-center justify-center">
+<span class="font-handwritten text-2xl font-bold text-primary tracking-tight">$5.20</span>
+<div class="absolute inset-0 coffee-ring-subtle rounded-full pointer-events-none opacity-60"></div>
+</div>
+</div>
+<!-- Item 5: Iced Latte -->
+<div class="group flex items-center justify-between p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 hover:border-tertiary-container/50 hover:bg-surface-container-lowest transition-all duration-200">
+<div class="flex items-center gap-space-md">
+<div class="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-surface-container shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/4439e1ec0220-o-640.jpg 640w, images/4439e1ec0220-o-1024.jpg 1024w, images/4439e1ec0220-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An aesthetic tall ribbed glass of layered iced latte showing dark espresso slowly cascading through chilled oat milk over crystal clear artisanal ice cubes." src="images/4439e1ec0220-o.jpg"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-tertiary transition-colors">Iced Latte</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Cold milk, espresso and ice.</p>
+</div>
+</div>
+<!-- Stamped Price -->
+<div class="relative px-3 py-1 flex items-center justify-center">
+<span class="font-handwritten text-2xl font-bold text-primary tracking-tight">$5.40</span>
+<div class="absolute inset-0 coffee-ring-subtle rounded-full pointer-events-none opacity-60"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 3. SECTION "drinks-tea" ==================== -->
+<section class="py-space-2xl bg-secondary text-surface relative overflow-hidden" id="drinks-tea">
+<!-- Decorative Ambient Watermarks -->
+<div class="absolute -top-32 right-10 w-96 h-96 rounded-full border border-secondary-fixed/20 pointer-events-none"></div>
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto relative z-10">
+<!-- Section Header -->
+<div class="max-w-2xl mb-space-xl">
+<span class="font-label-md text-label-md text-secondary-fixed tracking-widest uppercase">Steeped &amp; Soothing</span>
+<h2 class="font-headline-lg text-headline-lg text-surface tracking-tight mt-1">Tea &amp; more</h2>
+<p class="font-body-lg text-body-lg text-secondary-fixed-dim mt-2">
+          Loose-leaf teas by Amira, plus drinks without caffeine.
+        </p>
+</div>
+<!-- Tea Editorial Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center mb-space-xl">
+<!-- Left: Feature Teapot Photography -->
+<div class="lg:col-span-5">
+<div class="relative rounded-2xl overflow-hidden shadow-2xl border border-secondary-fixed/20 bg-primary/20 aspect-[4/3] lg:aspect-square">
+<img loading="lazy" decoding="async" srcset="images/90c276ba28c6-o-640.jpg 640w, images/90c276ba28c6-o-1024.jpg 1024w, images/90c276ba28c6-o.jpg 1376w" sizes="100vw" class="w-full h-full object-cover" data-alt="A clean, sun-drenched horizontal still-life of an amber-hued glass teapot steeping fragrant golden herbal tea alongside two handmade ceramic cups and scattered fragrant loose-leaf green tea leaves on an unpolished light wooden table." src="images/90c276ba28c6-o.jpg"/>
+<div class="absolute top-4 left-4 bg-primary/70 backdrop-blur-sm text-surface px-3 py-1 rounded-full font-label-sm text-label-sm">
+              Blended in-house by Amira
+            </div>
+</div>
+</div>
+<!-- Right: 3 Circular Framed Items with Descriptions & Stamped Prices -->
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Card 1: Cardamom Chai Latte -->
+<div class="flex flex-col items-center text-center p-space-lg rounded-2xl bg-primary/25 border border-secondary-fixed/20 backdrop-blur-sm hover:bg-primary/35 transition-all">
+<div class="w-24 h-24 rounded-full overflow-hidden border-2 border-secondary-fixed-dim/60 mb-space-md shadow-md">
+<img loading="lazy" decoding="async" srcset="images/200f3c8c7f61-o-640.jpg 640w, images/200f3c8c7f61-o-1024.jpg 1024w, images/200f3c8c7f61-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="A warm mug of spiced cardamom chai latte topped with foamy steamed milk and crushed green cardamom pods in soft café lighting." src="images/200f3c8c7f61-o.jpg"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-surface mb-1">Cardamom Chai Latte</h3>
+<p class="font-body-sm text-body-sm text-secondary-fixed-dim mb-space-md">Black tea, spices and steamed milk.</p>
+<div class="mt-auto inline-block px-3 py-1 rounded-full bg-secondary-fixed/20 border border-secondary-fixed/30 font-handwritten text-2xl font-bold text-secondary-fixed">
+              $5.00
+            </div>
+</div>
+<!-- Card 2: Mint & Lemon Tea -->
+<div class="flex flex-col items-center text-center p-space-lg rounded-2xl bg-primary/25 border border-secondary-fixed/20 backdrop-blur-sm hover:bg-primary/35 transition-all">
+<div class="w-24 h-24 rounded-full overflow-hidden border-2 border-secondary-fixed-dim/60 mb-space-md shadow-md">
+<img loading="lazy" decoding="async" srcset="images/b087e180d13d-o-640.jpg 640w, images/b087e180d13d-o.jpg 768w" sizes="100vw" class="w-full h-full object-cover" data-alt="Fresh vibrant green Moroccan mint sprigs and bright yellow lemon slices floating in hot infused water inside a delicate clear glass teacup with soft morning light." src="images/b087e180d13d-o.jpg"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-surface mb-1">Mint &amp; Lemon Tea</h3>
+<p class="font-body-sm text-body-sm text-secondary-fixed-dim mb-space-md">Fresh and gentle.</p>
+<div class="mt-auto inline-block px-3 py-1 rounded-full bg-secondary-fixed/20 border border-secondary-fixed/30 font-handwritten text-2xl font-bold text-secondary-fixed">
+              $4.20
+            </div>
+</div>
+<!-- Card 3: Hot Chocolate -->
+<div class="flex flex-col items-center text-center p-space-lg rounded-2xl bg-primary/25 border border-secondary-fixed/20 backdrop-blur-sm hover:bg-primary/35 transition-all">
+<div class="w-24 h-24 rounded-full overflow-hidden border-2 border-secondary-fixed-dim/60 mb-space-md shadow-md">
+<img loading="lazy" decoding="async" srcset="images/4d531c8e55a9-o-640.jpg 640w, images/4d531c8e55a9-o.jpg 768w" sizes="100vw" class="w-full h-full object-cover" data-alt="A comforting mug of rich molten dark hot chocolate topped with thick swirls of fresh whipped cream and shavings of 70 percent single origin chocolate." src="images/4d531c8e55a9-o.jpg"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-surface mb-1">Hot Chocolate</h3>
+<p class="font-body-sm text-body-sm text-secondary-fixed-dim mb-space-md">Dark cocoa and steamed milk, topped with cream.</p>
+<div class="mt-auto inline-block px-3 py-1 rounded-full bg-secondary-fixed/20 border border-secondary-fixed/30 font-handwritten text-2xl font-bold text-secondary-fixed">
+              $4.90
+            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 4. SECTION "drinks-seasonal" ==================== -->
+<section class="py-space-2xl bg-tertiary-container text-surface relative overflow-hidden" id="drinks-seasonal">
+<!-- Coffee ring watermark accent in warm terracotta container -->
+<div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full border border-tertiary-fixed/15 pointer-events-none"></div>
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left: Seasonal Copy & Specially styled Cards -->
+<div class="lg:col-span-7">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md mb-space-md font-bold">
+<span class="material-symbols-outlined text-[16px]">local_florist</span>
+            Limited Run
+          </div>
+<h2 class="font-headline-xl text-headline-xl text-surface font-headline-xl tracking-tight leading-none mb-space-sm">
+            Seasonal specials
+          </h2>
+<p class="font-body-lg text-body-lg text-tertiary-fixed-dim mb-space-xl max-w-md">
+            Changing with the weather and Amira's imagination.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Seasonal Card 1 -->
+<div class="bg-primary/40 border border-tertiary-fixed/20 rounded-2xl p-space-lg backdrop-blur-sm relative group hover:border-tertiary-fixed transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-surface">Maple Cinnamon Latte</h3>
+<span class="font-handwritten text-3xl font-bold text-tertiary-fixed">$5.90</span>
+</div>
+<p class="font-body-md text-body-md text-surface-container-high mb-space-md">
+                Real maple and a pinch of cinnamon.
+              </p>
+<div class="text-xs uppercase tracking-wider text-tertiary-fixed-dim font-bold">
+                Warm &amp; Spiced • Oat Milk Recommended
+              </div>
+</div>
+<!-- Seasonal Card 2 -->
+<div class="bg-primary/40 border border-tertiary-fixed/20 rounded-2xl p-space-lg backdrop-blur-sm relative group hover:border-tertiary-fixed transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-surface">Orange Cold Brew</h3>
+<span class="font-handwritten text-3xl font-bold text-tertiary-fixed">$5.80</span>
+</div>
+<p class="font-body-md text-body-md text-surface-container-high mb-space-md">
+                Cold brew, orange peel, sparkling water.
+              </p>
+<div class="text-xs uppercase tracking-wider text-tertiary-fixed-dim font-bold">
+                Crisp &amp; Sparkling • Zero Added Sugar
+              </div>
+</div>
+</div>
+</div>
+<!-- Right: Tilted Bursting Photograph Overlapping Edge -->
+<div class="lg:col-span-5 relative mt-space-lg lg:mt-0 flex justify-center">
+<div class="relative w-full max-w-sm rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl">
+<!-- Overlap Frame -->
+<div class="rounded-2xl overflow-hidden border-4 border-surface-container-lowest bg-surface-container aspect-[3/4]">
+<img loading="lazy" decoding="async" srcset="images/c21b56d1b1ea-o-640.jpg 640w, images/c21b56d1b1ea-o-1024.jpg 1024w, images/c21b56d1b1ea-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="An artisanal maple cinnamon latte dusted with freshly ground cinnamon bark, set on a rustic wooden cafe table next to organic dried orange slices, cinnamon sticks, and fall foliage in cozy warm lighting." src="images/c21b56d1b1ea-o.jpg"/>
+</div>
+<!-- Handwritten playful sticker -->
+<div class="absolute -top-4 -right-4 bg-surface-container-lowest text-primary px-4 py-2 rounded-full shadow-lg border border-outline-variant font-handwritten text-xl font-bold -rotate-6">
+              Staff favorite! 🍁
+            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 5. SECTION "drinks-milks" ==================== -->
+<section class="py-space-2xl bg-surface-bright relative" id="drinks-milks">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-space-2xl">
+<span class="font-label-md text-label-md text-secondary tracking-widest uppercase">Personalized for you</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Your milk, your size</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-3">
+          Oat, almond, soy or dairy milk at the same price. Extra shot +$0.80, syrups (vanilla, caramel, hazelnut) +$0.50.
+        </p>
+</div>
+<!-- Four Interactive Milk Options -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-lg mb-space-2xl">
+<!-- Milk 1 -->
+<div class="group flex flex-col items-center text-center p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/40 hover:border-primary transition-all duration-200">
+<div class="w-24 h-24 rounded-full coffee-ring-stroke flex items-center justify-center mb-space-md group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl text-primary-container">grass</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Oat Milk</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Default favorite</span>
+<span class="font-handwritten text-xl text-secondary mt-2">No extra charge</span>
+</div>
+<!-- Milk 2 -->
+<div class="group flex flex-col items-center text-center p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/40 hover:border-primary transition-all duration-200">
+<div class="w-24 h-24 rounded-full coffee-ring-stroke flex items-center justify-center mb-space-md group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl text-primary-container">spa</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Almond Milk</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Unsweetened</span>
+<span class="font-handwritten text-xl text-secondary mt-2">No extra charge</span>
+</div>
+<!-- Milk 3 -->
+<div class="group flex flex-col items-center text-center p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/40 hover:border-primary transition-all duration-200">
+<div class="w-24 h-24 rounded-full coffee-ring-stroke flex items-center justify-center mb-space-md group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl text-primary-container">eco</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Soy Milk</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Creamy &amp; organic</span>
+<span class="font-handwritten text-xl text-secondary mt-2">No extra charge</span>
+</div>
+<!-- Milk 4 -->
+<div class="group flex flex-col items-center text-center p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/40 hover:border-primary transition-all duration-200">
+<div class="w-24 h-24 rounded-full coffee-ring-stroke flex items-center justify-center mb-space-md group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl text-primary-container">local_drink</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Organic Dairy</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Whole or Non-fat</span>
+<span class="font-handwritten text-xl text-secondary mt-2">No extra charge</span>
+</div>
+</div>
+<!-- Handwritten Size Scale Representation -->
+<div class="bg-surface-container rounded-2xl p-space-xl border border-outline-variant/30 flex flex-col md:flex-row items-center justify-around gap-space-lg mb-space-2xl">
+<div class="text-center">
+<div class="w-16 h-16 mx-auto mb-2 flex items-center justify-center rounded-full bg-surface-container-lowest border border-outline-variant font-handwritten text-2xl font-bold text-primary">
+            8 oz
+          </div>
+<div class="font-headline-sm text-headline-sm text-primary">Small</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The traditional cup</p>
+</div>
+<div class="hidden md:block w-12 border-t-2 border-dashed border-outline-variant"></div>
+<div class="text-center">
+<div class="w-20 h-20 mx-auto mb-2 flex items-center justify-center rounded-full bg-surface-container-lowest border-2 border-tertiary-container font-handwritten text-3xl font-bold text-tertiary-container shadow-sm">
+            12 oz
+          </div>
+<div class="font-headline-sm text-headline-sm text-primary">Regular</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Our house standard</p>
+</div>
+<div class="hidden md:block w-12 border-t-2 border-dashed border-outline-variant"></div>
+<div class="text-center">
+<div class="w-24 h-24 mx-auto mb-2 flex items-center justify-center rounded-full bg-surface-container-lowest border border-outline-variant font-handwritten text-4xl font-bold text-primary">
+            16 oz
+          </div>
+<div class="font-headline-sm text-headline-sm text-primary">Large</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">For long mornings</p>
+</div>
+</div>
+<!-- Primary Action CTA -->
+<div class="text-center">
+<a class="inline-flex items-center gap-3 bg-primary text-surface px-8 py-4 rounded-lg font-headline-sm text-headline-sm hover:bg-tertiary transition-colors duration-200 shadow-md hover:shadow-lg active:scale-95 group" href="#" data-inert>
+<span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+<span>Order online</span>
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ==================== FOOTER (SHARED COMPONENT: Footer) ==================== -->
+<footer class="bg-surface-container dark:bg-surface-container-high border-t border-outline-variant/40 flat no shadows">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto py-space-2xl flex flex-col gap-space-xl">
+<!-- Top Grid: Brand & Information -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-xl pb-space-lg border-b border-outline-variant/30">
+<!-- Left: Wordmark & Philosophy -->
+<div class="md:col-span-4 flex flex-col gap-space-sm">
+<a class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary tracking-tight" href="index.html">
+            you, a café
+          </a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+            Roasted deliberately, poured warmly. A quiet neighborhood counter crafted for conversation, pause, and good ritual.
+          </p>
+<div class="flex items-center gap-4 mt-space-sm text-primary">
+<a aria-label="Instagram" class="w-9 h-9 rounded-full bg-surface-container-lowest flex items-center justify-center border border-outline-variant/40 hover:text-tertiary transition-colors" href="#" data-inert>
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</a>
+<a aria-label="Location" class="w-9 h-9 rounded-full bg-surface-container-lowest flex items-center justify-center border border-outline-variant/40 hover:text-tertiary transition-colors" href="#" data-inert>
+<span class="material-symbols-outlined text-[18px]">pin_drop</span>
+</a>
+<a aria-label="Mail" class="w-9 h-9 rounded-full bg-surface-container-lowest flex items-center justify-center border border-outline-variant/40 hover:text-tertiary transition-colors" href="#" data-inert>
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+<!-- Middle: Contact Details (Explicitly requested) -->
+<div class="md:col-span-4 flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-wider mb-1">Visit &amp; Reach</span>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">call</span>
+<span>Phone: +1 555 010 021</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">alternate_email</span>
+<span>Email: hello@example.com</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">store</span>
+<span>Address: 142 Market Hollow Lane, Portland, OR</span>
+</p>
+<p class="flex items-start gap-2 mt-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary mt-0.5">schedule</span>
+<span>Hours: Mon–Fri 7:00–18:00<br/>Sat–Sun 8:00–17:00</span>
+</p>
+</div>
+<!-- Right: Links Directory (JSON Links) -->
+<div class="md:col-span-4">
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-wider mb-3 block">Navigation</span>
+<div class="grid grid-cols-2 gap-y-2 gap-x-4">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="menu.html">Menu</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="gallery.html">Gallery</a>
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed font-bold" href="drinks-menu.html">Drinks</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="#" data-inert>Gift Cards</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="#" data-inert>Loyalty</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="#" data-inert>Order</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="#" data-inert>Reviews</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="#" data-inert>Contact</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="#" data-inert>Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary dark:hover:text-tertiary-fixed-dim transition-colors duration-200" href="#" data-inert>Terms of Service</a>
+</div>
+</div>
+</div>
+<!-- Bottom Bar: Exact Copyright text from JSON -->
+<div class="flex flex-col sm:flex-row items-center justify-between text-body-sm font-body-sm text-on-surface-variant gap-4">
+<span>© 2024 you café. Roasted deliberately, poured warmly.</span>
+<div class="flex items-center gap-6">
+<a class="hover:text-tertiary transition-colors" href="#" data-inert>Privacy Policy</a>
+<span>•</span>
+<a class="hover:text-tertiary transition-colors" href="#" data-inert>Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish>/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a row of three or more buttons (filters, chips) wraps on a phone instead of running off the edge of the screen */
+@media (max-width:767px){div:has(>button+button+button),ul:has(>li>button){flex-wrap:wrap}}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish>(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu — Al Jawad</title>
+<!-- Google Fonts: Tenor Sans (Headlines), Albert Sans (Body & UI), Amiri (Arabic Accent) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=Tenor+Sans&amp;family=Amiri:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+
+
+<style>
+    body {
+      background-color: #F6F2EA;
+      color: #2B2B2A;
+      font-family: 'Albert Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Signature Harbour Blue Horizontal Line with 4px Buoy Dot Draw Effect */
+    .buoy-line-container {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      max-width: 170px;
+      height: 10px;
+      margin-top: 0.875rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .buoy-line {
+      height: 1px;
+      background-color: #1F5C7A;
+      width: 0;
+      transition: width 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .buoy-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 9999px;
+      background-color: #1F5C7A;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      margin-left: -2px;
+    }
+
+    .revealed .buoy-line,
+    .buoy-line-container.revealed .buoy-line {
+      width: 100%;
+    }
+    .revealed .buoy-dot,
+    .buoy-line-container.revealed .buoy-dot {
+      opacity: 1;
+      transform: scale(1);
+      transition-delay: 0.7s;
+    }
+
+    /* Scroll reveal transitions */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Menu item hover effects */
+    .menu-item-row {
+      position: relative;
+      cursor: pointer;
+      transition: all 0.25s ease-out;
+    }
+    .menu-item-row:hover .item-title {
+      color: #1F5C7A;
+      transform: translateX(4px);
+    }
+    .menu-item-row:hover .item-price {
+      color: #1F5C7A;
+    }
+
+    /* Mezze dynamic image preview crossfade */
+    .mezze-feature-img {
+      transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Dotted leader */
+    .dotted-leader {
+      flex: 1;
+      border-bottom: 1px dotted rgba(43, 43, 42, 0.22);
+      margin: 0 1.25rem;
+      transform: translateY(-4px);
+    }
+
+    /* Parallax drift */
+    .parallax-drift {
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .buoy-line { width: 100% !important; transition: none !important; }
+      .buoy-dot { opacity: 1 !important; transform: none !important; }
+      .reveal-item { opacity: 1 !important; transform: none !important; }
+      .parallax-drift { transform: none !important; }
+    }
+  </style>
+</head>
+<body data-responsive class="selection:bg-primary/10 selection:text-primary">
+<!-- ==================== HEADER ==================== -->
+<header class="w-full border-b border-[#2B2B2A]/10 bg-[#F6F2EA]/95 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300">
+<div class="max-w-[1440px] mx-auto px-margin py-3 md:py-5 flex items-center justify-between gap-3">
+<!-- Wordmark on left with subtle Arabic accent -->
+<a class="flex items-baseline gap-2.5 group" href="index.html">
+<span class="font-headline text-2xl md:text-3xl text-primary tracking-normal font-normal">Al Jawad</span>
+<span class="font-arabic text-xl md:text-2xl text-muted/70 group-hover:text-primary transition-colors">الجواد</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-body font-normal text-muted hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+<a class="text-sm font-body font-medium text-primary border-b border-primary pb-0.5 tracking-normal" href="menu.html">Menu</a>
+<a class="text-sm font-body font-normal text-muted hover:text-primary transition-colors duration-200" href="contact.html">Contact</a>
+</nav>
+<!-- Trailing Action Button -->
+<div class="flex items-center">
+<a class="inline-flex items-center justify-center px-4 sm:px-6 min-h-[44px] py-2.5 rounded-none bg-primary text-white text-xs font-body font-medium tracking-wider uppercase hover:bg-primary-dark transition-all duration-300 shadow-sm active:scale-[0.98]" href="#" data-inert>
+          Order delivery
+        </a>
+</div>
+</div>
+</header>
+<!-- ==================== SECTION 1: menu-hero ==================== -->
+<section class="relative pt-10 md:pt-24 pb-12 md:pb-32 px-margin border-b border-[#2B2B2A]/10" id="menu-hero">
+<div class="max-w-[1440px] mx-auto">
+<!-- Overline Arabic touch -->
+<div class="reveal-item flex items-center gap-3 text-xs uppercase tracking-widest text-muted mb-4 font-body">
+<span>Al Jawad</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="font-arabic text-sm text-primary tracking-normal normal-case">قائمة الطعام</span>
+</div>
+<!-- Main Headline + Asymmetric Photo composition -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+<!-- Left: Expressive headline and ritual statement -->
+<div class="lg:col-span-7 xl:col-span-6">
+<p class="font-body text-xs uppercase tracking-[0.25em] text-primary/80 mb-2">The kitchen ritual</p>
+<h1 class="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] text-text font-normal leading-[1.12] tracking-normal">
+            One dish at a time
+          </h1>
+<!-- Signature Harbour Blue line with buoy circle -->
+<div class="buoy-line-container">
+<div class="buoy-line"></div>
+<div class="buoy-dot"></div>
+</div>
+<h2 class="font-headline text-2xl md:text-3xl text-text/90 font-normal mt-2 mb-3">
+            The menu
+          </h2>
+<p class="font-body text-base md:text-lg text-muted max-w-lg leading-relaxed font-light">
+            Cooked fresh each day. Ask us about anything you would like to adjust.
+          </p>
+<!-- Quick Jump Anchors -->
+<div class="flex flex-wrap gap-x-6 gap-y-2 mt-8 pt-6 border-t border-[#2B2B2A]/10 text-xs font-body tracking-wider uppercase text-muted">
+<a class="hover:text-primary transition-colors flex items-center gap-1.5" href="#menu-mezze">
+<span class="w-1 h-1 rounded-full bg-primary"></span> Mezze
+            </a>
+<a class="hover:text-primary transition-colors flex items-center gap-1.5" href="#menu-grill">
+<span class="w-1 h-1 rounded-full bg-primary"></span> From the charcoal
+            </a>
+<a class="hover:text-primary transition-colors flex items-center gap-1.5" href="#menu-home">
+<span class="w-1 h-1 rounded-full bg-primary"></span> Home kitchen
+            </a>
+<a class="hover:text-primary transition-colors flex items-center gap-1.5" href="#menu-sweet">
+<span class="w-1 h-1 rounded-full bg-primary"></span> Sweets &amp; tea
+            </a>
+</div>
+</div>
+<!-- Right: Hero photo hands placing mezze plate on table -->
+<div class="lg:col-span-5 xl:col-span-6 flex justify-start lg:justify-end">
+<div class="relative w-full max-w-md reveal-item group">
+<div class="overflow-hidden bg-[#FAF6EE] shadow-sm border border-[#2B2B2A]/10">
+<img srcset="images/a293fa6577db-o-640.jpg 640w, images/a293fa6577db-o-1024.jpg 1024w, images/a293fa6577db-o.jpg 1200w" sizes="100vw" alt="Hands wearing linen sleeves gently placing a shallow plate of fresh mezze with flatbread on a bare wooden table" class="w-full aspect-[4/3] lg:aspect-auto lg:h-[460px] object-cover object-center parallax-drift group-hover:scale-105 transition-transform duration-700 ease-out" loading="eager" src="images/a293fa6577db-o.jpg"/>
+</div>
+<!-- Editorial caption -->
+<div class="mt-3 flex items-center justify-between text-[11px] font-body text-muted tracking-wide">
+<span>The table is laid as you arrive</span>
+<span class="text-primary/70">Tyre harbour</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 2: menu-mezze ==================== -->
+<section class="py-10 md:py-24 lg:py-36 px-margin border-b border-[#2B2B2A]/10 bg-[#FAF6EE]" id="menu-mezze">
+<div class="max-w-[1440px] mx-auto">
+<!-- Section Header -->
+<div class="max-w-2xl mb-8 md:mb-20 reveal-item">
+<span class="text-xs uppercase tracking-[0.25em] text-muted font-body">01 / Beginnings</span>
+<h2 class="font-headline text-3xl md:text-5xl text-text font-normal mt-2 tracking-normal">Mezze</h2>
+<div class="buoy-line-container">
+<div class="buoy-line"></div>
+<div class="buoy-dot"></div>
+</div>
+<p class="font-body text-base md:text-lg text-muted font-light leading-relaxed">
+          To share, to start, to stay a while.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+<!-- Left 7 cols: Interactive plain list with wide spacing -->
+<div class="lg:col-span-7 space-y-6 md:space-y-11">
+<!-- Item 1: Hummus -->
+<div aria-label="Hummus, $8" class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item" onmouseenter="updateMezzeImage('images/07d4d42fb1be.jpg', 'Silky stone-ground hummus with olive oil and warm flatbread')" role="button" tabindex="0">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Hummus</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$8</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+              Chickpeas, tahini, lemon, olive oil.
+            </p>
+</div>
+<!-- Item 2: Baba ghanoush -->
+<div aria-label="Baba ghanoush, $9" class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item" onmouseenter="updateMezzeImage('images/6a683475229c.jpg', 'Smoked aubergine with ruby pomegranate seeds and green virgin olive oil')" role="button" tabindex="0">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Baba ghanoush</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$9</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+              Smoked aubergine, tahini, pomegranate.
+            </p>
+</div>
+<!-- Item 3: Tabbouleh -->
+<div aria-label="Tabbouleh, $9" class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item" onmouseenter="updateMezzeImage('images/a717d66fdb42-o.jpg', 'Fresh crisp flat parsley, garden mint, ripe tomato and bulgur')" role="button" tabindex="0">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Tabbouleh</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$9</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+              Parsley, tomato, bulgur, lemon.
+            </p>
+</div>
+<!-- Item 4: Fattoush -->
+<div aria-label="Fattoush, $10" class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item" onmouseenter="updateMezzeImage('images/0d0817f35277-o.jpg', 'Crisp garden greens with purslane, sumac dressing and toasted flatbread')" role="button" tabindex="0">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Fattoush</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$10</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+              Crisp greens, sumac, toasted bread.
+            </p>
+</div>
+<!-- Item 5: Vine leaves -->
+<div aria-label="Vine leaves, $9" class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item" onmouseenter="updateMezzeImage('images/c520475b41a3-o.jpg', 'Tender grape leaves rolled by hand with fragrant herbs and lemon')" role="button" tabindex="0">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Vine leaves</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$9</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+              Rice, herbs and tomato, rolled by hand.
+            </p>
+</div>
+</div>
+<!-- Right 5 cols: Framed Photo that smoothly updates on hover -->
+<div class="lg:col-span-5 lg:sticky lg:top-28">
+<div class="reveal-item">
+<div class="overflow-hidden bg-[#F6F2EA] border border-[#2B2B2A]/10 shadow-sm relative aspect-[4/3]">
+<img loading="lazy" decoding="async" srcset="images/6a683475229c-640.jpg 640w, images/6a683475229c-1024.jpg 1024w, images/6a683475229c.jpg 2880w" sizes="100vw" alt="A single ceramic bowl of artisanal smoked baba ghanoush garnished with pomegranate seeds and olive oil" class="mezze-feature-img w-full h-full object-cover object-center" id="mezze-display-img" src="images/6a683475229c.jpg"/>
+</div>
+<div class="mt-3 flex items-center justify-between text-[11px] font-body text-muted tracking-wide">
+<span id="mezze-caption">Smoked aubergine with ruby pomegranate seeds and green virgin olive oil</span>
+<span class="text-primary text-[10px] uppercase tracking-wider">Hover dish to view</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 3: menu-grill ==================== -->
+<section class="py-10 md:py-24 lg:py-36 px-margin border-b border-[#2B2B2A]/10 bg-[#F6F2EA]" id="menu-grill">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+<!-- Left: Photo on wide margin at ~40% width (lg:col-span-5) -->
+<div class="lg:col-span-5 lg:sticky lg:top-28 order-2 lg:order-1">
+<div class="reveal-item">
+<div class="overflow-hidden border border-[#2B2B2A]/10 shadow-sm bg-[#FAF6EE]">
+<img srcset="images/6613e9aa381a-o-640.jpg 640w, images/6613e9aa381a-o.jpg 896w" sizes="100vw" alt="A single grilled chicken skewer with gentle golden grill marks, toum and pickled turnip on a matte sea-grey plate" class="w-full aspect-[4/3] lg:aspect-auto lg:h-[580px] object-cover object-center parallax-drift hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="images/6613e9aa381a-o.jpg"/>
+</div>
+<!-- Editorial caption -->
+<div class="mt-3 flex items-center justify-between text-[11px] font-body text-muted tracking-wide">
+<span>Over embers of citrus and olive wood</span>
+<span class="text-primary/70">Slow-rested</span>
+</div>
+</div>
+</div>
+<!-- Right: Heading and plain list with aligned prices (lg:col-span-7) -->
+<div class="lg:col-span-7 order-1 lg:order-2">
+<div class="mb-8 lg:mb-14 reveal-item">
+<span class="text-xs uppercase tracking-[0.25em] text-muted font-body">02 / Embers</span>
+<h2 class="font-headline text-3xl md:text-5xl text-text font-normal mt-2 tracking-normal">From the charcoal</h2>
+<div class="buoy-line-container">
+<div class="buoy-line"></div>
+<div class="buoy-dot"></div>
+</div>
+<p class="font-body text-base md:text-lg text-muted font-light leading-relaxed max-w-lg">
+              Grilled slowly, served with bread, pickles and toum.
+            </p>
+</div>
+<div class="space-y-6 md:space-y-11">
+<!-- Item 1: Shish tawook -->
+<div class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Shish tawook</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$18</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+                Garlic and lemon chicken, toum.
+              </p>
+</div>
+<!-- Item 2: Kafta -->
+<div class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Kafta</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$19</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+                Minced beef with parsley and onion.
+              </p>
+</div>
+<!-- Item 3: Grilled halloumi -->
+<div class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Grilled halloumi</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$14</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+                Warm cheese, tomato, mint.
+              </p>
+</div>
+<!-- Item 4: Mixed grill -->
+<div class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Mixed grill</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$34</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+                Chicken, kafta and vegetables for two.
+              </p>
+</div>
+</div>
+<!-- Grill note -->
+<div class="mt-8 lg:mt-12 p-5 lg:p-6 bg-[#FAF6EE] border border-[#2B2B2A]/10 text-xs text-muted leading-relaxed font-body">
+<span class="font-medium text-text">Our grill cadence:</span> Skewers are seasoned with wild mountain oregano, sea salt, and cold-pressed oil, then gently rested to seal in juices before reaching your table.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 4: menu-home ==================== -->
+<section class="py-10 md:py-24 lg:py-36 px-margin border-b border-[#2B2B2A]/10 bg-[#FAF6EE] overflow-hidden" id="menu-home">
+<div class="max-w-[1440px] mx-auto">
+<!-- Section Header -->
+<div class="max-w-2xl mb-8 md:mb-20 reveal-item">
+<span class="text-xs uppercase tracking-[0.25em] text-muted font-body">03 / Hearth &amp; Sea</span>
+<h2 class="font-headline text-3xl md:text-5xl text-text font-normal mt-2 tracking-normal">From the home kitchen</h2>
+<div class="buoy-line-container">
+<div class="buoy-line"></div>
+<div class="buoy-dot"></div>
+</div>
+<p class="font-body text-base md:text-lg text-muted font-light leading-relaxed">
+          Slow dishes of South Lebanon, as cooked in Tyre.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+<!-- Airy column for items -->
+<div class="lg:col-span-7 xl:col-span-7 space-y-6 md:space-y-12">
+<!-- Item 1: Mujaddara -->
+<div class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Mujaddara</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$13</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+              Lentils, rice, caramelised onions.
+            </p>
+</div>
+<!-- Item 2: Kibbeh -->
+<div class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Kibbeh</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$12</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+              Cracked wheat shell, spiced filling, fried until crisp.
+            </p>
+</div>
+<!-- Item 3: Chicken with rice -->
+<div class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Chicken with rice</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$17</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+              Spiced rice, toasted almonds, tender chicken.
+            </p>
+</div>
+<!-- Item 4: Fish of the day -->
+<div class="menu-item-row pb-6 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-2xl md:text-3xl text-text font-normal transition-all">Fish of the day</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-xl md:text-2xl text-text font-normal tracking-tight">$24</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-2 max-w-md font-light leading-relaxed">
+              Grilled with lemon and herbs, as in Tyre.
+            </p>
+</div>
+</div>
+<!-- Narrow photo offset to right drifting subtly on scroll -->
+<div class="lg:col-span-5 xl:col-span-5">
+<div class="reveal-item relative max-w-md mx-auto lg:ml-auto">
+<div class="overflow-hidden border border-[#2B2B2A]/10 shadow-sm bg-[#F6F2EA]">
+<img srcset="images/c8425f5bf041-o-640.jpg 640w, images/c8425f5bf041-o-1024.jpg 1024w, images/c8425f5bf041-o.jpg 1200w" sizes="100vw" alt="Modest hands wearing oatmeal linen sleeves holding a shallow ceramic bowl of mujaddara with crisp caramelised onions" class="w-full aspect-[4/3] lg:aspect-auto lg:h-[560px] object-cover object-center parallax-drift hover:scale-105 transition-transform duration-700 ease-out" id="drift-photo" loading="lazy" src="images/c8425f5bf041-o.jpg"/>
+</div>
+<div class="mt-3 flex items-center justify-between text-[11px] font-body text-muted tracking-wide">
+<span>Warm brown lentils &amp; crisp sweet onions</span>
+<span class="text-primary/70">Cooked unhurried</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 5: menu-sweet ==================== -->
+<section class="py-10 md:py-24 lg:py-36 px-margin border-b border-[#2B2B2A]/10 bg-[#F6F2EA]" id="menu-sweet">
+<div class="max-w-[1440px] mx-auto">
+<!-- Section Header -->
+<div class="max-w-2xl mb-8 md:mb-16 reveal-item">
+<span class="text-xs uppercase tracking-[0.25em] text-muted font-body">04 / Conclusion</span>
+<h2 class="font-headline text-3xl md:text-5xl text-text font-normal mt-2 tracking-normal">Sweet and drinks</h2>
+<div class="buoy-line-container">
+<div class="buoy-line"></div>
+<div class="buoy-dot"></div>
+</div>
+<p class="font-body text-base md:text-lg text-muted font-light leading-relaxed">
+          A quiet end to the meal.
+        </p>
+</div>
+<!-- Photo: Mint tea beside pistachio baklava -->
+<div class="reveal-item mb-10 md:mb-20 max-w-2xl">
+<div class="overflow-hidden border border-[#2B2B2A]/10 shadow-sm bg-[#FAF6EE] aspect-[16/9]">
+<img srcset="images/5502bb9380b7-o-640.jpg 640w, images/5502bb9380b7-o-1024.jpg 1024w, images/5502bb9380b7-o.jpg 1200w" sizes="100vw" alt="A delicate clear glass of fresh mint tea beside a single diamond square of pistachio baklava on a pale ceramic plate" class="w-full h-full object-cover object-center parallax-drift hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" src="images/5502bb9380b7-o.jpg"/>
+</div>
+<div class="mt-3 flex items-center justify-between text-[11px] font-body text-muted tracking-wide">
+<span>Fresh garden mint tea &amp; layered pistachio baklava</span>
+<span class="text-primary/70">Tyrian hospitality</span>
+</div>
+</div>
+<!-- Two Narrow Columns with Hairline Divider -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 relative">
+<!-- Hairline Divider -->
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-[#2B2B2A]/10 -translate-x-1/2"></div>
+<!-- Left Column: Sweets -->
+<div class="space-y-6 md:space-y-9">
+<div class="border-b border-[#2B2B2A]/10 pb-3 mb-6">
+<span class="font-body text-xs uppercase tracking-[0.2em] text-primary">Sweets</span>
+</div>
+<!-- Item 1: Baklava -->
+<div class="menu-item-row pb-5 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-xl md:text-2xl text-text font-normal transition-all">Baklava</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-lg md:text-xl text-text font-normal tracking-tight">$7</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-1.5 font-light leading-relaxed">
+              Pistachio, honey syrup, thin pastry.
+            </p>
+</div>
+<!-- Item 2: Rice pudding -->
+<div class="menu-item-row pb-5 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-xl md:text-2xl text-text font-normal transition-all">Rice pudding</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-lg md:text-xl text-text font-normal tracking-tight">$6</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-1.5 font-light leading-relaxed">
+              Orange blossom, pistachio.
+            </p>
+</div>
+</div>
+<!-- Right Column: Non-alcoholic drinks -->
+<div class="space-y-6 md:space-y-9">
+<div class="border-b border-[#2B2B2A]/10 pb-3 mb-6">
+<span class="font-body text-xs uppercase tracking-[0.2em] text-primary">Non-Alcoholic Drinks</span>
+</div>
+<!-- Item 3: Mint tea -->
+<div class="menu-item-row pb-5 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-xl md:text-2xl text-text font-normal transition-all">Mint tea</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-lg md:text-xl text-text font-normal tracking-tight">$4</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-1.5 font-light leading-relaxed">
+              Fresh mint, served in a glass.
+            </p>
+</div>
+<!-- Item 4: Lemonade with mint -->
+<div class="menu-item-row pb-5 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-xl md:text-2xl text-text font-normal transition-all">Lemonade with mint</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-lg md:text-xl text-text font-normal tracking-tight">$5</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-1.5 font-light leading-relaxed">
+              Squeezed to order.
+            </p>
+</div>
+<!-- Item 5: Lebanese coffee -->
+<div class="menu-item-row pb-5 border-b border-[#2B2B2A]/10 reveal-item">
+<div class="flex items-baseline justify-between gap-4">
+<h3 class="item-title font-headline text-xl md:text-2xl text-text font-normal transition-all">Lebanese coffee</h3>
+<div class="dotted-leader hidden sm:block"></div>
+<span class="item-price font-headline text-lg md:text-xl text-text font-normal tracking-tight">$4</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted mt-1.5 font-light leading-relaxed">
+              Cardamom, served small.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 6: menu-order ==================== -->
+<section class="py-12 md:py-32 lg:py-44 px-margin bg-[#FAF6EE] text-center border-b border-[#2B2B2A]/10 relative" id="menu-order">
+<div class="max-w-2xl mx-auto flex flex-col items-center">
+<span class="text-xs uppercase tracking-[0.3em] text-primary/80 font-body mb-3">To your table or your doorstep</span>
+<!-- Heading -->
+<h2 class="font-headline text-4xl sm:text-5xl md:text-6xl text-text font-normal tracking-normal">
+        Order what you like
+      </h2>
+<!-- Signature line and buoy mark -->
+<div class="buoy-line-container justify-center mx-auto my-3">
+<div class="buoy-line"></div>
+<div class="buoy-dot"></div>
+</div>
+<!-- Text -->
+<p class="font-body text-base md:text-lg text-muted font-light mt-2 max-w-lg leading-relaxed">
+        The full menu is available for delivery and for dining in.
+      </p>
+<!-- Large Harbour Blue Button -->
+<div class="mt-8 lg:mt-10 w-full md:w-auto">
+<a class="inline-flex items-center justify-center w-full md:w-auto px-10 min-h-[48px] py-4 bg-primary text-white text-sm md:text-base font-body font-medium tracking-widest uppercase hover:bg-primary-dark transition-all duration-300 shadow-sm active:scale-[0.98]" href="#" data-inert>
+          Order delivery
+        </a>
+</div>
+<p class="text-xs text-muted/70 font-body mt-6">
+        Free coastal delivery on orders over $35 · Packaged in breathable thermal kraft
+      </p>
+</div>
+</section>
+<!-- ==================== FOOTER ==================== -->
+<footer class="w-full bg-[#FAF6EE] text-text border-t border-[#2B2B2A]/10 py-10 md:py-24 px-margin">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-16 pb-10 lg:pb-16 border-b border-[#2B2B2A]/10">
+<!-- Col 1: Wordmark & Philosophy -->
+<div class="lg:col-span-5 space-y-4">
+<div class="flex items-baseline gap-2.5">
+<span class="font-headline text-3xl text-primary font-normal tracking-normal">Al Jawad</span>
+<span class="font-arabic text-2xl text-muted/80">الجواد</span>
+</div>
+<p class="font-body text-xs md:text-sm text-muted leading-relaxed max-w-sm font-light">
+            Rooted in Tyre's ancient Phoenician coastline. Honouring cold-pressed harvest oils, stone-hearth flatbreads, and leisurely seaside gatherings.
+          </p>
+<div class="text-xs text-muted/80 pt-2 font-body">
+            Sample address, Tyre Port District
+          </div>
+</div>
+<!-- Col 2: Navigation Links -->
+<div class="lg:col-span-3 space-y-3">
+<h4 class="font-body text-xs uppercase tracking-widest text-primary font-medium">The House</h4>
+<ul class="space-y-2.5 text-xs md:text-sm font-body text-muted">
+<li><a class="hover:text-primary transition-colors" href="index.html">Home</a></li>
+<li><a class="text-primary font-medium" href="menu.html">Menu</a></li>
+<li><a class="hover:text-primary transition-colors" href="contact.html">Contact</a></li>
+<li><a class="hover:text-primary transition-colors" href="index.html">Reservations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#" data-inert>Private Dining</a></li>
+</ul>
+</div>
+<!-- Col 3: Contact Details & Hours -->
+<div class="lg:col-span-4 space-y-3">
+<h4 class="font-body text-xs uppercase tracking-widest text-primary font-medium">Visit &amp; Reach</h4>
+<p class="text-xs md:text-sm font-body text-muted leading-relaxed">
+            Hours: Mon–Thu 12:00–22:00 · Fri–Sun 12:00–23:00
+          </p>
+<div class="pt-2 text-xs md:text-sm font-body space-y-1">
+<a class="text-primary hover:underline block font-normal" href="#" data-inert>Phone: +1 555 010 042</a>
+<a class="text-muted hover:text-primary transition-colors block" href="#" data-inert>Email: hello@example.com</a>
+</div>
+<!-- Social Icons -->
+<div class="flex items-center gap-4 pt-4">
+<a aria-label="Instagram" class="text-muted hover:text-primary transition-colors" href="#" data-inert>
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a aria-label="Facebook" class="text-muted hover:text-primary transition-colors" href="#" data-inert>
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>
+</a>
+<a aria-label="Journal" class="text-muted hover:text-primary transition-colors" href="#" data-inert>
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<!-- Bottom Monograph line -->
+<div class="pt-6 lg:pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-body text-muted/70 gap-4 text-center sm:text-left">
+<div>
+          © 2024 Al Jawad. Mediterranean Heritage &amp; Maritime Cuisine. All rights reserved.
+        </div>
+<div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 lg:gap-6">
+<a class="hover:text-primary transition-colors" href="#" data-inert>Instagram</a>
+<span>·</span>
+<a class="hover:text-primary transition-colors" href="#" data-inert>Journal</a>
+<span>·</span>
+<a class="hover:text-primary transition-colors" href="#" data-inert>Privacy</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+    // 1. Dynamic smooth hover image preview for Mezze
+    function updateMezzeImage(imgSrc, captionText) {
+      const imgEl = document.getElementById('mezze-display-img');
+      const capEl = document.getElementById('mezze-caption');
+      if (!imgEl) return;
+
+      imgEl.style.opacity = '0.35';
+      imgEl.style.transform = 'scale(0.985)';
+      
+      setTimeout(() => {
+        imgEl.src = imgSrc;
+        imgEl.style.opacity = '1';
+        imgEl.style.transform = 'scale(1)';
+        if (capEl && captionText) {
+          capEl.textContent = captionText;
+        }
+      }, 160);
+    }
+
+    // 2. IntersectionObserver for scroll reveals and buoy-line drawing
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealItems = document.querySelectorAll('.reveal-item, .buoy-line-container');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      revealItems.forEach(el => observer.observe(el));
+
+      // 3. Gentle scroll parallax drift
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const driftPhoto = document.getElementById('drift-photo');
+            if (driftPhoto) {
+              const rect = driftPhoto.getBoundingClientRect();
+              if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const offset = (window.innerHeight - rect.top) * 0.035;
+                driftPhoto.style.transform = `translateY(${Math.min(Math.max(-18, offset - 12), 18)}px)`;
+              }
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    });
+  </script>
+</body></html>

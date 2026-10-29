@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish>/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a row of three or more buttons (filters, chips) wraps on a phone instead of running off the edge of the screen */
+@media (max-width:767px){div:has(>button+button+button),ul:has(>li>button){flex-wrap:wrap}}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish>(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Results &amp; Clinical Transformations — Layla Skin Studio Achrafieh</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Typography Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .arch-niche {
+      border-top-left-radius: 6rem;
+      border-top-right-radius: 6rem;
+    }
+    .arch-niche-md {
+      border-top-left-radius: 4rem;
+      border-top-right-radius: 4rem;
+    }
+    .steam-ripple-bg {
+      background-image: radial-gradient(circle at 50% 30%, rgba(95, 116, 100, 0.08) 0%, rgba(95, 116, 100, 0.03) 35%, transparent 70%);
+    }
+  </style>
+</head>
+<body data-responsive class="bg-background text-on-surface antialiased selection:bg-secondary-container selection:text-primary">
+<!-- ==================== TOP NAVIGATION BAR ==================== -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center w-full px-5 md:px-8 py-4 lg:py-5 max-w-[1360px] mx-auto">
+<!-- Brand Anchor -->
+<a class="flex flex-col group" href="index.html">
+<span class="text-title font-title tracking-[0.1em] md:tracking-[0.15em] text-on-surface dark:text-inverse-on-surface uppercase font-medium">LAYLA SKIN STUDIO</span>
+<span class="text-label-sm font-label-sm tracking-[0.2em] text-on-surface-variant font-medium">ACHRAFIEH · BEIRUT</span>
+</a>
+<!-- Desktop Navigation Links (From JSON with exact casing) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-200 text-label-lg font-label-lg" href="treatments.html">Treatments</a>
+
+
+
+<!-- Active link: Journal / Results matching intent -->
+
+</nav>
+<!-- Trailing Action Buttons -->
+<div class="flex items-center gap-2 md:gap-3">
+<a class="hidden lg:inline-flex items-center text-label-lg font-label-lg text-primary hover:text-on-surface transition-colors px-3 py-2" href="contact.html">
+          Contact Concierge
+        </a>
+<a class="inline-flex items-center justify-center bg-tertiary text-on-tertiary px-4 md:px-5 py-2.5 rounded-xl text-label-lg font-label-lg whitespace-nowrap shadow-sm hover:bg-tertiary-container transition-transform duration-200 ease-out hover:-translate-y-0.5 active:scale-95" href="book-appointment.html">
+          Book Appointment
+        </a>
+</div>
+</div>
+</header>
+<!-- ==================== 1. HERO SECTION ==================== -->
+<section class="relative bg-surface-container-low pt-10 pb-12 md:pt-24 md:pb-32 overflow-hidden border-b border-outline-variant/30 steam-ripple-bg">
+<!-- Concentric Decorative Steam Circles -->
+<div class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-30">
+<div class="w-[600px] h-[600px] rounded-full border border-primary/20"></div>
+<div class="absolute w-[850px] h-[850px] rounded-full border border-primary/10"></div>
+<div class="absolute w-[1100px] h-[1100px] rounded-full border border-primary/5"></div>
+</div>
+<div class="max-w-[1360px] mx-auto px-5 md:px-8 relative z-10">
+<div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-8 lg:mb-16">
+<!-- Tag Pill -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container text-on-surface text-label-sm font-label-sm uppercase tracking-widest mb-4 lg:mb-6 border border-outline-variant/30">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          ACHRAFIEH SANCTUARY · REAL RESULTS, SHARED WITH CONSENT
+        </div>
+<!-- Expressive Headline -->
+<h1 class="text-display-mobile md:text-display font-display text-on-surface mb-4 lg:mb-6 tracking-tight leading-tight">
+          Calm, real results
+        </h1>
+<!-- Subtitle -->
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl font-light">
+          Unretouched photographs of clients, shared with their consent. Captured in quiet morning light in our Achrafieh rooms.
+        </p>
+</div>
+<!-- Monumental Hero Before/After Arch Container -->
+<div class="max-w-4xl mx-auto">
+<div class="relative bg-surface-container-lowest p-2 md:p-5 rounded-[2rem] md:rounded-[4rem] shadow-sm border border-outline-variant/30">
+<div class="relative overflow-hidden arch-niche bg-surface-variant aspect-[16/10] md:aspect-[16/9] shadow-inner group">
+<!-- Comparison Pair Image Split -->
+<div class="relative w-full h-full flex">
+<!-- Left: Baseline Intake -->
+<div class="w-1/2 h-full overflow-hidden relative border-r border-surface-container-lowest/80">
+<img fetchpriority="high" decoding="async" srcset="images/6cef7927d480-o-640.jpg 640w, images/6cef7927d480-o-1024.jpg 1024w, images/6cef7927d480-o.jpg 1408w" sizes="100vw" class="w-[200%] max-w-none h-full object-cover object-left" data-alt="Close up split dermatological clinical profile of facial skin showing post inflammatory marks and erythema on one side, captured in serene morning light against quiet olive plaster studio background" src="images/6cef7927d480-o.jpg"/>
+<div class="absolute bottom-2 left-2 md:bottom-4 md:left-4 bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface px-2 md:px-3 py-1 md:py-1.5 rounded-full text-[10px] md:text-label-sm font-label-sm tracking-wider">
+                  Baseline Intake · Day 1
+                </div>
+</div>
+<!-- Right: Refined Barrier Outcome -->
+<div class="w-1/2 h-full overflow-hidden relative">
+<img loading="lazy" decoding="async" srcset="images/5b7fa3e1878a-640.jpg 640w, images/5b7fa3e1878a-1024.jpg 1024w, images/5b7fa3e1878a.jpg 2880w" sizes="100vw" class="w-[200%] max-w-none h-full object-cover object-right ml-[-100%]" data-alt="Split macro portrait showing smooth, dewy radiant calm cheek skin with healthy skin barrier, clear even tone, and natural morning light reflecting hydration" src="images/5b7fa3e1878a.jpg"/>
+<div class="absolute bottom-2 right-2 md:bottom-4 md:right-4 bg-primary text-on-primary px-2 md:px-3 py-1 md:py-1.5 rounded-full text-[10px] md:text-label-sm font-label-sm tracking-wider">
+                  Refined Barrier · 10 Weeks
+                </div>
+</div>
+<!-- Central Hairline Divider & Interactive Notch Marker -->
+<div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[2px] bg-surface-container-lowest flex items-center justify-center">
+<div class="w-9 h-9 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center text-primary text-label-sm border border-outline-variant/40">
+<span class="material-symbols-outlined text-[18px]">drag_handle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Discreet Caption Footnote -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-2 md:gap-3 px-2 md:px-6 py-3 md:py-4 mt-2 text-center sm:text-left">
+<span class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+              Zero algorithmic airbrushing · Authentic morning daylight
+            </span>
+<span class="text-label-md font-label-md text-secondary tracking-wide">
+              Case Study: Lactic &amp; Mandelic Barrier Protocol
+            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 2. FILTER PILLS SECTION ==================== -->
+<section class="md:sticky md:top-[73px] z-40 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 py-4 px-5 md:px-6">
+<div class="max-w-[1360px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="text-title font-title text-on-surface font-medium leading-none">Browse by treatment or concern</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Choose what you would like to see.</p>
+</div>
+<!-- Scrollable Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none -mx-5 px-5 md:mx-0 md:px-0">
+<button class="shrink-0 bg-primary-container text-on-primary font-medium px-4 py-2.5 lg:py-1.5 rounded-full text-label-md font-label-md transition-all">
+          All
+        </button>
+<button class="shrink-0 bg-secondary-fixed text-on-surface hover:bg-secondary-container px-4 py-2.5 lg:py-1.5 rounded-full text-label-md font-label-md transition-all">
+          Acne
+        </button>
+<button class="shrink-0 bg-secondary-fixed text-on-surface hover:bg-secondary-container px-4 py-2.5 lg:py-1.5 rounded-full text-label-md font-label-md transition-all">
+          Pigmentation
+        </button>
+<button class="shrink-0 bg-secondary-fixed text-on-surface hover:bg-secondary-container px-4 py-2.5 lg:py-1.5 rounded-full text-label-md font-label-md transition-all">
+          Dullness
+        </button>
+<button class="shrink-0 bg-secondary-fixed text-on-surface hover:bg-secondary-container px-4 py-2.5 lg:py-1.5 rounded-full text-label-md font-label-md transition-all">
+          Ageing
+        </button>
+<button class="shrink-0 bg-secondary-fixed text-on-surface hover:bg-secondary-container px-4 py-2.5 lg:py-1.5 rounded-full text-label-md font-label-md transition-all">
+          HydraFacial
+        </button>
+<button class="shrink-0 bg-secondary-fixed text-on-surface hover:bg-secondary-container px-4 py-2.5 lg:py-1.5 rounded-full text-label-md font-label-md transition-all">
+          Peels
+        </button>
+<button class="shrink-0 bg-secondary-fixed text-on-surface hover:bg-secondary-container px-4 py-2.5 lg:py-1.5 rounded-full text-label-md font-label-md transition-all">
+          Microneedling
+        </button>
+<button class="shrink-0 bg-secondary-fixed text-on-surface hover:bg-secondary-container px-4 py-2.5 lg:py-1.5 rounded-full text-label-md font-label-md transition-all">
+          Laser
+        </button>
+<button class="shrink-0 bg-secondary-fixed text-on-surface hover:bg-secondary-container px-4 py-2.5 lg:py-1.5 rounded-full text-label-md font-label-md transition-all">
+          Brows &amp; lashes
+        </button>
+</div>
+</div>
+</section>
+<!-- ==================== 3. BEFORE & AFTER GALLERY ==================== -->
+<section class="py-10 lg:py-24 bg-surface max-w-[1360px] mx-auto px-5 md:px-8" id="gallery">
+<div class="max-w-2xl mb-8 lg:mb-16">
+<span class="text-label-md font-label-md text-primary tracking-widest uppercase block mb-2 font-semibold">Documented Results</span>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-surface">Before &amp; after gallery</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-3">
+        Each pair shows the treatment used and the number of sessions. Compare clinical shifts across gentle Levant dermal protocols.
+      </p>
+</div>
+<!-- 6-Card Asymmetric Bento / Arched Alcove Grid -->
+<div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-5 px-5 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 md:overflow-visible md:mx-0 md:px-0">
+<!-- CASE 1 -->
+<article class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest rounded-3xl p-5 border border-outline-variant/30 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+<div>
+<!-- Arched Photo Frame -->
+<div class="arch-niche-md overflow-hidden aspect-[4/3] bg-surface-variant relative mb-5 group">
+<img loading="lazy" decoding="async" srcset="images/b09199cf3de8-o-640.jpg 640w, images/b09199cf3de8-o-1024.jpg 1024w, images/b09199cf3de8-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Dermatology case comparison showing client with acne marks before gentle peel protocol alongside restored smooth skin tone in calm clinic lighting" src="images/b09199cf3de8-o.jpg"/>
+<div class="absolute inset-x-0 bottom-3 flex justify-between px-4">
+<span class="bg-surface/90 text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">Before: Day 1</span>
+<span class="bg-primary text-on-primary text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">After: Wk 10</span>
+</div>
+</div>
+<div class="flex flex-wrap lg:flex-nowrap items-center justify-between gap-2 lg:gap-0 mb-2">
+<span class="text-label-md font-label-md text-tertiary font-semibold uppercase tracking-wider">Acne marks · Peel</span>
+<span class="text-label-sm font-label-sm text-secondary bg-secondary-fixed px-2.5 py-0.5 rounded-full">4 sessions</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2">Mediterranean Erythema Protocol</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Tailored lactic and mandelic formulation targeting Mediterranean erythema without peeling downtime. Paired with calming cica barrier infusion.
+          </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-secondary">
+<span>Target: Post-inflammatory tone</span>
+<span class="text-primary font-medium">10 weeks total</span>
+</div>
+</article>
+<!-- CASE 2 -->
+<article class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest rounded-3xl p-5 border border-outline-variant/30 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+<div>
+<!-- Arched Photo Frame -->
+<div class="arch-niche-md overflow-hidden aspect-[4/3] bg-surface-variant relative mb-5 group">
+<img loading="lazy" decoding="async" srcset="images/9b6a8bbf9c99-o-640.jpg 640w, images/9b6a8bbf9c99-o-1024.jpg 1024w, images/9b6a8bbf9c99-o.jpg 1200w" sizes="100vw" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Comparative split view of client face with hyperpigmentation sun spots before peeling protocol and refined even radiant skin tone following 830nm LED phototherapy" src="images/9b6a8bbf9c99-o.jpg"/>
+<div class="absolute inset-x-0 bottom-3 flex justify-between px-4">
+<span class="bg-surface/90 text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">Before: Intake</span>
+<span class="bg-primary text-on-primary text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">After: Wk 12</span>
+</div>
+</div>
+<div class="flex flex-wrap lg:flex-nowrap items-center justify-between gap-2 lg:gap-0 mb-2">
+<span class="text-label-md font-label-md text-tertiary font-semibold uppercase tracking-wider">Pigmentation · Peel and LED</span>
+<span class="text-label-sm font-label-sm text-secondary bg-secondary-fixed px-2.5 py-0.5 rounded-full">5 sessions</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2">Solar Melasma Dissipation</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Combination of gentle brightening tyrosinase inhibitors and 830nm LED phototherapy to dissipate solar melasma and even skin luminosity.
+          </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-secondary">
+<span>Target: Sun damage &amp; tone</span>
+<span class="text-primary font-medium">12 weeks total</span>
+</div>
+</article>
+<!-- CASE 3 -->
+<article class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest rounded-3xl p-5 border border-outline-variant/30 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+<div>
+<!-- Arched Photo Frame -->
+<div class="arch-niche-md overflow-hidden aspect-[4/3] bg-surface-variant relative mb-5 group">
+<img loading="lazy" decoding="async" srcset="images/4bfc58bf468a-o-640.jpg 640w, images/4bfc58bf468a-o.jpg 1024w" sizes="100vw" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Split portrait of woman with dull congested skin transformed into luminous deeply hydrated porcelain skin after botanical HydraFacial extraction" src="images/4bfc58bf468a-o.jpg"/>
+<div class="absolute inset-x-0 bottom-3 flex justify-between px-4">
+<span class="bg-surface/90 text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">Before: Intake</span>
+<span class="bg-primary text-on-primary text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">After: Wk 6</span>
+</div>
+</div>
+<div class="flex flex-wrap lg:flex-nowrap items-center justify-between gap-2 lg:gap-0 mb-2">
+<span class="text-label-md font-label-md text-tertiary font-semibold uppercase tracking-wider">Dullness · HydraFacial</span>
+<span class="text-label-sm font-label-sm text-secondary bg-secondary-fixed px-2.5 py-0.5 rounded-full">3 sessions</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2">Botanical Hyaluronic Saturation</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Deep vortex vacuum extraction followed by botanical hyaluronic saturation and cooling copper peptide barrier envelope.
+          </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-secondary">
+<span>Target: Congestion &amp; glow</span>
+<span class="text-primary font-medium">6 weeks total</span>
+</div>
+</article>
+<!-- CASE 4 -->
+<article class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest rounded-3xl p-5 border border-outline-variant/30 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+<div>
+<!-- Arched Photo Frame with IMAGE_45 -->
+<div class="arch-niche-md overflow-hidden aspect-[4/3] bg-surface-variant relative mb-5 group">
+<img loading="lazy" decoding="async" srcset="images/87e3d494485d-640.jpg 640w, images/87e3d494485d-1024.jpg 1024w, images/87e3d494485d.jpg 2880w" sizes="100vw" alt="Texture Microneedling Case" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/87e3d494485d.jpg"/>
+<div class="absolute inset-x-0 bottom-3 flex justify-between px-4">
+<span class="bg-surface/90 text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">Before</span>
+<span class="bg-primary text-on-primary text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">After: Wk 12</span>
+</div>
+</div>
+<div class="flex flex-wrap lg:flex-nowrap items-center justify-between gap-2 lg:gap-0 mb-2">
+<span class="text-label-md font-label-md text-tertiary font-semibold uppercase tracking-wider">Texture · Microneedling</span>
+<span class="text-label-sm font-label-sm text-secondary bg-secondary-fixed px-2.5 py-0.5 rounded-full">3 sessions</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2">Collagen Induction &amp; Factors</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Sterile medical single-use cartridge inducing micro-channels with sterile recombinant growth factors. Fine lines softened without thermal trauma.
+          </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-secondary">
+<span>Target: Fine lines &amp; pore elasticity</span>
+<span class="text-primary font-medium">12 weeks total</span>
+</div>
+</article>
+<!-- CASE 5 -->
+<article class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest rounded-3xl p-5 border border-outline-variant/30 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+<div>
+<!-- Arched Photo Frame with IMAGE_22 -->
+<div class="arch-niche-md overflow-hidden aspect-[4/3] bg-surface-variant relative mb-5 group">
+<img loading="lazy" decoding="async" srcset="images/74fe21cbd128-o-640.jpg 640w, images/74fe21cbd128-o-1024.jpg 1024w, images/74fe21cbd128-o.jpg 1200w" sizes="100vw" alt="Brows Lamination Case" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/74fe21cbd128-o.jpg"/>
+<div class="absolute inset-x-0 bottom-3 flex justify-between px-4">
+<span class="bg-surface/90 text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">Unstyled</span>
+<span class="bg-primary text-on-primary text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">Laminated</span>
+</div>
+</div>
+<div class="flex flex-wrap lg:flex-nowrap items-center justify-between gap-2 lg:gap-0 mb-2">
+<span class="text-label-md font-label-md text-tertiary font-semibold uppercase tracking-wider">Brows · Lamination</span>
+<span class="text-label-sm font-label-sm text-secondary bg-secondary-fixed px-2.5 py-0.5 rounded-full">1 session</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2">Keratin Conditioning Arch</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Keratin conditioning brow lamination with subtle herbal tinting by Maya Torbey. Disciplined, feathered Mediterranean arch that lasts 6 to 8 weeks.
+          </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-secondary">
+<span>Duration: 6 to 8 weeks</span>
+<span class="text-primary font-medium">Immediate finish</span>
+</div>
+</article>
+<!-- CASE 6 -->
+<article class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest rounded-3xl p-5 border border-outline-variant/30 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+<div>
+<!-- Arched Photo Frame -->
+<div class="arch-niche-md overflow-hidden aspect-[4/3] bg-surface-variant relative mb-5 group">
+<img loading="lazy" decoding="async" srcset="images/9d7b6151d6e7-o-640.jpg 640w, images/9d7b6151d6e7-o-1024.jpg 1024w, images/9d7b6151d6e7-o.jpg 1376w" sizes="100vw" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Clinical before and after photograph of lower leg hair reduction following sub zero diode laser treatments, smooth radiant sun kissed skin tone" src="images/9d7b6151d6e7-o.jpg"/>
+<div class="absolute inset-x-0 bottom-3 flex justify-between px-4">
+<span class="bg-surface/90 text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">Before</span>
+<span class="bg-primary text-on-primary text-label-sm font-label-sm px-2.5 py-1 rounded-full shadow-sm">After: 6 Mo</span>
+</div>
+</div>
+<div class="flex flex-wrap lg:flex-nowrap items-center justify-between gap-2 lg:gap-0 mb-2">
+<span class="text-label-md font-label-md text-tertiary font-semibold uppercase tracking-wider">Hair removal · Laser</span>
+<span class="text-label-sm font-label-sm text-secondary bg-secondary-fixed px-2.5 py-0.5 rounded-full">6 sessions</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2">Diode Sapphire Cooling Protocol</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Medical grade triple-wavelength diode with sub-zero sapphire chill tip. Safe on sun-kissed Levantine skin tones with zero folliculitis or burn risks.
+          </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-secondary">
+<span>Tolerance: Pain-free chill tip</span>
+<span class="text-primary font-medium">6 months course</span>
+</div>
+</article>
+</div>
+<!-- Bottom CTA Banner Inside Gallery -->
+<div class="mt-10 lg:mt-16 bg-surface-container-high rounded-3xl p-6 md:p-12 border border-outline-variant/40 flex flex-col md:flex-row items-center justify-between gap-5 md:gap-6 text-center md:text-left" id="booking">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Curious how these protocols apply to your skin?</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">
+          Complimentary 20-minute digital skin analysis included with all initial consultations.
+        </p>
+</div>
+<a class="shrink-0 w-full md:w-auto text-center bg-tertiary text-on-tertiary hover:bg-tertiary-container transition-all px-8 py-3.5 rounded-xl font-medium text-label-lg font-label-lg shadow-sm" href="book-appointment.html">
+        Book a consultation
+      </a>
+</div>
+</section>
+<!-- ==================== 4. A NOTE ON RESULTS ==================== -->
+<section class="py-10 lg:py-20 bg-surface-container-low border-y border-outline-variant/30" id="notes">
+<div class="max-w-[1360px] mx-auto px-5 md:px-8">
+<div class="max-w-4xl mx-auto bg-surface-container-lowest rounded-3xl md:rounded-[2.5rem] p-6 md:p-14 border border-outline-variant/30 relative overflow-hidden shadow-sm">
+<!-- Faint concentric decorative steam rings -->
+<div class="pointer-events-none absolute -right-20 -bottom-20 w-80 h-80 rounded-full border border-primary/10"></div>
+<div class="pointer-events-none absolute -right-32 -bottom-32 w-[420px] h-[420px] rounded-full border border-primary/5"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-[24px]">spa</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface mb-4">A note on results</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mb-8 font-light">
+            Results vary from person to person, depending on skin type, lifestyle and how closely aftercare is followed. All photographs are shared with client consent and are not filtered or retouched.
+          </p>
+<!-- 3 Reassurance Badges -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 w-full max-w-2xl mb-6 md:mb-10 text-left">
+<div class="flex items-start gap-3 p-4 rounded-2xl bg-surface-container border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span class="text-body-sm font-body-sm text-on-surface">No algorithmic airbrushing or filters</span>
+</div>
+<div class="flex items-start gap-3 p-4 rounded-2xl bg-surface-container border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">wb_sunny</span>
+<span class="text-body-sm font-body-sm text-on-surface">Identical studio morning illumination</span>
+</div>
+<div class="flex items-start gap-3 p-4 rounded-2xl bg-surface-container border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">history_edu</span>
+<span class="text-body-sm font-body-sm text-on-surface">Written client release archives</span>
+</div>
+</div>
+<a class="inline-flex w-full md:w-auto items-center justify-center bg-tertiary text-on-tertiary px-8 py-3.5 rounded-xl text-label-lg font-label-lg shadow-sm hover:bg-tertiary-container transition-all" href="contact.html">
+            Talk to us first
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 5. CLIENT TRUST STRIP ==================== -->
+<section class="py-10 lg:py-24 bg-primary text-on-primary" id="sanctuary">
+<div class="max-w-[1360px] mx-auto px-5 md:px-8">
+<div class="text-center max-w-xl mx-auto mb-8 lg:mb-16">
+<span class="text-label-md font-label-md text-primary-fixed tracking-widest uppercase block mb-2">Client Voices</span>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-primary">Quiet words from our Achrafieh sanctuary</h2>
+</div>
+<!-- 4 Calm Translucent Testimonial Cards -->
+<div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-5 px-5 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:overflow-visible md:mx-0 md:px-0">
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 flex flex-col justify-between">
+<p class="text-body-md font-body-md text-on-primary/90 italic mb-6">
+            “The room feels like a deep breath. My skin has never looked so calm, and nobody ever rushed me.”
+          </p>
+<div class="flex items-center gap-2 pt-4 border-t border-white/10">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span>
+<span class="text-label-md font-label-md text-primary-fixed">Rima A. · Barrier Ritual</span>
+</div>
+</div>
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 flex flex-col justify-between">
+<p class="text-body-md font-body-md text-on-primary/90 italic mb-6">
+            “Layla explained every step of my peel and the downtime honestly. I felt looked after from start to finish.”
+          </p>
+<div class="flex items-center gap-2 pt-4 border-t border-white/10">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span>
+<span class="text-label-md font-label-md text-primary-fixed">Joelle M. · Lactic Protocol</span>
+</div>
+</div>
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 flex flex-col justify-between">
+<p class="text-body-md font-body-md text-on-primary/90 italic mb-6">
+            “My bridal trial was relaxed and thoughtful, and my skin was glowing on the day.”
+          </p>
+<div class="flex items-center gap-2 pt-4 border-t border-white/10">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span>
+<span class="text-label-md font-label-md text-primary-fixed">Sara K. · Bridal Hydration</span>
+</div>
+</div>
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 flex flex-col justify-between">
+<p class="text-body-md font-body-md text-on-primary/90 italic mb-6">
+            “Clean, quiet and kind. The laser course plan was clear, fair and well explained.”
+          </p>
+<div class="flex items-center gap-2 pt-4 border-t border-white/10">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span>
+<span class="text-label-md font-label-md text-primary-fixed">Hala N. · Diode Sapphire</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== FOOTER ==================== -->
+<footer class="w-full bg-surface-container-high dark:bg-inverse-surface border-t border-outline-variant/40">
+<div class="w-full px-5 py-10 lg:px-8 lg:py-16 max-w-[1360px] mx-auto flex flex-col gap-8 lg:gap-12">
+<!-- Top Grid: Brand & Navigation Columns -->
+<div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-8 md:gap-10">
+<!-- Brand Description -->
+<div class="col-span-2 md:col-span-1 lg:col-span-2 flex flex-col gap-4">
+<span class="text-headline-sm font-headline-sm tracking-[0.12em] text-on-surface dark:text-inverse-on-surface uppercase font-medium">LAYLA SKIN STUDIO</span>
+<p class="text-body-md font-body-md text-on-surface-variant dark:text-secondary-fixed-dim max-w-sm">
+            A private esthetic sanctuary nestled in Achrafieh, Beirut. Gentle clinical efficacy wrapped in quiet hospitality and honest skin guidance.
+          </p>
+<div class="flex items-center gap-4 text-on-surface-variant mt-2">
+<span class="text-label-sm font-label-sm tracking-wider uppercase text-secondary">Licence 4920/LB</span>
+<span class="text-outline-variant">·</span>
+<span class="text-label-sm font-label-sm tracking-wider uppercase text-secondary">Achrafieh Esthetics</span>
+</div>
+</div>
+<!-- Col 1: Pages -->
+<div class="flex flex-col gap-3">
+<span class="text-title font-title text-primary dark:text-inverse-primary font-medium">Pages</span>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="index.html">Home</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="treatments.html">Treatments</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="book-appointment.html">Book online</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="prices.html">Prices</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="team.html">Team</a>
+<a class="text-body-sm font-body-sm text-primary dark:text-inverse-primary font-medium" href="before-after.html">Results</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="contact.html">Contact</a>
+</div>
+<!-- Col 2: Sanctuary Protocols (From JSON Links) -->
+<div class="flex flex-col gap-3">
+<span class="text-title font-title text-primary dark:text-inverse-primary font-medium">Protocols</span>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="treatments.html">Facial Architecture</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="treatments.html">Lymphatic Protocols</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="treatments.html">Barrier Restoration</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="#" data-inert>Sanctuary Etiquette</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="contact.html">Achrafieh Studio Directions</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="book-appointment.html">Private Consultations</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim hover:text-on-surface transition-colors" href="#" data-inert>Privacy Policy</a>
+</div>
+<!-- Col 3: Sanctuary Inquiries -->
+<div class="col-span-2 md:col-span-1 flex flex-col gap-3">
+<span class="text-title font-title text-primary dark:text-inverse-primary font-medium">Inquiries &amp; Hours</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim">
+            Rue Huvelin, Achrafieh, Beirut<br/>
+            Lebanon
+          </p>
+<p class="text-body-sm font-body-sm text-on-surface-variant dark:text-secondary-fixed-dim mt-2">
+            Mon–Fri: 9:00 – 19:00<br/>
+            Sat: 10:00 – 16:00<br/>
+            Sun: Closed
+          </p>
+<div class="flex flex-col gap-1 mt-2 text-body-sm font-body-sm">
+<span class="text-secondary font-medium">+1 555 010 042</span>
+<span class="text-secondary font-medium">hello@example.com</span>
+</div>
+</div>
+</div>
+<!-- Bottom Bar: Copyright & Exact JSON Casing -->
+<div class="pt-8 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim">
+<p>© 2024 Layla Skin Studio. Achrafieh, Beirut. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a class="hover:text-primary transition-colors" href="#" data-inert>Instagram</a>
+<a class="hover:text-primary transition-colors" href="#" data-inert>WhatsApp Concierge</a>
+<a class="hover:text-primary transition-colors" href="#" data-inert>Privacy Policy</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

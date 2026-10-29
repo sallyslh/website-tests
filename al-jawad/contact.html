@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish>/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a row of three or more buttons (filters, chips) wraps on a phone instead of running off the edge of the screen */
+@media (max-width:767px){div:has(>button+button+button),ul:has(>li>button){flex-wrap:wrap}}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish>(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Jawad — Contact & Reservations</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  
+  
+
+  <style>
+    body {
+      background-color: #F6F2EA;
+      color: #2B2B2A;
+      font-family: 'Albert Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Tenor Sans', sans-serif;
+      letter-spacing: -0.015em;
+    }
+
+    /* Signature harbor-blue line drawing with buoy circle */
+    .buoy-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      position: relative;
+      margin-top: 14px;
+      margin-bottom: 24px;
+    }
+    .buoy-line::before {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 72px;
+      background-color: #1F5C7A;
+      opacity: 0.85;
+    }
+    .buoy-line::after {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 9999px;
+      background-color: #1F5C7A;
+      margin-left: 2px;
+    }
+
+    /* Centered buoy line variant */
+    .buoy-line-center {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-top: 14px;
+      margin-bottom: 24px;
+    }
+    .buoy-line-center::before {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 64px;
+      background-color: #1F5C7A;
+      opacity: 0.85;
+    }
+    .buoy-line-center::after {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 9999px;
+      background-color: #1F5C7A;
+      margin-left: 2px;
+    }
+
+    /* Custom form inputs with clean bottom border */
+    .editorial-input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #D5CEBF;
+      border-radius: 0;
+      padding: 0.75rem 0.25rem;
+      font-size: 0.9375rem;
+      color: #2B2B2A;
+      transition: all 0.25s ease;
+      width: 100%;
+    }
+    .editorial-input:focus {
+      outline: none;
+      border-bottom-color: #1F5C7A;
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .editorial-input::placeholder {
+      color: #9C968C;
+      font-weight: 300;
+      font-size: 0.875rem;
+    }
+
+    /* Subtle hover drift */
+    .drift-hover {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+    }
+    .drift-hover:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body data-responsive class="selection:bg-[#1F5C7A]/15 selection:text-[#1F5C7A]">
+
+  <!-- TOP HEADER (Matches Global Al Jawad Navigation) -->
+  <header class="w-full border-b border-brand-border/60 bg-[#F6F2EA]/90 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+    <div class="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16 min-h-16 py-2 md:py-0 md:h-24 flex flex-wrap md:flex-nowrap items-center justify-between gap-y-1">
+      
+      <!-- Brand Wordmark -->
+      <a class="group flex items-baseline gap-2 sm:gap-3.5 focus:outline-none" href="index.html">
+        <span class="font-heading text-2xl sm:text-[28px] tracking-tight text-brand-text font-normal">Al Jawad</span>
+        <span class="hidden sm:inline text-xs text-brand-muted tracking-widest font-light font-body group-hover:text-brand-primary transition-colors">TYRE · LEBANON</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="flex md:flex order-3 md:order-none w-full md:w-auto justify-center pb-1 md:pb-0 space-x-8 md:space-x-12 items-center text-[12px] md:text-[13px] tracking-[0.16em] uppercase font-body font-medium text-brand-text">
+        <a class="text-brand-muted hover:text-brand-primary transition-colors duration-200" href="index.html">Home</a>
+        <a class="text-brand-muted hover:text-brand-primary transition-colors duration-200" href="menu.html">Menu</a>
+        <a class="text-brand-primary border-b border-brand-primary pb-1 font-semibold" href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Primary Action -->
+      <div class="flex items-center gap-5 md:order-none">
+        <a class="inline-flex items-center justify-center px-4 md:px-6 py-3 min-h-[44px] rounded-none bg-brand-primary text-white text-[11px] md:text-[12px] font-body uppercase tracking-[0.14em] md:tracking-[0.18em] font-medium hover:bg-brand-primary/90 transition-all duration-300 shadow-sm active:scale-[0.98]" href="#" data-inert>
+          Order delivery
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full">
+
+    <!-- 1. SECTION: contact-hero -->
+    <section id="contact-hero" class="relative pt-8 sm:pt-20 pb-10 md:pb-28 border-b border-brand-border/60 overflow-hidden">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
+          
+          <!-- Text Left -->
+          <div class="lg:col-span-6 xl:col-span-5 pr-0 lg:pr-6 z-10">
+            <span class="text-[11px] font-mono tracking-[0.25em] text-brand-muted uppercase block mb-4">
+              PORT OF TYRE · SOUR
+            </span>
+            
+            <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-[76px] leading-[1.04] text-brand-text font-normal mb-1">
+              Where to<br>find us
+            </h1>
+            
+            <!-- Buoy Line -->
+            <div class="buoy-line"></div>
+            
+            <p class="text-base sm:text-lg text-brand-text/80 font-body font-light leading-relaxed max-w-md mb-6 md:mb-10">
+              A small room with a wide welcome. Come in, or call ahead. The sea breeze drifts through stone archways from midday till late night.
+            </p>
+
+            <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-5">
+              <a class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 min-h-[44px] bg-brand-primary text-white text-[12px] font-body uppercase tracking-[0.18em] font-medium hover:bg-brand-primary/90 transition-all duration-300 shadow-sm" href="#" data-inert>
+                Call us
+              </a>
+              <a href="#contact-map" class="inline-flex items-center justify-center w-full sm:w-auto px-7 py-3.5 min-h-[44px] border border-brand-border bg-brand-card/70 text-brand-text text-[12px] font-body uppercase tracking-[0.18em] font-medium hover:border-brand-primary hover:text-brand-primary transition-all duration-300">
+                Find directions
+              </a>
+            </div>
+
+            <!-- Authentic context note -->
+            <div class="mt-8 md:mt-14 pt-6 md:pt-8 border-t border-brand-border/60 flex items-center gap-5 md:gap-8 text-[12px] text-brand-muted">
+              <div>
+                <span class="block uppercase tracking-wider text-[10px] text-brand-text font-medium mb-1">Seaside Quarters</span>
+                Old Port Harbour Basin
+              </div>
+              <div class="w-px h-7 bg-brand-border"></div>
+              <div>
+                <span class="block uppercase tracking-wider text-[10px] text-brand-text font-medium mb-1">Atmosphere</span>
+                Limestone, salt & unhurried quiet
+              </div>
+            </div>
+          </div>
+
+          <!-- Photograph Right (The doorway) -->
+          <div class="lg:col-span-6 xl:col-span-7">
+            <div class="relative group">
+              <!-- Decorative limewash framing matte border -->
+              <div class="bg-brand-secondary p-3 sm:p-5 shadow-sm border border-brand-border/70 drift-hover">
+                <div class="relative overflow-hidden aspect-[4/3] sm:aspect-[16/12] w-full bg-[#E5DFD3]">
+                  <img srcset="images/ad367e8acf85-o-640.jpg 640w, images/ad367e8acf85-o-1024.jpg 1024w, images/ad367e8acf85-o.jpg 1200w" sizes="100vw" 
+                    src="images/ad367e8acf85-o.jpg" 
+                    alt="A plain rustic pale wooden door ajar with soft light and a small plant beside it" 
+                    class="w-full h-full object-cover object-center grayscale-[0.05] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                    loading="eager"
+                  />
+                  
+                  <!-- Editorial Tag Badge -->
+                  <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-[#F6F2EA]/95 backdrop-blur-sm px-4 py-2.5 border border-brand-border text-left shadow-sm">
+                    <span class="block text-[9px] uppercase tracking-[0.2em] font-mono text-brand-muted">THE NORTH PORTAL</span>
+                    <span class="block font-heading text-sm text-brand-text">Stone, limewash & wild olive</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quiet floating metadata -->
+              <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 justify-between items-center text-[11px] text-brand-muted px-1">
+                <span>Coordinates: 33°16'28.4"N 35°11'52.8"E</span>
+                <span>Harbour district</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. SECTION: contact-details -->
+    <section id="contact-details" class="py-10 md:py-28 border-b border-brand-border/60 bg-brand-secondary/40">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16">
+        
+        <div class="max-w-2xl mb-8 md:mb-14">
+          <span class="text-[11px] font-mono tracking-[0.25em] text-brand-muted uppercase block mb-3">
+            REACH & INQUIRIES
+          </span>
+          <h2 class="font-heading text-4xl sm:text-5xl text-brand-text font-normal">
+            Address and phone
+          </h2>
+          <div class="buoy-line"></div>
+          <p class="text-brand-text/75 text-base font-light max-w-lg">
+            Located within the historical stone corridors of the ancient port. We encourage reservations for evening dinners and gatherings.
+          </p>
+        </div>
+
+        <!-- Three lines of small type in a wide column with hairline dividers -->
+        <div class="bg-brand-card border border-brand-border shadow-sm p-5 sm:p-12 lg:p-16 max-w-5xl">
+          
+          <!-- Line 1: Address -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-center py-5 md:py-7 border-b border-brand-border/70 first:pt-0">
+            <div class="md:col-span-3 text-[11px] font-mono uppercase tracking-[0.2em] text-brand-muted font-medium">
+              ADDRESS
+            </div>
+            <div class="md:col-span-6 font-heading text-xl sm:text-2xl text-brand-text">
+              Tyre Port District, Coastal Way 14
+              <span class="block text-xs font-body font-light text-brand-muted mt-1">Old Port, Sour (Tyre), Lebanon</span>
+            </div>
+            <div class="md:col-span-3 md:text-right">
+              <a href="#contact-map" class="text-xs font-body tracking-[0.15em] uppercase text-brand-primary hover:underline font-semibold inline-flex items-center gap-1.5 min-h-[44px] md:min-h-0">
+                View map 
+                <span class="text-[10px]">↓</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Line 2: Phone with Blue Action -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-center py-5 md:py-7 border-b border-brand-border/70">
+            <div class="md:col-span-3 text-[11px] font-mono uppercase tracking-[0.2em] text-brand-muted font-medium">
+              TELEPHONE
+            </div>
+            <div class="md:col-span-6 font-heading text-2xl sm:text-3xl text-brand-primary tracking-tight">
+              <a class="hover:opacity-85 transition-opacity underline decoration-brand-primary/30 decoration-1 underline-offset-8" href="#" data-inert>
+                +1 555 010 042
+              </a>
+              <span class="block text-xs font-body font-light text-brand-muted mt-1">Available daily from 10:00 for daytime bookings</span>
+            </div>
+            <div class="md:col-span-3 md:text-right">
+              <a class="inline-flex items-center justify-center w-full md:w-auto px-5 py-2.5 min-h-[44px] border border-brand-primary text-brand-primary text-[11px] font-body uppercase tracking-[0.16em] font-medium hover:bg-brand-primary hover:text-white transition-all duration-300" href="#" data-inert>
+                Call +1 555 010 042
+              </a>
+            </div>
+          </div>
+
+          <!-- Line 3: Email -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 items-center py-5 md:py-7 last:pb-0">
+            <div class="md:col-span-3 text-[11px] font-mono uppercase tracking-[0.2em] text-brand-muted font-medium">
+              INQUIRIES
+            </div>
+            <div class="md:col-span-6 font-heading text-xl sm:text-2xl text-brand-text">
+              <a class="hover:text-brand-primary transition-colors" href="#" data-inert>
+                hello@example.com
+              </a>
+              <span class="block text-xs font-body font-light text-brand-muted mt-1">Private dining, press & bespoke culinary gatherings</span>
+            </div>
+            <div class="md:col-span-3 md:text-right">
+              <a class="text-xs font-body tracking-[0.15em] uppercase text-brand-primary hover:underline font-semibold inline-flex items-center gap-1.5 min-h-[44px] md:min-h-0" href="#" data-inert>
+                Send note
+                <span class="text-[10px]">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SECTION: contact-hours -->
+    <section id="contact-hours" class="py-10 md:py-32 border-b border-brand-border/60">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
+          
+          <!-- Image Left: Lebanese Coffee Cup -->
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <div class="bg-brand-secondary p-4 sm:p-5 shadow-sm border border-brand-border/70 drift-hover">
+              <div class="relative overflow-hidden aspect-[4/3] lg:aspect-square w-full bg-[#E5DFD3]">
+                <img srcset="images/c75a20718cd8-640.jpg 640w, images/c75a20718cd8-1024.jpg 1024w, images/c75a20718cd8.jpg 2880w" sizes="100vw" 
+                  src="images/c75a20718cd8.jpg" 
+                  alt="A cup of Lebanese coffee on a bare table at midday light" 
+                  class="w-full h-full object-cover object-center"
+                  loading="lazy"
+                />
+                
+                <!-- Tiny Caption Floating -->
+                <div class="absolute bottom-4 left-4 bg-[#F6F2EA]/95 backdrop-blur-sm px-3.5 py-2 border border-brand-border text-left">
+                  <span class="block text-[9px] uppercase tracking-[0.2em] font-mono text-brand-muted">CARDAMOM ROAST</span>
+                  <span class="block text-xs font-body text-brand-text font-normal">Midday repose</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 text-[11px] text-brand-muted italic text-center">
+              "We grind freshly roasted cardamom seeds with every single brew."
+            </div>
+          </div>
+
+          <!-- Schedule List Right -->
+          <div class="lg:col-span-7 order-1 lg:order-2 lg:pl-6">
+            <span class="text-[11px] font-mono tracking-[0.25em] text-brand-muted uppercase block mb-3">
+              SERVICE & PACE
+            </span>
+            
+            <h2 class="font-heading text-4xl sm:text-5xl text-brand-text font-normal">
+              Opening hours
+            </h2>
+            
+            <div class="buoy-line"></div>
+            
+            <p class="text-base sm:text-lg text-brand-text/80 font-light font-body mb-6 md:mb-10">
+              We open at noon, every day.
+            </p>
+
+            <!-- Plain list with days at left and hours aligned right -->
+            <div class="border-t border-brand-border">
+              
+              <!-- Mon - Thu -->
+              <div class="py-4 md:py-6 border-b border-brand-border flex items-baseline justify-between gap-4 md:gap-6 group hover:bg-brand-secondary/30 px-3 transition-colors">
+                <div>
+                  <span class="font-heading text-lg sm:text-xl text-brand-text block group-hover:text-brand-primary transition-colors">
+                    Monday to Thursday
+                  </span>
+                  <span class="text-xs text-brand-muted font-body font-light">Lunch service through quiet late dinner</span>
+                </div>
+                <div class="font-heading text-lg sm:text-2xl text-brand-primary tracking-tight font-medium whitespace-nowrap">
+                  12:00 – 22:00
+                </div>
+              </div>
+
+              <!-- Fri - Sun -->
+              <div class="py-4 md:py-6 border-b border-brand-border flex items-baseline justify-between gap-4 md:gap-6 group hover:bg-brand-secondary/30 px-3 transition-colors">
+                <div>
+                  <span class="font-heading text-lg sm:text-xl text-brand-text block group-hover:text-brand-primary transition-colors">
+                    Friday to Sunday
+                  </span>
+                  <span class="text-xs text-brand-muted font-body font-light">Extended weekend harbour feast & twilight dining</span>
+                </div>
+                <div class="font-heading text-lg sm:text-2xl text-brand-primary tracking-tight font-medium whitespace-nowrap">
+                  12:00 – 23:00
+                </div>
+              </div>
+
+              <!-- Delivery -->
+              <div class="py-4 md:py-6 border-b border-brand-border flex items-baseline justify-between gap-4 md:gap-6 group hover:bg-brand-secondary/30 px-3 transition-colors">
+                <div>
+                  <span class="font-heading text-lg sm:text-xl text-brand-text block group-hover:text-brand-primary transition-colors">
+                    Delivery
+                  </span>
+                  <span class="text-xs text-brand-muted font-body font-light">Carefully boxed maritime meals within Tyre and coastline</span>
+                </div>
+                <div class="font-heading text-lg sm:text-2xl text-brand-primary tracking-tight font-medium whitespace-nowrap">
+                  12:00 – 21:30
+                </div>
+              </div>
+
+            </div>
+
+            <div class="mt-5 md:mt-8 flex items-center gap-3 text-xs text-brand-muted">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span>
+              <span>Kitchen prepares last hot food orders 45 minutes prior to evening closing.</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. SECTION: contact-map -->
+    <section id="contact-map" class="py-10 md:py-32 border-b border-brand-border/60 bg-brand-secondary/30">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-4 md:gap-6">
+          <div>
+            <span class="text-[11px] font-mono tracking-[0.25em] text-brand-muted uppercase block mb-3">
+              CARTOGRAPHY
+            </span>
+            <h2 class="font-heading text-4xl sm:text-5xl text-brand-text font-normal">
+              The way here
+            </h2>
+            <div class="buoy-line"></div>
+            <p class="text-base sm:text-lg text-brand-text/80 font-light font-body max-w-xl">
+              Find us on the map. Parking is nearby, and we are a short walk from the main road.
+            </p>
+          </div>
+
+          <div>
+            <a 
+              href="https://maps.google.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center justify-center w-full md:w-auto px-7 py-3.5 min-h-[44px] border border-brand-primary bg-transparent text-brand-primary text-[12px] font-body uppercase tracking-[0.18em] font-medium hover:bg-brand-primary hover:text-white transition-all duration-300 shadow-sm"
+            >
+              Open the map
+            </a>
+          </div>
+        </div>
+
+        <!-- Wide Map Block -->
+        <div class="bg-brand-secondary p-4 sm:p-6 border border-brand-border/80 shadow-sm drift-hover">
+          <div class="relative overflow-hidden aspect-[4/3] lg:aspect-[16/9] w-full bg-[#E3DDCF]">
+            <img srcset="images/408a4a84684e-o-640.jpg 640w, images/408a4a84684e-o-1024.jpg 1024w, images/408a4a84684e-o.jpg 1376w" sizes="100vw" 
+              src="images/408a4a84684e-o.jpg" 
+              alt="A soft, muted illustrated map with a single blue marker of Tyre coastal port district" 
+              class="w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+
+            <!-- Map Floating Information Card -->
+            <div class="absolute bottom-3 left-3 right-3 sm:right-auto sm:bottom-6 sm:left-6 max-w-xs sm:max-w-sm bg-[#F6F2EA]/95 backdrop-blur-md p-3 sm:p-5 border border-brand-border shadow-md">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-primary animate-pulse"></span>
+                <span class="font-heading text-sm text-brand-text font-semibold uppercase tracking-wider">Al Jawad Pier</span>
+              </div>
+              <p class="text-xs text-brand-text/80 leading-relaxed font-body font-light">
+                Look for the chalk-washed facade opposite the old limestone fisherman moorings.
+              </p>
+              <div class="mt-3 pt-3 border-t border-brand-border/60 hidden sm:flex justify-between items-center text-[10px] text-brand-muted font-mono">
+                <span>LAT: 33.2745° N</span>
+                <span>LON: 35.1979° E</span>
+              </div>
+            </div>
+
+            <!-- Compass Mark on Top-Right -->
+            <div class="absolute top-6 right-6 bg-[#F6F2EA]/85 backdrop-blur-sm p-3 border border-brand-border/60 text-center hidden sm:block">
+              <span class="text-[10px] font-mono tracking-widest text-brand-muted block">TYRE PORT</span>
+              <span class="text-xs font-heading text-brand-primary">MEDITERRANEAN SEA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 flex flex-wrap justify-between items-center text-[11px] text-brand-muted font-body px-2 gap-4">
+          <span>Valet and public seaside parking within 120 metres</span>
+          <span>Ancient Phoenician Peninsula · Sour</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. SECTION: contact-reserve -->
+    <section id="contact-reserve" class="py-10 md:py-32 border-b border-brand-border/60">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
+          
+          <!-- Photo on Left (Hands with napkin and plate) -->
+          <div class="lg:col-span-5 xl:col-span-5">
+            <div class="bg-brand-secondary p-4 sm:p-5 shadow-sm border border-brand-border/70 drift-hover">
+              <div class="relative overflow-hidden aspect-[4/3] sm:aspect-[4/3] w-full bg-[#E5DFD3]">
+                <img srcset="images/3c91a25f4ec9-o-640.jpg 640w, images/3c91a25f4ec9-o-1024.jpg 1024w, images/3c91a25f4ec9-o.jpg 1200w" sizes="100vw" 
+                  src="images/3c91a25f4ec9-o.jpg" 
+                  alt="Two hands in linen sleeves laying a napkin beside a plate on a pale table" 
+                  class="w-full h-full object-cover object-center"
+                  loading="lazy"
+                />
+
+                <div class="absolute bottom-4 left-4 bg-[#F6F2EA]/95 backdrop-blur-sm px-4 py-2 border border-brand-border text-left shadow-sm">
+                  <span class="block text-[9px] uppercase tracking-[0.2em] font-mono text-brand-muted">RITUAL OF HOSPITALITY</span>
+                  <span class="block text-xs font-body text-brand-text font-normal">Every table is prepared with pure linen & sea air</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Narrative quote beneath image -->
+            <div class="mt-4 md:mt-6 p-4 md:p-6 bg-brand-secondary/40 border border-brand-border/60">
+              <p class="font-heading text-sm text-brand-text leading-relaxed italic">
+                "We set the table bare and keep the room quiet so that each dish arrives in its own unhurried time."
+              </p>
+              <span class="block text-[10px] font-mono tracking-widest uppercase text-brand-muted mt-2">AL JAWAD KITCHEN CADENCE</span>
+            </div>
+          </div>
+
+          <!-- Reservation Form on Right -->
+          <div class="lg:col-span-7 xl:col-span-7 lg:pl-6">
+            <span class="text-[11px] font-mono tracking-[0.25em] text-brand-muted uppercase block mb-3">
+              HOSPITALITY
+            </span>
+            
+            <h2 class="font-heading text-4xl sm:text-5xl text-brand-text font-normal">
+              Reserve a table
+            </h2>
+            
+            <div class="buoy-line"></div>
+            
+            <p class="text-base sm:text-lg text-brand-text/80 font-light font-body mb-6 md:mb-10 max-w-xl">
+              Call us or send a short message with your date, time and number of guests, and we will keep a table for you.
+            </p>
+
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you. A quiet table will be kept for you. We will confirm via message.');" class="bg-brand-card p-5 sm:p-10 border border-brand-border shadow-sm space-y-5 sm:space-y-7">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
+                <div>
+                  <label class="block text-[11px] font-mono uppercase tracking-[0.2em] text-brand-muted mb-1">
+                    Your Name
+                  </label>
+                  <input type="text" required placeholder="e.g. Leila Mansour" class="editorial-input">
+                </div>
+
+                <div>
+                  <label class="block text-[11px] font-mono uppercase tracking-[0.2em] text-brand-muted mb-1">
+                    Phone Number
+                  </label>
+                  <input type="tel" required placeholder="+1 (555) 000-0000" class="editorial-input">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
+                <div>
+                  <label class="block text-[11px] font-mono uppercase tracking-[0.2em] text-brand-muted mb-1">
+                    Date
+                  </label>
+                  <input type="date" required class="editorial-input">
+                </div>
+
+                <div>
+                  <label class="block text-[11px] font-mono uppercase tracking-[0.2em] text-brand-muted mb-1">
+                    Time
+                  </label>
+                  <select required class="editorial-input cursor-pointer">
+                    <option value="" disabled selected>Select dining time</option>
+                    <option value="12:00">12:00 — Midday lunch</option>
+                    <option value="13:30">13:30 — Afternoon lunch</option>
+                    <option value="18:30">18:30 — Twilight seating</option>
+                    <option value="20:00">20:00 — Evening dinner</option>
+                    <option value="21:15">21:15 — Late coastal supper</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-mono uppercase tracking-[0.2em] text-brand-muted mb-1">
+                  Number of Guests
+                </label>
+                <select class="editorial-input cursor-pointer">
+                  <option value="1">1 person</option>
+                  <option value="2" selected>2 people</option>
+                  <option value="3">3 people</option>
+                  <option value="4">4 people</option>
+                  <option value="5">5 people</option>
+                  <option value="6+">6+ guests (seaside alcove)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-mono uppercase tracking-[0.2em] text-brand-muted mb-1">
+                  Special Requests
+                </label>
+                <input type="text" placeholder="Dietary notes, terrace seating preference, or celebration details..." class="editorial-input">
+              </div>
+
+              <div class="pt-2 sm:pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <button type="submit" class="inline-flex items-center justify-center w-full sm:w-auto px-10 py-4 min-h-[48px] bg-brand-primary text-white text-[12px] font-body uppercase tracking-[0.2em] font-medium hover:bg-brand-primary/90 transition-all duration-300 shadow-sm active:scale-[0.99]">
+                  Reserve a table
+                </button>
+
+                <span class="text-xs text-brand-muted font-body font-light">
+                  Immediate confirmation will be dispatched via SMS or telephone.
+                </span>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. SECTION: contact-social -->
+    <section id="contact-social" class="py-10 md:py-32 border-b border-brand-border/60 bg-brand-secondary/20 text-center">
+      <div class="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16 flex flex-col items-center">
+        
+        <span class="text-[11px] font-mono tracking-[0.25em] text-brand-muted uppercase block mb-3">
+          QUIET CHRONICLES
+        </span>
+        
+        <h2 class="font-heading text-4xl sm:text-5xl text-brand-text font-normal">
+          Follow along
+        </h2>
+        
+        <!-- Centered Buoy Line -->
+        <div class="buoy-line-center"></div>
+        
+        <p class="text-base sm:text-lg text-brand-text/80 font-light font-body mb-6 md:mb-10 max-w-md">
+          Our daily dishes, in quiet pictures.
+        </p>
+
+        <!-- Type-only small line with three text links -->
+        <div class="flex items-center justify-center space-x-3 sm:space-x-16 text-xs sm:text-base font-body uppercase tracking-[0.1em] sm:tracking-[0.2em] text-brand-text mb-6 md:mb-8">
+          <a class="text-brand-primary font-medium hover:opacity-75 transition-opacity underline decoration-brand-primary/40 decoration-1 underline-offset-8" href="#" data-inert>
+            Instagram
+          </a>
+          <span class="w-1 h-1 rounded-full bg-brand-border"></span>
+          <a class="hover:text-brand-primary transition-colors text-brand-muted hover:underline decoration-1 underline-offset-8" href="#" data-inert>
+            Facebook
+          </a>
+          <span class="w-1 h-1 rounded-full bg-brand-border"></span>
+          <a class="hover:text-brand-primary transition-colors text-brand-muted hover:underline decoration-1 underline-offset-8" href="#" data-inert>
+            WhatsApp
+          </a>
+        </div>
+
+        <a class="inline-flex items-center justify-center px-8 py-3 min-h-[44px] bg-brand-primary text-white text-[11px] font-body uppercase tracking-[0.2em] font-medium hover:bg-brand-primary/90 transition-all duration-300 shadow-sm" href="#" data-inert>
+          Instagram
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (Identical on every Al Jawad page) -->
+  <footer class="bg-brand-secondary text-brand-text border-t border-brand-border/70 py-10 sm:py-20">
+    <div class="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16">
+      
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-x-5 gap-y-8 md:gap-12 lg:gap-10 pb-10 md:pb-16 border-b border-brand-border/60">
+        
+        <!-- Brand Info -->
+        <div class="col-span-2 md:col-span-1 lg:col-span-2 space-y-4">
+          <div class="flex items-baseline gap-3">
+            <span class="font-heading text-2xl tracking-tight text-brand-text">Al Jawad</span>
+            <span class="text-sm text-brand-muted font-body">الجواد</span>
+          </div>
+          <p class="text-xs text-brand-muted font-body leading-relaxed max-w-sm">
+            Rooted in Tyre's ancient Phoenician coastline. Honoring cold-pressed harvest oils, stone-hearth flatbreads, and leisurely seaside gatherings.
+          </p>
+          <div class="pt-2 text-[11px] font-mono text-brand-muted">
+            • SAMPLE ADDRESS, TYRE PORT DISTRICT
+          </div>
+        </div>
+
+        <!-- Page Links -->
+        <div>
+          <h4 class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-text font-semibold mb-4">
+            The House
+          </h4>
+          <ul class="space-y-2.5 text-xs text-brand-muted font-body">
+            <li><a class="hover:text-brand-primary transition-colors" href="index.html">Home</a></li>
+            <li><a class="hover:text-brand-primary transition-colors" href="menu.html">Menu</a></li>
+            <li><a class="text-brand-primary font-medium hover:underline" href="contact.html">Contact</a></li>
+            <li><a class="hover:text-brand-primary transition-colors" href="index.html">Reservations</a></li>
+            <li><a class="hover:text-brand-primary transition-colors" href="#" data-inert>Private Dining</a></li>
+          </ul>
+        </div>
+
+        <!-- Visit & Hours Details -->
+        <div>
+          <h4 class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-text font-semibold mb-4">
+            Visit & Reach
+          </h4>
+          <div class="space-y-2 text-xs text-brand-muted font-body">
+            <p><span class="text-brand-text font-medium">Phone:</span> +1 555 010 042</p>
+            <p><span class="text-brand-text font-medium">Email:</span> hello@example.com</p>
+            <div class="pt-2">
+              <span class="text-brand-text font-medium block">Hours:</span>
+              <span>Mon–Thu: 12:00 – 22:00</span><br>
+              <span>Fri–Sun: 12:00 – 23:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiet Connect -->
+        <div>
+          <h4 class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-text font-semibold mb-4">
+            Quiet Connect
+          </h4>
+          <ul class="space-y-2.5 text-xs text-brand-muted font-body">
+            <li><a class="hover:text-brand-primary transition-colors" href="#" data-inert>Instagram</a></li>
+            <li><a class="hover:text-brand-primary transition-colors" href="#" data-inert>Journal</a></li>
+            <li><a class="hover:text-brand-primary transition-colors" href="#" data-inert>Phoenician Press</a></li>
+          </ul>
+          <div class="mt-6 pt-4 border-t border-brand-border/60">
+            <span class="text-[10px] font-mono text-brand-muted block uppercase tracking-wider">Delivery Cadence</span>
+            <span class="text-xs text-brand-text">12:00 – 21:30 daily</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-6 md:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-brand-muted font-body">
+        <p>© 2024 Al Jawad. Mediterranean Heritage & Maritime Cuisine. All rights reserved.</p>
+        <div class="flex flex-wrap justify-center gap-y-2 items-center space-x-6 text-[11px]">
+          <a class="hover:text-brand-primary transition-colors" href="#" data-inert>Privacy Policy</a>
+          <a class="hover:text-brand-primary transition-colors" href="#" data-inert>Terms of Service</a>
+          <a class="hover:text-brand-primary transition-colors" href="#" data-inert>Back to top ↑</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
