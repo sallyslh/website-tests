@@ -1,0 +1,714 @@
+<!DOCTYPE html><html lang="en"><head><style data-share-fit>html,body{overflow-x:clip;max-width:100%}</style><meta name="robots" content="noindex, nofollow"><style data-polish="">/* icons stay hidden until their font is ready, so no icon name is ever shown as a word; the box keeps its size meanwhile */
+[class*="material-symbols"],.material-icons{display:inline-block;width:1em;overflow:hidden;white-space:nowrap;visibility:hidden}
+html.icons-ready [class*="material-symbols"],html.icons-ready .material-icons{visibility:visible}
+/* nothing makes the page scroll sideways */
+html,body{max-width:100%;overflow-x:clip}
+/* a TV or a big monitor: everything scales with the screen (16px at 1920 px wide, 32px at 3840) */
+@media (min-width:1920px){html{font-size:calc(100vw/120)}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* a row of three or more buttons (filters, chips) wraps on a phone instead of running off the edge of the screen */
+@media (max-width:767px){div:has(>button+button+button),ul:has(>li>button){flex-wrap:wrap}}
+/* a tablet held upright (768 to 1099 px) is too narrow for the full desktop menu on one line: the menu moves to its own row under the name and the button */
+@media (min-width:768px) and (max-width:1099px){
+header>div:first-child{flex-wrap:wrap;height:auto!important;row-gap:.35rem;column-gap:1rem;padding:.6rem 1rem!important}
+header>div:first-child>a:first-child{white-space:nowrap;flex:none}
+header>div:first-child>nav{order:3;flex:1 1 100%;flex-wrap:wrap;justify-content:center;column-gap:1.4rem;row-gap:.2rem}
+header>div:first-child>*:last-child:not(nav){flex:none;white-space:nowrap;margin-left:auto}
+}
+.polish-note{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:min(92vw,420px);padding:12px 18px;border-radius:12px;background:#111;color:#fff;font:500 14px/1.4 system-ui,sans-serif;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:2147483000}
+.polish-note.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.polish-note{transition:none}}
+/* a finger needs room: menu and footer links and buttons are at least 44px tall on a touch screen */
+@media (pointer:coarse){footer a,nav a,header a,button,[role=button]{min-height:44px;display:inline-flex;align-items:center}}</style><script data-polish="">(function(){var t,box;function note(m){if(!box){box=document.createElement('div');box.setAttribute('role','status');box.className='polish-note';document.body.appendChild(box)}box.textContent=m;box.classList.add('show');clearTimeout(t);t=setTimeout(function(){box.classList.remove('show')},3200)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href');if(a.hasAttribute('data-inert')||h==='#'||h===''||(h&&h.indexOf('javascript:')===0)){e.preventDefault();note('This is a preview: this button works once the real details are added.')}});
+(function(){var d=document,h=d.documentElement,done=false;function ok(f){if(f&&f.length&&!done){done=true;h.classList.add('icons-ready')}}
+if(!d.fonts||!d.fonts.load){h.classList.add('icons-ready');return}
+['Material Symbols Outlined','Material Symbols Rounded','Material Symbols Sharp','Material Icons'].forEach(function(n){d.fonts.load('24px "'+n+'"').then(ok,function(){})});})();})();</script><link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>you, a Café — Your corner. Your cup.</title>
+<!-- Google Fonts: Epilogue, Karla, and Caveat for hand-noted elements -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&amp;family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 -->
+
+
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Authentic coffee-ring SVG stamp utility classes */
+    .coffee-ring-stamp {
+      background-image: radial-gradient(circle, transparent 58%, rgba(74, 44, 29, 0.16) 62%, rgba(74, 44, 29, 0.28) 66%, rgba(74, 44, 29, 0.08) 72%, transparent 74%);
+      border-radius: 9999px;
+    }
+    
+    .coffee-ring-glow {
+      box-shadow: inset 0 0 0 1.5px rgba(74, 44, 29, 0.25), 0 0 0 1px rgba(74, 44, 29, 0.1);
+    }
+    
+    /* Paper subtle grain overlay */
+    .paper-texture {
+      background-color: #F7EEDF;
+      background-image: radial-gradient(#4a2c1d 0.35px, transparent 0.35px);
+      background-size: 24px 24px;
+      background-blend-mode: multiply;
+    }
+  </style>
+<style data-wm-menu="">.wm-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;margin-left:8px;border:0;border-radius:10px;background:transparent;color:inherit;cursor:pointer;flex:none}
+.wm-burger.wm-on{display:inline-flex}.wm-burger svg{width:26px;height:26px}
+.wm-panel{position:fixed;left:0;right:0;z-index:2147483000;overflow-y:auto;padding:8px 20px 20px;box-shadow:0 18px 40px rgba(0,0,0,.35);display:none}
+[data-wm-open]>div{display:block !important}
+.wm-panel.wm-open{display:block}.wm-panel a{display:block;padding:14px 4px;font-size:18px;text-decoration:none;color:inherit;border-bottom:1px solid rgba(127,127,127,.25)}
+.wm-panel a.wm-cta{margin-top:14px;text-align:center;border:0;border-radius:10px;font-weight:700}</style></head>
+<body data-responsive="" class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<!-- ================= TOP APP BAR (from Shared Components JSON) ================= -->
+<header class="w-full bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 sticky top-0 z-50 shadow-sm transition-all duration-200">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto flex flex-wrap md:flex-nowrap items-center justify-between py-3 lg:py-space-md">
+<!-- Wordmark Logo -->
+<a class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary tracking-tight flex items-center gap-2 group" href="#" data-inert="">
+<span class="relative">
+          you
+          <!-- Decorative subtle ring on wordmark -->
+<span class="absolute -inset-1 rounded-full border border-primary/20 scale-90 group-hover:scale-110 transition-transform duration-300"></span>
+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-normal">, a café</span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="flex flex-wrap order-last w-full justify-center items-center gap-x-5 gap-y-1 md:order-none md:w-auto md:justify-start md:gap-space-lg">
+<!-- Exact label "Home" marked ACTIVE via JSON protocol -->
+<a class="text-tertiary dark:text-tertiary-fixed font-label-lg text-label-lg border-b-2 border-tertiary dark:border-tertiary-fixed pb-1" href="index.html" aria-current="page">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="menu.html">Menu</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="about.html">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="gallery.html">Gallery</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg transition-colors duration-200 hover:text-tertiary dark:hover:text-tertiary-fixed" href="drinks-menu.html">Drinks</a>
+
+<!-- More dropdown cluster -->
+<div class="hidden md:block relative group py-2">
+<button class="flex items-center gap-1 text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg hover:text-tertiary transition-colors">
+<span>More</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<div class="absolute top-full left-0 hidden group-hover:flex flex-col bg-surface-container shadow-lg rounded-lg py-2 min-w-[150px] border border-outline-variant/30 z-50">
+
+
+
+
+</div>
+</div>
+</nav>
+<!-- Trailing Primary Action & Icon Actions -->
+<div class="flex items-center gap-space-md">
+<a class="bg-primary text-surface px-5 py-2 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-container hover:text-on-primary transition-all duration-200 shadow-sm flex items-center gap-2" href="#" data-inert="">
+<span>Order Online</span>
+</a>
+<button aria-label="Shopping Cart" class="p-2 rounded-full text-primary hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-on-tertiary-container rounded-full"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- ================= 1. SECTION: home-hero ================= -->
+<section class="relative min-h-[500px] md:min-h-[640px] lg:min-h-[921px] flex items-end pb-8 pt-8 lg:pb-space-2xl lg:pt-space-2xl px-margin-mobile md:px-margin max-w-7xl mx-auto overflow-hidden" id="home-hero">
+<!-- Cinematic Full-Width Background Card with Soft Curved Border -->
+<div class="absolute inset-0 z-0 rounded-2xl md:rounded-3xl overflow-hidden mx-margin-mobile md:mx-0 shadow-lg">
+<img fetchpriority="high" decoding="async" srcset="images/87dd3b569436-640.jpg 640w, images/87dd3b569436-1024.jpg 1024w, images/87dd3b569436.jpg 2880w" sizes="100vw" class="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[0.98] transition-transform duration-1000 ease-out hover:scale-105" data-alt="Cinematic early morning sunlight streaming through wide cafe windows onto a textured rustic wooden cafe table. A steaming ceramic mug filled with oat latte showcases intricate leaf foam art alongside a fresh glazed cardamom morning bun on a ceramic saucer and an open artist notebook with pencil. In the soft golden bokeh background, warm unhurried cafe counters and ceramic cups rest peacefully in deep earth tones." src="images/87dd3b569436.jpg">
+<!-- Tactile Vignette Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/45 to-transparent"></div>
+</div>
+<!-- Hero Content Overlay (Bottom-Left) -->
+<div class="relative z-10 max-w-2xl text-on-primary space-y-4 lg:space-y-space-md pt-10 lg:pt-space-2xl">
+<!-- Pill Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface/20 backdrop-blur-md border border-surface/30 text-surface font-label-md text-label-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span>Open today until 6 pm</span>
+</div>
+<!-- Oversized Headline Framed by authentic coffee ring accent -->
+<div class="relative inline-block">
+<!-- SVG Coffee Ring Silhouette Stamp framing the headline -->
+<svg class="absolute -top-6 -left-4 w-28 h-28 lg:-top-10 lg:-left-10 lg:w-44 lg:h-44 opacity-30 text-surface pointer-events-none" fill="none" viewBox="0 0 120 120">
+<circle cx="60" cy="60" opacity="0.8" r="48" stroke="currentColor" stroke-dasharray="14 6 28 8" stroke-width="2.5"></circle>
+<circle cx="58" cy="62" opacity="0.5" r="51" stroke="currentColor" stroke-dasharray="20 12" stroke-width="1.2"></circle>
+<path d="M 45 14 C 48 10, 52 11, 56 16" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<h1 class="font-headline-xl text-4xl md:text-5xl lg:text-headline-xl tracking-tight text-surface-bright leading-none drop-shadow-sm">
+          Your corner.<br>Your cup.
+        </h1>
+</div>
+<p class="font-body-lg text-base lg:text-body-lg text-surface-variant/90 max-w-xl font-normal leading-relaxed">
+        Welcome to you, a small neighborhood café where the coffee is slow, the bread is warm and your name is on the cup.
+      </p>
+<!-- CTA Button Row -->
+<div class="flex flex-wrap items-center gap-3 lg:gap-space-md pt-space-sm">
+<a class="bg-surface text-primary px-7 py-3.5 rounded-lg font-label-lg text-label-lg hover:bg-secondary-container hover:text-on-secondary-fixed transition-all duration-200 shadow-md flex items-center justify-center gap-2 w-full sm:w-auto" href="menu.html">
+<span>See the menu</span>
+<span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+</a>
+<a class="bg-surface/15 hover:bg-surface/25 backdrop-blur-md text-surface border border-surface/30 px-6 py-3.5 rounded-lg font-label-lg text-label-lg transition-all duration-200 text-center w-full sm:w-auto" href="about.html">
+<span>Our story</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ================= 2. SECTION: home-signature ================= -->
+<section class="py-10 lg:py-space-2xl px-margin-mobile md:px-margin max-w-7xl mx-auto relative" id="home-signature">
+<!-- Header cluster -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-6 lg:mb-space-xl gap-space-md">
+<div>
+<span class="font-hand text-2xl text-on-tertiary-container tracking-wide block mb-1">Hand-crafted rituals</span>
+<h2 class="font-headline-lg text-3xl lg:text-headline-lg text-primary tracking-tight">Our favorites, made for you</h2>
+<p class="font-body-lg text-base lg:text-body-lg text-on-surface-variant mt-2 max-w-md">Four things regulars order again and again.</p>
+</div>
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-primary hover:text-tertiary transition-colors border-b border-primary/30 pb-0.5 self-start md:self-auto" href="menu.html">
+<span>Explore the full menu</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Gallery of Arch-Shaped Cards -->
+<div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-5 px-5 mb-6 md:grid md:grid-cols-2 md:overflow-visible md:mx-0 md:px-0 md:gap-gutter lg:grid-cols-4 lg:mb-space-xl">
+<!-- Card 1 -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto group bg-surface-container rounded-t-[96px] rounded-b-xl overflow-hidden p-3 shadow-sm border border-outline-variant/30 flex flex-col hover:-translate-y-1.5 transition-all duration-300">
+<div class="relative h-56 lg:h-72 rounded-t-[84px] rounded-b-lg overflow-hidden bg-surface-dim">
+<img loading="lazy" decoding="async" srcset="images/63decaa10c9a-o-640.jpg 640w, images/63decaa10c9a-o-1024.jpg 1024w, images/63decaa10c9a-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An overhead composition of a Honey Oat Flat White served in a cream ceramic handleless cup with intricate leafy latte art on smooth velvet microfoam, positioned upon a warm stone table bathed in morning sunlight with organic coffee bean scatterings." src="images/63decaa10c9a-o.jpg">
+<!-- Coffee-ring price stamp badge -->
+<div class="absolute top-4 right-4 w-14 h-14 coffee-ring-stamp flex flex-col items-center justify-center bg-surface/90 text-primary border border-primary/20 backdrop-blur-sm shadow-sm rotate-6">
+<span class="font-hand text-lg leading-none font-bold text-primary">$5.20</span>
+</div>
+</div>
+<div class="pt-4 pb-2 px-2 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Honey Oat Flat White</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Double ristretto, silky steamed oat milk and a thread of wildflower honey.</p>
+</div>
+<div class="pt-3 flex items-center justify-between">
+<span class="font-hand text-lg text-secondary">House Favorite</span>
+<span class="material-symbols-outlined text-primary text-[20px] opacity-60 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto group bg-surface-container rounded-t-[96px] rounded-b-xl overflow-hidden p-3 shadow-sm border border-outline-variant/30 flex flex-col hover:-translate-y-1.5 transition-all duration-300">
+<div class="relative h-56 lg:h-72 rounded-t-[84px] rounded-b-lg overflow-hidden bg-surface-dim">
+<img loading="lazy" decoding="async" srcset="images/e5acdf57176c-o-640.jpg 640w, images/e5acdf57176c-o-1024.jpg 1024w, images/e5acdf57176c-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A golden glossy Swedish cardamom morning bun dusted lightly with coarse unrefined sugar and crushed pistachios, sitting fresh from the oven on an artisanal earthenware side plate, illuminated by soft golden morning window illumination." src="images/e5acdf57176c-o.jpg">
+<div class="absolute top-4 right-4 w-14 h-14 coffee-ring-stamp flex flex-col items-center justify-center bg-surface/90 text-primary border border-primary/20 backdrop-blur-sm shadow-sm -rotate-3">
+<span class="font-hand text-lg leading-none font-bold text-primary">$4.50</span>
+</div>
+</div>
+<div class="pt-4 pb-2 px-2 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Cardamom Morning Bun</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Baked every sunrise, glazed lightly and still warm at the counter.</p>
+</div>
+<div class="pt-3 flex items-center justify-between">
+<span class="font-hand text-lg text-secondary">Baked Daily</span>
+<span class="material-symbols-outlined text-primary text-[20px] opacity-60 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto group bg-surface-container rounded-t-[96px] rounded-b-xl overflow-hidden p-3 shadow-sm border border-outline-variant/30 flex flex-col hover:-translate-y-1.5 transition-all duration-300">
+<div class="relative h-56 lg:h-72 rounded-t-[84px] rounded-b-lg overflow-hidden bg-surface-dim">
+<img loading="lazy" decoding="async" srcset="images/e47f2f34bb3c-o-640.jpg 640w, images/e47f2f34bb3c-o-1024.jpg 1024w, images/e47f2f34bb3c-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A tall fluted glass of iced Orange Cold Brew filled with crystalline ice cubes and a vibrant fresh orange slice, glowing with rich amber tones and dewy sunlit condensation on a natural cedar wood cafe table." src="images/e47f2f34bb3c-o.jpg">
+<div class="absolute top-4 right-4 w-14 h-14 coffee-ring-stamp flex flex-col items-center justify-center bg-surface/90 text-primary border border-primary/20 backdrop-blur-sm shadow-sm rotate-12">
+<span class="font-hand text-lg leading-none font-bold text-primary">$5.80</span>
+</div>
+</div>
+<div class="pt-4 pb-2 px-2 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Orange Cold Brew</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Twelve-hour cold brew with fresh orange peel and sparkling water.</p>
+</div>
+<div class="pt-3 flex items-center justify-between">
+<span class="font-hand text-lg text-secondary">Refreshing</span>
+<span class="material-symbols-outlined text-primary text-[20px] opacity-60 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto group bg-surface-container rounded-t-[96px] rounded-b-xl overflow-hidden p-3 shadow-sm border border-outline-variant/30 flex flex-col hover:-translate-y-1.5 transition-all duration-300">
+<div class="relative h-56 lg:h-72 rounded-t-[84px] rounded-b-lg overflow-hidden bg-surface-dim">
+<img loading="lazy" decoding="async" srcset="images/b1b281f16254-o-640.jpg 640w, images/b1b281f16254-o-1024.jpg 1024w, images/b1b281f16254-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A crusty artisan sourdough Garden Toastie sliced diagonally, revealing molten whipped feta cheese, roasted red bell peppers, and fresh basil leaves, resting on unbleached brown baker's parchment." src="images/b1b281f16254-o.jpg">
+<div class="absolute top-4 right-4 w-14 h-14 coffee-ring-stamp flex flex-col items-center justify-center bg-surface/90 text-primary border border-primary/20 backdrop-blur-sm shadow-sm -rotate-6">
+<span class="font-hand text-lg leading-none font-bold text-primary">$9.50</span>
+</div>
+</div>
+<div class="pt-4 pb-2 px-2 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Garden Toastie</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Sourdough, whipped feta, roasted peppers and basil.</p>
+</div>
+<div class="pt-3 flex items-center justify-between">
+<span class="font-hand text-lg text-secondary">Warm &amp; Savory</span>
+<span class="material-symbols-outlined text-primary text-[20px] opacity-60 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Hero Overhead Spread Visual Feature Banner -->
+<div class="relative rounded-2xl overflow-hidden bg-surface-container-high border border-outline-variant/40 p-4 lg:p-space-lg flex flex-col md:flex-row items-center gap-4 lg:gap-space-lg">
+<div class="w-full md:w-1/2 aspect-[4/3] md:aspect-auto md:h-80 rounded-xl overflow-hidden relative shadow-sm">
+<img loading="lazy" decoding="async" srcset="images/a059bb29d9d6-o-640.jpg 640w, images/a059bb29d9d6-o-1024.jpg 1024w, images/a059bb29d9d6-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="An expansive overhead flat-lay view of an artisanal breakfast table setting on rough unbleached linen cloth, featuring steaming coffee in ceramic cups, freshly sliced sourdough with butter, small jam jars, and morning sunlight casting soft geometric shadows." src="images/a059bb29d9d6-o.jpg">
+<!-- Floating coffee ring watermark -->
+<div class="absolute inset-0 coffee-ring-stamp opacity-40 pointer-events-none"></div>
+</div>
+<div class="w-full md:w-1/2 space-y-3">
+<span class="font-hand text-xl text-on-tertiary-container">The Morning Ritual</span>
+<h4 class="font-headline-md text-headline-md text-primary">Everything prepared to linger</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">We source organic dairy from local pastures, flour from heritage grain mills, and beans roasted in small deliberate batches every Tuesday.</p>
+<div class="pt-2">
+<a class="inline-flex items-center gap-2 bg-primary text-surface px-6 py-2.5 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-container transition-colors" href="menu.html">
+<span>Explore the full menu</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 3. SECTION: home-story ================= -->
+<section class="py-10 lg:py-space-2xl px-margin-mobile md:px-margin max-w-7xl mx-auto" id="home-story">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-space-xl items-center">
+<!-- Asymmetrical Circle Photo Feature -->
+<div class="lg:col-span-6 relative flex justify-center lg:justify-start">
+<!-- Authentic Coffee Ring Silhouette Backing -->
+<div class="absolute -top-12 -left-8 w-80 h-80 rounded-full border-4 border-primary/10 border-dashed animate-spin-slow pointer-events-none"></div>
+<div class="absolute top-1/2 -right-8 w-48 h-48 coffee-ring-stamp opacity-50 pointer-events-none"></div>
+<div class="relative w-64 h-64 sm:w-96 sm:h-96 rounded-full overflow-hidden border-8 border-surface shadow-xl z-10 bg-surface-container">
+<img loading="lazy" decoding="async" srcset="images/b27f1676e91a-o-640.jpg 640w, images/b27f1676e91a-o-1024.jpg 1024w, images/b27f1676e91a-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Candid, warm photograph of Maya and Daniel, two smiling friendly café owners standing behind a polished espresso machine in a sun-drenched café, laughing warmly while steaming milk and preparing morning orders with heartfelt care." src="images/b27f1676e91a-o.jpg" style="object-position: 54% 19%;">
+</div>
+<!-- Handwritten note pin -->
+<div class="absolute bottom-2 right-2 md:bottom-4 md:right-4 lg:right-12 z-20 bg-surface p-3 md:p-4 rounded-xl shadow-lg border border-outline-variant/40 -rotate-3 max-w-[180px] md:max-w-[200px]">
+<span class="font-hand text-xl text-primary block leading-tight">"Maya &amp; Daniel at table 1, 2021"</span>
+<span class="font-body-sm text-xs text-on-surface-variant block mt-1">Founders &amp; Baristas</span>
+</div>
+</div>
+<!-- Sage Story Card Panel -->
+<div class="lg:col-span-6 bg-secondary/15 rounded-3xl p-6 lg:p-space-xl border border-secondary/20 relative shadow-sm">
+<span class="inline-block px-3 py-1 bg-secondary text-surface font-label-md text-label-md rounded-full mb-space-md">Our Philosophy</span>
+<h2 class="font-headline-lg text-3xl lg:text-headline-lg text-primary tracking-tight mb-space-md leading-tight">
+          A café with a name that says it all
+        </h2>
+<div class="space-y-space-md font-body-lg text-base lg:text-body-lg text-on-surface-variant leading-relaxed">
+<p class="font-headline-sm text-primary font-medium italic border-l-2 border-primary/40 pl-4 my-2">
+            "We called it “you” because the best cafés aren't about the owners. They are about the people who sit down."
+          </p>
+<p>
+            Maya and Daniel opened the doors with six tables, one big oven and a promise to remember your order. No rushing, no pretension, just honest ingredients and warm greetings every morning.
+          </p>
+</div>
+<div class="pt-space-lg">
+<a class="bg-primary text-surface px-6 py-3 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-container transition-colors inline-flex items-center gap-2" href="about.html">
+<span>Read our story</span>
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 4. SECTION: home-specials ================= -->
+<section class="py-10 lg:py-space-2xl bg-tertiary-container text-surface relative overflow-hidden" id="home-specials">
+<!-- Atmospheric background stains & textures -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 coffee-ring-stamp opacity-15 pointer-events-none"></div>
+<div class="absolute left-10 top-10 w-64 h-64 coffee-ring-stamp opacity-10 pointer-events-none"></div>
+<div class="px-margin-mobile md:px-margin max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-space-xl items-center">
+<!-- Chalkboard Style Items List -->
+<div class="lg:col-span-7 space-y-6 lg:space-y-space-lg">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface/10 text-tertiary-fixed font-label-md text-label-md mb-2">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span>Fresh Batch</span>
+</div>
+<h2 class="font-headline-lg text-3xl lg:text-headline-lg text-surface tracking-tight">Today at the counter</h2>
+<p class="font-body-md text-body-md text-tertiary-fixed/80 mt-1">A chalkboard that changes with the season and the baker's mood.</p>
+</div>
+<!-- Chalkboard item rows with price stamps -->
+<div class="space-y-space-md border-t border-surface/20 pt-space-md">
+<!-- Item 1 -->
+<div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-surface/5 hover:bg-surface/10 transition-colors border border-surface/10">
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h3 class="font-headline-sm text-headline-sm text-surface">Maple Cinnamon Latte</h3>
+<span class="font-hand text-tertiary-fixed text-sm">Autumn special</span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-variant/80">Our autumn favorite with real maple and a pinch of cinnamon.</p>
+</div>
+<div class="w-12 h-12 rounded-full border border-surface/40 flex items-center justify-center shrink-0 bg-surface/10">
+<span class="font-hand text-lg font-bold text-surface">$5.90</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-surface/5 hover:bg-surface/10 transition-colors border border-surface/10">
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h3 class="font-headline-sm text-headline-sm text-surface">Pear &amp; Almond Tart</h3>
+<span class="font-hand text-tertiary-fixed text-sm">Small batch</span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-variant/80">Soft frangipane, thin pear slices, a little apricot glaze.</p>
+</div>
+<div class="w-12 h-12 rounded-full border border-surface/40 flex items-center justify-center shrink-0 bg-surface/10">
+<span class="font-hand text-lg font-bold text-surface">$5.40</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-surface/5 hover:bg-surface/10 transition-colors border border-surface/10">
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h3 class="font-headline-sm text-headline-sm text-surface">Lentil &amp; Carrot Soup</h3>
+<span class="font-hand text-tertiary-fixed text-sm">Lunch hour</span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-variant/80">Warm, spiced and served with sourdough.</p>
+</div>
+<div class="w-12 h-12 rounded-full border border-surface/40 flex items-center justify-center shrink-0 bg-surface/10">
+<span class="font-hand text-lg font-bold text-surface">$7.80</span>
+</div>
+</div>
+</div>
+<div>
+<a class="bg-surface text-primary px-6 py-3 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-fixed transition-colors inline-flex items-center gap-2" href="#home-join">
+<span>View all specials</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Tilted Visual Card on Right -->
+<div class="lg:col-span-5 relative flex justify-center">
+<div class="relative transform rotate-3 hover:rotate-0 transition-transform duration-500 max-w-sm rounded-2xl overflow-hidden p-3 bg-surface/10 border border-surface/20 shadow-2xl">
+<div class="h-64 lg:h-96 rounded-xl overflow-hidden">
+<img loading="lazy" decoding="async" srcset="images/61432fd9ca86-o-640.jpg 640w, images/61432fd9ca86-o-1024.jpg 1024w, images/61432fd9ca86-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="A warm artisan counter display of fresh baked golden morning pastries, tarts, and cinnamon rolls under morning sunlight beside a rustic wooden chalkboard detailing the daily blackboard specials." src="images/61432fd9ca86-o.jpg">
+</div>
+<div class="p-3 text-center">
+<span class="font-hand text-xl lg:text-2xl text-tertiary-fixed">Fresh from the kitchen at 6:30 am</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 5. SECTION: home-visit ================= -->
+<section class="py-10 lg:py-space-2xl px-margin-mobile md:px-margin max-w-7xl mx-auto" id="home-visit">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-space-xl items-stretch">
+<!-- Left: Exterior & Map Visual -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="relative rounded-2xl overflow-hidden aspect-video md:aspect-auto md:h-80 shadow-md border border-outline-variant/30">
+<img loading="lazy" decoding="async" srcset="images/08da9d8c541e-o-640.jpg 640w, images/08da9d8c541e-o-1024.jpg 1024w, images/08da9d8c541e-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Golden hour photograph of the charming neighborhood cafe exterior of 'you, a cafe' featuring a dark forest green canvas awning, inviting warm sidewalk bistro tables and potted herbs bathed in late afternoon sunlight." src="images/08da9d8c541e-o.jpg" style="object-position: 86% 59%;">
+<div class="absolute bottom-4 left-4 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-outline-variant/30">
+<p class="font-label-sm text-label-sm text-primary">Corner of Maple &amp; 4th Street</p>
+</div>
+</div>
+<!-- Stylized Map Card with Center Coffee Ring Pin -->
+<div class="bg-surface-container rounded-2xl p-space-md border border-outline-variant/30 flex items-center gap-space-md relative overflow-hidden">
+<div class="w-24 h-24 rounded-xl bg-surface-dim shrink-0 relative flex items-center justify-center overflow-hidden">
+<img loading="lazy" decoding="async" srcset="images/ddaa1b5556e6-o-640.jpg 640w, images/ddaa1b5556e6-o-1024.jpg 1024w, images/ddaa1b5556e6-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover opacity-80" data-alt="Minimalist warm illustrative street map showing a tranquil city corner with tree-lined streets in soft cream and sand tones." data-location="Portland" src="images/ddaa1b5556e6-o.jpg">
+<!-- Pin centered inside coffee-ring mark -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-10 h-10 coffee-ring-stamp flex items-center justify-center bg-surface/80 rounded-full border border-primary/30">
+<span class="material-symbols-outlined text-tertiary text-[18px]">location_on</span>
+</div>
+</div>
+</div>
+<div>
+<span class="font-hand text-lg text-secondary">Walk right in</span>
+<p class="font-headline-sm text-headline-sm text-primary">6 quiet corner tables</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sidewalk seating open when the weather smiles.</p>
+</div>
+</div>
+</div>
+<!-- Right: Visiting details & Hours -->
+<div class="lg:col-span-6 bg-surface-container-low rounded-3xl p-6 lg:p-space-xl border border-outline-variant/30 flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary/15 text-secondary rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">storefront</span>
+<span>Welcome Always</span>
+</div>
+<h2 class="font-headline-lg text-3xl lg:text-headline-lg text-primary tracking-tight">Come say hello</h2>
+<p class="font-body-lg text-base lg:text-body-lg text-on-surface-variant leading-relaxed">
+            Step in, find a seat, and we will bring the rest. Whether you have twenty minutes or all afternoon, there is always room at our table.
+          </p>
+<!-- Visiting Hours Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-2 gap-3 md:gap-space-md pt-space-sm border-t border-outline-variant/30">
+<div class="p-3 md:p-4 rounded-xl bg-surface border border-outline-variant/20">
+<span class="font-hand text-xl text-on-tertiary-container block">Weekdays</span>
+<p class="font-headline-sm text-primary font-semibold">Mon – Fri</p>
+<p class="font-body-md text-on-surface-variant">7:00 – 18:00</p>
+</div>
+<div class="p-3 md:p-4 rounded-xl bg-surface border border-outline-variant/20">
+<span class="font-hand text-xl text-on-tertiary-container block">Weekends</span>
+<p class="font-headline-sm text-primary font-semibold">Sat – Sun</p>
+<p class="font-body-md text-on-surface-variant">8:00 – 17:00</p>
+</div>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant pt-2">
+<span class="material-symbols-outlined text-primary">near_me</span>
+<span class="font-body-md text-body-md">Sample address, Neighborhood District</span>
+</div>
+</div>
+<div class="pt-space-lg">
+<a class="bg-primary text-surface px-7 py-3 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-container transition-colors inline-flex items-center justify-center gap-2 shadow-sm w-full sm:w-auto" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+<span>Get directions</span>
+<span class="material-symbols-outlined text-[18px]">directions</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 6. SECTION: home-voices ================= -->
+<section class="py-10 lg:py-space-2xl bg-surface-container relative overflow-hidden" id="home-voices">
+<!-- Oversized decorative quotation mark in warm coffee tone -->
+<div class="absolute -top-10 left-12 font-headline-xl text-[160px] text-primary/5 select-none pointer-events-none leading-none">“</div>
+<div class="px-margin-mobile md:px-margin max-w-7xl mx-auto relative z-10">
+<div class="text-center max-w-xl mx-auto mb-6 lg:mb-space-xl">
+<span class="font-hand text-2xl text-on-tertiary-container block mb-1">Our Regulars</span>
+<h2 class="font-headline-lg text-3xl lg:text-headline-lg text-primary tracking-tight">Kind words from our regulars</h2>
+<div class="flex items-center justify-center gap-2 mt-2">
+<div class="flex text-on-tertiary-container">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">4.9 stars from over 800 happy guests</span>
+</div>
+</div>
+<!-- Testimonials Grid -->
+<div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-5 px-5 mb-6 md:grid md:grid-cols-3 md:overflow-visible md:mx-0 md:px-0 md:gap-gutter lg:mb-space-xl">
+<!-- Review 1 -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface rounded-2xl p-5 lg:p-space-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative">
+<div class="space-y-space-md">
+<div class="text-on-tertiary-container flex gap-0.5">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed italic">
+              “The only place where the barista remembers my order and my name. It really feels like it was made for me.”
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-space-md border-t border-outline-variant/20 mt-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 shrink-0">
+<img loading="lazy" decoding="async" srcset="images/3682c13ef71a-o-640.jpg 640w, images/3682c13ef71a-o-1024.jpg 1024w, images/3682c13ef71a-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Portrait of Sophie L, a smiling woman in a knit sweater sipping coffee at a wooden cafe table in soft daylight." src="images/3682c13ef71a-o.jpg" style="object-position: 51% 20%;">
+</div>
+<div>
+<p class="font-headline-sm text-sm font-bold text-primary">Sophie L.</p>
+<p class="font-body-sm text-xs text-on-surface-variant">Daily Regular</p>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface rounded-2xl p-5 lg:p-space-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative">
+<div class="space-y-space-md">
+<div class="text-on-tertiary-container flex gap-0.5">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed italic">
+              “Best oat flat white in town, and the cardamom bun is dangerously good. I work here every Thursday.”
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-space-md border-t border-outline-variant/20 mt-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 shrink-0">
+<img loading="lazy" decoding="async" srcset="images/6f4de6c71e4a-o-640.jpg 640w, images/6f4de6c71e4a-o-1024.jpg 1024w, images/6f4de6c71e4a-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Portrait of Karim A, a smiling man with spectacles sitting with his laptop and ceramic coffee cup in a warm cozy cafe interior." src="images/6f4de6c71e4a-o.jpg" style="object-position: 63% 16%;">
+</div>
+<div>
+<p class="font-headline-sm text-sm font-bold text-primary">Karim A.</p>
+<p class="font-body-sm text-xs text-on-surface-variant">Thursday Guest</p>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="shrink-0 basis-[82%] snap-start md:basis-auto bg-surface rounded-2xl p-5 lg:p-space-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative">
+<div class="space-y-space-md">
+<div class="text-on-tertiary-container flex gap-0.5">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed italic">
+              “Cozy, calm and beautifully lit. I came for a quick coffee and stayed three hours with a book.”
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-space-md border-t border-outline-variant/20 mt-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 shrink-0">
+<img loading="lazy" decoding="async" srcset="images/2a4e8a81d3dd-o-640.jpg 640w, images/2a4e8a81d3dd-o-1024.jpg 1024w, images/2a4e8a81d3dd-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Portrait of Hannah P, a happy young woman reading a paperback novel with an espresso beside her on a sunny windowsill." src="images/2a4e8a81d3dd-o.jpg" style="object-position: 61% 16%;">
+</div>
+<div>
+<p class="font-headline-sm text-sm font-bold text-primary">Hannah P.</p>
+<p class="font-body-sm text-xs text-on-surface-variant">Weekend Reader</p>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center">
+<a class="inline-flex items-center gap-2 bg-surface text-primary border border-outline-variant/40 px-6 py-2.5 rounded-lg font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#" data-inert="">
+<span>Read all reviews</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ================= 7. SECTION: home-join ================= -->
+<section class="py-10 lg:py-space-2xl px-margin-mobile md:px-margin max-w-7xl mx-auto" id="home-join">
+<div class="relative rounded-3xl overflow-hidden shadow-xl min-h-[420px] lg:min-h-[480px] flex items-center">
+<!-- Full-Bleed Warm Photo Banner -->
+<div class="absolute inset-0 z-0">
+<img loading="lazy" decoding="async" srcset="images/a49cdbad02f2-o-640.jpg 640w, images/a49cdbad02f2-o-1024.jpg 1024w, images/a49cdbad02f2-o.jpg 1408w" sizes="100vw" class="w-full h-full object-cover" data-alt="Artisanal brown kraft paper bakery bag and a steaming take-away coffee cup stamped with 'you' sitting ready on a sunlit wooden cafe counter with handwritten guest order label in morning sunlight." src="images/a49cdbad02f2-o.jpg">
+<div class="absolute inset-0 bg-primary/40 backdrop-brightness-95"></div>
+</div>
+<!-- Overlapping Cream Card with Coffee Ring Stamp Mark -->
+<div class="relative z-10 m-4 md:m-12 max-w-xl bg-surface/95 backdrop-blur-md rounded-2xl p-5 lg:p-space-xl border border-outline-variant/40 shadow-2xl">
+<!-- SVG Coffee Ring Stamp on the corner of the card -->
+<div class="absolute -top-8 -right-8 w-32 h-32 coffee-ring-stamp opacity-40 pointer-events-none"></div>
+<div class="space-y-space-md relative">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-container/10 text-on-tertiary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">alarm_on</span>
+<span>Ready When You Walk In</span>
+</div>
+<h2 class="font-headline-lg text-3xl lg:text-headline-lg text-primary tracking-tight">Order ahead, skip the line</h2>
+<p class="font-body-lg text-base lg:text-body-lg text-on-surface-variant leading-relaxed">
+            Order online for pickup and your cup will be waiting with your name on it. Freshly pulled shots, freshly baked pastries, no waiting.
+          </p>
+<div class="pt-space-sm flex flex-wrap gap-3 md:gap-space-md">
+<a class="bg-primary text-surface px-7 py-3 rounded-lg font-label-lg text-label-lg hover:bg-tertiary-container transition-all duration-200 shadow-md flex items-center justify-center gap-2 w-full sm:w-auto" href="#" data-inert="">
+<span>Order online</span>
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+</a>
+<a class="bg-surface-variant/50 hover:bg-surface-variant text-primary px-6 py-3 rounded-lg font-label-lg text-label-lg transition-colors border border-outline-variant/30 text-center w-full sm:w-auto" href="drinks-menu.html">
+<span>Browse drink list</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= FOOTER (from Shared Components JSON) ================= -->
+<footer class="w-full bg-surface-container dark:bg-surface-container-high border-t border-outline-variant/40 docked full-width bottom transition-colors duration-200 ease-in-out">
+<div class="w-full px-margin-mobile md:px-margin max-w-7xl mx-auto py-10 lg:py-space-2xl flex flex-col gap-8 lg:gap-space-xl">
+<!-- Top Row: Brand & Visiting details -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-space-xl pb-space-lg border-b border-outline-variant/30">
+<!-- Brand column -->
+<div class="md:col-span-4 space-y-space-md">
+<a class="font-headline-md text-headline-md font-semibold text-primary dark:text-inverse-primary block" href="index.html">
+            you
+          </a>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            A small neighborhood café where every ritual belongs to whoever walks through the doorway.
+          </p>
+<div class="flex items-center gap-3 pt-2">
+<a aria-label="Instagram" class="w-11 h-11 lg:w-9 lg:h-9 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary hover:text-surface transition-colors border border-outline-variant/30" href="#" data-inert="">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</a>
+<a aria-label="Facebook" class="w-11 h-11 lg:w-9 lg:h-9 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary hover:text-surface transition-colors border border-outline-variant/30" href="#" data-inert="">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</a>
+<a aria-label="Email" class="w-11 h-11 lg:w-9 lg:h-9 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary hover:text-surface transition-colors border border-outline-variant/30" href="#" data-inert="">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+<!-- Contact Column -->
+<div class="md:col-span-4 space-y-2">
+<h3 class="font-headline-sm text-headline-sm text-primary dark:text-inverse-primary mb-3">Visit &amp; Connect</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">call</span>
+<span>+1 555 010 021</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">mail</span>
+<span>hello@example.com</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">pin_drop</span>
+<span>Sample address</span>
+</p>
+</div>
+<!-- Hours Column -->
+<div class="md:col-span-4 space-y-2">
+<h3 class="font-headline-sm text-headline-sm text-primary dark:text-inverse-primary mb-3">Hours</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">
+<span class="font-semibold text-primary">Mon-Fri:</span> 7:00-18:00
+          </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">
+<span class="font-semibold text-primary">Sat-Sun:</span> 8:00-17:00
+          </p>
+<div class="mt-4 pt-2">
+<span class="font-hand text-lg text-secondary">Slow coffee always served with love.</span>
+</div>
+</div>
+</div>
+<!-- Links Cluster (Exact list from JSON) -->
+<div class="flex flex-wrap items-center justify-between gap-y-4 gap-x-6">
+<div class="flex flex-wrap gap-x-6 gap-y-2">
+<a class="text-primary dark:text-primary-fixed font-bold font-label-md text-label-md hover:text-tertiary" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="menu.html">Menu</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="about.html">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="gallery.html">Gallery</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="drinks-menu.html">Drinks</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="#" data-inert="">Gift Cards</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="#" data-inert="">Loyalty</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="#" data-inert="">Order</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="#" data-inert="">Reviews</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="#" data-inert="">Contact</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="#" data-inert="">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-tertiary" href="#" data-inert="">Terms of Service</a>
+</div>
+</div>
+<!-- Copyright text exact from JSON -->
+<div class="text-body-sm font-body-sm text-on-surface-variant dark:text-surface-variant pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+<p>© 2024 you café. Roasted deliberately, poured warmly.</p>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full border border-primary/40 inline-block"></span>
+<span class="font-hand text-sm text-primary">crafted for you</span>
+</div>
+</div>
+</div>
+</footer>
+<script data-wm-menu="">(function(){
+  var h=document.querySelector('header');if(!h)return;var nav=h.querySelector('nav');if(!nav)return;
+  // the top bar scrolls away with the page instead of following the visitor (a bar that stays is annoying, most of all on a phone)
+  var pos=getComputedStyle(h).position;if(pos==='fixed')h.style.setProperty('position','absolute','important');else if(pos==='sticky')h.style.setProperty('position','relative','important');
+  var b=document.createElement('button');b.type='button';b.className='wm-burger';b.setAttribute('aria-label','Menu');b.setAttribute('aria-expanded','false');
+  b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+  var bar=h.firstElementChild&&h.firstElementChild.children.length?h.firstElementChild:h;bar.appendChild(b);
+  var p=document.createElement('div');p.className='wm-panel';p.setAttribute('role','navigation');document.body.appendChild(p);
+  function label(a){var c=a.cloneNode(true);c.querySelectorAll('[class*=material],svg,img').forEach(function(x){x.remove()});return c.textContent.replace(/\s+/g,' ').trim()}
+  function bg(){var e=h;while(e){var c=getComputedStyle(e).backgroundColor;if(c&&c!=='rgba(0, 0, 0, 0)'&&c!=='transparent'){var m=c.match(/[\d.]+/g);if(!m||m.length<4||+m[3]>0.6)return c.replace(/rgba\(([^,]+),([^,]+),([^,]+),[^)]+\)/,'rgb($1,$2,$3)')}e=e.parentElement}return getComputedStyle(document.body).backgroundColor}
+  function fill(){var seen={},html='';var links=[].slice.call(nav.querySelectorAll('a[href]'));
+    links.forEach(function(a){var href=a.getAttribute('href');var t=label(a);if(!t||!href||href==='#'||seen[href])return;seen[href]=1;html+='<a href="'+href+'">'+t.replace(/</g,'&lt;')+'</a>'});
+    var cta=[].slice.call(h.querySelectorAll('a[href]')).filter(function(a){return !nav.contains(a)&&a.getAttribute('href')!=='#'&&a.getAttribute('href')!=='index.html'}).pop();
+    if(cta&&!seen[cta.getAttribute('href')]){var s=getComputedStyle(cta);html+='<a class="wm-cta" href="'+cta.getAttribute('href')+'" style="background:'+s.backgroundColor+';color:'+s.color+'">'+label(cta).replace(/</g,'&lt;')+'</a>'}
+    p.innerHTML=html}
+  function place(){var r=h.getBoundingClientRect();p.style.top=Math.max(0,r.bottom)+'px';p.style.maxHeight=(innerHeight-Math.max(0,r.bottom))+'px';p.style.background=bg();p.style.color=getComputedStyle(h).color}
+  function close(){p.classList.remove('wm-open');b.setAttribute('aria-expanded','false')}
+  b.addEventListener('click',function(e){e.stopPropagation();if(p.classList.contains('wm-open'))return close();fill();place();p.classList.add('wm-open');b.setAttribute('aria-expanded','true')});
+  document.addEventListener('click',function(e){if(!p.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  function sync(){var hidden=getComputedStyle(nav).display==='none';b.classList.toggle('wm-on',hidden);if(!hidden)close()}
+  // a "More" button with a list of links opens by tap or click too (the drawn design opens it only on mouse hover)
+  [].slice.call(nav.querySelectorAll('button')).forEach(function(btn){var box=btn.parentElement;if(!box||!box.querySelector('a[href]'))return;
+    btn.setAttribute('aria-haspopup','true');btn.setAttribute('aria-expanded','false');
+    btn.addEventListener('click',function(e){e.stopPropagation();var on=box.hasAttribute('data-wm-open');document.querySelectorAll('[data-wm-open]').forEach(function(x){x.removeAttribute('data-wm-open')});if(!on){box.setAttribute('data-wm-open','');btn.setAttribute('aria-expanded','true')}else btn.setAttribute('aria-expanded','false')});
+    document.addEventListener('click',function(){box.removeAttribute('data-wm-open');btn.setAttribute('aria-expanded','false')})});
+  sync();addEventListener('resize',sync);addEventListener('scroll',function(){if(p.classList.contains('wm-open'))place()},{passive:true});
+})();</script></body></html>
